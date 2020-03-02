@@ -13,7 +13,15 @@ public class GridSelector : MonoBehaviour
 
         if (Physics.Raycast(ray,out hit))
         {
-            selector.transform.position = new Vector3(Mathf.RoundToInt(hit.point.x), 0.1f, Mathf.RoundToInt(hit.point.z));
+            if (hit.transform.gameObject.name =="obstacle")
+            {
+                GetComponent<SpriteRenderer>().color = Color.red;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().color = new Color(0.726675f, 0, 1, 0.6705883f);
+            }
+            selector.transform.position = new Vector3(Mathf.RoundToInt(hit.point.x)/4 *4+2, 0.5f, Mathf.RoundToInt(hit.point.z)/4 *4+2);
         }
     }
 }

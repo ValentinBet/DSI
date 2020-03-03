@@ -29,14 +29,7 @@ public class GridGenerator : MonoBehaviour
         tempInfos = new int[8*8];
         for (int i =0; i<8*8;i++)
         {
-            if (Random.Range(0.0f, 1.0f) < 0.95f)
-            {
-                tempInfos[i] = 1;
-            }
-            else
-            {
-                tempInfos[i] = 0;
-            }
+            tempInfos[i] = 1;
         }
         GenerateMap(8, 8, tempInfos);
     }

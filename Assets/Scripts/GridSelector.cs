@@ -21,7 +21,7 @@ public class GridSelector : MonoBehaviour
             {
                 GetComponent<SpriteRenderer>().color = new Color(0.726675f, 0, 1, 0.6705883f);
             }
-            selector.transform.position = new Vector3(Mathf.RoundToInt(hit.point.x)/4 *4+2, 0.5f, Mathf.RoundToInt(hit.point.z)/4 *4+2);
+            selector.transform.position = new Vector3(Mathf.RoundToInt(hit.point.x)/2 *2+1, 0.5f, Mathf.RoundToInt(hit.point.z)/2 *2+1);
         }
     }
 }

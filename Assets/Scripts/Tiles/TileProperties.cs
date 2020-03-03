@@ -5,15 +5,14 @@ using UnityEngine;
 public class TileProperties : MonoBehaviour
 {
     [Header("Properties")]
-    public Vector3 tilePosition;
+    public Vector2 tileID;
     public bool canSeeThrough;
     public bool isWalkable;
     public bool isOccupied;
     public bool isMovable;
+    public bool isActivated;
 
-    public InteractibleObject occupiedObject;
     public LayerMask TileLayer;
-    List<TileProperties> test;
 
     public List<TileProperties> GetTileOnDirection(Vector3 direction, int lenght)
     {

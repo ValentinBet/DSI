@@ -5,19 +5,31 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public Material debugM;
+
+    public KeyCode TileClearKey;
+    public KeyCode TileSwapKey;
+    public KeyCode TileRotateKey;
+
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (GridManager.Instance.GetTileUnderSelector() != null)
             {
-                foreach (TileProperties tile in TilesManager.Instance.GetTileAllNeighbors(GridManager.Instance.GetTileUnderSelector(), 3))
-                {
-                    // tile.GetComponent<SpriteRenderer>().color = Color.blue;
-                    tile.GetComponent<MeshRenderer>().sharedMaterial = debugM;
-                }
+                // GridManager.Instance.GetTileUnderSelector().GetComponent<MeshRenderer>().sharedMaterial = debugM;
+                TilesManager.TilesChangerInstance.TryChangePos(GridManager.Instance.GetTileUnderSelector().gameObject);
             }
-
         }
+
+        if (Input.GetKeyDown(TileClearKey))
+        {
+            TilesManager.TilesChangerInstance.ClearChoice();
+        }
+
+        if (Input.GetKeyDown(TileSwapKey))
+        {
+            TilesManager.TilesChangerInstance.InitChange();
+        }
+
     }
 }

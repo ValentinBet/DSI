@@ -9,6 +9,8 @@ public class TilesManager : MonoBehaviour
     private static TilesManager _instance;
     public static TilesManager Instance { get { return _instance; } }
 
+    public static TilesChanger TilesChangerInstance;
+
     public List<TilesManager> AllTilesList = new List<TilesManager>();
 
     private void Awake()
@@ -21,7 +23,10 @@ public class TilesManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        TilesChangerInstance = GetComponent<TilesChanger>();
     }
+
 
     public List<TileProperties> GetTileNeighbors(TileProperties tile, Cardinal cardinalPoint, int lenght)
     {

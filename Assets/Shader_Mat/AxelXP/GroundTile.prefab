@@ -106,12 +106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea95a649c536074b8be751059222dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePosition: {x: 0, y: 0, z: 0}
+  tileID: {x: 0, y: 0}
   canSeeThrough: 0
-  isWalkable: 0
+  isWalkable: 1
   isOccupied: 0
-  isMovable: 0
-  occupiedObject: {fileID: 0}
+  isMovable: 1
+  isActivated: 0
   TileLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 2084924383613353751}
   - component: {fileID: 8330084129852858968}
   - component: {fileID: 4713042549577704007}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

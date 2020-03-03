@@ -10,12 +10,27 @@ public class Character : MonoBehaviour
     public float maxAttackRange;
     public float minAttackRange;
     public Vector3 position;
-    public int priority;
-}
 
-public enum CharacterState
-{
-    Standby,
-    Finished,
-    Dead
+    public List<TileProperties> pathFinding = new List<TileProperties>();
+    public TileProperties occupiedTile;
+
+    private void Start()
+    {
+        SetOccupiedTile();
+    }
+
+    public void SetOccupiedTile()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, Vector3.down * 10, out hit, Mathf.Infinity, GridManager.Instance.tilesLayer))
+        {
+            if (hit.collider.gameObject.GetComponent<TileProperties>() != null)
+            {
+                occupiedTile = hit.collider.gameObject.GetComponent<TileProperties>();
+
+                occupiedTile.isOccupied = true;
+            }
+        }
+    }
 }

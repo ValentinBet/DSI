@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class LevelEditor : EditorWindow
 {
@@ -16,13 +17,16 @@ public class LevelEditor : EditorWindow
 
     private string templateName = "level_X_Template";
     private int width = 0, heigth = 0;
-
+    private bool gridSizeValidation;
+    private bool gridCreated;
 
     //private string[] prefabsName;
     //private Object[] prefabsArray;
 
     private void OnEnable()
     {
+
+        gridCreated = false;
         labelWidthBase = EditorGUIUtility.labelWidth;
         //prefabsArray = AssetDatabase.LoadAllAssetsAtPath("Assets/_Prefabs/Tiles/");
 
@@ -36,23 +40,45 @@ public class LevelEditor : EditorWindow
 
     private void OnGUI()
     {
+
+
+
         RenderGridParameter();
-        RenderGraphEditor();
+        if (gridCreated)
+        {
+            RenderGraphEditor();
+        }
+
+
+
     }
 
     private void RenderGridParameter()
     {
         GUILayout.BeginArea(new Rect(0, 0, position.width / 4f, position.height));
 
+
         EditorGUIUtility.labelWidth = labelWidthBase / 2f;
+
         templateName = EditorGUILayout.TextField("Asset Name", templateName);
         width = EditorGUILayout.IntSlider("Width", width, 1, 25);
         heigth = EditorGUILayout.IntSlider("Heigth", heigth, 1, 25);
+        gridSizeValidation = EditorGUILayout.Toggle("Grid Size Valide", gridSizeValidation);
         EditorGUIUtility.labelWidth = labelWidthBase;
 
         GUILayout.FlexibleSpace();
 
-        if (GUILayout.Button("Generate Grid"))
+        if (gridSizeValidation)
+        {
+            if (GUILayout.Button("GenerateGrid"))
+            {
+                gridCreated = true;
+                gridSizeValidation = false;
+                int tileNumbers = width * heigth;
+                tilesDatas = new TileEditorData[tileNumbers];
+            }
+        }
+        if (GUILayout.Button("Generate Template"))
         {
             CreateTemplate(heigth, width);
         }
@@ -64,7 +90,7 @@ public class LevelEditor : EditorWindow
         int tilesNumbers = heigth * width;
         GridTemplate template = ScriptableObject.CreateInstance<GridTemplate>();
 
-        template.datas = new TileEditorData[tilesNumbers];
+        template.datas = tilesDatas;
         template.Heigth = heigth;
         template.Width = width;
 
@@ -98,27 +124,37 @@ public class LevelEditor : EditorWindow
     private Material material;
     private TilesType tilesType;
     private GameObject currentTile;
+    private Button[] currentButtons;
+    TileEditorData[] tilesDatas;
+    //private Button[] lastButtons;
+
     private void RenderGraphEditor()
     {
         GUILayout.BeginArea(new Rect(position.width / 4f, 0, position.width * 3f / 4f, position.height));
-        EditorGUILayout.BeginHorizontal("Box");
 
         //material = (Material)EditorGUILayout.ObjectField("Material", material, typeof(Material));
         //tilesType = (TilesType)EditorGUILayout.EnumPopup("Tiles Type", tilesType);
         currentTile = (GameObject)EditorGUILayout.ObjectField("Tiles Prefab", currentTile, typeof(GameObject));
-        for (int i = 0; i < width; i++)
+
+        //draw rect 
+        //event.current isMouse
+        int tileNumbers = width * heigth;
+
+        for (int i = heigth; i > 0; i--)
         {
             EditorGUILayout.BeginHorizontal("box");
 
-            for (int y = 0; y < heigth; y++)
+            for (int y = 0; y < width; y++)
             {
-
+                if (GUILayout.Button(((i * width + y) - width + 1).ToString()))
+                {
+                    tilesDatas[(i * width + y) - width].prefab = currentTile;
+                }
             }
-            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.EndHorizontal();
         }
 
 
-        EditorGUILayout.EndHorizontal();
         GUILayout.EndArea();
     }
 

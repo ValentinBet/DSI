@@ -14,6 +14,16 @@ public class TileProperties : MonoBehaviour
 
     public LayerMask TileLayer;
 
+    public bool CharacterCanSpawn()
+    {
+        if (isWalkable && !isOccupied)
+        {
+            return true;
+        }
+        return false;
+    }
+
+
     public List<TileProperties> GetTileOnDirection(Vector3 direction, int lenght)
     {
         List<TileProperties> listTilesOnDirection = new List<TileProperties>();

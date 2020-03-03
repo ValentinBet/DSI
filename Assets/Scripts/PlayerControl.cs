@@ -24,6 +24,8 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(TileClearKey))
         {
             TilesManager.TilesChangerInstance.ClearChoice();
+
+            CharactersManager.Instance.SpawnEnemyCharacter();
         }
 
         if (Input.GetKeyDown(TileSwapKey))

@@ -80,7 +80,7 @@ public class GridGenerator : MonoBehaviour
                 switch(template.datas[i * template.Width + j].type)
                 {
                     case TilesType.Normal:
-//                        SpawnTile(j, i, template.datas[i * template.Width + j].mat);
+                        SpawnTile(j, i, template.datas[i * template.Width + j].prefab);
                         break;
                     default:
                         break;
@@ -119,10 +119,10 @@ public class GridGenerator : MonoBehaviour
         CameraManager.Instance.ChangeCamPivot(new Vector3(width / 2 * 2, 0, height / 2 * 2));
         if (width < height)
         {
-            CameraManager.Instance.ChangeCamSize(0.83f * height + 0.325f);
+            CameraManager.Instance.ChangeCamSize(0.83f * height + 2.81f);//0.325f);
         } else
         {
-            CameraManager.Instance.ChangeCamSize(0.83f * width + 0.325f);
+            CameraManager.Instance.ChangeCamSize(0.83f * width + 2.81f);
         }
     }
 }

@@ -30,6 +30,10 @@ public class PlayerControl : MonoBehaviour
         {
             TilesManager.TilesChangerInstance.InitChange();
         }
+        if (Input.GetKeyDown(TileRotateKey))
+        {
+            TilesManager.TilesChangerInstance.RotateTile();
+        }
 
     }
 }

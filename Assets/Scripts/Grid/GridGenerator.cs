@@ -8,7 +8,11 @@ public class GridGenerator : MonoBehaviour
     private GameObject[] tiles;
     [SerializeField]
     private Material[] debugMaterials;
+    [SerializeField]
+    private GridTemplate GT;
     private int[] tempInfos;
+    [SerializeField]
+    private bool debugMode = false;
 
     public static GridGenerator Instance;
 
@@ -26,15 +30,26 @@ public class GridGenerator : MonoBehaviour
 
     void Start()
     {
-        tempInfos = new int[8*8];
-        for (int i =0; i<8*8;i++)
+        if (debugMode == true)
         {
-            tempInfos[i] = 1;
+            if (GT == null)
+            {
+                tempInfos = new int[100];
+                for (int i = 0; i < 100; i++)
+                {
+                    tempInfos[i] = 1;
+                }
+                GenerateMap(10, 10, tempInfos);
+            }
+            else
+            {
+                GenerateMap(GT);
+            }
         }
-        GenerateMap(8, 8, tempInfos);
     }
 
-    void GenerateMap(int width, int height, int[] infos)
+    //Using int IDS (DEPRECATED)
+    public void GenerateMap(int width, int height, int[] infos)
     {
         for(int i = 0; i< height;i++)
         {
@@ -55,33 +70,44 @@ public class GridGenerator : MonoBehaviour
         SetCamSettings(width, height);
     }
 
-    /*void GenerateMap(GridTemplate)
+    //Using GridTemplate (Ld Tool format)
+    public void GenerateMap(GridTemplate template)
     {
-        for (int i = 0; i < height; i++)
+        for (int i = 0; i < template.Heigth; i++)
         {
-            for (int j = 0; j < width; j++)
+            for (int j = 0; j < template.Width; j++)
             {
-                switch (infos[i * width + j])
+                switch(template.datas[i * template.Width + j].type)
                 {
-                    case 0:
-                        break;
-                    case 1:
-                        SpawnTile(0, j, i);
+                    case TilesType.Normal:
+                        SpawnTile(j, i, template.datas[i * template.Width + j].mat);
                         break;
                     default:
                         break;
                 }
+                
             }
         }
-        SetCamSettings(width, height);
-    }*/
+        SetCamSettings(template.Width, template.Heigth);
+    }
 
-    void SpawnTile(int ID,int GridX, int GridY)
+    //Spawning using Int ID
+    public void SpawnTile(int ID,int GridX, int GridY)
     {
         GameObject GO = Instantiate(tiles[ID], new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1),Quaternion.identity);
         GO.GetComponent<MeshRenderer>().sharedMaterial = debugMaterials[(GridX * 10 + GridY)%debugMaterials.Length];
+        GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
     }
 
+    //Spawning using GridTemplate Material data
+    public void SpawnTile(int GridX, int GridY,Material tileMat)
+    {
+        GameObject GO = Instantiate(tiles[0], new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), Quaternion.identity);
+        GO.GetComponent<MeshRenderer>().sharedMaterial = tileMat;
+        GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
+    }
+
+    //Update camera to center it on the level
     void SetCamSettings(int width,int height)
     {
         CameraManager.Instance.ChangeCamPivot(new Vector3(width / 2 * 2, 0, height / 2 * 2));

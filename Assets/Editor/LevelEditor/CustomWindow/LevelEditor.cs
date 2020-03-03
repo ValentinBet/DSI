@@ -53,15 +53,15 @@ public class LevelEditor : EditorWindow
         GUILayout.FlexibleSpace();
 
         if (GUILayout.Button("Generate Grid"))
-        {           
+        {
             CreateTemplate(heigth, width);
         }
         GUILayout.EndArea();
     }
 
-    private void CreateTemplate(int heigth , int width)
+    private void CreateTemplate(int heigth, int width)
     {
-        int tilesNumbers = heigth * width; 
+        int tilesNumbers = heigth * width;
         GridTemplate template = ScriptableObject.CreateInstance<GridTemplate>();
 
         template.datas = new TileEditorData[tilesNumbers];
@@ -100,17 +100,24 @@ public class LevelEditor : EditorWindow
     private GameObject currentTile;
     private void RenderGraphEditor()
     {
-        GUILayout.BeginArea(new Rect(position.width / 4f, 0, position.width*3f/4f, position.height));
+        GUILayout.BeginArea(new Rect(position.width / 4f, 0, position.width * 3f / 4f, position.height));
         EditorGUILayout.BeginHorizontal("Box");
 
+        //material = (Material)EditorGUILayout.ObjectField("Material", material, typeof(Material));
+        //tilesType = (TilesType)EditorGUILayout.EnumPopup("Tiles Type", tilesType);
+        currentTile = (GameObject)EditorGUILayout.ObjectField("Tiles Prefab", currentTile, typeof(GameObject));
+        for (int i = 0; i < width; i++)
+        {
+            EditorGUILayout.BeginHorizontal("box");
+
+            for (int y = 0; y < heigth; y++)
+            {
+
+            }
+            EditorGUILayout.BeginHorizontal();
+        }
 
 
-
-        material = (Material)EditorGUILayout.ObjectField("Material", material, typeof(Material));
-        tilesType = (TilesType)EditorGUILayout.EnumPopup("Tiles Type", tilesType);
-       // currentTile = (GameObject)EditorGUILayout.Popup( "Tiles Prefab", currentTile, prefabsName );
-
- 
         EditorGUILayout.EndHorizontal();
         GUILayout.EndArea();
     }
@@ -120,6 +127,6 @@ public class LevelEditor : EditorWindow
         //drag and drop 
         //event
     }
-    
+
 
 }

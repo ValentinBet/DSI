@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     public float minAttackRange;
     public Vector3 position;
     public int priority;
-    public CharacterState myState;
+    public CharacterState myState = CharacterState.Standby;
 
     public List<TileProperties> pathFinding = new List<TileProperties>();
     public TileProperties occupiedTile;

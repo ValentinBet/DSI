@@ -62,6 +62,27 @@ public class GridGenerator : MonoBehaviour
         SetCamSettings(width, height);
     }
 
+    /*void GenerateMap(GridTemplate)
+    {
+        for (int i = 0; i < height; i++)
+        {
+            for (int j = 0; j < width; j++)
+            {
+                switch (infos[i * width + j])
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        SpawnTile(0, j, i);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        SetCamSettings(width, height);
+    }*/
+
     void SpawnTile(int ID,int GridX, int GridY)
     {
         GameObject GO = Instantiate(tiles[ID], new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1),Quaternion.identity);

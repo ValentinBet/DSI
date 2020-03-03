@@ -9,7 +9,7 @@ public class GridGenerator : MonoBehaviour
     [SerializeField]
     private Material[] debugMaterials;
     [SerializeField]
-    private float gridScale=2;
+    private GameObject cameraCenter;
     private int[] tempInfos;
 
     public GridGenerator Instance;
@@ -56,12 +56,17 @@ public class GridGenerator : MonoBehaviour
                 }
             }
         }
+        SetCamPivot(width, height);
     }
 
     void SpawnTile(int ID,int GridX, int GridY)
     {
         GameObject GO = Instantiate(tiles[ID], new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1),Quaternion.identity);
-        GO.transform.localScale = Vector3.one * gridScale;
         GO.GetComponent<MeshRenderer>().sharedMaterial = debugMaterials[(GridX * 10 + GridY) % 3];
+    }
+
+    void SetCamPivot(int width,int height)
+    {
+        cameraCenter.transform.position = new Vector3(width / 2 * 2, 0, height / 2 * 2);
     }
 }

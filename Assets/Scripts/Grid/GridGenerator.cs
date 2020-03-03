@@ -8,6 +8,8 @@ public class GridGenerator : MonoBehaviour
     private GameObject[] tiles;
     [SerializeField]
     private Material[] debugMaterials;
+    [SerializeField]
+    private GridTemplate GT;
     private int[] tempInfos;
 
     public static GridGenerator Instance;
@@ -26,12 +28,19 @@ public class GridGenerator : MonoBehaviour
 
     void Start()
     {
-        tempInfos = new int[8*8];
-        for (int i =0; i<8*8;i++)
+        if (GT == null)
         {
-            tempInfos[i] = 1;
+            tempInfos = new int[8 * 8];
+            for (int i = 0; i < 8 * 8; i++)
+            {
+                tempInfos[i] = 1;
+            }
+            GenerateMap(8, 8, tempInfos);
         }
-        GenerateMap(8, 8, tempInfos);
+        else
+        {
+            GenerateMap(GT);
+        }
     }
 
     void GenerateMap(int width, int height, int[] infos)

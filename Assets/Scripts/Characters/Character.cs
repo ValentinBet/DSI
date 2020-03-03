@@ -10,4 +10,12 @@ public class Character : MonoBehaviour
     public float maxAttackRange;
     public float minAttackRange;
     public Vector3 position;
+    public int priority;
+}
+
+public enum CharacterState
+{
+    Standby,
+    Finished,
+    Dead
 }

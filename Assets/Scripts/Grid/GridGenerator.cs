@@ -80,7 +80,7 @@ public class GridGenerator : MonoBehaviour
                 switch(template.datas[i * template.Width + j].type)
                 {
                     case TilesType.Normal:
-                        SpawnTile(j, i, template.datas[i * template.Width + j].mat);
+//                        SpawnTile(j, i, template.datas[i * template.Width + j].mat);
                         break;
                     default:
                         break;
@@ -100,10 +100,16 @@ public class GridGenerator : MonoBehaviour
     }
 
     //Spawning using GridTemplate Material data
-    public void SpawnTile(int GridX, int GridY,Material tileMat)
+    /*public void SpawnTile(int GridX, int GridY,Material tileMat)
     {
         GameObject GO = Instantiate(tiles[0], new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), Quaternion.identity);
         GO.GetComponent<MeshRenderer>().sharedMaterial = tileMat;
+        GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
+    }*/
+
+    public void SpawnTile(int GridX, int GridY,GameObject prefab)
+    {
+        GameObject GO = Instantiate(prefab, new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), Quaternion.identity);
         GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
     }
 

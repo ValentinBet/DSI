@@ -79,12 +79,14 @@ public class GridGenerator : MonoBehaviour
     {
         GameObject GO = Instantiate(tiles[ID], new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1),Quaternion.identity);
         GO.GetComponent<MeshRenderer>().sharedMaterial = debugMaterials[(GridX * 10 + GridY)%debugMaterials.Length];
+        GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
     }
 
     void SpawnTile(int GridX, int GridY,Material tileMat)
     {
         GameObject GO = Instantiate(tiles[0], new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), Quaternion.identity);
         GO.GetComponent<MeshRenderer>().sharedMaterial = tileMat;
+        GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
     }
 
     void SetCamSettings(int width,int height)

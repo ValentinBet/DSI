@@ -6,8 +6,8 @@ using UnityEngine;
 //[CreateAssetMenu(fileName = "GridTemplate" , menuName = "Kubz/GridTemplate", order = 0  )]
 public class GridTemplate : ScriptableObject
 {
-    public TileEditorData[] datas;
     public int Heigth, Width;
+    public TileEditorData[] datas;
 
 
 }

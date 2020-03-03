@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class InteractibleObject : MonoBehaviour
 {
-    public int height;
 
 }

@@ -8,23 +8,26 @@ public class GridGenerator : MonoBehaviour
     private GameObject[] tiles;
     [SerializeField]
     private Material[] debugMaterials;
-    [SerializeField]
-    private GameObject cameraCenter;
     private int[] tempInfos;
 
-    public GridGenerator Instance;
+    public static GridGenerator Instance;
 
-    void Start()
+    private void Awake()
     {
-        if(Instance ==null)
+        if (Instance == null)
         {
             Instance = this;
-        } else
+        }
+        else
         {
             Destroy(this);
         }
-        tempInfos = new int[100];
-        for (int i =0; i<100;i++)
+    }
+
+    void Start()
+    {
+        tempInfos = new int[8*8];
+        for (int i =0; i<8*8;i++)
         {
             if (Random.Range(0.0f, 1.0f) < 0.95f)
             {
@@ -35,7 +38,7 @@ public class GridGenerator : MonoBehaviour
                 tempInfos[i] = 0;
             }
         }
-        GenerateMap(10, 10, tempInfos);
+        GenerateMap(8, 8, tempInfos);
     }
 
     void GenerateMap(int width, int height, int[] infos)
@@ -56,7 +59,7 @@ public class GridGenerator : MonoBehaviour
                 }
             }
         }
-        SetCamPivot(width, height);
+        SetCamSettings(width, height);
     }
 
     void SpawnTile(int ID,int GridX, int GridY)
@@ -65,8 +68,15 @@ public class GridGenerator : MonoBehaviour
         GO.GetComponent<MeshRenderer>().sharedMaterial = debugMaterials[(GridX * 10 + GridY) % 3];
     }
 
-    void SetCamPivot(int width,int height)
+    void SetCamSettings(int width,int height)
     {
-        cameraCenter.transform.position = new Vector3(width / 2 * 2, 0, height / 2 * 2);
+        CameraManager.Instance.ChangeCamPivot(new Vector3(width / 2 * 2, 0, height / 2 * 2));
+        if (width < height)
+        {
+            CameraManager.Instance.ChangeCamSize(0.83f * height + 0.325f);
+        } else
+        {
+            CameraManager.Instance.ChangeCamSize(0.83f * width + 0.325f);
+        }
     }
 }

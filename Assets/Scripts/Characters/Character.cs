@@ -10,6 +10,8 @@ public class Character : MonoBehaviour
     public float maxAttackRange;
     public float minAttackRange;
     public Vector3 position;
+    public int priority;
+    public CharacterState myState;
 
     public List<TileProperties> pathFinding = new List<TileProperties>();
     public TileProperties occupiedTile;
@@ -33,4 +35,10 @@ public class Character : MonoBehaviour
             }
         }
     }
+}
+public enum CharacterState
+{
+    Standby,
+    Finished,
+    Dead
 }

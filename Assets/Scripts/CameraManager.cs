@@ -18,10 +18,7 @@ public class CameraManager : MonoBehaviour
         {
             Destroy(this);
         }
-    }
 
-    private void Start()
-    {
         thisCam = GetComponent<CinemachineVirtualCamera>();
     }
 

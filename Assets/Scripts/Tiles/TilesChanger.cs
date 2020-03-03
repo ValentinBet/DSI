@@ -28,6 +28,8 @@ public class TilesChanger : MonoBehaviour
             tempPos = initTile.transform.position;
             initTile.transform.position = lastTile.transform.position;
             lastTile.transform.position = tempPos;
+
+            ClearChoice();
         }
     }
 
@@ -35,5 +37,10 @@ public class TilesChanger : MonoBehaviour
     {
         initTile = null;
         lastTile = null;
+    }
+
+    public void RotateTile()
+    {
+        initTile.transform.Rotate(new Vector3(0, 90, 0));
     }
 }

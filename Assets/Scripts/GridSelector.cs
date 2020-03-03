@@ -4,25 +4,36 @@ using UnityEngine;
 
 public class GridSelector : MonoBehaviour
 {
-    public Transform selector;
 
     void Update()
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit, 15000.0f, 9))
+        if (Physics.Raycast(ray, out hit, 1000))
         {
-            /*if (hit.transform.gameObject.name =="obstacle")
-            {
-                GetComponent<SpriteRenderer>().color = Color.red;
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().color = new Color(0.726675f, 0, 1, 0.6705883f);
-            }*/
-            selector.transform.position = hit.collider.transform.position + Vector3.up * 0.2f;
-                //new Vector3(Mathf.RoundToInt(hit.point.x)/2 *2+1, 0.5f, Mathf.RoundToInt(hit.point.z)/2 *2+1);
+            transform.position = hit.collider.transform.position + Vector3.up * 0.3f;
         }
+
+        //new Vector3(Mathf.RoundToInt(hit.point.x)/2 *2+1, 0.5f, Mathf.RoundToInt(hit.point.z)/2 *2+1);
+    }
+
+
+
+    public TileProperties GetTile()
+    {
+        RaycastHit hit;
+
+        TileProperties _tp = null;
+
+        if (Physics.Raycast(transform.position, Vector3.down * 10, out hit, Mathf.Infinity, GridManager.Instance.tilesLayer))
+        {      
+            if (hit.collider.gameObject.GetComponent<TileProperties>() != null)
+            {
+                _tp = hit.collider.gameObject.GetComponent<TileProperties>();
+            }
+        }
+
+        return _tp;
     }
 }

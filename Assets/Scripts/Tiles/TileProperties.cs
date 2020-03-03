@@ -18,6 +18,7 @@ public class TileProperties : MonoBehaviour
     public List<TileProperties> GetTileOnDirection(Vector3 direction, int lenght)
     {
         List<TileProperties> listTilesOnDirection = new List<TileProperties>();
+
         RaycastHit[] hitTiles = new RaycastHit[lenght];
 
         hitTiles = Physics.RaycastAll(transform.position, transform.TransformDirection(direction), lenght, TileLayer);
@@ -33,7 +34,7 @@ public class TileProperties : MonoBehaviour
             }
         }
 
-        Debug.DrawRay(transform.position, transform.TransformDirection(direction) * lenght, Color.yellow);
+        Debug.DrawRay(transform.position, transform.TransformDirection(direction) * lenght, Color.red);
 
         return listTilesOnDirection;
     }

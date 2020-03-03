@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CameraManager">
+    <Position X="2.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAIACAAAAAAAAAAAAAAAEAAAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\CameraManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AllyCharacter" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\AllyCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Character">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAABAAAAgAAAAAAAIAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Character.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyCharacter" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\EnemyCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGenerator">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAIggACAABQAAAACAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Grid\GridGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridManager">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAAAAAAAAAIAAAAAAAAAAAAAAAAUAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Grid\GridManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridSelector">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Grid\GridSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractibleObject" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\InteractibleObject\InteractibleObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerControl">
+    <Position X="2.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuickOrbital">
+    <Position X="4.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\QuickOrbital.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TileProperties">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAIAAABAAABAACQAAAAAAAAAAAAAAIAAIBAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Tiles\TileProperties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TilesManager">
+    <Position X="4.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAEAAAAAAAAACAAAAAAAAAAAAAAUAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Tiles\TilesManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="TilesType">
+    <Position X="11.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAQQAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enum\TilesType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Cardinal">
+    <Position X="11.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAABAAQ=</HashCode>
+      <FileName>Assets\Scripts\Tiles\TilesManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

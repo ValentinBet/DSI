@@ -80,7 +80,7 @@ public class GridGenerator : MonoBehaviour
                 switch(template.datas[i * template.Width + j].type)
                 {
                     case TilesType.Normal:
-//                        SpawnTile(j, i, template.datas[i * template.Width + j].mat);
+                        SpawnTile(j, i, template.datas[i * template.Width + j].prefab);
                         break;
                     default:
                         break;

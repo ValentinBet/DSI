@@ -17,9 +17,21 @@ public class LevelEditor : EditorWindow
     private string templateName = "level_X_Template";
     private int width = 0, heigth = 0;
 
+
+    //private string[] prefabsName;
+    //private Object[] prefabsArray;
+
     private void OnEnable()
     {
         labelWidthBase = EditorGUIUtility.labelWidth;
+        //prefabsArray = AssetDatabase.LoadAllAssetsAtPath("Assets/_Prefabs/Tiles/");
+
+        //prefabsName = new string[prefabsArray.Length];
+        //for (int i = 0; i < prefabsName.Length; i++)
+        //{
+        //    prefabsName[i] = prefabsArray[i].name;
+        //}   
+
     }
 
     private void OnGUI()
@@ -41,22 +53,24 @@ public class LevelEditor : EditorWindow
         GUILayout.FlexibleSpace();
 
         if (GUILayout.Button("Generate Grid"))
-        {
-            int tilesNumber = heigth * width;
-
-            CreateTemplate(tilesNumber);
+        {           
+            CreateTemplate(heigth, width);
         }
         GUILayout.EndArea();
     }
 
-    private void CreateTemplate(int tilesNumbers)
+    private void CreateTemplate(int heigth , int width)
     {
+        int tilesNumbers = heigth * width; 
         GridTemplate template = ScriptableObject.CreateInstance<GridTemplate>();
+
         template.datas = new TileEditorData[tilesNumbers];
+        template.Heigth = heigth;
+        template.Width = width;
 
         string tempName = CheckEmplacement("Assets/_Prefabs/LevelTemplate/" + templateName + ".asset", 1);
 
-        Debug.Log("Grid of dimension" + width + " : " + heigth + " as been generated");
+        Debug.Log("Grid of dimension " + width + " : " + heigth + " as been generated");
         AssetDatabase.CreateAsset(template, tempName);
         AssetDatabase.SaveAssets();
 
@@ -83,14 +97,28 @@ public class LevelEditor : EditorWindow
 
     private Material material;
     private TilesType tilesType;
+    private GameObject currentTile;
     private void RenderGraphEditor()
     {
         GUILayout.BeginArea(new Rect(position.width / 4f, 0, position.width*3f/4f, position.height));
         EditorGUILayout.BeginHorizontal("Box");
+
+
+
+
         material = (Material)EditorGUILayout.ObjectField("Material", material, typeof(Material));
         tilesType = (TilesType)EditorGUILayout.EnumPopup("Tiles Type", tilesType);
+       // currentTile = (GameObject)EditorGUILayout.Popup( "Tiles Prefab", currentTile, prefabsName );
+
+ 
         EditorGUILayout.EndHorizontal();
         GUILayout.EndArea();
+    }
+
+    private void GetPrefabs()
+    {
+        //drag and drop 
+        //event
     }
     
 

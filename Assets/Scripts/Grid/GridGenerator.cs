@@ -86,7 +86,7 @@ public class GridGenerator : MonoBehaviour
     void SpawnTile(int ID,int GridX, int GridY)
     {
         GameObject GO = Instantiate(tiles[ID], new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1),Quaternion.identity);
-        GO.GetComponent<MeshRenderer>().sharedMaterial = debugMaterials[(GridX * 10 + GridY) % 3];
+        GO.GetComponent<MeshRenderer>().sharedMaterial = debugMaterials[(GridX * 10 + GridY)%1];
     }
 
     void SetCamSettings(int width,int height)

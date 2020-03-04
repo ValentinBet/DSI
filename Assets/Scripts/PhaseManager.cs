@@ -52,7 +52,7 @@ public class PhaseManager : MonoBehaviour
                 //Inputs
                 break;
             case Phase.Control:
-                //PlayerControl.Instance.EnableInputs(true);
+                PlayerControl.Instance.EnableInputs(true);
                 for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count; i++)
                 {
                     if (CharactersManager.Instance.allyCharacter[i].myState == CharacterState.Dead)
@@ -77,7 +77,7 @@ public class PhaseManager : MonoBehaviour
                 }
                 break;
             case Phase.Allied:
-                //PlayerControl.Instance.EnableInputs(false);
+                PlayerControl.Instance.EnableInputs(false);
                 unitIndexs.Clear();
                 for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count; i++)
                 {

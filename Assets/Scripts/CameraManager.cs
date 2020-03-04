@@ -38,7 +38,7 @@ public class CameraManager : MonoBehaviour
         thisCam.m_Lens.OrthographicSize = newSize;
     }
 
-    public void InitShakeScreen(float intensity = 2, float duration = 0.1f)
+    public void InitScreenShake(float intensity = 2, float duration = 0.1f)
     {
         intensity = Mathf.Clamp(intensity, 0, maxScreenShakeIntensity);
 
@@ -48,7 +48,7 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ProcessShake(float intensity, float duration)
+    private IEnumerator ProcessScreenShake(float intensity, float duration)
     {
         isScreenShaking = true;
         CamerasShake(intensity);

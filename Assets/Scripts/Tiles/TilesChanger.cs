@@ -9,7 +9,7 @@ public class TilesChanger : MonoBehaviour
 
     private Vector3 tempPos;
 
-    public void TryChangePos(GameObject tile)
+    public void SetSwapPos(GameObject tile)
     {
         if (initTile == null)
         {

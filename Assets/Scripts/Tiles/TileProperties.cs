@@ -39,8 +39,8 @@ public class TileProperties : MonoBehaviour
             {
                 if (hitTiles[i].collider.gameObject.GetComponent<TileProperties>() != null)
                 {
-                    if (hitTiles[i].collider.gameObject != this.gameObject && !isIncludingMainTile)
-                        continue;
+                    //if (hitTiles[i].collider.gameObject != this.gameObject && !isIncludingMainTile)
+                    //    continue;
 
                     listTilesOnDirection.Add(hitTiles[i].collider.gameObject.GetComponent<TileProperties>());
                 }

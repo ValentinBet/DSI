@@ -14,6 +14,8 @@ public class PlayerControl : MonoBehaviour
     private bool isPlacingAllyCharacters = false;
     private AllyCharactersPlacer allyCharactersPlacer;
 
+    public Material debugM;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -57,7 +59,19 @@ public class PlayerControl : MonoBehaviour
                     return;
                 }
 
-                TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject);
+                // GA TEST >>
+
+                List<TileProperties> _tps = TilesManager.Instance.GetTileAllNeighbors(_tile, 2, false);
+
+                foreach (TileProperties tp in _tps)
+                {
+
+                    tp.GetComponent<MeshRenderer>().sharedMaterial = debugM;
+                }
+
+                // <<
+
+                TilesManager.TilesChangerInstance.SetSwapPos(_tile.gameObject);
             }
         }
 
@@ -66,7 +80,7 @@ public class PlayerControl : MonoBehaviour
             TilesManager.TilesChangerInstance.ClearChoice();
 
             CharactersManager.Instance.SpawnEnemyCharacterRandomly();
-            CharactersManager.Instance.InitAllyPlacing();
+            // CharactersManager.Instance.InitAllyPlacing();
         }
 
         if (Input.GetKeyDown(TileSwapKey))

@@ -1000,6 +1000,7 @@ MonoBehaviour:
   TileClearKey: 99
   TileSwapKey: 115
   TileRotateKey: 114
+  debugM: {fileID: 2100000, guid: 3c7cd46ade779ad4bb24ebe35e28fe5f, type: 2}
 --- !u!1 &1497821165
 GameObject:
   m_ObjectHideFlags: 0

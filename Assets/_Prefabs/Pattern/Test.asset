@@ -37,9 +37,3 @@ MonoBehaviour:
   - actionDuration: 0
     actionType: 0
     rotation: 0
-  - actionDuration: 0
-    actionType: 0
-    rotation: 2
-  - actionDuration: 0
-    actionType: 0
-    rotation: 0

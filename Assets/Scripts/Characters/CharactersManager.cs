@@ -35,19 +35,38 @@ public class CharactersManager : MonoBehaviour
     public void InitAllyPlacing()
     {
         List<TileProperties> freeTiles = allySpawnZone.GetFreeTiles();
+
         ResetAllTilesSpawnableState();
         SetAllTilesInAllySpawnAsSpawnable(freeTiles);
-        HighlightAllySpawnZone(freeTiles);
+        SetHighlightAllySpawnZone(freeTiles, true);
 
         allyCharactersPlacer.InitPlacing();
     }
 
-    public void HighlightAllySpawnZone(List<TileProperties> freeTiles)
+    public void EndAllyPlacing()
     {
-        foreach (TileProperties tp in freeTiles)
+        List<TileProperties> freeTiles = allySpawnZone.GetFreeTiles();
+
+        SetHighlightAllySpawnZone(freeTiles, true);
+    }
+
+    public void SetHighlightAllySpawnZone(List<TileProperties> freeTiles, bool value)
+    {
+        if (value)
         {
-            tp.GetComponent<MeshRenderer>().sharedMaterial = highlightedMaterial;
+            foreach (TileProperties tp in freeTiles)
+            {
+                tp.GetComponent<MeshRenderer>().materials = new Material[] { tp.GetComponent<MeshRenderer>().materials[0], highlightedMaterial };
+            }
         }
+        else
+        {
+            foreach (TileProperties tp in freeTiles)
+            {
+                tp.GetComponent<MeshRenderer>().materials = new Material[] { tp.GetComponent<MeshRenderer>().materials[0] };
+            }
+        }
+
     }
 
     private void SetAllTilesInAllySpawnAsSpawnable(List<TileProperties> freeTiles)
@@ -58,7 +77,7 @@ public class CharactersManager : MonoBehaviour
         }
     }
 
-   private void ResetAllTilesSpawnableState()
+    private void ResetAllTilesSpawnableState()
     {
         foreach (TileProperties tp in TilesManager.Instance.AllTilesList)
         {
@@ -88,7 +107,7 @@ public class CharactersManager : MonoBehaviour
     //Used for Waves
     public void SpawnEnemyCharacterAtPos(Vector2 gridPos)
     {
-        GameObject _enemy = Instantiate(enemyTypeList[0], new Vector3(gridPos.x*2+1,0,gridPos.y*2+1) + Vector3.up, Quaternion.identity);
+        GameObject _enemy = Instantiate(enemyTypeList[0], new Vector3(gridPos.x * 2 + 1, 0, gridPos.y * 2 + 1) + Vector3.up, Quaternion.identity);
         EnemyCharacter _enemyChar = _enemy.GetComponent<EnemyCharacter>();
         _enemyChar.SetOccupiedTile();
         _enemyChar.priority = lastEnnemyPriority;

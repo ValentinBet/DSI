@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class AllyCharacter : Character
 {
-    public float xp;
+    public AllyCharacterData data;
 }

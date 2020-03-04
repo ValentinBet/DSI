@@ -64,13 +64,10 @@ public class PlayerControl : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(TileClearKey))
-            {
-                TilesManager.TilesChangerInstance.ClearChoice();
-
-                CharactersManager.Instance.SpawnEnemyCharacterRandomly();
-                CharactersManager.Instance.InitAllyPlacing();
-            }
+        if (Input.GetKeyDown(TileClearKey))
+        {
+            TilesManager.TilesChangerInstance.ClearChoice();
+        }
 
             if (Input.GetKeyDown(TileSwapKey))
             {

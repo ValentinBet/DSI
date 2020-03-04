@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PhaseManager : MonoBehaviour
 {
-    private Phase actualPhase;
+    public Phase actualPhase = Phase.Initial;
     public static PhaseManager Instance { get { return _instance; } }
     private static PhaseManager _instance;
 

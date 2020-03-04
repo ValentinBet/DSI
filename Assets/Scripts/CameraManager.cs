@@ -4,21 +4,23 @@ using UnityEngine;
 using Cinemachine;
 public class CameraManager : MonoBehaviour
 {
-    public static CameraManager Instance;
     [SerializeField]
     private Transform camPivot;
     private CinemachineVirtualCamera thisCam;
 
+    public static CameraManager Instance { get { return _instance; } }
+    private static CameraManager _instance;
+
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance != null && _instance != this)
         {
-            Instance = this;
-        } else
-        {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
-
+        else
+        {
+            _instance = this;
+        }
         thisCam = GetComponent<CinemachineVirtualCamera>();
     }
 

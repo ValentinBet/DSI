@@ -5,17 +5,18 @@ using UnityEngine;
 public class PhaseManager : MonoBehaviour
 {
     private Phase actualPhase;
-    public static PhaseManager Instance;
+    public static PhaseManager Instance { get { return _instance; } }
+    private static PhaseManager _instance;
 
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance != null && _instance != this)
         {
-            Instance = this;
+            Destroy(this.gameObject);
         }
         else
         {
-            Destroy(this);
+            _instance = this;
         }
     }
 

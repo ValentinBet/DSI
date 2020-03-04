@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlacingAllys: 0
+  allyList:
+  - {fileID: 5335539690535707474, guid: d83a8370bfa9ed1488ea05b32f89de66, type: 3}
 --- !u!1 &304176833
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,14 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fd495baa0592348aeda3108ffc2387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 2044990667826019268, guid: fbfcbe28fa5cd654dab08c5a4500c8fd, type: 3}
-  debugMaterials:
-  - {fileID: 2100000, guid: af8b28da76209a246b9d172012910862, type: 2}
-  - {fileID: 2100000, guid: be300d7ca1c405e439535af2bb5c0478, type: 2}
-  - {fileID: 2100000, guid: 20e5b890e132a1143a138b58a9c859aa, type: 2}
-  GT: {fileID: 0}
-  debugMode: 1
+  GT: {fileID: 11400000, guid: dbb3044c4782b8d4b9115a3367ee731a, type: 2}
 --- !u!4 &304176835
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,7 +997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5658555da7192024596f6567deb6bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugM: {fileID: 0}
   TileClearKey: 99
   TileSwapKey: 115
   TileRotateKey: 114

@@ -4,9 +4,44 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    private static PlayerControl _instance;
+    public static PlayerControl Instance { get { return _instance; } }
+
     public KeyCode TileClearKey;
     public KeyCode TileSwapKey;
     public KeyCode TileRotateKey;
+
+    private bool isPlacingAllyCharacters = false;
+    private AllyCharactersPlacer allyCharactersPlacer;
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+
+        allyCharactersPlacer = CharactersManager.Instance.allyCharactersPlacer;
+    }
+
+    private void OnEnable()
+    {
+        allyCharactersPlacer.PlacingAllyCharacters += SetPlacingAllyCharacters;
+    }
+
+    private void OnDisable()
+    {
+        allyCharactersPlacer.PlacingAllyCharacters -= SetPlacingAllyCharacters;
+    }
+
+    private void SetPlacingAllyCharacters(bool value)
+    {
+        isPlacingAllyCharacters = value;
+    }
 
     void Update()
     {
@@ -14,7 +49,15 @@ public class PlayerControl : MonoBehaviour
         {
             if (GridManager.Instance.GetTileUnderSelector() != null)
             {
-                TilesManager.TilesChangerInstance.TryChangePos(GridManager.Instance.GetTileUnderSelector().gameObject);
+                TileProperties _tile = GridManager.Instance.GetTileUnderSelector();
+
+                if (isPlacingAllyCharacters)
+                {
+                    allyCharactersPlacer.TryPlaceAlly(_tile);
+                    return;
+                }
+
+                TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject);
             }
         }
 

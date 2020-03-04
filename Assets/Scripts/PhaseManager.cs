@@ -5,24 +5,25 @@ using UnityEngine;
 public class PhaseManager : MonoBehaviour
 {
     private Phase actualPhase;
-    public static PhaseManager Instance;
+    public static PhaseManager Instance { get { return _instance; } }
+    private static PhaseManager _instance;
 
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance != null && _instance != this)
         {
-            Instance = this;
+            Destroy(this.gameObject);
         }
         else
         {
-            Destroy(this);
+            _instance = this;
         }
     }
 
     // Update is called once per frame
     void NextPhase()
     {
-        if (actualPhase != Phase.Ennemy)
+        if (actualPhase != Phase.Enemy)
         {
             actualPhase++;
         }
@@ -41,9 +42,14 @@ public class PhaseManager : MonoBehaviour
                 //All Allies and ennemies become "Standby"
                 break;
             case Phase.Allied:
+                //CharactersManager.Instance.allyCharacter
                 //FindAllAllies,Ticks
                 break;
-            case Phase.Ennemy:
+            case Phase.Enemy:
+                for (int i = 0; i < CharactersManager.Instance.enemyCharacters.Count; i++)
+                {
+                    //CharactersManager.Instance.enemyCharacters[i].Execute()
+                }
                 //findAllEnnemies,ticks
                 break;
         }
@@ -52,7 +58,8 @@ public class PhaseManager : MonoBehaviour
 
 public enum Phase
 {
+    Initial,
     Control,
     Allied,
-    Ennemy
+    Enemy
 }

@@ -44,7 +44,7 @@ public class CameraManager : MonoBehaviour
 
         if (!isScreenShaking)
         {
-            StartCoroutine(ProcessShake(intensity, duration));
+            StartCoroutine(ProcessScreenShake(intensity, duration));
         }
     }
 

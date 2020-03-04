@@ -10,6 +10,7 @@ public class TileProperties : MonoBehaviour
     public bool isWalkable;
     public bool isOccupied;
     public bool isMovable;
+    public bool isAWall;
     public bool isActivated;
     [HideInInspector] public bool isAllySpawnable = false;
 

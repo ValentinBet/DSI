@@ -187,8 +187,6 @@ public class LevelEditor : EditorWindow
     public void SpawnTile(int GridX, int GridY, GameObject prefab, int index)
     {
 
-
-
         if (Currenttiles[index] != null)
         {
             DestroyImmediate(Currenttiles[index]);
@@ -210,8 +208,6 @@ public class LevelEditor : EditorWindow
                 GO.transform.parent = folder.transform;
             }
         }
-
-
     }
 
     #endregion

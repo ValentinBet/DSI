@@ -34,20 +34,39 @@ public class CharactersManager : MonoBehaviour
 
     public void InitAllyPlacing()
     {
-        HighlightAllySpawnZone();
-        allyCharactersPlacer.InitPlacing();
-    } 
-
-    public void HighlightAllySpawnZone()
-    {
         List<TileProperties> freeTiles = allySpawnZone.GetFreeTiles();
+        ResetAllTilesSpawnableState();
+        SetAllTilesInAllySpawnAsSpawnable(freeTiles);
+        HighlightAllySpawnZone(freeTiles);
 
+        allyCharactersPlacer.InitPlacing();
+    }
+
+    public void HighlightAllySpawnZone(List<TileProperties> freeTiles)
+    {
         foreach (TileProperties tp in freeTiles)
         {
             // HighLight
         }
     }
 
+    private void SetAllTilesInAllySpawnAsSpawnable(List<TileProperties> freeTiles)
+    {
+        foreach (TileProperties tp in freeTiles)
+        {
+            tp.isAllySpawnable = true;
+        }
+    }
+
+   private void ResetAllTilesSpawnableState()
+    {
+        foreach (TileProperties tp in TilesManager.Instance.AllTilesList)
+        {
+            tp.isAllySpawnable = false;
+        }
+    }
+
+    // Spawn Ennemy characters
     public void SpawnEnemyCharacterRandomly(int ennemyNumber = 1)
     {
         List<TileProperties> freeTiles = enemySpawnZone.GetFreeTiles();

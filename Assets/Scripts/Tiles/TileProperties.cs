@@ -11,6 +11,7 @@ public class TileProperties : MonoBehaviour
     public bool isOccupied;
     public bool isMovable;
     public bool isActivated;
+    [HideInInspector] public bool isAllySpawnable = false;
 
     public LayerMask TileLayer;
 

@@ -11,7 +11,7 @@ public class TilesManager : MonoBehaviour
 
     public static TilesChanger TilesChangerInstance;
 
-    public List<TilesManager> AllTilesList = new List<TilesManager>();
+    public List<TileProperties> AllTilesList = new List<TileProperties>();
 
     private void Awake()
     {

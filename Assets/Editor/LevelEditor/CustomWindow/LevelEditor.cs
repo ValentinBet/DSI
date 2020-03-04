@@ -54,24 +54,37 @@ public class LevelEditor : EditorWindow
         GUILayout.BeginArea(new Rect(0, 0, position.width / 4f, position.height));
 
 
+        EditorGUILayout.BeginVertical("box");
+
+        SectionTitle("Grid Parameter", 0.4f);
+
         EditorGUIUtility.labelWidth = labelWidthBase / 2f;
+
+
+
 
         templateName = EditorGUILayout.TextField("Asset Name", templateName);
         width = EditorGUILayout.IntSlider("Width", width, 1, 25);
         heigth = EditorGUILayout.IntSlider("Heigth", heigth, 1, 25);
         gridSizeValidation = EditorGUILayout.Toggle("Grid Size Valide", gridSizeValidation);
         EditorGUIUtility.labelWidth = labelWidthBase;
+        EditorGUILayout.EndVertical();
 
         GUILayout.FlexibleSpace();
+
+        if (gridCreated)
+        {
+            if (GUILayout.Button("Clear Grid"))
+            {
+                ClearGrid();
+            }
+        }
 
         if (gridSizeValidation)
         {
             if (GUILayout.Button("GenerateGrid"))
             {
-                gridCreated = true;
-                gridSizeValidation = false;
-                int tileNumbers = width * heigth;
-                tilesDatas = new TileEditorData[tileNumbers];
+                GridEditorGeneration();
             }
         }
         if (GUILayout.Button("Generate Template"))
@@ -105,6 +118,7 @@ public class LevelEditor : EditorWindow
                 if (GUILayout.Button(((i * width + y) - width + 1).ToString()))
                 {
                     tilesDatas[(i * width + y) - width].prefab = currentTile;
+                    SpawnTile(i, y, currentTile, ((i * width + y) - width));
                 }
             }
             EditorGUILayout.EndHorizontal();
@@ -163,6 +177,93 @@ public class LevelEditor : EditorWindow
     }
 
     #endregion
+
+    #region Map Creation 
+
+
+    GameObject[] Currenttiles;
+    //private GameObject _tilesFolder;
+
+    public void SpawnTile(int GridX, int GridY, GameObject prefab, int index)
+    {
+
+
+
+        if (Currenttiles[index] != null)
+        {
+            DestroyImmediate(Currenttiles[index]);
+        }
+        if (prefab != null)
+        {
+            GameObject GO = Instantiate(prefab, new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), Quaternion.identity);
+            Currenttiles[index] = GO;
+
+            if (GameObject.Find("TilesFolder") == null)
+            {
+                GameObject tilesFolder = new GameObject("TilesFolder");
+                Instantiate(tilesFolder);
+                GO.transform.parent = tilesFolder.transform;
+            }
+            else
+            {
+                GameObject folder = GameObject.Find("TilesFolder");
+                GO.transform.parent = folder.transform;
+            }
+        }
+
+
+    }
+
+    #endregion
+
+    #region Utility
+
+    private void GridEditorGeneration()
+    {
+        gridCreated = true;
+        gridSizeValidation = false;
+        int tileNumbers = width * heigth;
+        tilesDatas = new TileEditorData[tileNumbers];
+        Currenttiles = new GameObject[tileNumbers];
+    }
+
+    private void SectionTitle(string title, float labelSize)
+    {
+        EditorGUILayout.BeginHorizontal("box");
+        GUILayout.FlexibleSpace();
+        EditorGUIUtility.labelWidth = labelWidthBase * labelSize;
+        EditorGUILayout.LabelField(title);
+
+        EditorGUIUtility.labelWidth = labelWidthBase;
+        GUILayout.FlexibleSpace();
+        EditorGUILayout.EndHorizontal();
+    }
+
+    private void ClearGrid()
+    {
+        for (int i = 0; i < Currenttiles.Length; i++)
+        {
+            DestroyImmediate(Currenttiles[i]);
+        }
+        GameObject folder = GameObject.Find("TilesFolder");
+        if (folder != null)
+        {
+            int childCount = folder.transform.childCount;
+
+            for (int i = 0; i < childCount; i++)
+            {
+                DestroyImmediate(folder.transform.GetChild(i).gameObject);
+                Debug.Log(childCount);
+            }
+        }
+
+        tilesDatas = new TileEditorData[0];
+        Currenttiles = new GameObject[0];
+        gridCreated = false;
+    }
+
+    #endregion
+
 
 
 

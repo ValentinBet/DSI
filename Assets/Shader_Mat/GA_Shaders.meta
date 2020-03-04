@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/AmplifyShader/AmplifyShaderEditor/Examples/Official/Nodes.meta
+guid: e7647580f7b347b49b043303d560cafe
+=======
 guid: a30cb05401e83eb419f490a8fe76bff3
+>>>>>>> f41f8c036fa556dd3d31fbe19f1e244828d9ff5a:Assets/Shader_Mat/GA_Shaders.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

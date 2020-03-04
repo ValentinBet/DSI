@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour
 
     private bool isPlacingAllyCharacters = false;
     private AllyCharactersPlacer allyCharactersPlacer;
+    private bool inputsEnabled;
 
     private void Awake()
     {
@@ -45,35 +46,43 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (inputsEnabled)
         {
-            if (GridManager.Instance.GetTileUnderSelector() != null)
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                TileProperties _tile = GridManager.Instance.GetTileUnderSelector();
-
-                if (isPlacingAllyCharacters)
+                if (GridManager.Instance.GetTileUnderSelector() != null)
                 {
-                    allyCharactersPlacer.TryPlaceAlly(_tile);
-                    return;
-                }
+                    TileProperties _tile = GridManager.Instance.GetTileUnderSelector();
 
-                TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject);
+                    if (isPlacingAllyCharacters)
+                    {
+                        allyCharactersPlacer.TryPlaceAlly(_tile);
+                        return;
+                    }
+
+                    TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject);
+                }
             }
-        }
 
         if (Input.GetKeyDown(TileClearKey))
         {
             TilesManager.TilesChangerInstance.ClearChoice();
         }
 
-        if (Input.GetKeyDown(TileSwapKey))
-        {
-            TilesManager.TilesChangerInstance.InitChange();
-        }
-        if (Input.GetKeyDown(TileRotateKey))
-        {
-            TilesManager.TilesChangerInstance.RotateTile();
+            if (Input.GetKeyDown(TileSwapKey))
+            {
+                TilesManager.TilesChangerInstance.InitChange();
+            }
+            if (Input.GetKeyDown(TileRotateKey))
+            {
+                TilesManager.TilesChangerInstance.RotateTile();
+            }
         }
 
+    }
+
+    public void EnableInputs(bool newState)
+    {
+        inputsEnabled = newState;
     }
 }

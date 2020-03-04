@@ -10,6 +10,8 @@ public class PhaseManager : MonoBehaviour
 
     private List<int> unitIndexs = new List<int>();
     private int currentUnit = 0;
+    private int actualTurn = 0;
+    private int actualWave = 0;
 
     private void Awake()
     {
@@ -33,7 +35,7 @@ public class PhaseManager : MonoBehaviour
     // Update is called once per frame
     void NextPhase()
     {
-        if (actualPhase != Phase.Enemy)
+        if (actualPhase != Phase.WaveUpdate)
         {
             actualPhase++;
         }
@@ -52,7 +54,8 @@ public class PhaseManager : MonoBehaviour
                 //Inputs
                 break;
             case Phase.Control:
-                //PlayerControl.Instance.EnableInputs(true);
+                actualTurn++;
+                PlayerControl.Instance.EnableInputs(true);
                 for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count; i++)
                 {
                     if (CharactersManager.Instance.allyCharacter[i].myState == CharacterState.Dead)
@@ -77,7 +80,7 @@ public class PhaseManager : MonoBehaviour
                 }
                 break;
             case Phase.Allied:
-                //PlayerControl.Instance.EnableInputs(false);
+                PlayerControl.Instance.EnableInputs(false);
                 unitIndexs.Clear();
                 for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count; i++)
                 {
@@ -99,6 +102,10 @@ public class PhaseManager : MonoBehaviour
                 }
                 NextEnemy();
                 break;
+            case Phase.WaveUpdate:
+//                CharactersManager.Instance
+                break;
+
         }
     }
 
@@ -157,5 +164,6 @@ public enum Phase
     Initial,
     Control,
     Allied,
-    Enemy
+    Enemy,
+    WaveUpdate
 }

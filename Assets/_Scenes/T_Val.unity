@@ -266,6 +266,7 @@ MonoBehaviour:
   isPlacingAllys: 0
   allyList:
   - {fileID: 5335539690535707474, guid: d83a8370bfa9ed1488ea05b32f89de66, type: 3}
+  - {fileID: 5335539690535707474, guid: ad67b1e9705fd794688fa1147f6203e3, type: 3}
 --- !u!1 &236444942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,6 +1536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allyHint: {fileID: 1033342773}
+  allyHintImg: {fileID: 544403925}
 --- !u!1 &1284454060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284454060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.26, y: 0, z: 9.88}
+  m_LocalPosition: {x: 15.86, y: 0, z: 9.88}
   m_LocalScale: {x: 8.1970005, y: 8.7258, z: 20}
   m_Children: []
   m_Father: {fileID: 233377858}

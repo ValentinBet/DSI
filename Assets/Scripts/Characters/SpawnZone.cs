@@ -19,9 +19,9 @@ public class SpawnZone : MonoBehaviour
 
 #endif
 
-    public List<TileProperties> GetFreeTiles()
+    public List<TileProperties> GetTiles(bool onlyFreeTiles = true)
     {
-        List<TileProperties> freeTiles = new List<TileProperties>();
+        List<TileProperties> Tiles = new List<TileProperties>();
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position, transform.localScale / 2, Quaternion.identity, tilesLayer);
 
@@ -29,13 +29,21 @@ public class SpawnZone : MonoBehaviour
         {
             TileProperties _tp = tile.gameObject.GetComponent<TileProperties>();
 
-            if (_tp.CharacterCanSpawn())
+            if (onlyFreeTiles)
             {
-                freeTiles.Add(_tp);
+                if (_tp.CharacterCanSpawn())
+                {
+                    Tiles.Add(_tp);
+                }
             }
+            else
+            {
+                Tiles.Add(_tp);
+            }
+
         }
 
-        return freeTiles;
+        return Tiles;
     }
 
 

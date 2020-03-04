@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour
 
     private bool isPlacingAllyCharacters = false;
     private AllyCharactersPlacer allyCharactersPlacer;
-    private bool inputsEnabled;
+    private bool inputsEnabled = true;
 
     private void Awake()
     {

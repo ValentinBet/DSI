@@ -17,24 +17,19 @@ public class AllyCharactersPlacer : MonoBehaviour
         lastAllyPriority = 0;
         PlacingAllyCharacters?.Invoke(true);
         isPlacingAllys = true;
+        UIManager.Instance.SetAllyHintState(true, allyList[lastAllyPriority].GetComponent<AllyCharacter>().data.characterTypeData.CharacterSprite);
     }
 
     public void StopPlacing()
     {
         PlacingAllyCharacters?.Invoke(false);
         isPlacingAllys = false;
-
         CharactersManager.Instance.EndAllyPlacing();
+        UIManager.Instance.SetAllyHintState(false);
     }
 
     public void TryPlaceAlly(TileProperties tile)
     {
-        if (IsAllAllyedSpawned())
-        {
-            StopPlacing();
-            return;
-        }
-
         if (isPlacingAllys)
         {
             if (tile.isAllySpawnable && tile.CharacterCanSpawn())
@@ -46,6 +41,16 @@ public class AllyCharactersPlacer : MonoBehaviour
                 CharactersManager.Instance.allyCharacter.Add(_allyChar);
                 lastAllyPriority++;
             }
+        }
+
+        if (IsAllAllyedSpawned())
+        {
+            StopPlacing();
+            return;
+        }
+        else
+        {
+            UIManager.Instance.SetAllyHintState(true, allyList[lastAllyPriority].GetComponent<AllyCharacter>().data.characterTypeData.CharacterSprite);
         }
     }
 

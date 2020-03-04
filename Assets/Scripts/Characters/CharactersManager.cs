@@ -36,7 +36,7 @@ public class CharactersManager : MonoBehaviour
 
     public void InitAllyPlacing()
     {
-        List<TileProperties> freeTiles = allySpawnZone.GetFreeTiles();
+        List<TileProperties> freeTiles = allySpawnZone.GetTiles();
 
         ResetAllTilesSpawnableState();
         SetAllTilesInAllySpawnAsSpawnable(freeTiles);
@@ -47,9 +47,9 @@ public class CharactersManager : MonoBehaviour
 
     public void EndAllyPlacing()
     {
-        List<TileProperties> freeTiles = allySpawnZone.GetFreeTiles();
+        List<TileProperties> freeTiles = allySpawnZone.GetTiles(false);
 
-        SetHighlightAllySpawnZone(freeTiles, true);
+        SetHighlightAllySpawnZone(freeTiles, false);
     }
 
     public void SetHighlightAllySpawnZone(List<TileProperties> freeTiles, bool value)
@@ -90,7 +90,7 @@ public class CharactersManager : MonoBehaviour
     // Spawn Ennemy characters
     public void SpawnEnemyCharacterRandomly(int ennemyNumber = 1)
     {
-        List<TileProperties> freeTiles = enemySpawnZone.GetFreeTiles();
+        List<TileProperties> freeTiles = enemySpawnZone.GetTiles();
 
         if (freeTiles.Count != 0)
         {

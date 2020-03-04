@@ -14,6 +14,8 @@ public class Character : MonoBehaviour
     public int priority;
     public CharacterState myState = CharacterState.Standby;
 
+    public PatternTemplate mouvementPattern;
+
     public List<TileProperties> pathFinding = new List<TileProperties>();
     public TileProperties occupiedTile;
 
@@ -40,8 +42,14 @@ public class Character : MonoBehaviour
     public void InitMovement(TileProperties tileDestination)
     {
         occupiedTile.isOccupied = false;
+        
         transform.position = tileDestination.transform.position + Vector3.up;
         SetOccupiedTile();
+    }
+
+    public void InitAttack()
+    {
+
     }
 
 }

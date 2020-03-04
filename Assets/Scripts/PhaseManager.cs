@@ -22,7 +22,7 @@ public class PhaseManager : MonoBehaviour
     // Update is called once per frame
     void NextPhase()
     {
-        if (actualPhase != Phase.Ennemy)
+        if (actualPhase != Phase.Enemy)
         {
             actualPhase++;
         }

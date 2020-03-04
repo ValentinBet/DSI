@@ -46,7 +46,7 @@ public class CharactersManager : MonoBehaviour
     {
         foreach (TileProperties tp in freeTiles)
         {
-            // HighLight
+            tp.GetComponent<MeshRenderer>().sharedMaterial = highlightedMaterial;
         }
     }
 

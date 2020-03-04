@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using System.IO;
 
 public class LevelEditor : EditorWindow
 {
@@ -35,25 +36,20 @@ public class LevelEditor : EditorWindow
         //{
         //    prefabsName[i] = prefabsArray[i].name;
         //}   
-
     }
 
     private void OnGUI()
     {
-
-
-
-        RenderGridParameter();
+        GridParameterBehaviour();
         if (gridCreated)
         {
-            RenderGraphEditor();
+            GraphEditorBehaviour();
         }
-
-
-
     }
 
-    private void RenderGridParameter()
+
+    #region WindowsBehaviour
+    private void GridParameterBehaviour()
     {
         GUILayout.BeginArea(new Rect(0, 0, position.width / 4f, position.height));
 
@@ -85,50 +81,10 @@ public class LevelEditor : EditorWindow
         GUILayout.EndArea();
     }
 
-    private void CreateTemplate(int heigth, int width)
-    {
-        int tilesNumbers = heigth * width;
-        GridTemplate template = ScriptableObject.CreateInstance<GridTemplate>();
-
-        template.datas = tilesDatas;
-        template.Heigth = heigth;
-        template.Width = width;
-
-        string tempName = CheckEmplacement("Assets/_Prefabs/LevelTemplate/" + templateName + ".asset", 1);
-
-        Debug.Log("Grid of dimension " + width + " : " + heigth + " as been generated");
-        AssetDatabase.CreateAsset(template, tempName);
-        AssetDatabase.SaveAssets();
-
-        EditorUtility.FocusProjectWindow();
-
-        Selection.activeObject = template;
-    }
-    private string CheckEmplacement(string dataPath, int index)
-    {
-        GridTemplate emplacement = (GridTemplate)AssetDatabase.LoadAssetAtPath(dataPath, typeof(GridTemplate));
-
-        if (emplacement != null)
-        {
-            string newPath = "Assets/_Prefabs/LevelTemplate/" + templateName + " (" + index + ")" + ".asset";
-            index++;
-            return CheckEmplacement(newPath, index);
-        }
-
-        return dataPath;
-
-    }
-
-
-
-    private Material material;
-    private TilesType tilesType;
     private GameObject currentTile;
-    private Button[] currentButtons;
     TileEditorData[] tilesDatas;
-    //private Button[] lastButtons;
 
-    private void RenderGraphEditor()
+    private void GraphEditorBehaviour()
     {
         GUILayout.BeginArea(new Rect(position.width / 4f, 0, position.width * 3f / 4f, position.height));
 
@@ -157,6 +113,59 @@ public class LevelEditor : EditorWindow
 
         GUILayout.EndArea();
     }
+    #endregion
+
+    #region AssetCreation 
+
+    private void CreateTemplate(int heigth, int width)
+    {
+        CheckDirectoryPath("Assets/_Prefabs");
+        CheckDirectoryPath("Assets/_Prefabs/LevelTemplate/");
+
+        int tilesNumbers = heigth * width;
+        GridTemplate template = ScriptableObject.CreateInstance<GridTemplate>();
+
+        template.datas = tilesDatas;
+        template.Heigth = heigth;
+        template.Width = width;
+
+        string tempName = CheckEmplacement("Assets/_Prefabs/LevelTemplate/" + templateName + ".asset", 1);
+
+        Debug.Log("Grid of dimension " + width + " : " + heigth + " as been generated");
+        AssetDatabase.CreateAsset(template, tempName);
+        AssetDatabase.SaveAssets();
+
+        EditorUtility.FocusProjectWindow();
+
+        Selection.activeObject = template;
+    }
+
+    private string CheckEmplacement(string dataPath, int index)
+    {
+        GridTemplate emplacement = (GridTemplate)AssetDatabase.LoadAssetAtPath(dataPath, typeof(GridTemplate));
+
+        if (emplacement != null)
+        {
+            string newPath = "Assets/_Prefabs/LevelTemplate/" + templateName + " (" + index + ")" + ".asset";
+            index++;
+            return CheckEmplacement(newPath, index);
+        }
+
+        return dataPath;
+    }
+
+    private void CheckDirectoryPath(string DirectoryPath)
+    {
+        if (!AssetDatabase.IsValidFolder(DirectoryPath))
+        {
+            Directory.CreateDirectory(DirectoryPath);
+        }
+    }
+
+    #endregion
+
+
+
 
     private void GetPrefabs()
     {

@@ -9,13 +9,16 @@ public class CharactersManager : MonoBehaviour
 
     public List<EnemyCharacter> enemyCharacters = new List<EnemyCharacter>();
     public List<AllyCharacter> allyCharacter = new List<AllyCharacter>();
-
     public List<GameObject> enemyTypeList = new List<GameObject>();
+
+    public Material highlightedMaterial;
+    public AllyCharactersPlacer allyCharactersPlacer;
+
+    [SerializeField] private SpawnZone enemySpawnZone;
+    [SerializeField] private SpawnZone allySpawnZone;
 
     private int lastEnnemyPriority = 0;
     private int lastAllyPriority = 0;
-
-    [SerializeField] private SpawnZone enemySpawnZone;
 
     private void Awake()
     {
@@ -27,10 +30,44 @@ public class CharactersManager : MonoBehaviour
         {
             _instance = this;
         }
-
     }
 
-    public void SpawnEnemyCharacter(int ennemyNumber = 1)
+    public void InitAllyPlacing()
+    {
+        List<TileProperties> freeTiles = allySpawnZone.GetFreeTiles();
+        ResetAllTilesSpawnableState();
+        SetAllTilesInAllySpawnAsSpawnable(freeTiles);
+        HighlightAllySpawnZone(freeTiles);
+
+        allyCharactersPlacer.InitPlacing();
+    }
+
+    public void HighlightAllySpawnZone(List<TileProperties> freeTiles)
+    {
+        foreach (TileProperties tp in freeTiles)
+        {
+            tp.GetComponent<MeshRenderer>().sharedMaterial = highlightedMaterial;
+        }
+    }
+
+    private void SetAllTilesInAllySpawnAsSpawnable(List<TileProperties> freeTiles)
+    {
+        foreach (TileProperties tp in freeTiles)
+        {
+            tp.isAllySpawnable = true;
+        }
+    }
+
+   private void ResetAllTilesSpawnableState()
+    {
+        foreach (TileProperties tp in TilesManager.Instance.AllTilesList)
+        {
+            tp.isAllySpawnable = false;
+        }
+    }
+
+    // Spawn Ennemy characters
+    public void SpawnEnemyCharacterRandomly(int ennemyNumber = 1)
     {
         List<TileProperties> freeTiles = enemySpawnZone.GetFreeTiles();
 
@@ -42,9 +79,21 @@ public class CharactersManager : MonoBehaviour
                 EnemyCharacter _enemyChar = _enemy.GetComponent<EnemyCharacter>();
                 _enemyChar.SetOccupiedTile();
                 _enemyChar.priority = lastEnnemyPriority;
+                enemyCharacters.Add(_enemyChar);
                 lastEnnemyPriority++;
             }
         }
+    }
+
+    //Used for Waves
+    public void SpawnEnemyCharacterAtPos(Vector2 gridPos)
+    {
+        GameObject _enemy = Instantiate(enemyTypeList[0], new Vector3(gridPos.x*2+1,0,gridPos.y*2+1) + Vector3.up, Quaternion.identity);
+        EnemyCharacter _enemyChar = _enemy.GetComponent<EnemyCharacter>();
+        _enemyChar.SetOccupiedTile();
+        _enemyChar.priority = lastEnnemyPriority;
+        enemyCharacters.Add(_enemyChar);
+        lastEnnemyPriority++;
     }
 
     private TileProperties PickTileRandomly(List<TileProperties> listFreeTiles)

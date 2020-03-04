@@ -103,7 +103,7 @@ public class CharactersManager : MonoBehaviour
         return listFreeTiles[Random.Range(0, listFreeTiles.Count)];
     }
 
-    private Wave GetWave(int waveNumber)
+    public Wave GetWave(int waveNumber)
     {
         if (levelWaves.Length < waveNumber)
         {
@@ -113,6 +113,19 @@ public class CharactersManager : MonoBehaviour
         {
             Debug.LogError("waveNumberIndex too High. returning null...");
             return null;
+        }
+    }
+
+    public void LoadWaves(Wave[] waves)
+    {
+        levelWaves = waves;
+    }
+
+    public void SpawnWave(int WaveNumber)
+    {
+        for (int i =0; i < levelWaves[WaveNumber].enemies.Length;i++)
+        {
+            SpawnEnemyCharacterAtPos(levelWaves[WaveNumber].enemies[i].gridPosition);
         }
     }
 }

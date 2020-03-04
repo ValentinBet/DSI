@@ -6,7 +6,7 @@ public class Wave : ScriptableObject
 {
     public int turnOfActivation;
     public bool needsEmptyBoard;
-    public EnemyType[] enemies;
+    public W_Enemy[] enemies;
 
 }
 

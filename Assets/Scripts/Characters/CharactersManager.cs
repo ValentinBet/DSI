@@ -66,6 +66,17 @@ public class CharactersManager : MonoBehaviour
         }
     }
 
+    //Used for Waves
+    public void SpawnEnemyCharacterAtPos(Vector2 gridPos)
+    {
+        GameObject _enemy = Instantiate(enemyTypeList[0], new Vector3(gridPos.x*2+1,0,gridPos.y*2+1) + Vector3.up, Quaternion.identity);
+        EnemyCharacter _enemyChar = _enemy.GetComponent<EnemyCharacter>();
+        _enemyChar.SetOccupiedTile();
+        _enemyChar.priority = lastEnnemyPriority;
+        enemyCharacters.Add(_enemyChar);
+        lastEnnemyPriority++;
+    }
+
     private TileProperties PickTileRandomly(List<TileProperties> listFreeTiles)
     {
         return listFreeTiles[Random.Range(0, listFreeTiles.Count)];

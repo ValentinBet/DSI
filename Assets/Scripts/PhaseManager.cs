@@ -41,9 +41,14 @@ public class PhaseManager : MonoBehaviour
                 //All Allies and ennemies become "Standby"
                 break;
             case Phase.Allied:
+                //CharactersManager.Instance.allyCharacter
                 //FindAllAllies,Ticks
                 break;
-            case Phase.Ennemy:
+            case Phase.Enemy:
+                for (int i = 0; i < CharactersManager.Instance.enemyCharacters.Count; i++)
+                {
+                    //CharactersManager.Instance.enemyCharacters[i].Execute()
+                }
                 //findAllEnnemies,ticks
                 break;
         }
@@ -52,7 +57,8 @@ public class PhaseManager : MonoBehaviour
 
 public enum Phase
 {
+    Initial,
     Control,
     Allied,
-    Ennemy
+    Enemy
 }

@@ -5,69 +5,33 @@ using UnityEngine;
 public class GridGenerator : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] tiles;
-    [SerializeField]
-    private Material[] debugMaterials;
-    [SerializeField]
     private GridTemplate GT;
-    private int[] tempInfos;
-    [SerializeField]
-    private bool debugMode = false;
 
-    public static GridGenerator Instance;
+    public static GridGenerator Instance { get { return _instance; } }
+    private static GridGenerator _instance;
 
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance != null && _instance != this)
         {
-            Instance = this;
+            Destroy(this.gameObject);
         }
         else
         {
-            Destroy(this);
+            _instance = this;
         }
     }
 
     void Start()
     {
-        if (debugMode == true)
-        {
-            if (GT == null)
-            {
-                tempInfos = new int[100];
-                for (int i = 0; i < 100; i++)
-                {
-                    tempInfos[i] = 1;
-                }
-                GenerateMap(10, 10, tempInfos);
-            }
-            else
-            {
-                GenerateMap(GT);
-            }
-        }
-    }
-
-    //Using int IDS (DEPRECATED)
-    public void GenerateMap(int width, int height, int[] infos)
-    {
-        for(int i = 0; i< height;i++)
-        {
-            for(int j = 0; j< width; j++)
-            {
-                switch (infos[i * width + j])
-                {
-                    case 0:
-                        break;
-                    case 1:
-                        SpawnTile(0,j,i);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-        SetCamSettings(width, height);
+       if (GT != null)
+       {
+           GenerateMap(GT);
+       }
+       else
+       {
+           Debug.LogError("No Grid Template Assigned, generation stopped");
+       }
     }
 
     //Using GridTemplate (Ld Tool format)
@@ -77,26 +41,17 @@ public class GridGenerator : MonoBehaviour
         {
             for (int j = 0; j < template.Width; j++)
             {
-                switch(template.datas[i * template.Width + j].type)
+                if (template.datas[i * template.Width + j].prefab != null)
                 {
-                    case TilesType.Normal:
-                        SpawnTile(j, i, template.datas[i * template.Width + j].prefab);
-                        break;
-                    default:
-                        break;
+                    SpawnTile(j, i, template.datas[i * template.Width + j].prefab);
                 }
-                
+                else
+                {
+                    Debug.LogWarning("Void Tile (" + (i * template.Width + j).ToString() + ") consider assigning a prefab.");
+                }
             }
         }
         SetCamSettings(template.Width, template.Heigth);
-    }
-
-    //Spawning using Int ID
-    public void SpawnTile(int ID,int GridX, int GridY)
-    {
-        GameObject GO = Instantiate(tiles[ID], new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1),Quaternion.identity);
-        GO.GetComponent<MeshRenderer>().sharedMaterial = debugMaterials[(GridX * 10 + GridY)%debugMaterials.Length];
-        GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
     }
 
     //Spawning using GridTemplate Material data

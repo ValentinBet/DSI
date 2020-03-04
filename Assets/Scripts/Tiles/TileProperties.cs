@@ -11,6 +11,7 @@ public class TileProperties : MonoBehaviour
     public bool isOccupied;
     public bool isMovable;
     public bool isActivated;
+    [HideInInspector] public bool isAllySpawnable = false;
 
     public LayerMask TileLayer;
 
@@ -24,7 +25,7 @@ public class TileProperties : MonoBehaviour
     }
 
 
-    public List<TileProperties> GetTileOnDirection(Vector3 direction, int lenght)
+    public List<TileProperties> GetTileOnDirection(Vector3 direction, int lenght = 1, bool isIncludingMainTile = false)
     {
         List<TileProperties> listTilesOnDirection = new List<TileProperties>();
 
@@ -34,10 +35,13 @@ public class TileProperties : MonoBehaviour
 
         for (int i = 0; i < hitTiles.Length; i++)
         {
-            if (hitTiles[i].collider != null && hitTiles[i].collider.gameObject != this.gameObject)
+            if (hitTiles[i].collider != null)
             {
                 if (hitTiles[i].collider.gameObject.GetComponent<TileProperties>() != null)
                 {
+                    if (hitTiles[i].collider.gameObject != this.gameObject && !isIncludingMainTile)
+                        continue;
+
                     listTilesOnDirection.Add(hitTiles[i].collider.gameObject.GetComponent<TileProperties>());
                 }
             }

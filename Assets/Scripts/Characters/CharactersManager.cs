@@ -9,13 +9,16 @@ public class CharactersManager : MonoBehaviour
 
     public List<EnemyCharacter> enemyCharacters = new List<EnemyCharacter>();
     public List<AllyCharacter> allyCharacter = new List<AllyCharacter>();
-
     public List<GameObject> enemyTypeList = new List<GameObject>();
+
+    public Material highlightedMaterial;
+    public AllyCharactersPlacer allyCharactersPlacer;
+
+    [SerializeField] private SpawnZone enemySpawnZone;
+    [SerializeField] private SpawnZone allySpawnZone;
 
     private int lastEnnemyPriority = 0;
     private int lastAllyPriority = 0;
-
-    [SerializeField] private SpawnZone enemySpawnZone;
 
     private void Awake()
     {
@@ -27,10 +30,25 @@ public class CharactersManager : MonoBehaviour
         {
             _instance = this;
         }
-
     }
 
-    public void SpawnEnemyCharacter(int ennemyNumber = 1)
+    public void InitAllyPlacing()
+    {
+        HighlightAllySpawnZone();
+        allyCharactersPlacer.InitPlacing();
+    } 
+
+    public void HighlightAllySpawnZone()
+    {
+        List<TileProperties> freeTiles = allySpawnZone.GetFreeTiles();
+
+        foreach (TileProperties tp in freeTiles)
+        {
+            // HighLight
+        }
+    }
+
+    public void SpawnEnemyCharacterRandomly(int ennemyNumber = 1)
     {
         List<TileProperties> freeTiles = enemySpawnZone.GetFreeTiles();
 
@@ -42,6 +60,7 @@ public class CharactersManager : MonoBehaviour
                 EnemyCharacter _enemyChar = _enemy.GetComponent<EnemyCharacter>();
                 _enemyChar.SetOccupiedTile();
                 _enemyChar.priority = lastEnnemyPriority;
+                enemyCharacters.Add(_enemyChar);
                 lastEnnemyPriority++;
             }
         }

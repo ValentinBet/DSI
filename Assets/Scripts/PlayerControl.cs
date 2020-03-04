@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    public Material debugM;
-
     public KeyCode TileClearKey;
     public KeyCode TileSwapKey;
     public KeyCode TileRotateKey;
@@ -16,7 +14,6 @@ public class PlayerControl : MonoBehaviour
         {
             if (GridManager.Instance.GetTileUnderSelector() != null)
             {
-                // GridManager.Instance.GetTileUnderSelector().GetComponent<MeshRenderer>().sharedMaterial = debugM;
                 TilesManager.TilesChangerInstance.TryChangePos(GridManager.Instance.GetTileUnderSelector().gameObject);
             }
         }
@@ -25,7 +22,8 @@ public class PlayerControl : MonoBehaviour
         {
             TilesManager.TilesChangerInstance.ClearChoice();
 
-            CharactersManager.Instance.SpawnEnemyCharacter();
+            CharactersManager.Instance.SpawnEnemyCharacterRandomly();
+            CharactersManager.Instance.InitAllyPlacing();
         }
 
         if (Input.GetKeyDown(TileSwapKey))

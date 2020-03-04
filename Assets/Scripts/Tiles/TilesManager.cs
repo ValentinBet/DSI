@@ -28,7 +28,7 @@ public class TilesManager : MonoBehaviour
     }
 
 
-    public List<TileProperties> GetTileNeighbors(TileProperties tile, Cardinal cardinalPoint, int lenght)
+    public List<TileProperties> GetTileNeighbors(TileProperties tile, Cardinal cardinalPoint, int lenght = 1, bool isIncludingMainTile = false)
     {
         List<TileProperties> _TileNeighbors = new List<TileProperties>();
 
@@ -56,7 +56,7 @@ public class TilesManager : MonoBehaviour
         return tile.GetTileOnDirection(direction, lenght);
     }
 
-    public List<TileProperties> GetTileAllNeighbors(TileProperties tile, int lenght)
+    public List<TileProperties> GetTileAllNeighbors(TileProperties tile, int lenght = 1, bool isIncludingMainTile = false)
     {
         List<TileProperties> _TileNeighbors = new List<TileProperties>();
 

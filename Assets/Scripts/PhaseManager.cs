@@ -157,6 +157,20 @@ public class PhaseManager : MonoBehaviour
             NextPhase();
         }
     }
+
+    public void NextUnit()
+    {
+        if (actualPhase == Phase.Allied)
+        {
+            NextAlly();
+        } else if(actualPhase == Phase.Enemy)
+        {
+            NextEnemy();
+        } else
+        {
+            Debug.LogError("Phase not fit for \"NextUnit()\" call, check sequence order.");
+        }
+    }
 }
 
 public enum Phase

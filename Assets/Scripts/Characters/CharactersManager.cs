@@ -17,6 +17,8 @@ public class CharactersManager : MonoBehaviour
     [SerializeField] private SpawnZone enemySpawnZone;
     [SerializeField] private SpawnZone allySpawnZone;
 
+    private Wave[] levelWaves;
+
     private int lastEnnemyPriority = 0;
     private int lastAllyPriority = 0;
 
@@ -99,5 +101,18 @@ public class CharactersManager : MonoBehaviour
     private TileProperties PickTileRandomly(List<TileProperties> listFreeTiles)
     {
         return listFreeTiles[Random.Range(0, listFreeTiles.Count)];
+    }
+
+    private Wave GetWave(int waveNumber)
+    {
+        if (levelWaves.Length < waveNumber)
+        {
+            return levelWaves[waveNumber];
+        }
+        else
+        {
+            Debug.LogError("waveNumberIndex too High. returning null...");
+            return null;
+        }
     }
 }

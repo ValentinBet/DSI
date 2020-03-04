@@ -28,10 +28,12 @@ public class PatternReader : MonoBehaviour
                         if (frontTile.isOccupied)
                         {
                             Debug.Log("Attack");
+                            InterruptPattern();
                         }
                         if (frontTile.isAWall)
                         {
                             Debug.Log("AttackWall");
+                            InterruptPattern();
                         }
 
 
@@ -75,9 +77,14 @@ public class PatternReader : MonoBehaviour
 
     }
 
-    private void InterreuptPattern()
+    private void InterruptPattern()
     {
 
+    }
+
+    private void FinishTurn()
+    {
+       // PhaseManager.Instance.NextUnit();
     }
 
     private IEnumerator actionDuration(float duration)

@@ -17,6 +17,8 @@ public class CharactersManager : MonoBehaviour
     [SerializeField] private SpawnZone enemySpawnZone;
     [SerializeField] private SpawnZone allySpawnZone;
 
+    private Wave[] levelWaves;
+
     private int lastEnnemyPriority = 0;
     private int lastAllyPriority = 0;
 
@@ -34,20 +36,39 @@ public class CharactersManager : MonoBehaviour
 
     public void InitAllyPlacing()
     {
-        List<TileProperties> freeTiles = allySpawnZone.GetFreeTiles();
+        List<TileProperties> freeTiles = allySpawnZone.GetTiles();
+
         ResetAllTilesSpawnableState();
         SetAllTilesInAllySpawnAsSpawnable(freeTiles);
-        HighlightAllySpawnZone(freeTiles);
+        SetHighlightAllySpawnZone(freeTiles, true);
 
         allyCharactersPlacer.InitPlacing();
     }
 
-    public void HighlightAllySpawnZone(List<TileProperties> freeTiles)
+    public void EndAllyPlacing()
     {
-        foreach (TileProperties tp in freeTiles)
+        List<TileProperties> freeTiles = allySpawnZone.GetTiles(false);
+
+        SetHighlightAllySpawnZone(freeTiles, false);
+    }
+
+    public void SetHighlightAllySpawnZone(List<TileProperties> freeTiles, bool value)
+    {
+        if (value)
         {
-            tp.GetComponent<MeshRenderer>().sharedMaterial = highlightedMaterial;
+            foreach (TileProperties tp in freeTiles)
+            {
+                tp.GetComponent<MeshRenderer>().materials = new Material[] { tp.GetComponent<MeshRenderer>().materials[0], highlightedMaterial };
+            }
         }
+        else
+        {
+            foreach (TileProperties tp in freeTiles)
+            {
+                tp.GetComponent<MeshRenderer>().materials = new Material[] { tp.GetComponent<MeshRenderer>().materials[0] };
+            }
+        }
+
     }
 
     private void SetAllTilesInAllySpawnAsSpawnable(List<TileProperties> freeTiles)
@@ -58,7 +79,7 @@ public class CharactersManager : MonoBehaviour
         }
     }
 
-   private void ResetAllTilesSpawnableState()
+    private void ResetAllTilesSpawnableState()
     {
         foreach (TileProperties tp in TilesManager.Instance.AllTilesList)
         {
@@ -69,7 +90,7 @@ public class CharactersManager : MonoBehaviour
     // Spawn Ennemy characters
     public void SpawnEnemyCharacterRandomly(int ennemyNumber = 1)
     {
-        List<TileProperties> freeTiles = enemySpawnZone.GetFreeTiles();
+        List<TileProperties> freeTiles = enemySpawnZone.GetTiles();
 
         if (freeTiles.Count != 0)
         {
@@ -88,7 +109,7 @@ public class CharactersManager : MonoBehaviour
     //Used for Waves
     public void SpawnEnemyCharacterAtPos(Vector2 gridPos)
     {
-        GameObject _enemy = Instantiate(enemyTypeList[0], new Vector3(gridPos.x*2+1,0,gridPos.y*2+1) + Vector3.up, Quaternion.identity);
+        GameObject _enemy = Instantiate(enemyTypeList[0], new Vector3(gridPos.x * 2 + 1, 0, gridPos.y * 2 + 1) + Vector3.up, Quaternion.identity);
         EnemyCharacter _enemyChar = _enemy.GetComponent<EnemyCharacter>();
         _enemyChar.SetOccupiedTile();
         _enemyChar.priority = lastEnnemyPriority;
@@ -99,5 +120,31 @@ public class CharactersManager : MonoBehaviour
     private TileProperties PickTileRandomly(List<TileProperties> listFreeTiles)
     {
         return listFreeTiles[Random.Range(0, listFreeTiles.Count)];
+    }
+
+    public Wave GetWave(int waveNumber)
+    {
+        if (levelWaves.Length < waveNumber)
+        {
+            return levelWaves[waveNumber];
+        }
+        else
+        {
+            Debug.LogError("waveNumberIndex too High. returning null...");
+            return null;
+        }
+    }
+
+    public void LoadWaves(Wave[] waves)
+    {
+        levelWaves = waves;
+    }
+
+    public void SpawnWave(int WaveNumber)
+    {
+        for (int i =0; i < levelWaves[WaveNumber].enemies.Length;i++)
+        {
+            SpawnEnemyCharacterAtPos(levelWaves[WaveNumber].enemies[i].gridPosition);
+        }
     }
 }

@@ -7,8 +7,9 @@ public class Character : MonoBehaviour
     [Header("Properties")]
     public int life;
     public int damage;
-    public float maxAttackRange;
-    public float minAttackRange;
+    public float AttackRange;
+    public int movementRange;
+
     public Vector3 position;
     public int priority;
     public CharacterState myState = CharacterState.Standby;
@@ -35,6 +36,14 @@ public class Character : MonoBehaviour
             }
         }
     }
+
+    public void InitMovement(TileProperties tileDestination)
+    {
+        occupiedTile.isOccupied = false;
+        transform.position = tileDestination.transform.position + Vector3.up;
+        SetOccupiedTile();
+    }
+
 }
 public enum CharacterState
 {

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GridSelector : MonoBehaviour
 {
+    private RaycastHit hit;
 
     void Update()
     {
-        RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out hit, 1000, GridManager.Instance.tilesLayer))

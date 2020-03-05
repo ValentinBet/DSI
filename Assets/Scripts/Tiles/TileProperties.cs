@@ -13,17 +13,30 @@ public class TileProperties : MonoBehaviour
     public bool isWalkable;
     public bool isOccupied;
     public bool isMovable;
-    public bool isAWall;
     public bool isActivated;
+
+    public TilesSpecific specificity;
+    public LayerMask TileLayer;
 
     public ObjectTypeMetaData ObjectTypeMetaData;
     [HideInInspector] public bool isAllySpawnable = false;
 
-    public LayerMask TileLayer;
 
     private void Start()
     {
         gameObject.tag = "Tile";
+        if (specificity != TilesSpecific.None)
+        {
+            switch (specificity)
+            {
+                case TilesSpecific.Teleport:
+                    TilesManager.Instance.teleportList.Add(this);
+                    break;
+                case TilesSpecific.Trap:
+                    TilesManager.Instance.trapList.Add(this);
+                    break;
+            }
+        }
     }
     public bool CharacterCanSpawn()
     {
@@ -59,5 +72,18 @@ public class TileProperties : MonoBehaviour
         Debug.DrawRay(transform.position , transform.TransformDirection(direction) * lenght , Color.red);
 
         return listTilesOnDirection;
+    }
+
+
+    public enum TilesSpecific
+    {
+        None,
+        Ordre,
+        Push,
+        Fire,
+        Block,
+        Wall,
+        Teleport,
+        Trap
     }
 }

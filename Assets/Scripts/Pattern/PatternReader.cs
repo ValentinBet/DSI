@@ -39,21 +39,9 @@ public class PatternReader : MonoBehaviour
                 TileProperties frontTile = characterTile.GetTileOnDirection(character.transform.forward, 1, false)[0];
                 if (frontTile != null)
                 {
-                    if (frontTile.isWalkable && !frontTile.isOccupied)
-                    {
-                        // Faudra une anim qui fasse lerp la pos 
-                        character.InitMovement(frontTile);
-                        //character.occupiedTile.isWalkable = true;
-                    }
                     if (frontTile.isOccupied)
                     {
                         Debug.Log("Attack");
-                        character.InitAttack();
-                        FinishTurn();
-                    }
-                    if (frontTile.isAWall)
-                    {
-                        Debug.Log("AttackWall");
                         character.InitAttack();
                         FinishTurn();
                     }
@@ -153,14 +141,6 @@ public class PatternReader : MonoBehaviour
                 {
                     MeshRenderer _tMR = frontTile.GetComponent<MeshRenderer>();
 
-                    if (frontTile.isWalkable && !frontTile.isOccupied)
-                    {
-                        if (_tMR != null)
-                        {
-                            _tMR.sharedMaterial = mouvementMat;
-                        }
-                        currentTile = frontTile;
-                    }
                     if (frontTile.isOccupied)
                     {
                         if (_tMR != null)
@@ -169,13 +149,13 @@ public class PatternReader : MonoBehaviour
                         }
                         return;
                     }
-                    if (frontTile.isAWall)
+                    if (frontTile.isWalkable && !frontTile.isOccupied)
                     {
                         if (_tMR != null)
                         {
-                            _tMR.sharedMaterial = attackMat;
+                            _tMR.sharedMaterial = mouvementMat;
                         }
-                        return;
+                        currentTile = frontTile;
                     }
                 }
                 else

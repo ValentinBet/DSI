@@ -50,7 +50,12 @@ public class Character : MonoBehaviour
     public void InitMovement(TileProperties tileDestination)
     {
         occupiedTile.isOccupied = false;
- 
+        MeshRenderer tMR = occupiedTile.GetComponent<MeshRenderer>();
+        if (tMR != null)
+        {
+            tMR.material = PatternReader.instance.mouvementMat;
+        }
+
         transform.position = tileDestination.transform.position + Vector3.up;
         SetOccupiedTile();
     }

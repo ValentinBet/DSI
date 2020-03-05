@@ -13,6 +13,12 @@ public class TilesManager : MonoBehaviour
 
     public List<TileProperties> AllTilesList = new List<TileProperties>();
 
+    #region Tiles Specific
+
+    public List<TileProperties> trapList = new List<TileProperties>();
+    public List<TileProperties> teleportList = new List<TileProperties>();
+    #endregion
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -66,15 +72,15 @@ public class TilesManager : MonoBehaviour
         {
             _TileNeighbors.Add(Tp);
         }
-         foreach (TileProperties Tp in tile.GetTileOnDirection(-Vector3.forward, lenght))
+        foreach (TileProperties Tp in tile.GetTileOnDirection(-Vector3.forward, lenght))
         {
             _TileNeighbors.Add(Tp);
         }
-         foreach (TileProperties Tp in tile.GetTileOnDirection(-Vector3.right, lenght))
+        foreach (TileProperties Tp in tile.GetTileOnDirection(-Vector3.right, lenght))
         {
             _TileNeighbors.Add(Tp);
         }
-                          
+
         return _TileNeighbors;
     }
 

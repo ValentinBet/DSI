@@ -6,7 +6,7 @@ public class PatternReader : MonoBehaviour
 {
     public static PatternReader instance;
 
-    public Material mouvementMat, attackMat, rotationMat , clickMat;
+    public Material mouvementMat, attackMat, rotationMat, clickMat;
 
     private void Awake()
     {
@@ -20,79 +20,107 @@ public class PatternReader : MonoBehaviour
         }
     }
 
-    public void ReadPattern(PatternTemplate pattern, Character character)
+
+    #region Execute Pattern 
+    public void ExecutePattern(PatternTemplate pattern, Character character)
+    {
+        int depth = pattern.actions.Length;
+        ExecuteAction(character, pattern, 0, depth);
+    }
+
+    private void ExecuteAction(Character character, PatternTemplate pattern, int index, int depth)
     {
         TileProperties characterTile = character.occupiedTile;
 
 
-
-        for (int i = 0; i < pattern.actions.Length; i++)
+        switch (pattern.actions[index].actionType)
         {
-            switch (pattern.actions[i].actionType)
-            {
-                case ActionType.Movement:
-                    TileProperties frontTile = characterTile.GetTileOnDirection(character.transform.forward, 1, false)[0];
-                    if (frontTile != null)
+            case ActionType.Movement:
+                TileProperties frontTile = characterTile.GetTileOnDirection(character.transform.forward, 1, false)[0];
+                if (frontTile != null)
+                {
+                    if (frontTile.isWalkable && !frontTile.isOccupied)
                     {
-                        if (frontTile.isWalkable && !frontTile.isOccupied)
-                        {
-                            // Faudra une anim qui fasse lerp la pos 
-                            character.InitMovement(frontTile);
-                            //character.occupiedTile.isWalkable = true;
-                        }
-                        if (frontTile.isOccupied)
-                        {
-                            Debug.Log("Attack");
-                            character.InitAttack();
-                            FinishTurn();
-                        }
-                        if (frontTile.isAWall)
-                        {
-                            Debug.Log("AttackWall");
-                            character.InitAttack();
-                            FinishTurn();
-                        }
-
-
+                        // Faudra une anim qui fasse lerp la pos 
+                        character.InitMovement(frontTile);
+                        //character.occupiedTile.isWalkable = true;
                     }
-                    break;
-
-                case ActionType.Rotation:
-                    float rotationAmount;
-                    switch (pattern.actions[i].rotation)
+                    if (frontTile.isOccupied)
                     {
-                        case Rotation.Left:
-                            rotationAmount = -90;
-                            break;
-                        case Rotation.Rigth:
-                            rotationAmount = 90;
-                            break;
-                        case Rotation.Reverse:
-                            rotationAmount = 180;
-                            break;
-                        default:
-                            rotationAmount = 0;
-                            break;
+                        Debug.Log("Attack");
+                        character.InitAttack();
+                        FinishTurn();
                     }
-                    character.transform.Rotate(character.transform.up, rotationAmount);
+                    if (frontTile.isAWall)
+                    {
+                        Debug.Log("AttackWall");
+                        character.InitAttack();
+                        FinishTurn();
+                    }
+                }
+                break;
 
-                    break;
+            case ActionType.Rotation:
+                float rotationAmount;
+                switch (pattern.actions[index].rotation)
+                {
+                    case Rotation.Left:
+                        rotationAmount = -90;
+                        break;
+                    case Rotation.Rigth:
+                        rotationAmount = 90;
+                        break;
+                    case Rotation.Reverse:
+                        rotationAmount = 180;
+                        break;
+                    default:
+                        rotationAmount = 0;
+                        break;
+                }
+                character.transform.Rotate(character.transform.up, rotationAmount);
 
-                case ActionType.Attack:
-                    Debug.Log("Attack");
-                    break;
+                break;
 
-                default:
-                    break;
-            }
+            case ActionType.Attack:
+                Debug.Log("Attack");
+                break;
 
-            // NextAction(pattern.actions[i].actionDuration);
-            // FinishTurn();
-
+            default:
+                break;
         }
 
+        index++;
+        if (index < depth)
+        {
+            StartCoroutine(NextAction(pattern.actions[index].actionDuration, character, pattern, index, depth));
+        }
+        else
+        {
+            FinishTurn();
+        }
+    }
+
+
+    public void InterruptPattern(int index)
+    {
 
     }
+
+
+
+
+
+    private IEnumerator NextAction(float duration , Character character, PatternTemplate pattern, int index, int depth)
+    {
+        yield return new WaitForSeconds(duration);
+        ExecuteAction(character, pattern, index, depth);
+    }
+    #endregion
+
+
+
+
+    #region Preview PAttern
 
     public void PreviewPattern(PatternTemplate pattern, TileProperties tileOrigin, Vector3 direction)
     {
@@ -102,11 +130,10 @@ public class PatternReader : MonoBehaviour
         float rotationAmount = 0;
 
 
-        MakeAction(currentTile, rotationAmount, pattern, 0, depth);
+        PreviewAction(currentTile, rotationAmount, pattern, 0, depth);
 
     }
-
-    private void MakeAction(TileProperties currentTile, float rotationAmount, PatternTemplate pattern, int index, int depth)
+    private void PreviewAction(TileProperties currentTile, float rotationAmount, PatternTemplate pattern, int index, int depth)
     {
         Vector3 direction = Vector3.forward;
         direction = Quaternion.AngleAxis(rotationAmount, Vector3.up) * direction;
@@ -200,18 +227,20 @@ public class PatternReader : MonoBehaviour
         index++;
         if (index < depth)
         {
-            StartCoroutine(NextAction(pattern.actions[index].actionDuration, currentTile, rotationAmount, pattern, index, depth));
+            StartCoroutine(NextPreview(pattern.actions[index].actionDuration, currentTile, rotationAmount, pattern, index, depth));
         }
     }
+    private IEnumerator NextPreview(float duration, TileProperties currentTile, float rotationAmount, PatternTemplate pattern, int index, int depth)
+    {
+        yield return new WaitForSeconds(duration);
+        PreviewAction(currentTile, rotationAmount, pattern, index, depth);
+    }
+    #endregion
 
     private void FinishTurn()
     {
         PhaseManager.Instance.NextUnit();
     }
 
-    private IEnumerator NextAction(float duration, TileProperties currentTile, float rotationAmount, PatternTemplate pattern, int index, int depth)
-    {
-        yield return new WaitForSeconds(duration);
-        MakeAction(currentTile, rotationAmount, pattern, index, depth);
-    }
+
 }

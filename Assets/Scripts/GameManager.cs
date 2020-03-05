@@ -22,10 +22,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    public void LoadSceneAdditive(string sceneName)
-    {
-        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-    }
 
     public void QuitGame()
     {

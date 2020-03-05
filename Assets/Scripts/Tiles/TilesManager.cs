@@ -83,6 +83,14 @@ public class TilesManager : MonoBehaviour
 
         return _TileNeighbors;
     }
+    public void ChangeTileMaterial(TileProperties tile, Material newMat)
+    {
+        if (tile.mR != null)
+        {
+
+            tile.mR.sharedMaterial = newMat;
+        }
+    }
 
 
 }

@@ -14,17 +14,23 @@ public class TileProperties : MonoBehaviour
     public bool isOccupied;
     public bool isMovable;
     public bool isActivated;
+    public bool isOnFire;
 
     public TilesSpecific specificity;
+    public TilesOrder order;
     public LayerMask TileLayer;
 
     public ObjectTypeMetaData ObjectTypeMetaData;
     [HideInInspector] public bool isAllySpawnable = false;
+    [HideInInspector] public MeshRenderer mR;
+    [HideInInspector] public Material baseMat;
 
 
     private void Start()
     {
         gameObject.tag = "Tile";
+        mR = GetComponent<MeshRenderer>();
+        baseMat = mR.sharedMaterial;
         if (specificity != TilesSpecific.None)
         {
             switch (specificity)
@@ -69,9 +75,29 @@ public class TileProperties : MonoBehaviour
             }
         }
 
-        Debug.DrawRay(transform.position , transform.TransformDirection(direction) * lenght , Color.red);
+        Debug.DrawRay(transform.position, transform.TransformDirection(direction) * lenght, Color.red);
 
         return listTilesOnDirection;
+    }
+
+
+    public Vector3 GetCurrentForward()
+    {
+        return transform.forward;
+    }
+
+    public float GetRotationOffset(Vector3 directionToTest)
+    {
+
+        float multiplier = 1f;
+        if (directionToTest.x < 0)
+        {
+            multiplier = -1f;
+        }
+        Debug.DrawLine(transform.position, (transform.position + transform.forward) * 3, Color.cyan, 2);
+        float angle = (180 * Vector3.Dot(directionToTest, transform.forward)) * multiplier;
+        print(angle);
+        return angle;
     }
 
 
@@ -84,6 +110,15 @@ public class TileProperties : MonoBehaviour
         Block,
         Wall,
         Teleport,
-        Trap
+        Trap,
+        PlayerBase,
+        EnemyBase
+    }
+
+    public enum TilesOrder
+    {
+        rotate, 
+        attack,
+        stop
     }
 }

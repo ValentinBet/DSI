@@ -26,14 +26,5 @@ MonoBehaviour:
     actionType: 0
     rotation: 0
   - actionDuration: 0.5
-    actionType: 0
-    rotation: 0
-  - actionDuration: 0.5
     actionType: 2
-    rotation: 0
-  - actionDuration: 0.5
-    actionType: 0
-    rotation: 0
-  - actionDuration: 0.5
-    actionType: 0
     rotation: 0

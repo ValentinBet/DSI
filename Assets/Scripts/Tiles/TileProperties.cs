@@ -17,6 +17,8 @@ public class TileProperties : MonoBehaviour
     public bool isOnFire;
 
     public TilesSpecific specificity;
+    public int teleportChannel;
+
     public TilesOrder order;
     public LayerMask TileLayer;
 
@@ -100,6 +102,20 @@ public class TileProperties : MonoBehaviour
         return angle;
     }
 
+    public TileProperties GetTeleportExit()
+    {
+        for (int i = 0; i < TilesManager.Instance.teleportList.Count; i++)
+        {
+            if (TilesManager.Instance.teleportList[i].teleportChannel == this.teleportChannel && TilesManager.Instance.teleportList[i] != this)
+            {
+                return TilesManager.Instance.teleportList[i];
+            }
+        }
+
+        Debug.LogError("Il n'y a pas de sortie à ce teleporteur", this);
+        return null;
+    }
+
 
     public enum TilesSpecific
     {
@@ -107,7 +123,7 @@ public class TileProperties : MonoBehaviour
         Ordre,
         Push,
         Fire,
-        Block,
+        Door,
         Wall,
         Teleport,
         Trap,

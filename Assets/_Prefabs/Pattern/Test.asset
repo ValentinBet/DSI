@@ -13,18 +13,33 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   actions:
-  - actionDuration: 0.5
+  - actionDuration: 2
     actionType: 0
     rotation: 0
-  - actionDuration: 0.5
+  - actionDuration: 2
     actionType: 0
     rotation: 0
-  - actionDuration: 0.5
+  - actionDuration: 2
     actionType: 1
     rotation: 1
-  - actionDuration: 0.5
+  - actionDuration: 2
     actionType: 0
     rotation: 0
-  - actionDuration: 0.5
+  - actionDuration: 2
+    actionType: 0
+    rotation: 0
+  - actionDuration: 2
+    actionType: 1
+    rotation: 0
+  - actionDuration: 2
+    actionType: 0
+    rotation: 0
+  - actionDuration: 2
+    actionType: 0
+    rotation: 0
+  - actionDuration: 2
+    actionType: 1
+    rotation: 0
+  - actionDuration: 2
     actionType: 2
     rotation: 0

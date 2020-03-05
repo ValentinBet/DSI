@@ -217,10 +217,18 @@ public class PatternReader : MonoBehaviour
                 StartCoroutine(ExtraDeplacementReview(currentTile, rotationAmount, currentDirection, pattern, index, depth));
                 break;
 
-            case TileProperties.TilesSpecific.Block:
-
-                TilesManager.Instance.ChangeTileMaterial(newTile, interactionMat);
-                StopPattern(currentTile);
+            case TileProperties.TilesSpecific.Door:
+                if (newTile.isActivated)
+                {
+                    newTile.isActivated = false;
+                    TilesManager.Instance.ChangeTileMaterial(newTile, interactionMat);
+                    StopPattern(currentTile);
+                }
+                else
+                {
+                    TilesManager.Instance.ChangeTileMaterial(newTile, interactionMat);
+                    MovementOnTilePreview(pattern, currentTile, rotationAmount, index, depth, newTile);
+                }
 
                 break;
             case TileProperties.TilesSpecific.Wall:
@@ -229,18 +237,18 @@ public class PatternReader : MonoBehaviour
 
                 break;
             case TileProperties.TilesSpecific.Teleport:
-                TilesManager.Instance.ChangeTileMaterial(newTile, attackMat);
-                StopPattern(currentTile);
+                StartCoroutine(TeleportationReview(currentTile, rotationAmount, currentDirection, pattern, index, depth));
                 break;
 
 
             case TileProperties.TilesSpecific.Trap:
-                //faudra prevoir le personnage au click 
+                //faudra prevoir rajouter le prévition de mort
                 TilesManager.Instance.ChangeTileMaterial(newTile, mouvementMat);
                 StartCoroutine(GetDamagedReview(currentTile, rotationAmount, pattern, index, depth));
                 break;
 
             default:
+                StopPattern(currentTile);
                 break;
         }
     }
@@ -308,7 +316,26 @@ public class PatternReader : MonoBehaviour
             TileProperties testedTile = tiles[0];
             MovementOnTilePreview(pattern, currentTile, rotationAmount, index, depth, testedTile);
         }
+    }
 
+    private IEnumerator TeleportationReview(TileProperties currentTile, float rotationAmount, Vector3 currentDirection, PatternTemplate pattern, int index, int depth)
+    {
+        print("Push ");
+        yield return new WaitForSeconds(0.5f);
+
+        TilesManager.Instance.ChangeTileMaterial(currentTile, interactionMat);
+        TileProperties teleportExit = currentTile.GetTeleportExit();
+        if (teleportExit == null)
+        {
+            StopPattern(currentTile);
+        }
+        else
+        {
+            tileColoredDuringPattern.Add(currentTile);
+            TilesManager.Instance.ChangeTileMaterial(teleportExit, interactionMat);
+            rotationAmount += teleportExit.GetRotationOffset(currentDirection);
+            ActionPreviewEnd(teleportExit, teleportExit, rotationAmount, pattern, index, depth);
+        }
     }
 
 

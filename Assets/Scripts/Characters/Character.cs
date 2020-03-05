@@ -17,6 +17,8 @@ public class Character : MonoBehaviour
     public List<TileProperties> pathFinding = new List<TileProperties>();
     public TileProperties occupiedTile;
 
+    public ObjectTypeMetaData ObjectTypeMetaData;
+
     private void Start()
     {
         SetOccupiedTile();

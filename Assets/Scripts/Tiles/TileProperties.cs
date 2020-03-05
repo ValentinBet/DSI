@@ -5,6 +5,9 @@ using UnityEngine;
 public class TileProperties : MonoBehaviour
 {
     [Header("Properties")]
+    public string tileName;
+    public string tileDescription;
+
     public Vector2 tileID;
     public bool canSeeThrough;
     public bool isWalkable;
@@ -12,10 +15,16 @@ public class TileProperties : MonoBehaviour
     public bool isMovable;
     public bool isAWall;
     public bool isActivated;
+
+    public ObjectTypeMetaData ObjectTypeMetaData;
     [HideInInspector] public bool isAllySpawnable = false;
 
     public LayerMask TileLayer;
 
+    private void Start()
+    {
+        gameObject.tag = "Tile";
+    }
     public bool CharacterCanSpawn()
     {
         if (isWalkable && !isOccupied)

@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class AllyCharacterData
 {
-    public AllyCharacterTypeData characterTypeData;
+    public string name;
     public float experience;
     public int level;
+
+    public string allyDescription;
 }

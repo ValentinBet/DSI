@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7377767214377358135}
   m_Layer: 0
   m_Name: AllyCharacterProto
-  m_TagString: Untagged
+  m_TagString: AllyCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,9 @@ MonoBehaviour:
   myState: 0
   pathFinding: []
   occupiedTile: {fileID: 0}
+  ObjectTypeMetaData: {fileID: 11400000, guid: 5c1090fb84e2e994cbcd4bf8f6c6bfae, type: 2}
   data:
-    characterTypeData: {fileID: 11400000, guid: bfedc7f71456c9d44ad7e3dd79393292,
-      type: 2}
+    name: le stremon
     experience: 0
+    level: 0
+    allyDescription: Un grand guerrier

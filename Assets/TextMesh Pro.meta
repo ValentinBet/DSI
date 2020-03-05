@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/_Prefabs/Plugins/EditorResources.meta
+guid: df6435be9c894e94983a9ac883c83d82
+=======
 guid: f54d1bd14bd3ca042bd867b519fee8cc
+>>>>>>> f366070340172a3daabc88cd80ff143edd683d20:Assets/TextMesh Pro.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

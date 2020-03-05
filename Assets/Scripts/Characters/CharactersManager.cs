@@ -46,7 +46,6 @@ public class CharactersManager : MonoBehaviour
     public void EndAllyPlacing()
     {
         List<TileProperties> freeTiles = allySpawnZone.GetTiles(false);
-
         SetHighlightAllySpawnZone(freeTiles, false);
     }
 

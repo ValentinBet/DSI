@@ -26,10 +26,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject nextTurnButton;
 
     [Header("AlertPanel")]
+    [SerializeField] private Animator AlertAnim;
     [SerializeField] private TextMeshProUGUI AlertText;
 
+    [Header("PAs")]
+    [SerializeField] private TextMeshProUGUI PAtext;
 
-    [Header("Follow cursor image")]
+        [Header("Follow cursor image")]
     [SerializeField] private RectTransform allyHint;
     [SerializeField] private Image allyHintImg;
 
@@ -118,6 +121,36 @@ public class UIManager : MonoBehaviour
         this.clusterTitle.text = clusterTitle;
         this.clusterDesc.text = clusterDesc;
         this.clusterImg.sprite = clusterImg;
+    }
+
+    public void EndTurnButtonClicked()
+    {
+        endTurnButton.GetComponent<Button>().interactable = false;
+        PhaseManager.Instance.NextPhase(); // Logical transition to --> Ally Phase
+    }
+
+    public void newTurn()
+    {
+        endTurnButton.GetComponent<Button>().interactable = true;
+        AlertAnim.Play("Alert");
+        AlertText.text = "Player Phase";
+    }
+
+    public void allyTurn()
+    {
+        AlertAnim.Play("Alert");
+        AlertText.text = "Allies phase";
+    }
+
+    public void enemyTurn()
+    {
+        AlertAnim.Play("Alert");
+        AlertText.text = "Enemies phase";
+    }
+
+    public void setPA(int amount)
+    {
+        PAtext.text = amount + "/5";
     }
 
 }

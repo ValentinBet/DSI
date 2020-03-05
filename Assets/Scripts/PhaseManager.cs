@@ -36,7 +36,7 @@ public class PhaseManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void NextPhase()
+    public void NextPhase()
     {
         if (actualPhase != Phase.WaveUpdate)
         {
@@ -47,6 +47,7 @@ public class PhaseManager : MonoBehaviour
         {
             actualPhase = Phase.Control;
         }
+        Debug.Log(actualPhase);
         PhaseTrigger();
     }
 
@@ -55,7 +56,7 @@ public class PhaseManager : MonoBehaviour
         switch (actualPhase)
         {
             case Phase.Initial:
-                //Inputs
+                CharactersManager.Instance.InitAllyPlacing();
                 break;
             case Phase.Control:
                 actualTurn++;
@@ -84,6 +85,7 @@ public class PhaseManager : MonoBehaviour
                 }
                 break;
             case Phase.Allied:
+                UIManager.Instance.allyTurn();
                 PlayerControl.Instance.EnableInputs(false);
                 unitIndexs.Clear();
                 for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count; i++)
@@ -97,6 +99,7 @@ public class PhaseManager : MonoBehaviour
                 NextAlly();
                 break;
             case Phase.Enemy:
+                UIManager.Instance.enemyTurn();
                 unitIndexs.Clear();
                 for (int i = 0; i < CharactersManager.Instance.enemyCharacters.Count; i++)
                 {
@@ -109,7 +112,9 @@ public class PhaseManager : MonoBehaviour
                 NextEnemy();
                 break;
             case Phase.WaveUpdate:
+                //Wave Spawning and management, bypassed for prototype
                 //                CharactersManager.Instance
+                NextPhase();
                 break;
 
         }

@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject nextTurnButton;
 
     [Header("AlertPanel")]
+    [SerializeField] private Animator AlertAnim;
     [SerializeField] private TextMeshProUGUI AlertText;
 
 
@@ -118,6 +119,31 @@ public class UIManager : MonoBehaviour
         this.clusterTitle.text = clusterTitle;
         this.clusterDesc.text = clusterDesc;
         this.clusterImg.sprite = clusterImg;
+    }
+
+    public void EndTurnButtonClicked()
+    {
+        endTurnButton.GetComponent<Button>().interactable = false;
+        PhaseManager.Instance.NextPhase(); // Logical transition to --> Ally Phase
+    }
+
+    public void newTurn()
+    {
+        endTurnButton.GetComponent<Button>().interactable = true;
+        AlertAnim.Play("Alert");
+        AlertText.text = "Player Phase";
+    }
+
+    public void allyTurn()
+    {
+        AlertAnim.Play("Alert");
+        AlertText.text = "Allies phase";
+    }
+
+    public void enemyTurn()
+    {
+        AlertAnim.Play("Alert");
+        AlertText.text = "Enemies phase";
     }
 
 }

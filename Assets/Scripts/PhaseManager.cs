@@ -60,6 +60,7 @@ public class PhaseManager : MonoBehaviour
                 break;
             case Phase.Control:
                 actualTurn++;
+                GameTracker.Instance.RefreshPA();
                 PlayerControl.Instance.EnableInputs(true);
                 for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count; i++)
                 {

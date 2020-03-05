@@ -29,8 +29,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Animator AlertAnim;
     [SerializeField] private TextMeshProUGUI AlertText;
 
+    [Header("PAs")]
+    [SerializeField] private TextMeshProUGUI PAtext;
 
-    [Header("Follow cursor image")]
+        [Header("Follow cursor image")]
     [SerializeField] private RectTransform allyHint;
     [SerializeField] private Image allyHintImg;
 
@@ -144,6 +146,11 @@ public class UIManager : MonoBehaviour
     {
         AlertAnim.Play("Alert");
         AlertText.text = "Enemies phase";
+    }
+
+    public void setPA(int amount)
+    {
+        PAtext.text = amount + "/5";
     }
 
 }

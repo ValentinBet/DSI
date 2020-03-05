@@ -59,6 +59,7 @@ public class GameTracker : MonoBehaviour
         if (actualPA - cost > -1)
         {
             actualPA--;
+            UIManager.Instance.setPA(actualPA);
             return true;
         }
         else
@@ -70,6 +71,7 @@ public class GameTracker : MonoBehaviour
     public void RefreshPA()
     {
         actualPA = maxPA;
+        UIManager.Instance.setPA(actualPA);
     }
 
     public void TrackQuest()

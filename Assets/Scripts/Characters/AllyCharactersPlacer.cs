@@ -15,9 +15,10 @@ public class AllyCharactersPlacer : MonoBehaviour
     public void InitPlacing()
     {
         lastAllyPriority = 0;
-        PlacingAllyCharacters?.Invoke(true);
+        PlacingAllyCharacters?.Invoke(true); // for non singleton
         isPlacingAllys = true;
-        UIManager.Instance.SetAllyHintState(true, allyList[lastAllyPriority].GetComponent<AllyCharacter>().data.characterTypeData.CharacterSprite);
+        UpdateUIToActualAlly();
+        UIManager.Instance.isPlacingAlly = true;
     }
 
     public void StopPlacing()
@@ -26,6 +27,7 @@ public class AllyCharactersPlacer : MonoBehaviour
         isPlacingAllys = false;
         CharactersManager.Instance.EndAllyPlacing();
         UIManager.Instance.SetAllyHintState(false);
+        UIManager.Instance.isPlacingAlly = false;
     }
 
     public void TryPlaceAlly(TileProperties tile)
@@ -50,8 +52,15 @@ public class AllyCharactersPlacer : MonoBehaviour
         }
         else
         {
-            UIManager.Instance.SetAllyHintState(true, allyList[lastAllyPriority].GetComponent<AllyCharacter>().data.characterTypeData.CharacterSprite);
+            UpdateUIToActualAlly();
         }
+    }
+
+    private void UpdateUIToActualAlly()
+    {
+        AllyCharacter _ac = allyList[lastAllyPriority].GetComponent<AllyCharacter>();
+        UIManager.Instance.SetAllyHintState(true, _ac.ObjectTypeMetaData.sprite);
+        UIManager.Instance.SetClusterInfo(_ac.data.name,_ac.data.allyDescription, _ac.ObjectTypeMetaData.sprite);
     }
 
     private bool IsAllAllyedSpawned()

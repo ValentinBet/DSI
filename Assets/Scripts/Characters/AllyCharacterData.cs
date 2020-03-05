@@ -7,4 +7,5 @@ public class AllyCharacterData
 {
     public AllyCharacterTypeData characterTypeData;
     public float experience;
+    public int level;
 }

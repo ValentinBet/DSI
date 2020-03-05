@@ -48,7 +48,7 @@ public class PhaseManager : MonoBehaviour
 
     void PhaseTrigger()
     {
-        switch(actualPhase)
+        switch (actualPhase)
         {
             case Phase.Initial:
                 //Inputs
@@ -87,6 +87,7 @@ public class PhaseManager : MonoBehaviour
                     if (CharactersManager.Instance.allyCharacter[i].myState == CharacterState.Standby)
                     {
                         unitIndexs.Add(i);
+                        // PatternReader.ReadPattern(CharactersManager.Instance.allyCharacter[i].mouvementPattern, CharactersManager.Instance.allyCharacter[i]);
                     }
                 }
                 NextAlly();
@@ -95,15 +96,16 @@ public class PhaseManager : MonoBehaviour
                 unitIndexs.Clear();
                 for (int i = 0; i < CharactersManager.Instance.enemyCharacters.Count; i++)
                 {
-                    if(CharactersManager.Instance.enemyCharacters[i].myState == CharacterState.Standby)
+                    if (CharactersManager.Instance.enemyCharacters[i].myState == CharacterState.Standby)
                     {
                         unitIndexs.Add(i);
+                        // PatternReader.ReadPattern(CharactersManager.Instance.enemyCharacters[i].mouvementPattern, CharactersManager.Instance.enemyCharacters[i]);
                     }
                 }
                 NextEnemy();
                 break;
             case Phase.WaveUpdate:
-//                CharactersManager.Instance
+                //                CharactersManager.Instance
                 break;
 
         }
@@ -163,10 +165,12 @@ public class PhaseManager : MonoBehaviour
         if (actualPhase == Phase.Allied)
         {
             NextAlly();
-        } else if(actualPhase == Phase.Enemy)
+        }
+        else if (actualPhase == Phase.Enemy)
         {
             NextEnemy();
-        } else
+        }
+        else
         {
             Debug.LogError("Phase not fit for \"NextUnit()\" call, check sequence order.");
         }

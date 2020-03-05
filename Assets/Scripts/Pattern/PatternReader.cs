@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatternReader : MonoBehaviour
+public static class PatternReader 
 {
-    public void ReadPattern(PatternTemplate pattern, Character character)
+    public static void ReadPattern(PatternTemplate pattern, Character character)
     {
         TileProperties characterTile = character.occupiedTile;
 
@@ -17,21 +17,23 @@ public class PatternReader : MonoBehaviour
                     TileProperties frontTile = characterTile.GetTileOnDirection(character.transform.forward, 1, false)[0];
                     if (frontTile != null)
                     {
-                        if (frontTile.isWalkable)
+                        if (frontTile.isWalkable && !frontTile.isOccupied)
                         {
                             // Faudra une anim qui fasse lerp la pos 
-                            character.transform.position = frontTile.transform.position;
-                            character.occupiedTile = frontTile;
-                            character.occupiedTile.isOccupied = false;
-                            character.occupiedTile.isWalkable = true;
+                            character.InitMovement(frontTile);                      
+                            //character.occupiedTile.isWalkable = true;
                         }
                         if (frontTile.isOccupied)
                         {
                             Debug.Log("Attack");
+                            character.InitAttack();
+                            FinishTurn();
                         }
                         if (frontTile.isAWall)
                         {
                             Debug.Log("AttackWall");
+                            character.InitAttack();
+                            FinishTurn();
                         }
 
 
@@ -60,27 +62,27 @@ public class PatternReader : MonoBehaviour
                     break;
 
                 case ActionType.Attack:
+                    Debug.Log("Attack");
                     break;
 
                 default:
                     break;
             }
 
-
-
-
             actionDuration(pattern.actions[i].actionDuration);
+            FinishTurn();
+          
         }
 
 
     }
 
-    private void InterreuptPattern()
+    private static void FinishTurn()
     {
-
+       PhaseManager.Instance.NextUnit();
     }
 
-    private IEnumerator actionDuration(float duration)
+    private static IEnumerator actionDuration(float duration)
     {
         yield return new WaitForSeconds(duration);
     }

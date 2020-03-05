@@ -9,8 +9,12 @@ public class GameInfoManager : MonoBehaviour
     private static GameInfoManager _instance;
     public static GameInfoManager Instance { get { return _instance; } }
 
+    public List<GameObject> allyList = new List<GameObject>();
+
     public static GameData GameData;
     private static string gameDataFileName;
+
+   [SerializeField] private CharactersGenerator charactersGenerator;
 
     private void Awake()
     {
@@ -36,8 +40,7 @@ public class GameInfoManager : MonoBehaviour
         if (!File.Exists(gameDataFileName))
         {
             Debug.Log("Creating new game data");
-            GameData = new GameData();
-
+            NewGame();
             SaveGameDataAsJson();
         }
         else
@@ -54,6 +57,37 @@ public class GameInfoManager : MonoBehaviour
                 UpdateJsonGameDataFile();
             }
         }
+    }
+
+    private void NewGame()
+    {
+        GameData = new GameData();
+        allyList = charactersGenerator.GetBaseAllyList();
+        SaveCharacters();
+    }
+
+    private void SaveCharacters()
+    {
+        foreach (GameObject allyData in allyList)
+        {
+            GameData.allies.Add(ConvertAllyCharacterForSave(allyData.GetComponent<AllyCharacter>()));
+        }
+    }
+
+    public AllyCharacterSave ConvertAllyCharacterForSave(AllyCharacter allyCharacter)
+    {
+        AllyCharacterSave characterSave = new AllyCharacterSave();
+
+        characterSave.name = allyCharacter.name;
+        characterSave.experience = allyCharacter.data.experience;
+        characterSave.level = allyCharacter.data.level;
+        characterSave.allyDescription = allyCharacter.data.allyDescription;
+        characterSave.life = allyCharacter.life;
+        characterSave.damage = allyCharacter.damage;
+        characterSave.AttackRange = allyCharacter.AttackRange;
+        characterSave.movementRange = allyCharacter.movementRange;
+
+        return characterSave;
     }
 
     private void UpdateJsonGameDataFile()
@@ -75,7 +109,7 @@ public class GameInfoManager : MonoBehaviour
     public void RestartGame()
     {
         File.Delete(gameDataFileName);
-        VerifyGameData();
+        NewGame();
         SaveGameDataAsJson();
     }
 

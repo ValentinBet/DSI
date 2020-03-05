@@ -2567,7 +2567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1063863146
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3209,6 +3209,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa2480ec3efb874983274ea8d318013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlacingAlly: 0
+  waveText: {fileID: 1661724508}
+  cluster: {fileID: 1769979710}
+  clusterTitle: {fileID: 255574476}
+  clusterDesc: {fileID: 1221809777}
+  clusterImg: {fileID: 169485905}
+  endTurnButton: {fileID: 1483715883}
+  nextTurnButton: {fileID: 1939186122}
+  AlertText: {fileID: 1765720996}
   allyHint: {fileID: 1033342773}
   allyHintImg: {fileID: 544403925}
 --- !u!1 &1284454060
@@ -4137,7 +4146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1769979711
 RectTransform:
   m_ObjectHideFlags: 0

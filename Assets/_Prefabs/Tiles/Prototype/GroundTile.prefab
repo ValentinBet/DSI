@@ -105,12 +105,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea95a649c536074b8be751059222dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileName: Tile de base
+  tileDescription: description test
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isAWall: 0
   isActivated: 0
+  ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
+  isAllySpawnable: 0
   TileLayer:
     serializedVersion: 2
     m_Bits: 512

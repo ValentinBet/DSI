@@ -13,6 +13,9 @@ public class PhaseManager : MonoBehaviour
     private int actualTurn = 0;
     private int actualWave = 0;
 
+    [SerializeField]
+    private Wave[] levelWaves;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -38,6 +41,7 @@ public class PhaseManager : MonoBehaviour
         if (actualPhase != Phase.WaveUpdate)
         {
             actualPhase++;
+            GameTracker.Instance.TrackerStateUpdate();
         }
         else
         {
@@ -174,6 +178,37 @@ public class PhaseManager : MonoBehaviour
         {
             Debug.LogError("Phase not fit for \"NextUnit()\" call, check sequence order.");
         }
+    }
+
+    public Wave GetWave(int waveNumber)
+    {
+        if (levelWaves.Length < waveNumber)
+        {
+            return levelWaves[waveNumber];
+        }
+        else
+        {
+            Debug.LogError("waveNumberIndex too High. returning null...");
+            return null;
+        }
+    }
+
+    public void LoadWaves(Wave[] waves)
+    {
+        levelWaves = waves;
+    }
+
+    public void SpawnWave(int WaveNumber)
+    {
+        for (int i = 0; i < levelWaves[WaveNumber].enemies.Length; i++)
+        {
+            CharactersManager.Instance.SpawnEnemyCharacterAtPos(levelWaves[WaveNumber].enemies[i].gridPosition);
+        }
+    }
+
+    public int GetRemainingWaves()
+    {
+        return levelWaves.Length - actualWave;
     }
 }
 

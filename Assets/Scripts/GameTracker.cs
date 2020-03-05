@@ -9,9 +9,13 @@ public class GameTracker : MonoBehaviour
 
     private int baseLife;
     private int alliesRemaining;
-    private int ennemiesRemaining;
+    private int enemiesRemaining;
     private int wavesRemaining;
-    private int actionPointsRemaining;
+
+    [SerializeField]
+    private int maxPA = 5;
+    private int actualPA;
+
 
     void Awake()
     {
@@ -27,7 +31,10 @@ public class GameTracker : MonoBehaviour
 
     public void GatherData()
     {
-
+        baseLife = PlayerBase.Instance.GetLife();
+        alliesRemaining = CharactersManager.Instance.allyCharacter.Count;
+        enemiesRemaining = CharactersManager.Instance.enemyCharacters.Count;
+        wavesRemaining = PhaseManager.Instance.GetRemainingWaves();
     }
 
     public void TrackerStateUpdate()
@@ -36,15 +43,33 @@ public class GameTracker : MonoBehaviour
         if (alliesRemaining < 1 || baseLife < 1)
         {
             //Defeat
-        } else if (ennemiesRemaining < 1 && wavesRemaining < 1)
+        } else if (enemiesRemaining < 1 && wavesRemaining < 1)
         {
             //Win
         }
     }
 
-    public void TrackPA()
+    //Default Value
+    public bool PlayerAction()
     {
+        return PlayerAction(1);
+    }
+    public bool PlayerAction(int cost)
+    {
+        if (actualPA - cost > -1)
+        {
+            actualPA--;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
+    public void RefreshPA()
+    {
+        actualPA = maxPA;
     }
 
     public void TrackQuest()

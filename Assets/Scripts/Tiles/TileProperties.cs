@@ -49,15 +49,14 @@ public class TileProperties : MonoBehaviour
             {
                 if (hitTiles[i].collider.gameObject.GetComponent<TileProperties>() != null)
                 {
-                    if (hitTiles[i].collider.gameObject != this.gameObject && !isIncludingMainTile)
+                    if (hitTiles[i].collider.gameObject == this.gameObject && !isIncludingMainTile)
                         continue;
-
                     listTilesOnDirection.Add(hitTiles[i].collider.gameObject.GetComponent<TileProperties>());
                 }
             }
         }
 
-        Debug.DrawRay(transform.position, transform.TransformDirection(direction) * lenght, Color.red);
+        Debug.DrawRay(transform.position , transform.TransformDirection(direction) * lenght , Color.red);
 
         return listTilesOnDirection;
     }

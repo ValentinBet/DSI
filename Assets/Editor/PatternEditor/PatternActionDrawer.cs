@@ -2,46 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
 
-
-[CustomPropertyDrawer (typeof(PatternAction))]
+//[CustomPropertyDrawer(typeof(PatternAction))]
 public class PatternActionDrawer : PropertyDrawer
 {
-    //ActionType actionTypeProp;
-
-    SerializedProperty actionDuration, actionType, rotation;
-    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-    {
-        return base.GetPropertyHeight(property, label);
-    }
-    private bool initialized = false;
-
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        
-        if (!initialized)
-        {
-            Init();
-        }
+        SerializedProperty actionDurationProp = property.FindPropertyRelative("actionDuration");
+        SerializedProperty actionTypeProp = property.FindPropertyRelative("actionType");
+        SerializedProperty rotationProp = property.FindPropertyRelative("rotation");
 
-        //actionDuration.floatValue = EditorGUI.FloatField(position, label, actionDuration.floatValue);
+        ActionType newAT = (ActionType)actionTypeProp.enumValueIndex; 
 
-        EditorGUI.PropertyField(position, property.FindPropertyRelative("actionType"));
-       // actionType.enumValueIndex = (int)((ActionType)EditorGUI.EnumPopup(position, "ActionType", actionType));
-       //actionType.enumValueIndex = (int)actionTypeProp;
-        //if (actionType.enumValueIndex == (int)ActionType.Rotation)
-        //{
-        //    GUILayout.TextField("OK");
-        //}
+        EditorGUI.Slider(position, actionDurationProp, 0, 2f ,"Action Duration" );
 
+    //    actionTypeProp.enumValueIndex = (ActionType)EditorGUI.EnumPopup(position, newAT);
 
-        //base.OnGUI(position, property, label);
     }
 
-    private void Init()
-    {
-        initialized = true;
-    }
+
 
 }

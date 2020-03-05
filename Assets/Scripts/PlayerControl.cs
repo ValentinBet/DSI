@@ -15,6 +15,8 @@ public class PlayerControl : MonoBehaviour
     private AllyCharactersPlacer allyCharactersPlacer;
     private bool inputsEnabled = true;
 
+    public PatternTemplate pattern; 
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -58,6 +60,16 @@ public class PlayerControl : MonoBehaviour
                     {
                         allyCharactersPlacer.TryPlaceAlly(_tile);
                         return;
+                    }
+                    else
+                    {
+                        PatternReader.instance.PreviewPattern(pattern, _tile, Vector3.forward);
+                        MeshRenderer tMR =  _tile.GetComponent<MeshRenderer>();
+                        if (tMR != null)
+                        {
+                            tMR.sharedMaterial = PatternReader.instance.clickMat;
+
+                        }
                     }
 
                     TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject);

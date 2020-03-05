@@ -36,6 +36,12 @@ public class Character : MonoBehaviour
             {
                 occupiedTile = hit.collider.gameObject.GetComponent<TileProperties>();
 
+                MeshRenderer tMR = occupiedTile.GetComponent<MeshRenderer>();
+                if (tMR != null)
+                {
+                    tMR.material = PatternReader.instance.mouvementMat;
+                }
+
                 occupiedTile.isOccupied = true;
             }
         }
@@ -44,14 +50,18 @@ public class Character : MonoBehaviour
     public void InitMovement(TileProperties tileDestination)
     {
         occupiedTile.isOccupied = false;
-        
+ 
         transform.position = tileDestination.transform.position + Vector3.up;
         SetOccupiedTile();
     }
 
     public void InitAttack()
     {
-
+        MeshRenderer tMR = occupiedTile.GetComponent<MeshRenderer>();
+        if (tMR != null)
+        {
+            tMR.material = PatternReader.instance.attackMat;
+        }
     }
 
 }

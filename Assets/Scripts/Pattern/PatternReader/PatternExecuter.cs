@@ -41,6 +41,34 @@ public class PatternExecuter : MonoBehaviour
                 }
                 break;
 
+            case ActionType.Rotation:
+
+
+                switch (pattern.actions[index].rotation)
+                {
+                    case Rotation.Left:
+                        character.transform.Rotate(Vector3.up, -90f);
+                        break;
+                    case Rotation.Rigth:
+                        character.transform.Rotate(Vector3.up, 90f);
+                        break;
+                    case Rotation.Reverse:
+                        character.transform.Rotate(Vector3.up, 180f);
+                        break;
+                    default:
+                        character.transform.Rotate(Vector3.up, 0f);
+                        break;
+                }
+                ActionEnd( pattern, character, index, depth);
+                break;
+
+            case ActionType.Attack:
+                TilesManager.Instance.ChangeTileMaterial(testedTile, PatternReader.instance.attackMat);
+                ActionEnd( pattern, character,  index, depth);
+                break;
+
+            default:
+                break;
 
         }
     }

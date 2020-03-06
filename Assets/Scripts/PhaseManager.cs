@@ -113,9 +113,16 @@ public class PhaseManager : MonoBehaviour
                 NextEnemy();
                 break;
             case Phase.WaveUpdate:
-                //Wave Spawning and management, bypassed for prototype
-                //                CharactersManager.Instance
-                NextPhase();
+                if (actualWave < levelWaves.Length)
+                {
+                    if (actualTurn > levelWaves[actualWave].turnOfActivation - 1 || CharactersManager.Instance.enemyCharacters.Count == 0) // Occurence mauvaise, à patcher
+                    {
+                        CharactersManager.Instance.SpawnWave(levelWaves[actualWave]);
+                        //Animation ?
+                        actualWave++;
+                    }
+                }
+                Invoke("NextPhase",1.0f);
                 break;
 
         }
@@ -202,14 +209,6 @@ public class PhaseManager : MonoBehaviour
     public void LoadWaves(Wave[] waves)
     {
         levelWaves = waves;
-    }
-
-    public void SpawnWave(int WaveNumber)
-    {
-        for (int i = 0; i < levelWaves[WaveNumber].enemies.Length; i++)
-        {
-            CharactersManager.Instance.SpawnEnemyCharacterAtPos(levelWaves[WaveNumber].enemies[i].gridPosition);
-        }
     }
 
     public int GetRemainingWaves()

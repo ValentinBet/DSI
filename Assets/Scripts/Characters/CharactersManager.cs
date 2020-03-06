@@ -114,6 +114,14 @@ public class CharactersManager : MonoBehaviour
         lastEnnemyPriority++;
     }
 
+    public void SpawnWave(Wave wave)
+    {
+        for (int i = 0; i < wave.enemies.Length;i++)
+        {
+            SpawnEnemyCharacterAtPos(wave.enemies[i].gridPosition);
+        }
+    }
+
     private TileProperties PickTileRandomly(List<TileProperties> listFreeTiles)
     {
         return listFreeTiles[Random.Range(0, listFreeTiles.Count)];

@@ -58,6 +58,8 @@ public class PhaseManager : MonoBehaviour
         {
             case Phase.Initial:
                 CharactersManager.Instance.InitAllyPlacing();
+                CharactersManager.Instance.SpawnWave(levelWaves[0]);
+                actualWave++;
                 break;
             case Phase.Control:
                 actualTurn++;

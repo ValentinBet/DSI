@@ -13,7 +13,7 @@ public class GameInfoManager : MonoBehaviour
     public static GameData GameData;
     private static string gameDataFileName;
 
-   [SerializeField] private CharactersGenerator charactersGenerator;
+    [SerializeField] public CharactersGenerator charactersGenerator;
 
     private void Awake()
     {
@@ -70,11 +70,17 @@ public class GameInfoManager : MonoBehaviour
         {
             SaveCharacter(baseAlly);
         }
+
+        for (int i = 0; i < GameData.allies.Count; i++)
+        {
+            GameData.allies[i] = charactersGenerator.SetBasicStats(GameData.allies[i], (AllyType)i); // Génère un Guerrier / archer / mage a la suite --> Scope + -> pourra choisir sa composition
+        }
+
     }
 
     private void SaveCharacter(GameObject ally)
     {
-            GameData.allies.Add(ConvertAllyCharacterForSave(ally.GetComponent<AllyCharacter>()));   
+        GameData.allies.Add(ConvertAllyCharacterForSave(ally.GetComponent<AllyCharacter>()));
     }
 
     public AllyCharacterSave ConvertAllyCharacterForSave(AllyCharacter allyCharacter)
@@ -89,8 +95,22 @@ public class GameInfoManager : MonoBehaviour
         characterSave.damage = allyCharacter.damage;
         characterSave.AttackRange = allyCharacter.AttackRange;
         characterSave.movementRange = allyCharacter.movementRange;
+        characterSave.type = allyCharacter.allyType;
 
         return characterSave;
+    }
+
+    public void UpdateCharacterObjToHisSave(ref AllyCharacter allyCharacter, AllyCharacterSave save)
+    {
+        allyCharacter.allyType = save.type;
+        allyCharacter.data.name = save.name;
+        allyCharacter.data.experience = save.experience;
+        allyCharacter.data.level = save.level;
+        allyCharacter.data.allyDescription = save.allyDescription;
+        allyCharacter.life = save.life;
+        allyCharacter.damage = save.damage;
+        allyCharacter.AttackRange = save.AttackRange;
+        allyCharacter.movementRange = save.movementRange;
     }
 
     private void UpdateJsonGameDataFile()

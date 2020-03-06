@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e1084fab24a0948983da09e1cf83a9, type: 3}
   m_Name: SamPattern
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - actionDuration: 0
+    actionType: 1
+    rotation: 0
+  - actionDuration: 0
+    actionType: 0
+    rotation: 0
+  - actionDuration: 0
+    actionType: 0
+    rotation: 0
+  - actionDuration: 0
+    actionType: 0
+    rotation: 0

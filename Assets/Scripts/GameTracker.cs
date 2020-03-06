@@ -61,11 +61,7 @@ public class GameTracker : MonoBehaviour
     }
 
     //Default Value
-    public bool PlayerAction()
-    {
-        return PlayerAction(1);
-    }
-    public bool PlayerAction(int cost)
+    public bool PlayerAction(int cost = 1)
     {
         if (actualPA - cost > -1)
         {

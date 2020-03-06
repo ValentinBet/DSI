@@ -45,6 +45,7 @@ public class Character : MonoBehaviour
     public void InitMovement(TileProperties tileDestination)
     {
         occupiedTile.isOccupied = false;
+        occupiedTile.occupant = null;
 
 
         transform.position = tileDestination.transform.position + Vector3.up;

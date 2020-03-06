@@ -113,11 +113,14 @@ public class PhaseManager : MonoBehaviour
                 NextEnemy();
                 break;
             case Phase.WaveUpdate:
-                if(actualTurn > levelWaves[actualWave].turnOfActivation-1 || CharactersManager.Instance.enemyCharacters.Count == 0) // Occurence mauvaise, à patcher
+                if (actualWave < levelWaves.Length)
                 {
-                    CharactersManager.Instance.SpawnWave(levelWaves[actualWave]);
-                    //Animation ?
-                    actualWave++;
+                    if (actualTurn > levelWaves[actualWave].turnOfActivation - 1 || CharactersManager.Instance.enemyCharacters.Count == 0) // Occurence mauvaise, à patcher
+                    {
+                        CharactersManager.Instance.SpawnWave(levelWaves[actualWave]);
+                        //Animation ?
+                        actualWave++;
+                    }
                 }
                 Invoke("NextPhase",1.0f);
                 break;

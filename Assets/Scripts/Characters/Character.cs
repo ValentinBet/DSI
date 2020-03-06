@@ -36,12 +36,7 @@ public class Character : MonoBehaviour
             {
                 occupiedTile = hit.collider.gameObject.GetComponent<TileProperties>();
 
-                MeshRenderer tMR = occupiedTile.GetComponent<MeshRenderer>();
-                if (tMR != null)
-                {
-                    tMR.material = PatternReader.instance.mouvementMat;
-                }
-
+                occupiedTile.occupant = this;
                 occupiedTile.isOccupied = true;
             }
         }
@@ -50,11 +45,7 @@ public class Character : MonoBehaviour
     public void InitMovement(TileProperties tileDestination)
     {
         occupiedTile.isOccupied = false;
-        MeshRenderer tMR = occupiedTile.GetComponent<MeshRenderer>();
-        if (tMR != null)
-        {
-            tMR.material = PatternReader.instance.mouvementMat;
-        }
+
 
         transform.position = tileDestination.transform.position + Vector3.up;
         SetOccupiedTile();
@@ -67,6 +58,32 @@ public class Character : MonoBehaviour
         {
             tMR.material = PatternReader.instance.attackMat;
         }
+    }
+
+    public bool TakeDamaged(int damageAmount)
+    {
+        life -= damageAmount;
+        if (life <= 0)
+        {
+            Debug.Log("This character died", this);
+            myState = CharacterState.Dead;
+            gameObject.SetActive(false);
+            return false;
+        }
+
+        return true;
+    }
+
+    public void GotAttacked(int damageAmount)
+    {
+        life -= damageAmount;
+        if (life <= 0)
+        {
+            Debug.Log("This character died", this);
+            myState = CharacterState.Dead;
+            gameObject.SetActive(false);
+        }
+
     }
 
 }

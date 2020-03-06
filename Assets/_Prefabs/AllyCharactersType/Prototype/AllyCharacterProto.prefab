@@ -112,11 +112,18 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   priority: 0
   myState: 0
+  mouvementPattern: {fileID: 11400000, guid: 56d52d547b6c5ec4faedfdaa9be68137, type: 2}
   pathFinding: []
   occupiedTile: {fileID: 0}
   ObjectTypeMetaData: {fileID: 11400000, guid: 5c1090fb84e2e994cbcd4bf8f6c6bfae, type: 2}
+  allyType: 0
   data:
     name: le stremon
     experience: 0
     level: 0
+    levelMax: 3
     allyDescription: Un grand guerrier
+    xpNeededPerLevel:
+    - {x: 1, y: 10}
+    - {x: 2, y: 20}
+    - {x: 3, y: 40}

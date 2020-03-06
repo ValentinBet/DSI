@@ -18,7 +18,28 @@ public class PreviewReader : MonoBehaviour
     private void PreviewAction(TileProperties currentTile, float rotationAmount, PatternTemplate pattern, int index, int depth)
     {
         PatternReader.instance.tileColoredDuringPattern.Add(currentTile);
-        Vector3 direction = Vector3.forward;
+
+        Vector3 direction = Vector3.zero;
+        switch (pattern.initialDirection)
+        {
+            case Cardinal.North:
+                direction = -Vector3.right;
+                break;
+            case Cardinal.East:
+                direction = Vector3.forward;
+                break;
+            case Cardinal.South:
+                direction = Vector3.right;
+                break;
+            case Cardinal.West:
+                direction = -Vector3.forward;
+                break;
+            default:
+                direction = Vector3.zero;
+                break;
+        }
+
+
         direction = Quaternion.AngleAxis(rotationAmount, Vector3.up) * direction;
 
         int rayLength = 2;

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 66f546f073acb8f49a035c4969b0ea23
+folderAsset: yes
+=======
+<<<<<<< HEAD:Assets/AmplifyShader/AmplifyShaderEditor/Examples/HD SRP Samples.unitypackage.meta
+guid: d1c0b77896049554fa4b635531caf741
+=======
+guid: 66f546f073acb8f49a035c4969b0ea23
+folderAsset: yes
+>>>>>>> 819b269c5596c51c0cae1b08d2d9e4b02de8f0f5:Assets/Nodes.meta
+>>>>>>> 819b269c5596c51c0cae1b08d2d9e4b02de8f0f5
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

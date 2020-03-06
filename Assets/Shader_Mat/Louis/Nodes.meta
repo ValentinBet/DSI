@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Shader_Mat/Louis/Nodes.meta
-guid: 5b784c855c22d9d4f8295973f2597d91
-=======
-guid: dd2ad7a1ab86e9344b83b2a88cc030cf
->>>>>>> a0db24b0c6b1664e198555b5c9f07c23aa1af201:Assets/AmplifyShader/AmplifyShaderEditor/Plugins/Editor/Nodes.meta
+guid: 6aea8c98a8f608c469ca2de48d5fed95
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

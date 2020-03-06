@@ -96,7 +96,6 @@ public class PhaseManager : MonoBehaviour
                     if (CharactersManager.Instance.allyCharacter[i].myState == CharacterState.Standby)
                     {
                         unitIndexs.Add(i);
-                        //PatternReader.instance.ReadPattern(CharactersManager.Instance.allyCharacter[i].mouvementPattern, CharactersManager.Instance.allyCharacter[i]);
                     }
                 }
                 NextAlly();
@@ -145,6 +144,7 @@ public class PhaseManager : MonoBehaviour
             if (CharactersManager.Instance.allyCharacter[unitIndexs[currentUnit]].myState == CharacterState.Standby)
             {
                 //            CharactersManager.Instance.allyCharacter[unitIndexs[currentUnit]].Execute();
+                PatternReader.instance.PatternExecuter.ExecutePattern(CharactersManager.Instance.allyCharacter[unitIndexs[currentUnit]].mouvementPattern, CharactersManager.Instance.allyCharacter[unitIndexs[currentUnit]]);
                 currentUnit++;
             }
             else
@@ -166,6 +166,7 @@ public class PhaseManager : MonoBehaviour
             if (CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]].myState == CharacterState.Standby)
             {
                 //            CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]].Execute();
+                PatternReader.instance.PatternExecuter.ExecutePattern(CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]].mouvementPattern, CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]]);
                 currentUnit++;
             }
             else

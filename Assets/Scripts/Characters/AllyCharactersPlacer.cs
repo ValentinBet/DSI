@@ -10,8 +10,6 @@ public class AllyCharactersPlacer : MonoBehaviour
     public bool isPlacingAllys = false;
     private int lastAllyPriority = 0;
 
-    public List<GameObject> allyList = new List<GameObject>();
-
     public void InitPlacing()
     {
         lastAllyPriority = 0;
@@ -38,8 +36,9 @@ public class AllyCharactersPlacer : MonoBehaviour
         {
             if (tile.isAllySpawnable && tile.CharacterCanSpawn())
             {
-                GameObject _ally = Instantiate(allyList[lastAllyPriority], tile.transform.position + Vector3.up, Quaternion.identity);
+                GameObject _ally = Instantiate(GetCharacterObjByType(GameInfoManager.GameData.allies[lastAllyPriority].type), tile.transform.position + Vector3.up, Quaternion.identity);
                 AllyCharacter _allyChar = _ally.GetComponent<AllyCharacter>();
+                GameInfoManager.Instance.UpdateCharacterObjToHisSave(ref _allyChar, GameInfoManager.GameData.allies[lastAllyPriority]);
                 _allyChar.SetOccupiedTile();
                 _allyChar.priority = lastAllyPriority;
                 CharactersManager.Instance.allyCharacter.Add(_allyChar);
@@ -60,17 +59,22 @@ public class AllyCharactersPlacer : MonoBehaviour
 
     private void UpdateUIToActualAlly()
     {
-        AllyCharacter _ac = allyList[lastAllyPriority].GetComponent<AllyCharacter>();
+        AllyCharacter _ac = GetCharacterObjByType(GameInfoManager.GameData.allies[lastAllyPriority].type).GetComponent<AllyCharacter>();
         UIManager.Instance.SetAllyHintState(true, _ac.ObjectTypeMetaData.icon);
         UIManager.Instance.SetClusterInfo(_ac.data.name,_ac.data.allyDescription, _ac.ObjectTypeMetaData.icon);
     }
 
     private bool IsAllAllyedSpawned()
     {
-        if (lastAllyPriority == allyList.Count)
+        if (lastAllyPriority == GameInfoManager.GameData.allies.Count)
         {
             return true;
         }
         return false;
+    }
+
+    private GameObject GetCharacterObjByType(AllyType type = AllyType.Warrior)
+    {
+      return GameInfoManager.Instance.charactersGenerator.GetBaseAllyList()[(int) type];
     }
 }

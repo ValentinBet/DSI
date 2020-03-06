@@ -19,4 +19,25 @@ public class AllyCharacter : Character
     {
         gameObject.tag = "AllyCharacter";
     }
+
+    public void AddExperience(int value)
+    {
+        data.experience += value;
+
+        CheckLevels();
+    }
+
+    private void CheckLevels()
+    {
+        if (data.level != data.levelMax)
+        {
+            if (data.experience >= data.xpNeededPerLevel[data.level].y)
+            {
+                data.level++;
+                data.experience -= data.xpNeededPerLevel[data.level - 1].y;
+                CheckLevels();
+            }
+        }
+
+    }
 }

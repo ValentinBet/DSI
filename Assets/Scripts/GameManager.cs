@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
 
     public void LoseActualLevel()
     {
-        print("here");
         GameInfoManager.GameData.lifePoints -= 1;
 
         if (GameInfoManager.GameData.lifePoints < 1)

@@ -67,7 +67,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("This character died", this);
             myState = CharacterState.Dead;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             return false;
         }
 
@@ -81,7 +81,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("This character died", this);
             myState = CharacterState.Dead;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
     }

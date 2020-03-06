@@ -27,6 +27,7 @@ public class AllyCharactersPlacer : MonoBehaviour
         isPlacingAllys = false;
         CharactersManager.Instance.EndAllyPlacing();
         PhaseManager.Instance.NextPhase();
+        UIManager.Instance.AllyLifeSetup();
         UIManager.Instance.SetAllyHintState(false);
         UIManager.Instance.isPlacingAlly = false;
         UIManager.Instance.newTurn();

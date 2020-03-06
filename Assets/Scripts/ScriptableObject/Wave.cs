@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName ="Wave",menuName ="KUBZ/Wave")]
 public class Wave : ScriptableObject
 {
     public int turnOfActivation;
@@ -10,6 +11,7 @@ public class Wave : ScriptableObject
 
 }
 
+[System.Serializable]
 public struct W_Enemy
 {
     public EnemyType type;

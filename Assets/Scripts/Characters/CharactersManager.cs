@@ -126,4 +126,12 @@ public class CharactersManager : MonoBehaviour
     {
         return listFreeTiles[Random.Range(0, listFreeTiles.Count)];
     }
+
+    public void AddXpToAllAllies(int value)
+    {
+        foreach (AllyCharacter ally in allyCharacter)
+        {
+            ally.AddExperience(value);
+        }
+    }
 }

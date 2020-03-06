@@ -26,8 +26,6 @@ public class PatternReader : MonoBehaviour
         }
     }
 
-
-
     public void FinishTurn()
     {
 

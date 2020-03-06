@@ -126,12 +126,14 @@ public class CharactersManager : MonoBehaviour
     {
         Destroy(enemyCharacters[index].gameObject);
         enemyCharacters.RemoveAt(index);
+        Debug.Log("destroyedEnemy");
     }
 
     public void DestroyAlly(int index)
     {
         Destroy(allyCharacter[index].gameObject);
         allyCharacter.RemoveAt(index);
+        Debug.Log("destroyedAlly");
     }
 
     private TileProperties PickTileRandomly(List<TileProperties> listFreeTiles)

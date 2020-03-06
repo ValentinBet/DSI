@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be300d7ca1c405e439535af2bb5c0478, type: 2}
+  - {fileID: 2100000, guid: a26c260fe14e1de44ae154da3570acb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,6 +107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: Trap
   tileDescription: inflige des dommages
+  sR: {fileID: 0}
+  icon: {fileID: 0}
+  secondaryIcon: {fileID: 0}
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 1

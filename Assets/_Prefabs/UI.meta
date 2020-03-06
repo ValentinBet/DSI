@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/_Prefabs/Pattern/Mosaic Effect PPS.meta
+guid: 2b182d23760fd1e4882bab9fd015a536
+=======
 guid: da3e76f78923acb4cb1d0a1ffa94b44f
+>>>>>>> a3c0d7f03647698910583f4f0d02844f5bd584b7:Assets/_Prefabs/UI.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

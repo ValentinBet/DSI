@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour
     private AllyCharactersPlacer allyCharactersPlacer;
     private bool inputsEnabled = true;
 
-    public PatternTemplate pattern; 
+    public PatternTemplate pattern;
 
     private void Awake()
     {
@@ -64,7 +64,7 @@ public class PlayerControl : MonoBehaviour
                     else
                     {
                         PatternReader.instance.PreviewReader.PreviewPattern(pattern, _tile, Vector3.forward);
-                        MeshRenderer tMR =  _tile.GetComponent<MeshRenderer>();
+                        MeshRenderer tMR = _tile.GetComponent<MeshRenderer>();
                         if (tMR != null)
                         {
                             tMR.sharedMaterial = PatternReader.instance.clickMat;
@@ -82,12 +82,12 @@ public class PlayerControl : MonoBehaviour
             }
             if (Input.GetKeyDown(TileSwapKey))
             {
-                if(GameTracker.Instance.PlayerAction())
+                if (GameTracker.Instance.PlayerAction())
                     TilesManager.TilesChangerInstance.InitChange();
             }
             if (Input.GetKeyDown(TileRotateKey))
             {
-                if(GameTracker.Instance.PlayerAction())
+                if (GameTracker.Instance.PlayerAction())
                     TilesManager.TilesChangerInstance.RotateTile();
             }
         }

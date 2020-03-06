@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "", menuName = "KUBZ/Action Pattern", order = 100)]
 public class PatternTemplate : ScriptableObject
 {
+    public Cardinal initialDirection;  
     public PatternAction[] actions;
 }
 

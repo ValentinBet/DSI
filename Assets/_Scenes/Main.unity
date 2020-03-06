@@ -2622,7 +2622,7 @@ MonoBehaviour:
   TileClearKey: 99
   TileSwapKey: 115
   TileRotateKey: 114
-  pattern: {fileID: 0}
+  pattern: {fileID: 11400000, guid: 56d52d547b6c5ec4faedfdaa9be68137, type: 2}
 --- !u!1 &820548566
 GameObject:
   m_ObjectHideFlags: 0

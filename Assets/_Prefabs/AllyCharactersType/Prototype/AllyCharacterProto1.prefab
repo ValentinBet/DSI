@@ -121,19 +121,10 @@ MonoBehaviour:
     name: Generate
     experience: 0
     level: 0
-<<<<<<< HEAD
-    levelMax: 5
-    allyDescription: Generate
-=======
     levelMax: 3
     allyDescription: 'point faible : trop naze'
->>>>>>> 6963f5daedc5ae14730b955e8a4e0697d7a39fd2
     xpNeededPerLevel:
     - {x: 1, y: 10}
     - {x: 2, y: 20}
     - {x: 3, y: 40}
-<<<<<<< HEAD
-    - {x: 3, y: 40}
-    - {x: 3, y: 40}
-=======
->>>>>>> 6963f5daedc5ae14730b955e8a4e0697d7a39fd2
+

@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb342bb7ef0bec41b67bbe032aae971, type: 3}
-  m_Name: MD_AllyCharacteProto
+  m_Script: {fileID: 11500000, guid: e3e1084fab24a0948983da09e1cf83a9, type: 3}
+  m_Name: TestPattern01
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 80ab37a9e4f49c842903bb43bdd7bcd2, type: 3}
-  typeDescription: 
+  actions: []

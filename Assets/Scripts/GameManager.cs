@@ -21,7 +21,52 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
     }
+    public void EndGame(bool isWin = false)
+    {
+        if (isWin)
+        {
+            WinActualLevel();
+        }
+        else
+        {
+            LoseActualLevel();
+        }
+    }
 
+    public void WinActualLevel()
+    {
+        LevelPassAlive();
+        EndLevel();
+    }
+
+    public void LoseActualLevel()
+    {
+        print("here");
+        GameInfoManager.GameData.lifePoints -= 1;
+
+        if (GameInfoManager.GameData.lifePoints < 1)
+        {
+            GameInfoManager.Instance.InitLoseGame();
+        }
+        else
+        {
+            LevelPassAlive();
+            EndLevel();
+        }
+    }
+
+    public void LevelPassAlive()
+    {
+        GameInfoManager.GameData.yearSurvived += 1;
+
+        GameInfoManager.SaveGameDataAsJson();
+    }
+
+    public void EndLevel()
+    {
+        SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("SelectLevels", LoadSceneMode.Additive);
+    }
 
     public void QuitGame()
     {

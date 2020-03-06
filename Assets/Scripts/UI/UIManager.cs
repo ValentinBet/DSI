@@ -30,7 +30,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI AlertText;
 
     [Header("PAs")]
-    [SerializeField] private TextMeshProUGUI PAtext;
+    [SerializeField] private Image[] PAdisplay;
+    [SerializeField] private Sprite PAsprite;
+    [SerializeField] private Sprite PAdisabled;
+    //[SerializeField] private TextMeshProUGUI PAtext;
 
         [Header("Follow cursor image")]
     [SerializeField] private RectTransform allyHint;
@@ -83,15 +86,15 @@ public class UIManager : MonoBehaviour
             {
                 case "AllyCharacter":
                     AllyCharacter _ac = hit.collider.GetComponent<AllyCharacter>();
-                    SetClusterInfo(_ac.data.name, _ac.data.allyDescription, _ac.ObjectTypeMetaData.sprite);
+                    SetClusterInfo(_ac.data.name, _ac.data.allyDescription, _ac.ObjectTypeMetaData.icon);
                     break;
                 case "EnemyCharacter":
                     EnemyCharacter _ec = hit.collider.GetComponent<EnemyCharacter>();
-                    SetClusterInfo(_ec.name, _ec.enemyDescription, _ec.ObjectTypeMetaData.sprite);
+                    SetClusterInfo(_ec.name, _ec.enemyDescription, _ec.ObjectTypeMetaData.icon);
                     break;
                 case "Tile":
                     TileProperties _tile = hit.collider.GetComponent<TileProperties>();
-                    SetClusterInfo(_tile.tileName, _tile.tileDescription, _tile.ObjectTypeMetaData.sprite);
+                    SetClusterInfo(_tile.tileName, _tile.tileDescription, _tile.ObjectTypeMetaData.icon);
                     break;
                 default:
                     break;
@@ -150,7 +153,18 @@ public class UIManager : MonoBehaviour
 
     public void setPA(int amount)
     {
-        PAtext.text = amount + "/5";
+        //PAtext.text = amount + "/5";
+        for (int i = 0; i < PAdisplay.Length; i++)
+        {
+            if (i < amount)
+            {
+                PAdisplay[i].sprite = PAsprite;
+            }
+            else
+            {
+                PAdisplay[i].sprite = PAdisabled;
+            }
+        }
     }
 
 }

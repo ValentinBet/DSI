@@ -14,4 +14,6 @@ public class AllyCharacterSave
     public int damage;
     public float AttackRange;
     public int movementRange;
+
+    public AllyType type;
 }

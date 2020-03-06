@@ -63,8 +63,7 @@ public class PatternExecuter : MonoBehaviour
                 break;
 
             case ActionType.Attack:
-                TilesManager.Instance.ChangeTileMaterial(testedTile, PatternReader.instance.attackMat);
-                ActionEnd( pattern, character,  index, depth);
+                StartCoroutine(ExtraAttackReview(pattern, character, index, depth, true));
                 break;
 
             default:
@@ -209,6 +208,7 @@ public class PatternExecuter : MonoBehaviour
         {
             if (testedTile.occupant != null)
             {
+
                 testedTile.occupant.GotAttacked(1);
             }
         }

@@ -112,7 +112,11 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   priority: 0
   myState: 0
+<<<<<<< HEAD
   mouvementPattern: {fileID: 0}
+=======
+  mouvementPattern: {fileID: 11400000, guid: 56d52d547b6c5ec4faedfdaa9be68137, type: 2}
+>>>>>>> 6963f5daedc5ae14730b955e8a4e0697d7a39fd2
   pathFinding: []
   occupiedTile: {fileID: 0}
   ObjectTypeMetaData: {fileID: 11400000, guid: 5c1090fb84e2e994cbcd4bf8f6c6bfae, type: 2}
@@ -121,11 +125,19 @@ MonoBehaviour:
     name: Generate
     experience: 0
     level: 0
+<<<<<<< HEAD
     levelMax: 5
     allyDescription: 
+=======
+    levelMax: 3
+    allyDescription: Un grand guerrier
+>>>>>>> 6963f5daedc5ae14730b955e8a4e0697d7a39fd2
     xpNeededPerLevel:
     - {x: 1, y: 10}
     - {x: 2, y: 20}
     - {x: 3, y: 40}
+<<<<<<< HEAD
     - {x: 3, y: 40}
     - {x: 3, y: 40}
+=======
+>>>>>>> 6963f5daedc5ae14730b955e8a4e0697d7a39fd2

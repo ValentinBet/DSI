@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+guid: a788be22c42461e41b2cfdfba58094c2
+=======
+<<<<<<< HEAD:Assets/Nodes.meta
+guid: 66f546f073acb8f49a035c4969b0ea23
+=======
+guid: 0cf6ba15667cb7d4886dcab08283e803
+>>>>>>> 819b269c5596c51c0cae1b08d2d9e4b02de8f0f5:Assets/_Prefabs/Plugins/Editor/Nodes.meta
+>>>>>>> 819b269c5596c51c0cae1b08d2d9e4b02de8f0f5
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

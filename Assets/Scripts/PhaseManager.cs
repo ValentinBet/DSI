@@ -70,6 +70,8 @@ public class PhaseManager : MonoBehaviour
                     if (CharactersManager.Instance.allyCharacter[i].myState == CharacterState.Dead)
                     {
                         Destroy(CharactersManager.Instance.allyCharacter[i].gameObject);
+                        CharactersManager.Instance.allyCharacter.RemoveAt(i);
+                        i--;
                     }
                     else
                     {
@@ -124,6 +126,10 @@ public class PhaseManager : MonoBehaviour
                         CharactersManager.Instance.SpawnWave(levelWaves[actualWave]);
                         //Animation ?
                         actualWave++;
+                    }
+                    else
+                    {
+                        Debug.LogWarning("No New Wave : " + actualTurn + " aTurn " + levelWaves[actualWave].turnOfActivation + " ToActiv " + CharactersManager.Instance.enemyCharacters.Count + " enemies");
                     }
                 }
                 Invoke("NextPhase",1.0f);

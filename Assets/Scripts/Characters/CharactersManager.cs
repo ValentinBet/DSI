@@ -122,6 +122,18 @@ public class CharactersManager : MonoBehaviour
         }
     }
 
+    public void DestroyEnemy(int index)
+    {
+        Destroy(enemyCharacters[index].gameObject);
+        enemyCharacters.RemoveAt(index);
+    }
+
+    public void DestroyAlly(int index)
+    {
+        Destroy(allyCharacter[index].gameObject);
+        allyCharacter.RemoveAt(index);
+    }
+
     private TileProperties PickTileRandomly(List<TileProperties> listFreeTiles)
     {
         return listFreeTiles[Random.Range(0, listFreeTiles.Count)];

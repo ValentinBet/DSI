@@ -41,7 +41,7 @@ public class GameTracker : MonoBehaviour
     {
         GatherData();
 
-        if (!InitiatingEndGame)
+        /*if (!InitiatingEndGame)
         {
             if ((alliesRemaining < 1 || baseLife < 1))
             {
@@ -56,7 +56,7 @@ public class GameTracker : MonoBehaviour
                 InitiatingEndGame = true;
                 GameManager.Instance.LoseActualLevel();
             }
-        }
+        }*/
 
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameTracker : MonoBehaviour
 {
     private static GameTracker _instance;
-    public static GameTracker Instance { get {return _instance; } }
+    public static GameTracker Instance { get { return _instance; } }
 
     private int baseLife;
     private int alliesRemaining;
@@ -15,7 +15,7 @@ public class GameTracker : MonoBehaviour
     [SerializeField]
     private int maxPA = 5;
     private int actualPA;
-
+    private bool InitiatingEndGame = false;
 
     void Awake()
     {
@@ -40,13 +40,24 @@ public class GameTracker : MonoBehaviour
     public void TrackerStateUpdate()
     {
         GatherData();
-        if (alliesRemaining < 1 || baseLife < 1)
+
+        if (!InitiatingEndGame)
         {
-            //Defeat
-        } else if (enemiesRemaining < 1 && wavesRemaining < 1)
-        {
-            //Win
+            if ((alliesRemaining < 1 || baseLife < 1))
+            {
+                //Defeat
+                InitiatingEndGame = true;
+                GameManager.Instance.LoseActualLevel();
+
+            }
+            else if (enemiesRemaining < 1 && wavesRemaining < 1)
+            {
+                //Win
+                InitiatingEndGame = true;
+                GameManager.Instance.LoseActualLevel();
+            }
         }
+
     }
 
     //Default Value

@@ -35,7 +35,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite PAdisabled;
     //[SerializeField] private TextMeshProUGUI PAtext;
 
-        [Header("Follow cursor image")]
+    [Header("Heroes")]
+    [SerializeField] private Image[] heroSlots;
+
+    [Header("Follow cursor image")]
     [SerializeField] private RectTransform allyHint;
     [SerializeField] private Image allyHintImg;
 

@@ -540,8 +540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlacingAllys: 0
-  allyList:
-  - {fileID: 5335539690535707474, guid: d83a8370bfa9ed1488ea05b32f89de66, type: 3}
 --- !u!1001 &236371664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3555,7 +3553,7 @@ MonoBehaviour:
   TileClearKey: 99
   TileSwapKey: 115
   TileRotateKey: 114
-  pattern: {fileID: 11400000, guid: 1678a3bf75740b54da44b9e0499b55b3, type: 2}
+  pattern: {fileID: 11400000, guid: e477f0827df0aa841bf1c7924ff8968a, type: 2}
 --- !u!1 &1497821165
 GameObject:
   m_ObjectHideFlags: 0

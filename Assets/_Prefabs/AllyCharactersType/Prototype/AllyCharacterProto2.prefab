@@ -105,10 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30416ed101a03b74c90dda7d71d7c470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0
-  damage: 0
-  AttackRange: 0
-  movementRange: 0
+  life: 1
+  damage: 10
+  AttackRange: 5
+  movementRange: 3
   position: {x: 0, y: 0, z: 0}
   priority: 0
   myState: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   ObjectTypeMetaData: {fileID: 11400000, guid: afff1c7cb6ebbc74d8b5d8920419f5b7, type: 2}
   allyType: 2
   data:
-    name: NON
+    name: Generate
     experience: 0
     level: 0
     levelMax: 3
@@ -127,3 +127,4 @@ MonoBehaviour:
     - {x: 1, y: 10}
     - {x: 2, y: 20}
     - {x: 3, y: 40}
+

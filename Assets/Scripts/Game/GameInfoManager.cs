@@ -13,7 +13,7 @@ public class GameInfoManager : MonoBehaviour
     public static GameData GameData;
     private static string gameDataFileName;
 
-   [SerializeField] private CharactersGenerator charactersGenerator;
+    [SerializeField] private CharactersGenerator charactersGenerator;
 
     private void Awake()
     {
@@ -70,11 +70,17 @@ public class GameInfoManager : MonoBehaviour
         {
             SaveCharacter(baseAlly);
         }
+
+        for (int i = 0; i < GameData.allies.Count; i++)
+        {
+            GameData.allies[i] = charactersGenerator.SetBasicStats(GameData.allies[i], (AllyType)i); // Génère un Guerrier / archer / mage a la suite --> Scope + -> pourra choisir sa composition
+        }
+
     }
 
     private void SaveCharacter(GameObject ally)
     {
-            GameData.allies.Add(ConvertAllyCharacterForSave(ally.GetComponent<AllyCharacter>()));   
+        GameData.allies.Add(ConvertAllyCharacterForSave(ally.GetComponent<AllyCharacter>()));
     }
 
     public AllyCharacterSave ConvertAllyCharacterForSave(AllyCharacter allyCharacter)
@@ -89,6 +95,7 @@ public class GameInfoManager : MonoBehaviour
         characterSave.damage = allyCharacter.damage;
         characterSave.AttackRange = allyCharacter.AttackRange;
         characterSave.movementRange = allyCharacter.movementRange;
+        characterSave.type = allyCharacter.allyType;
 
         return characterSave;
     }

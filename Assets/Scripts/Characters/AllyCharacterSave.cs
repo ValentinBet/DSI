@@ -8,7 +8,7 @@ public class AllyCharacterSave
     public string name;
     public float experience;
     public int level;
-    public string allyDescription;
+    public string allyDescription = "Never participated in a single battle";
 
     public int life;
     public int damage;

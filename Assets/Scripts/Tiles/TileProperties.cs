@@ -19,6 +19,7 @@ public class TileProperties : MonoBehaviour
     public bool isMovable;
     public bool isActivated;
     public bool isOnFire;
+    public int damageToDeal;
 
     public TilesSpecific specificity;
     public int teleportChannel;
@@ -30,6 +31,7 @@ public class TileProperties : MonoBehaviour
     [HideInInspector] public bool isAllySpawnable = false;
     [HideInInspector] public MeshRenderer mR;
     [HideInInspector] public Material baseMat;
+    public Character occupant;
 
 
 
@@ -67,7 +69,6 @@ public class TileProperties : MonoBehaviour
         return false;
     }
 
-
     public List<TileProperties> GetTileOnDirection(Vector3 direction, int lenght = 1, bool isIncludingMainTile = false)
     {
         List<TileProperties> listTilesOnDirection = new List<TileProperties>();
@@ -94,7 +95,6 @@ public class TileProperties : MonoBehaviour
 
         return listTilesOnDirection;
     }
-
 
     public Vector3 GetCurrentForward()
     {
@@ -145,7 +145,6 @@ public class TileProperties : MonoBehaviour
             sR.sprite = secondaryIcon;
         }
     }
-
 
     public enum TilesSpecific
     {

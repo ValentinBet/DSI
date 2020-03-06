@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
-    [SerializeField]
-    private int startingLife=20;
-    private int life;
+
+    [SerializeField] private int startingLife=20;
+    [SerializeField] private int life;
 
     private static PlayerBase _instance;
     public static PlayerBase Instance { get { return _instance; } }
+
 
     private void Awake()
     {

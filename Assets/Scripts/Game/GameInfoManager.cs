@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameInfoManager : MonoBehaviour
@@ -113,6 +114,7 @@ public class GameInfoManager : MonoBehaviour
     public void InitLoseGame()
     {
         RestartGame();
+        SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
     }
 
     public void RestartGame()

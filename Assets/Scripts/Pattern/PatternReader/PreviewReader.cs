@@ -4,21 +4,10 @@ using UnityEngine;
 
 public class PreviewReader : MonoBehaviour
 {
-    public void PreviewPattern(PatternTemplate pattern, TileProperties tileOrigin, Vector3 direction)
+    public void PreviewPattern(PatternTemplate pattern, TileProperties tileOrigin)
     {
         TileProperties currentTile = tileOrigin;
         int depth = pattern.actions.Length;
-
-        float rotationAmount = 0;
-
-
-        PreviewAction(currentTile, rotationAmount, pattern, 0, depth);
-
-    }
-    private void PreviewAction(TileProperties currentTile, float rotationAmount, PatternTemplate pattern, int index, int depth)
-    {
-        PatternReader.instance.tileColoredDuringPattern.Add(currentTile);
-
         Vector3 direction = Vector3.zero;
         switch (pattern.initialDirection)
         {
@@ -35,15 +24,20 @@ public class PreviewReader : MonoBehaviour
                 direction = -Vector3.forward;
                 break;
             default:
-                direction = Vector3.zero;
                 break;
         }
 
 
-        direction = Quaternion.AngleAxis(rotationAmount, Vector3.up) * direction;
+        PreviewAction(currentTile, pattern, 0, depth, direction);
+
+    }
+    private void PreviewAction(TileProperties currentTile, PatternTemplate pattern, int index, int depth , Vector3 currentDirection)
+    {
+        PatternReader.instance.tileColoredDuringPattern.Add(currentTile);
+
 
         int rayLength = 2;
-        List<TileProperties> tiles = currentTile.GetTileOnDirection(direction, rayLength, false);
+        List<TileProperties> tiles = currentTile.GetTileOnDirection(currentDirection, rayLength, false);
         if (tiles.Count == 0)
         {
             print("Rien");
@@ -64,7 +58,7 @@ public class PreviewReader : MonoBehaviour
                         return;
                     }
 
-                    TileCheckReview(pattern, currentTile, rotationAmount, index, depth, testedTile, direction);
+                    TileCheckReview(pattern, currentTile, index, depth, testedTile, currentDirection);
                 }
                 break;
 
@@ -74,28 +68,33 @@ public class PreviewReader : MonoBehaviour
                 TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.rotationMat);
 
 
-                //float newRotation;
+                Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
                 switch (pattern.actions[index].rotation)
                 {
                     case Rotation.Left:
-                        rotationAmount = rotationAmount - 90;
+                        //rotationAmount = rotationAmount - 90;
+                         rotation = Quaternion.Euler(0f, -90f, 0f);
                         break;
                     case Rotation.Rigth:
-                        rotationAmount = rotationAmount + 90;
+                        // rotationAmount = rotationAmount + 90;
+                        rotation = Quaternion.Euler(0f, 90f, 0f);
                         break;
                     case Rotation.Reverse:
-                        rotationAmount = rotationAmount + 180;
+                        //rotationAmount = rotationAmount + 180;
+                        rotation = Quaternion.Euler(0f, -180f, 0f);
                         break;
                     default:
-                        rotationAmount = rotationAmount + 0;
+                        // rotationAmount = rotationAmount + 0;
+                        rotation = Quaternion.Euler(0f, 0f, 0f);
                         break;
                 }
-                ActionPreviewEnd(currentTile, currentTile, rotationAmount, pattern, index, depth);
+                currentDirection = rotation * currentDirection;
+                ActionPreviewEnd(currentTile, currentTile, pattern, index, depth , currentDirection);
                 break;
 
             case ActionType.Attack:
                 TilesManager.Instance.ChangeTileMaterial(testedTile, PatternReader.instance.attackMat);
-                ActionPreviewEnd(currentTile, testedTile, rotationAmount, pattern, index, depth);
+                ActionPreviewEnd(currentTile, testedTile, pattern, index, depth , currentDirection);
                 break;
 
             default:
@@ -104,12 +103,12 @@ public class PreviewReader : MonoBehaviour
         }
     }
 
-    private void TileCheckReview(PatternTemplate pattern, TileProperties currentTile, float rotationAmount, int index, int depth, TileProperties newTile, Vector3 currentDirection)
+    private void TileCheckReview(PatternTemplate pattern, TileProperties currentTile, int index, int depth, TileProperties newTile, Vector3 currentDirection)
     {
         switch (newTile.specificity)
         {
             case TileProperties.TilesSpecific.None:
-                MovementOnTilePreview(pattern, currentTile, rotationAmount, index, depth, newTile);
+                MovementOnTilePreview(pattern, currentTile, index, depth, newTile , currentDirection);
                 break;
 
             case TileProperties.TilesSpecific.Ordre:
@@ -120,7 +119,7 @@ public class PreviewReader : MonoBehaviour
                         currentTile = newTile;
                         TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.mouvementMat);
                         PatternReader.instance.tileColoredDuringPattern.Add(currentTile);
-                        StartCoroutine(ExtraRotationReview(currentTile, rotationAmount, currentDirection, pattern, index, depth));
+                        StartCoroutine(ExtraRotationReview(currentTile, currentDirection, pattern, index, depth));
 
 
                         break;
@@ -133,13 +132,13 @@ public class PreviewReader : MonoBehaviour
                         if (tiles.Count == 0)
                         {
                             print("Rien");
-                            ActionPreviewEnd(currentTile, currentTile, rotationAmount, pattern, index, depth);
+                            ActionPreviewEnd(currentTile, currentTile, pattern, index, depth , currentDirection);
                         }
                         else
                         {
                             TileProperties testedTile = tiles[0];
                             PatternReader.instance.tileColoredDuringPattern.Add(currentTile);
-                            StartCoroutine(ExtraAttackReview(currentTile, rotationAmount, pattern, index, depth, testedTile, true));
+                            StartCoroutine(ExtraAttackReview(currentTile, pattern, index, depth, testedTile, true , currentDirection));
                         }
                         break;
                     case TileProperties.TilesOrder.stop:
@@ -156,7 +155,7 @@ public class PreviewReader : MonoBehaviour
                 currentTile = newTile;
                 TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
                 PatternReader.instance.tileColoredDuringPattern.Add(currentTile);
-                StartCoroutine(ExtraDeplacementReview(currentTile, rotationAmount, currentDirection, pattern, index, depth));
+                StartCoroutine(ExtraDeplacementReview(currentTile, currentDirection, pattern, index, depth));
                 break;
 
             case TileProperties.TilesSpecific.Door:
@@ -170,27 +169,27 @@ public class PreviewReader : MonoBehaviour
                 else
                 {
                     TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
-                    MovementOnTilePreview(pattern, currentTile, rotationAmount, index, depth, newTile);
+                    MovementOnTilePreview(pattern, currentTile, index, depth, newTile , currentDirection);
                 }
 
                 break;
             case TileProperties.TilesSpecific.Wall:
 
-                StartCoroutine(ExtraAttackReview(currentTile, rotationAmount, pattern, index, depth, newTile, false));
+                StartCoroutine(ExtraAttackReview(currentTile, pattern, index, depth, newTile, false , currentDirection));
 
                 break;
             case TileProperties.TilesSpecific.Teleport:
                 currentTile = newTile;
                 PatternReader.instance.tileColoredDuringPattern.Add(currentTile);
                 TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.interactionMat);
-                StartCoroutine(TeleportationReview(currentTile, rotationAmount, currentDirection, pattern, index, depth));
+                StartCoroutine(TeleportationReview(currentTile, currentDirection, pattern, index, depth));
                 break;
 
 
             case TileProperties.TilesSpecific.Trap:
                 //faudra prevoir rajouter le prévition de mort
                 TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.mouvementMat);
-                StartCoroutine(GetDamagedReview(currentTile, rotationAmount, pattern, index, depth, true));
+                StartCoroutine(GetDamagedReview(currentTile, pattern, index, depth, true , currentDirection));
                 break;
 
             default:
@@ -198,29 +197,29 @@ public class PreviewReader : MonoBehaviour
                 break;
         }
     }
-    private void MovementOnTilePreview(PatternTemplate pattern, TileProperties currentTile, float rotationAmount, int index, int depth, TileProperties newTile)
+    private void MovementOnTilePreview(PatternTemplate pattern, TileProperties currentTile, int index, int depth, TileProperties newTile , Vector3 currentDirection)
     {
         currentTile = newTile;
         TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.mouvementMat);
         if (newTile.isOnFire)
         {
-            StartCoroutine(GetDamagedReview(currentTile, rotationAmount, pattern, index, depth, true));
+            StartCoroutine(GetDamagedReview(currentTile, pattern, index, depth, true , currentDirection));
             print("OnFIre");
             return;
         }
-        ActionPreviewEnd(currentTile, currentTile, rotationAmount, pattern, index, depth);
+        ActionPreviewEnd(currentTile, currentTile, pattern, index, depth,currentDirection);
     }
 
     #region Action D'intéruption
 
-    private IEnumerator GetDamagedReview(TileProperties currentTile, float rotationAmount, PatternTemplate pattern, int index, int depth, bool continuePattern)
+    private IEnumerator GetDamagedReview(TileProperties currentTile, PatternTemplate pattern, int index, int depth, bool continuePattern ,  Vector3 currentDirection)
     {
         //rajouter un if si le joueur meurt 
         print("ouch");
         yield return new WaitForSeconds(0.5f);
         if (continuePattern)
         {
-            ActionPreviewEnd(currentTile, currentTile, rotationAmount, pattern, index, depth);
+            ActionPreviewEnd(currentTile, currentTile, pattern, index, depth ,currentDirection);
         }
         else
         {
@@ -228,7 +227,7 @@ public class PreviewReader : MonoBehaviour
         }
     }
 
-    private IEnumerator ExtraAttackReview(TileProperties currentTile, float rotationAmount, PatternTemplate pattern, int index, int depth, TileProperties targetTile, bool continuePatern)
+    private IEnumerator ExtraAttackReview(TileProperties currentTile, PatternTemplate pattern, int index, int depth, TileProperties targetTile, bool continuePatern , Vector3 currentDirection)
     {
         print("Attack ");
         yield return new WaitForSeconds(0.5f);
@@ -236,7 +235,7 @@ public class PreviewReader : MonoBehaviour
         TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
         if (continuePatern)
         {
-            ActionPreviewEnd(currentTile, targetTile, rotationAmount, pattern, index, depth);
+            ActionPreviewEnd(currentTile, targetTile, pattern, index, depth , currentDirection);
         }
         else
         {
@@ -244,16 +243,17 @@ public class PreviewReader : MonoBehaviour
         }
     }
 
-    private IEnumerator ExtraRotationReview(TileProperties currentTile, float rotationAmount, Vector3 currentDirection, PatternTemplate pattern, int index, int depth)
+    private IEnumerator ExtraRotationReview(TileProperties currentTile, Vector3 currentDirection, PatternTemplate pattern, int index, int depth)
     {
-        print("Rotation ");
         yield return new WaitForSeconds(0.5f);
         TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.interactionMat);
-        rotationAmount += currentTile.GetRotationOffset(currentDirection);
-        ActionPreviewEnd(currentTile, currentTile, rotationAmount, pattern, index, depth);
+        Quaternion rotation = Quaternion.Euler(0, currentTile.GetRotationOffset(currentDirection), 0);
+
+        currentDirection= rotation * currentDirection;
+        ActionPreviewEnd(currentTile, currentTile, pattern, index, depth , currentDirection);
     }
 
-    private IEnumerator ExtraDeplacementReview(TileProperties currentTile, float rotationAmount, Vector3 currentDirection, PatternTemplate pattern, int index, int depth)
+    private IEnumerator ExtraDeplacementReview(TileProperties currentTile, Vector3 currentDirection, PatternTemplate pattern, int index, int depth)
     {
         print("Push ");
         yield return new WaitForSeconds(0.5f);
@@ -264,19 +264,18 @@ public class PreviewReader : MonoBehaviour
         if (tiles.Count == 0)
         {
             print("Rien");
-            StartCoroutine(GetDamagedReview(currentTile, rotationAmount, pattern, index, depth, false));
+            StartCoroutine(GetDamagedReview(currentTile, pattern, index, depth, false , currentDirection));
         }
         else
         {
             TileProperties testedTile = tiles[0];
-            TileCheckReview(pattern, currentTile, rotationAmount, index, depth, testedTile, currentDirection);
+            TileCheckReview(pattern, currentTile, index, depth, testedTile, currentDirection);
             //Debug.Log(testedTile, testedTile);
         }
     }
 
-    private IEnumerator TeleportationReview(TileProperties currentTile, float rotationAmount, Vector3 currentDirection, PatternTemplate pattern, int index, int depth)
+    private IEnumerator TeleportationReview(TileProperties currentTile, Vector3 currentDirection, PatternTemplate pattern, int index, int depth)
     {
-        print("Push ");
         yield return new WaitForSeconds(0.5f);
 
         //TilesManager.Instance.ChangeTileMaterial(currentTile, interactionMat);
@@ -287,14 +286,16 @@ public class PreviewReader : MonoBehaviour
         }
         else
         {
-            //tileColoredDuringPattern.Add(currentTile);
             TilesManager.Instance.ChangeTileMaterial(teleportExit, PatternReader.instance.interactionMat);
-            rotationAmount += teleportExit.GetRotationOffset(currentDirection);
-            ActionPreviewEnd(teleportExit, teleportExit, rotationAmount, pattern, index, depth);
+
+
+            Quaternion rotation = Quaternion.Euler(0, teleportExit.GetRotationOffset(currentDirection), 0); 
+            
+            currentDirection = rotation * currentDirection;
+
+            ActionPreviewEnd(teleportExit, teleportExit, pattern, index, depth , currentDirection);
         }
     }
-
-
 
 
     #endregion
@@ -326,10 +327,10 @@ public class PreviewReader : MonoBehaviour
     /// <param name="index"></param>
     /// <param name="depth"></param>
     /// <returns></returns>
-    private IEnumerator NextPreview(float duration, TileProperties currentTile, float rotationAmount, PatternTemplate pattern, int index, int depth)
+    private IEnumerator NextPreview(float duration, TileProperties currentTile, PatternTemplate pattern, int index, int depth , Vector3 currentDirection)
     {
         yield return new WaitForSeconds(duration);
-        PreviewAction(currentTile, rotationAmount, pattern, index, depth);
+        PreviewAction(currentTile, pattern, index, depth , currentDirection);
     }
     #endregion
 
@@ -342,12 +343,12 @@ public class PreviewReader : MonoBehaviour
     /// <param name="pattern"></param>
     /// <param name="index"></param>
     /// <param name="depth"></param>
-    private void ActionPreviewEnd(TileProperties currentTile, TileProperties tileToColored, float rotationAmount, PatternTemplate pattern, int index, int depth)
+    private void ActionPreviewEnd(TileProperties currentTile, TileProperties tileToColored, PatternTemplate pattern, int index, int depth , Vector3 currentDirection)
     {
         index++;
         if (index < depth)
         {
-            StartCoroutine(NextPreview(pattern.actions[index].actionDuration, currentTile, rotationAmount, pattern, index, depth));
+            StartCoroutine(NextPreview(pattern.actions[index].actionDuration, currentTile, pattern, index, depth , currentDirection));
         }
         else
         {

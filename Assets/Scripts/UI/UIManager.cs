@@ -30,7 +30,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI AlertText;
 
     [Header("PAs")]
-    [SerializeField] private TextMeshProUGUI PAtext;
+    [SerializeField] private Image[] PAdisplay;
+    [SerializeField] private Sprite PAsprite;
+    [SerializeField] private Sprite PAdisabled;
+    //[SerializeField] private TextMeshProUGUI PAtext;
 
         [Header("Follow cursor image")]
     [SerializeField] private RectTransform allyHint;
@@ -150,7 +153,18 @@ public class UIManager : MonoBehaviour
 
     public void setPA(int amount)
     {
-        PAtext.text = amount + "/5";
+        //PAtext.text = amount + "/5";
+        for (int i = 0; i < PAdisplay.Length; i++)
+        {
+            if (i < amount)
+            {
+                PAdisplay[i].sprite = PAsprite;
+            }
+            else
+            {
+                PAdisplay[i].sprite = PAdisabled;
+            }
+        }
     }
 
 }

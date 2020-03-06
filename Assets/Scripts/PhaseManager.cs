@@ -45,6 +45,7 @@ public class PhaseManager : MonoBehaviour
         }
         else
         {
+            UIManager.Instance.newTurn();
             actualPhase = Phase.Control;
         }
         Debug.Log(actualPhase);
@@ -89,6 +90,7 @@ public class PhaseManager : MonoBehaviour
                 UIManager.Instance.allyTurn();
                 PlayerControl.Instance.EnableInputs(false);
                 unitIndexs.Clear();
+                currentUnit = 0;
                 for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count; i++)
                 {
                     if (CharactersManager.Instance.allyCharacter[i].myState == CharacterState.Standby)
@@ -102,6 +104,7 @@ public class PhaseManager : MonoBehaviour
             case Phase.Enemy:
                 UIManager.Instance.enemyTurn();
                 unitIndexs.Clear();
+                currentUnit = 0;
                 for (int i = 0; i < CharactersManager.Instance.enemyCharacters.Count; i++)
                 {
                     if (CharactersManager.Instance.enemyCharacters[i].myState == CharacterState.Standby)

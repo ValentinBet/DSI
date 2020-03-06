@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3202655181438264888}
   - component: {fileID: 7377767214377358135}
   m_Layer: 0
-  m_Name: AllyCharacterProto1
+  m_Name: AllyCharacterProto2
   m_TagString: AllyCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,9 +116,9 @@ MonoBehaviour:
   pathFinding: []
   occupiedTile: {fileID: 0}
   ObjectTypeMetaData: {fileID: 11400000, guid: afff1c7cb6ebbc74d8b5d8920419f5b7, type: 2}
-  allyType: 1
+  allyType: 2
   data:
-    name: le naze
+    name: NON
     experience: 0
     level: 0
-    allyDescription: 'point faible : trop naze'
+    allyDescription: OUI

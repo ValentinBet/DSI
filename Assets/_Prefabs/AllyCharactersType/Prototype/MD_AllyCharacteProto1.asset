@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MD_AllyCharacteProto1
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 596678c53fd54a640bf95ba7dfafd092, type: 3}
-  typeDescription: Archer
+  typeDescription: 

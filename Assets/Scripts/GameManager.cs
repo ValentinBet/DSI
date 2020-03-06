@@ -21,7 +21,45 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
     }
+    public void EndGame(bool isWin = false)
+    {
 
+
+        if (isWin)
+        {
+            WinActualLevel();
+        }
+        else
+        {
+            LoseActualLevel();
+        }
+    }
+
+    public void WinActualLevel()
+    {
+        LevelPassAlive();
+    }
+
+    public void LoseActualLevel()
+    {
+        GameInfoManager.GameData.lifePoints -= 1;
+
+        if (GameInfoManager.GameData.lifePoints < 1)
+        {
+            GameInfoManager.Instance.InitLoseGame();
+        }
+        else
+        {
+            LevelPassAlive();
+        }
+    }
+
+    public void LevelPassAlive()
+    {
+        GameInfoManager.GameData.yearSurvived++;
+
+        GameInfoManager.SaveGameDataAsJson();
+    }
 
     public void QuitGame()
     {

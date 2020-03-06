@@ -86,15 +86,15 @@ public class UIManager : MonoBehaviour
             {
                 case "AllyCharacter":
                     AllyCharacter _ac = hit.collider.GetComponent<AllyCharacter>();
-                    SetClusterInfo(_ac.data.name, _ac.data.allyDescription, _ac.ObjectTypeMetaData.sprite);
+                    SetClusterInfo(_ac.data.name, _ac.data.allyDescription, _ac.ObjectTypeMetaData.icon);
                     break;
                 case "EnemyCharacter":
                     EnemyCharacter _ec = hit.collider.GetComponent<EnemyCharacter>();
-                    SetClusterInfo(_ec.name, _ec.enemyDescription, _ec.ObjectTypeMetaData.sprite);
+                    SetClusterInfo(_ec.name, _ec.enemyDescription, _ec.ObjectTypeMetaData.icon);
                     break;
                 case "Tile":
                     TileProperties _tile = hit.collider.GetComponent<TileProperties>();
-                    SetClusterInfo(_tile.tileName, _tile.tileDescription, _tile.ObjectTypeMetaData.sprite);
+                    SetClusterInfo(_tile.tileName, _tile.tileDescription, _tile.ObjectTypeMetaData.icon);
                     break;
                 default:
                     break;

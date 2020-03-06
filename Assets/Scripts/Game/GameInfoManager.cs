@@ -9,8 +9,6 @@ public class GameInfoManager : MonoBehaviour
     private static GameInfoManager _instance;
     public static GameInfoManager Instance { get { return _instance; } }
 
-    public List<GameObject> allyList = new List<GameObject>();
-
     public static GameData GameData;
     private static string gameDataFileName;
 
@@ -41,7 +39,6 @@ public class GameInfoManager : MonoBehaviour
         {
             Debug.Log("Creating new game data");
             NewGame();
-            SaveGameDataAsJson();
         }
         else
         {
@@ -62,23 +59,28 @@ public class GameInfoManager : MonoBehaviour
     private void NewGame()
     {
         GameData = new GameData();
-        allyList = charactersGenerator.GetBaseAllyList();
-        SaveCharacters();
+        InitNewCharacters();
+        SaveGameDataAsJson();
     }
 
-    private void SaveCharacters()
+    private void InitNewCharacters()
     {
-        foreach (GameObject allyData in allyList)
+        foreach (GameObject baseAlly in charactersGenerator.GetBaseAllyList())
         {
-            GameData.allies.Add(ConvertAllyCharacterForSave(allyData.GetComponent<AllyCharacter>()));
+            SaveCharacter(baseAlly);
         }
+    }
+
+    private void SaveCharacter(GameObject ally)
+    {
+            GameData.allies.Add(ConvertAllyCharacterForSave(ally.GetComponent<AllyCharacter>()));   
     }
 
     public AllyCharacterSave ConvertAllyCharacterForSave(AllyCharacter allyCharacter)
     {
         AllyCharacterSave characterSave = new AllyCharacterSave();
 
-        characterSave.name = allyCharacter.name;
+        characterSave.name = allyCharacter.data.name;
         characterSave.experience = allyCharacter.data.experience;
         characterSave.level = allyCharacter.data.level;
         characterSave.allyDescription = allyCharacter.data.allyDescription;
@@ -98,12 +100,19 @@ public class GameInfoManager : MonoBehaviour
         _gameData.lifePoints = GameData.lifePoints;
         _gameData.yearSurvived = GameData.yearSurvived;
         _gameData.Init = GameData.Init;
+        _gameData.alliesLost = GameData.alliesLost;
+        _gameData.allies = GameData.allies;
 
         //ADD HERE FOR UPDATES
 
         GameData = _gameData;
 
         SaveGameDataAsJson();
+    }
+
+    public void InitLoseGame()
+    {
+        RestartGame();
     }
 
     public void RestartGame()

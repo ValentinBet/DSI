@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CharactersGenerator : MonoBehaviour
 {
-   [SerializeField] private List<GameObject> baseAllyList = new List<GameObject>();
+    [SerializeField] private List<GameObject> baseAllyList = new List<GameObject>();
 
     public List<GameObject> GetBaseAllyList()
     {
-        List<GameObject> _baseAlly = new List<GameObject>();
-        return _baseAlly = baseAllyList;
+        List<GameObject> _baseAllies = new List<GameObject>();
+        _baseAllies = baseAllyList;
+        return _baseAllies;
     }
+
 }

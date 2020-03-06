@@ -61,8 +61,8 @@ public class AllyCharactersPlacer : MonoBehaviour
     private void UpdateUIToActualAlly()
     {
         AllyCharacter _ac = allyList[lastAllyPriority].GetComponent<AllyCharacter>();
-        UIManager.Instance.SetAllyHintState(true, _ac.ObjectTypeMetaData.sprite);
-        UIManager.Instance.SetClusterInfo(_ac.data.name,_ac.data.allyDescription, _ac.ObjectTypeMetaData.sprite);
+        UIManager.Instance.SetAllyHintState(true, _ac.ObjectTypeMetaData.icon);
+        UIManager.Instance.SetClusterInfo(_ac.data.name,_ac.data.allyDescription, _ac.ObjectTypeMetaData.icon);
     }
 
     private bool IsAllAllyedSpawned()

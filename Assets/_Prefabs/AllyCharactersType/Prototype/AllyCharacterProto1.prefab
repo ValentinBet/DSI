@@ -112,9 +112,11 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   priority: 0
   myState: 0
+  mouvementPattern: {fileID: 0}
   pathFinding: []
   occupiedTile: {fileID: 0}
   ObjectTypeMetaData: {fileID: 11400000, guid: afff1c7cb6ebbc74d8b5d8920419f5b7, type: 2}
+  allyType: 1
   data:
     name: le naze
     experience: 0

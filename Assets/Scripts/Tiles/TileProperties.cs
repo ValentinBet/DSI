@@ -7,6 +7,10 @@ public class TileProperties : MonoBehaviour
     [Header("Properties")]
     public string tileName;
     public string tileDescription;
+    [Header("REFS")]
+    public SpriteRenderer sR;
+    public Sprite icon;
+    public Sprite secondaryIcon;
 
     public Vector2 tileID;
     public bool canSeeThrough;
@@ -28,11 +32,19 @@ public class TileProperties : MonoBehaviour
     [HideInInspector] public Material baseMat;
 
 
+
     private void Start()
     {
         gameObject.tag = "Tile";
         mR = GetComponent<MeshRenderer>();
         baseMat = mR.sharedMaterial;
+
+        if (sR != null)
+        {
+            sR.sprite = icon;
+        }
+
+
         if (specificity != TilesSpecific.None)
         {
             switch (specificity)
@@ -62,7 +74,8 @@ public class TileProperties : MonoBehaviour
 
         RaycastHit[] hitTiles = new RaycastHit[lenght];
 
-        hitTiles = Physics.RaycastAll(transform.position, transform.TransformDirection(direction), lenght, TileLayer);
+        //hitTiles = Physics.RaycastAll(transform.position, transform.TransformDirection(direction), lenght, TileLayer);
+        hitTiles = Physics.RaycastAll(transform.position, direction, lenght, TileLayer);
 
         for (int i = 0; i < hitTiles.Length; i++)
         {
@@ -76,8 +89,8 @@ public class TileProperties : MonoBehaviour
                 }
             }
         }
-
-        Debug.DrawRay(transform.position, transform.TransformDirection(direction) * lenght, Color.red);
+        Vector3 originPoint = transform.position + new Vector3(0, 1, 0);
+        Debug.DrawRay(originPoint, (direction.normalized * lenght), Color.red, 2);
 
         return listTilesOnDirection;
     }
@@ -85,35 +98,52 @@ public class TileProperties : MonoBehaviour
 
     public Vector3 GetCurrentForward()
     {
+        Debug.DrawLine(transform.position, (transform.position + (transform.forward * 3)) + new Vector3(0, 1, 0), Color.cyan, 2);
         return transform.forward;
     }
 
     public float GetRotationOffset(Vector3 directionToTest)
     {
-
         float multiplier = 1f;
-        if (directionToTest.x < 0)
+        if (directionToTest.x > transform.forward.x)
         {
             multiplier = -1f;
         }
-        Debug.DrawLine(transform.position, (transform.position + transform.forward) * 3, Color.cyan, 2);
-        float angle = (180 * Vector3.Dot(directionToTest, transform.forward)) * multiplier;
-        print(angle);
+        Debug.DrawLine(transform.position, (transform.position + (transform.forward * 3)) + new Vector3(0, 1, 0), Color.cyan, 2);
+        float angle = (90 - (90 * Vector3.Dot(directionToTest, transform.forward))) * multiplier;
         return angle;
     }
 
     public TileProperties GetTeleportExit()
     {
+        print("try teleport");
         for (int i = 0; i < TilesManager.Instance.teleportList.Count; i++)
         {
-            if (TilesManager.Instance.teleportList[i].teleportChannel == this.teleportChannel && TilesManager.Instance.teleportList[i] != this)
+            if (TilesManager.Instance.teleportList[i].teleportChannel == this.teleportChannel)
             {
-                return TilesManager.Instance.teleportList[i];
+                if (TilesManager.Instance.teleportList[i] != this)
+                {
+                    print(i);
+                    return TilesManager.Instance.teleportList[i];
+                }
             }
         }
 
         Debug.LogError("Il n'y a pas de sortie à ce teleporteur", this);
         return null;
+    }
+
+    public void ChangeTilesActivationStatut(bool _isActivated)
+    {
+        isActivated = _isActivated;
+        if (_isActivated)
+        {
+            sR.sprite = icon;
+        }
+        else
+        {
+            sR.sprite = secondaryIcon;
+        }
     }
 
 
@@ -133,7 +163,7 @@ public class TileProperties : MonoBehaviour
 
     public enum TilesOrder
     {
-        rotate, 
+        rotate,
         attack,
         stop
     }

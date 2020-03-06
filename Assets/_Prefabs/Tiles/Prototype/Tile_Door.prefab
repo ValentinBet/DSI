@@ -28,9 +28,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044990667826019268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 0.2, z: 10}
-  m_LocalScale: {x: 1.9, y: 0.5, z: 1.9}
-  m_Children: []
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 0.5, z: 2}
+  m_Children:
+  - {fileID: 6390690533559132806}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -107,6 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: Door
   tileDescription: S'ouvre
+  sR: {fileID: 4732418314923231360}
+  icon: {fileID: 21300000, guid: 7bef9bbae06b3e44a85eeefe089b56c0, type: 3}
+  secondaryIcon: {fileID: 21300000, guid: c41fc2f2f15224249a79f9c8b2dd1f04, type: 3}
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 1
@@ -124,3 +128,84 @@ MonoBehaviour:
   isAllySpawnable: 0
   mR: {fileID: 0}
   baseMat: {fileID: 0}
+--- !u!1001 &8616574914028333531
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2044990667826019264}
+    m_Modifications:
+    - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022384076545343772, guid: 89703251c51ce8646ad8dab65c600f65,
+        type: 3}
+      propertyPath: m_Name
+      value: sR
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 89703251c51ce8646ad8dab65c600f65, type: 3}
+--- !u!4 &6390690533559132806 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
+    type: 3}
+  m_PrefabInstance: {fileID: 8616574914028333531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4732418314923231360 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3907106155976859995, guid: 89703251c51ce8646ad8dab65c600f65,
+    type: 3}
+  m_PrefabInstance: {fileID: 8616574914028333531}
+  m_PrefabAsset: {fileID: 0}

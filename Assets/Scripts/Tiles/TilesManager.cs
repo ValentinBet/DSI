@@ -87,7 +87,6 @@ public class TilesManager : MonoBehaviour
     {
         if (tile.mR != null)
         {
-
             tile.mR.sharedMaterial = newMat;
         }
     }

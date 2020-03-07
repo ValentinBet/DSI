@@ -116,7 +116,7 @@ public class CharactersManager : MonoBehaviour
 
     public void SpawnWave(Wave wave)
     {
-        for (int i = 0; i < wave.enemies.Length;i++)
+        for (int i = 0; i < wave.enemies.Length; i++)
         {
             SpawnEnemyCharacterAtPos(wave.enemies[i].gridPosition);
         }
@@ -129,14 +129,13 @@ public class CharactersManager : MonoBehaviour
         Debug.Log("destroyedEnemy");
     }
 
-    public void KillAlly(int value)
+    public void KillCharacter(Character character)
     {
-        allyCharacter[value].myState = CharacterState.Dead;
+        character.myState = CharacterState.Dead;
 
         //Do something when character die
 
-        DestroyAlly(value);
-    } 
+    }
 
     private void DestroyAlly(int index)
     {

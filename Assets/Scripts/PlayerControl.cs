@@ -83,6 +83,7 @@ public class PlayerControl : MonoBehaviour
             if (Input.GetKeyDown(TileSwapKey))
             {
                 if (GameTracker.Instance.PlayerAction())
+                    print("yo");
                     TilesManager.TilesChangerInstance.InitChange();
             }
             if (Input.GetKeyDown(TileRotateKey))

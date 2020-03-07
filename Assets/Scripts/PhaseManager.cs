@@ -71,27 +71,31 @@ public class PhaseManager : MonoBehaviour
 
                 for (int i = 0; i < charactersManager.allyCharacter.Count; i++)
                 {
-                    if (charactersManager.allyCharacter[i].myState == CharacterState.Dead)
-                    {
-                        charactersManager.allyCharacter[i].gameObject.SetActive(false);
-                        charactersManager.allyCharacter.RemoveAt(i);
-                        i--;
-                    }
-                    else
-                    {
-                        charactersManager.allyCharacter[i].myState = CharacterState.Standby;
-                    }
+                    charactersManager.allyCharacter[i].myState = CharacterState.Standby;
+
+                    //if (charactersManager.allyCharacter[i].myState == CharacterState.Dead)
+                    //{
+                    //    charactersManager.allyCharacter[i].gameObject.SetActive(false);
+                    //    charactersManager.allyCharacter.RemoveAt(i);
+                    //    i--;
+                    //}
+                    //else
+                    //{
+                    //    charactersManager.allyCharacter[i].myState = CharacterState.Standby;
+                    //}
                 }
                 for (int i = 0; i < charactersManager.enemyCharacters.Count; i++)
                 {
-                    if (charactersManager.enemyCharacters[i].myState == CharacterState.Dead)
-                    {
-                        Destroy(charactersManager.enemyCharacters[i].gameObject);
-                    }
-                    else
-                    {
-                        charactersManager.enemyCharacters[i].myState = CharacterState.Standby;
-                    }
+                    charactersManager.enemyCharacters[i].myState = CharacterState.Standby;
+
+                    //if (charactersManager.enemyCharacters[i].myState == CharacterState.Dead)
+                    //{
+                    //    Destroy(charactersManager.enemyCharacters[i].gameObject);
+                    //}
+                    //else
+                    //{
+                    //    charactersManager.enemyCharacters[i].myState = CharacterState.Standby;
+                    //}
                 }
                 break;
             case Phase.Allied:

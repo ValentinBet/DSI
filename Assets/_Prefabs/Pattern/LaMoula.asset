@@ -15,11 +15,18 @@ MonoBehaviour:
   initialDirection: 2
   actions:
   - actionDuration: 0.2
+    previewDuration: 0
     actionType: 0
     rotation: 0
   - actionDuration: 0.2
+    previewDuration: 0
     actionType: 0
     rotation: 0
   - actionDuration: 0.2
+    previewDuration: 0
+    actionType: 0
+    rotation: 0
+  - actionDuration: 0.2
+    previewDuration: 0
     actionType: 0
     rotation: 0

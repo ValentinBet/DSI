@@ -17,6 +17,9 @@ public enum CharacterState
     Dead
 }
 
+public enum CombatStyle { closeCombat , range}
+
+
 public class Character : MonoBehaviour
 {
     [Header("Properties")]
@@ -30,6 +33,7 @@ public class Character : MonoBehaviour
 
     public CharacterState myState = CharacterState.Standby;
     public CharacterType characterType;
+    public CombatStyle combatStyle;
     public bool isAlly;
 
     public PatternTemplate mouvementPattern;

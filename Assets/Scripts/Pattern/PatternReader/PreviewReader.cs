@@ -219,7 +219,7 @@ public class PreviewReader : MonoBehaviour
     {
         //rajouter un if si le joueur meurt 
         print("ouch");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0);
         if (continuePattern)
         {
             ActionPreviewEnd(currentTile, currentTile, pattern, index, depth, currentDirection);
@@ -233,7 +233,7 @@ public class PreviewReader : MonoBehaviour
     private IEnumerator ExtraAttackReview(TileProperties currentTile, PatternTemplate pattern, int index, int depth, TileProperties targetTile, bool continuePatern, Vector3 currentDirection)
     {
         print("Attack ");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0);
         tileColoredDuringPattern.Add(targetTile);
         TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
         if (continuePatern)
@@ -248,7 +248,7 @@ public class PreviewReader : MonoBehaviour
 
     private IEnumerator ExtraRotationReview(TileProperties currentTile, Vector3 currentDirection, PatternTemplate pattern, int index, int depth)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0);
         TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.interactionMat);
         Quaternion rotation = Quaternion.Euler(0, currentTile.GetRotationOffset(currentDirection), 0);
 
@@ -259,7 +259,7 @@ public class PreviewReader : MonoBehaviour
     private IEnumerator ExtraDeplacementReview(TileProperties currentTile, Vector3 currentDirection, PatternTemplate pattern, int index, int depth)
     {
         print("Push ");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0);
         //TilesManager.Instance.ChangeTileMaterial(currentTile, interactionMat);
 
         int rayLength = 2;
@@ -279,7 +279,7 @@ public class PreviewReader : MonoBehaviour
 
     private IEnumerator TeleportationReview(TileProperties currentTile, Vector3 currentDirection, PatternTemplate pattern, int index, int depth)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0);
 
         //TilesManager.Instance.ChangeTileMaterial(currentTile, interactionMat);
         TileProperties teleportExit = currentTile.GetTeleportExit();
@@ -351,12 +351,12 @@ public class PreviewReader : MonoBehaviour
         index++;
         if (index < depth)
         {
-            StartCoroutine(NextPreview(pattern.actions[index].actionDuration, currentTile, pattern, index, depth, currentDirection));
+            StartCoroutine(NextPreview(pattern.actions[index].previewDuration, currentTile, pattern, index, depth, currentDirection));
         }
         else
         {
             tileColoredDuringPattern.Add(tileToColored);
-            StartCoroutine(EndPreview(0.5f));
+            StartCoroutine(EndPreview(0));
         }
     }
 

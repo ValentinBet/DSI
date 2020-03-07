@@ -20,6 +20,7 @@ public enum Rotation { Left, Rigth, Reverse }
 public struct PatternAction
 {
     public float actionDuration;
+    public float previewDuration;
     public ActionType actionType;
     public Rotation rotation;
     // public AttackType AttackType;

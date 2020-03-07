@@ -95,7 +95,7 @@ public class Character : MonoBehaviour
         return true;
     }
 
-    public void GotAttacked(int damageAmount)
+    public void GotAttacked(int damageAmount , Character attacker)
     {
         life -= damageAmount;
         if (life < 1)

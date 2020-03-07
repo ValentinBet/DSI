@@ -8,11 +8,11 @@ public class AllyCharactersPlacer : MonoBehaviour
     public UnityAction<bool> PlacingAllyCharacters;
 
     public bool isPlacingAllys = false;
-    private int lastAllyPriority = 0;
+    private int AllyPriority = 0;
 
     public void InitPlacing()
     {
-        lastAllyPriority = 0;
+        AllyPriority = 0;
         PlacingAllyCharacters?.Invoke(true); // for non singleton
         isPlacingAllys = true;
         UpdateUIToActualAlly();
@@ -28,7 +28,7 @@ public class AllyCharactersPlacer : MonoBehaviour
         UIManager.Instance.AllyLifeSetup();
         UIManager.Instance.SetAllyHintState(false);
         UIManager.Instance.isPlacingAlly = false;
-        UIManager.Instance.newTurn();
+        UIManager.Instance.NewTurn();
     }
 
     public void TryPlaceAlly(TileProperties tile)
@@ -37,13 +37,14 @@ public class AllyCharactersPlacer : MonoBehaviour
         {
             if (tile.isAllySpawnable && tile.CharacterCanSpawn())
             {
-                GameObject _ally = Instantiate(GetCharacterObjByType(GameInfoManager.GameData.allies[lastAllyPriority].type), tile.transform.position + Vector3.up, Quaternion.identity);
+                GameObject _ally = Instantiate(GetCharacterObjByType(GameInfoManager.GameData.allies[AllyPriority].type), tile.transform.position + Vector3.up, Quaternion.identity);
                 AllyCharacter _allyChar = _ally.GetComponent<AllyCharacter>();
-                GameInfoManager.Instance.UpdateCharacterObjToHisSave(ref _allyChar, GameInfoManager.GameData.allies[lastAllyPriority]);
+                GameInfoManager.Instance.UpdateCharacterObjToHisSave(ref _allyChar, GameInfoManager.GameData.allies[AllyPriority]);
                 _allyChar.SetOccupiedTile();
-                _allyChar.priority = lastAllyPriority;
+                _allyChar.priority = AllyPriority;
                 CharactersManager.Instance.allyCharacter.Add(_allyChar);
-                lastAllyPriority++;
+                UIManager.Instance.SetAllyLevelDisplay(AllyPriority);
+                AllyPriority++;
             }
         }
 
@@ -60,21 +61,21 @@ public class AllyCharactersPlacer : MonoBehaviour
 
     private void UpdateUIToActualAlly()
     {
-        AllyCharacter _ac = GetCharacterObjByType(GameInfoManager.GameData.allies[lastAllyPriority].type).GetComponent<AllyCharacter>();
+        AllyCharacter _ac = GetCharacterObjByType(GameInfoManager.GameData.allies[AllyPriority].type).GetComponent<AllyCharacter>();
         UIManager.Instance.SetAllyHintState(true, _ac.ObjectTypeMetaData.icon);
         UIManager.Instance.SetClusterInfo(_ac.data.name,_ac.data.allyDescription, _ac.ObjectTypeMetaData.icon);
     }
 
     private bool IsAllAllyedSpawned()
     {
-        if (lastAllyPriority == GameInfoManager.GameData.allies.Count)
+        if (AllyPriority == GameInfoManager.GameData.allies.Count)
         {
             return true;
         }
         return false;
     }
 
-    private GameObject GetCharacterObjByType(AllyType type = AllyType.Warrior)
+    private GameObject GetCharacterObjByType(CharacterType type = CharacterType.Warrior)
     {
       return GameInfoManager.Instance.charactersGenerator.GetBaseAllyList()[(int) type];
     }

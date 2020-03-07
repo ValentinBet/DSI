@@ -73,7 +73,7 @@ public class GameInfoManager : MonoBehaviour
 
         for (int i = 0; i < GameData.allies.Count; i++)
         {
-            GameData.allies[i] = charactersGenerator.SetBasicStats(GameData.allies[i], (AllyType)i); // Génère un Guerrier / archer / mage a la suite --> Scope + -> pourra choisir sa composition
+            GameData.allies[i] = charactersGenerator.SetBasicStats(GameData.allies[i], (CharacterType)i); // Génère un Guerrier / archer / mage a la suite --> Scope + -> pourra choisir sa composition
         }
 
     }
@@ -95,14 +95,14 @@ public class GameInfoManager : MonoBehaviour
         characterSave.damage = allyCharacter.damage;
         characterSave.AttackRange = allyCharacter.AttackRange;
         characterSave.movementRange = allyCharacter.movementRange;
-        characterSave.type = allyCharacter.allyType;
+        characterSave.type = allyCharacter.characterType;
 
         return characterSave;
     }
 
     public void UpdateCharacterObjToHisSave(ref AllyCharacter allyCharacter, AllyCharacterSave save)
     {
-        allyCharacter.allyType = save.type;
+        allyCharacter.characterType = save.type;
         allyCharacter.data.name = save.name;
         allyCharacter.data.experience = save.experience;
         allyCharacter.data.level = save.level;

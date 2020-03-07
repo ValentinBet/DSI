@@ -45,7 +45,7 @@ public class PhaseManager : MonoBehaviour
         }
         else
         {
-            UIManager.Instance.newTurn();
+            UIManager.Instance.NewTurn();
             actualPhase = Phase.Control;
         }
         Debug.Log(actualPhase);
@@ -91,7 +91,7 @@ public class PhaseManager : MonoBehaviour
                 }
                 break;
             case Phase.Allied:
-                UIManager.Instance.allyTurn();
+                UIManager.Instance.AllyTurn();
                 PlayerControl.Instance.EnableInputs(false);
                 unitIndexs.Clear();
                 currentUnit = 0;
@@ -105,7 +105,7 @@ public class PhaseManager : MonoBehaviour
                 NextAlly();
                 break;
             case Phase.Enemy:
-                UIManager.Instance.enemyTurn();
+                UIManager.Instance.EnemyTurn();
                 unitIndexs.Clear();
                 currentUnit = 0;
                 for (int i = 0; i < CharactersManager.Instance.enemyCharacters.Count; i++)

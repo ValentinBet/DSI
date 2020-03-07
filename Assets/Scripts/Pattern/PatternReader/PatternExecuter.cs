@@ -179,6 +179,7 @@ public class PatternExecuter : MonoBehaviour
                     character.transform.position = newPos;
                     PlayerBase.Instance.DamageBase(1);
                     Debug.Log(PlayerBase.Instance.GetLife());
+                    character.KillCharacter();
                 }
                 break;
 

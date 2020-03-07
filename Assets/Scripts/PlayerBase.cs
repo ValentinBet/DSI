@@ -22,17 +22,13 @@ public class PlayerBase : MonoBehaviour
         {
             _instance = this;
         }
+
         life = startingLife;
     }
 
-    public void DamageBase(int damage)
+    public void DamageBase(int damage = 1)
     {
         life -= damage;
-    }
-
-    public void DamageBase()
-    {
-        DamageBase(1);
     }
 
     public int GetLife()

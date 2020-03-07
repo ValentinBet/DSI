@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CharacterType
+{
+    Warrior,
+    Archer,
+    Mage
+}
+
 public class Character : MonoBehaviour
 {
     [Header("Properties")]
@@ -14,6 +21,7 @@ public class Character : MonoBehaviour
     public int priority;
 
     public CharacterState myState = CharacterState.Standby;
+    public CharacterType characterType;
     public bool isAlly;
 
     public PatternTemplate mouvementPattern;

@@ -129,7 +129,16 @@ public class CharactersManager : MonoBehaviour
         Debug.Log("destroyedEnemy");
     }
 
-    public void DestroyAlly(int index)
+    public void KillAlly(int value)
+    {
+        allyCharacter[value].myState = CharacterState.Dead;
+
+        //Do something when character die
+
+        DestroyAlly(value);
+    } 
+
+    private void DestroyAlly(int index)
     {
         Destroy(allyCharacter[index].gameObject);
         allyCharacter.RemoveAt(index);

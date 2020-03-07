@@ -57,12 +57,20 @@ public class GameManager : MonoBehaviour
     public void LevelPassAlive()
     {
         GameInfoManager.GameData.yearSurvived += 1;
-
-        GameInfoManager.SaveGameDataAsJson();
     }
 
     public void EndLevel()
     {
+        for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count; i++)
+        {
+            if (CharactersManager.Instance.allyCharacter[i].myState == CharacterState.Dead) // Crée un nouveau héros si mort
+            {
+                GameInfoManager.GameData.allies[i] = GameInfoManager.Instance.charactersGenerator.GetNewCharacterSave(GameInfoManager.GameData.allies[i].type);
+            }
+        }
+
+        GameInfoManager.SaveGameDataAsJson();
+
         SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
         SceneManager.LoadSceneAsync("SelectLevels", LoadSceneMode.Additive);
     }

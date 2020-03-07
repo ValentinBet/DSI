@@ -96,19 +96,19 @@ public class TilesManager : MonoBehaviour
 
     public void ResetTilesStatut()
     {
-        for (int i = 0; i < trapList.Count; i++)
+        for (int i = 0; i < Instance.trapList.Count; i++)
         {
-            if (!trapList[i].isActivated)
+            if (Instance.trapList[i].isActivated == false)
             {
-                trapList[i].ChangeTilesActivationStatut(true);
+                Instance.trapList[i].ChangeTilesActivationStatut(true);
             }
         }
 
-        for (int y = 0; y < trapList.Count; y++)
+        for (int y = 0; y <Instance.pusherList.Count; y++)
         {
-            if (!pusherList[y].isActivated)
+            if (Instance.pusherList[y].isActivated == false)
             {
-                pusherList[y].ChangeTilesActivationStatut(true);
+                Instance.pusherList[y].ChangeTilesActivationStatut(true);
             }
         }
     }

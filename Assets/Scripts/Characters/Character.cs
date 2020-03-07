@@ -12,7 +12,9 @@ public class Character : MonoBehaviour
 
     public Vector3 position;
     public int priority;
+
     public CharacterState myState = CharacterState.Standby;
+    public bool isAlly;
 
     public PatternTemplate mouvementPattern;
 
@@ -47,7 +49,6 @@ public class Character : MonoBehaviour
         occupiedTile.isOccupied = false;
         occupiedTile.occupant = null;
 
-
         transform.position = tileDestination.transform.position + Vector3.up;
         SetOccupiedTile();
     }
@@ -71,7 +72,6 @@ public class Character : MonoBehaviour
             //gameObject.SetActive(false);
             return false;
         }
-
         return true;
     }
 

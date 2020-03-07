@@ -1,9 +1,17 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD:Assets/_Prefabs/Pattern/Tests/Editor/Nodes.meta
+guid: 05e8a57c10030914c809410076d25125
+=======
+guid: 5b784c855c22d9d4f8295973f2597d91
+>>>>>>> ff059948ad0ad58b99b66628d8a4dbd26f2d64c7:Assets/AmplifyShader/AmplifyShaderEditor/Plugins/Editor/Nodes.meta
+=======
+<<<<<<< HEAD
 guid: 89cb43c7889d67446af71fff41557918
 =======
 guid: 88a880cd7c8a740419b311f252680572
 >>>>>>> cba0082cdf3f9c7dc09026d5d9b90ab7c5f34c15
+>>>>>>> ff059948ad0ad58b99b66628d8a4dbd26f2d64c7
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

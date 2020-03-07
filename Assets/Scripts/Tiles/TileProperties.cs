@@ -161,7 +161,6 @@ public class TileProperties : MonoBehaviour
             sR.sprite = secondaryIcon;
         }
     }
-
     public void GetDamaged(int amount)
     {
         if (life <= 0)
@@ -169,6 +168,12 @@ public class TileProperties : MonoBehaviour
             specificity = TilesSpecific.None;
             sR.sprite = secondaryIcon;
         }
+    }
+
+    public void LostOccupant()
+    {
+        occupant = null;
+        isOccupied = false;
     }
 
 

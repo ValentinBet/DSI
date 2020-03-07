@@ -81,6 +81,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("This character died", this);
             myState = CharacterState.Dead;
+            occupiedTile.LostOccupant();
             if (PatternReader.instance.PatternExecuter.currentCharacter == this)
             {
                 PatternReader.instance.PatternExecuter.StopPattern(this);
@@ -98,6 +99,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("This character died", this);
             myState = CharacterState.Dead;
+            occupiedTile.LostOccupant();
             if (PatternReader.instance.PatternExecuter.currentCharacter == this)
             {
                 PatternReader.instance.PatternExecuter.StopPattern(this);

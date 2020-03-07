@@ -17,6 +17,7 @@ public class PhaseManager : MonoBehaviour
     private Wave[] levelWaves;
 
     private CharactersManager charactersManager;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -71,7 +72,11 @@ public class PhaseManager : MonoBehaviour
 
                 for (int i = 0; i < charactersManager.allyCharacter.Count; i++)
                 {
-                    charactersManager.allyCharacter[i].myState = CharacterState.Standby;
+                    if (charactersManager.allyCharacter[i].myState != CharacterState.Dead)
+                    {
+                        charactersManager.allyCharacter[i].myState = CharacterState.Standby;
+                    }
+
 
                     //if (charactersManager.allyCharacter[i].myState == CharacterState.Dead)
                     //{
@@ -86,7 +91,10 @@ public class PhaseManager : MonoBehaviour
                 }
                 for (int i = 0; i < charactersManager.enemyCharacters.Count; i++)
                 {
-                    charactersManager.enemyCharacters[i].myState = CharacterState.Standby;
+                    if (charactersManager.allyCharacter[i].myState != CharacterState.Dead)
+                    {
+                        charactersManager.allyCharacter[i].myState = CharacterState.Standby;
+                    }
 
                     //if (charactersManager.enemyCharacters[i].myState == CharacterState.Dead)
                     //{
@@ -155,7 +163,7 @@ public class PhaseManager : MonoBehaviour
         PhaseTrigger();
     }
 
-    public void NextAlly()
+    void NextAlly()
     {
         if (currentUnit != unitIndexs.Count)
         {

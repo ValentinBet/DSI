@@ -152,7 +152,7 @@ public class PhaseManager : MonoBehaviour
             if (CharactersManager.Instance.allyCharacter[unitIndexs[currentUnit]].myState == CharacterState.Standby)
             {
                 //            CharactersManager.Instance.allyCharacter[unitIndexs[currentUnit]].Execute();
-                PatternReader.instance.PatternExecuter.ExecutePattern(CharactersManager.Instance.allyCharacter[unitIndexs[currentUnit]].mouvementPattern, CharactersManager.Instance.allyCharacter[unitIndexs[currentUnit]]);
+                PatternReader.instance.PatternExecuter.ExecutePattern(CharactersManager.Instance.allyCharacter[unitIndexs[currentUnit]]);
                 currentUnit++;
             }
             else
@@ -173,8 +173,8 @@ public class PhaseManager : MonoBehaviour
         {
             if (CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]].myState == CharacterState.Standby)
             {
-                //            CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]].Execute();
-                PatternReader.instance.PatternExecuter.ExecutePattern(CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]].mouvementPattern, CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]]);
+                // CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]].Execute();
+                PatternReader.instance.PatternExecuter.ExecutePattern(CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]]);
                 currentUnit++;
             }
             else

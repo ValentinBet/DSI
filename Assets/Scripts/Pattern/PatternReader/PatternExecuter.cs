@@ -6,11 +6,13 @@ public class PatternExecuter : MonoBehaviour
 {
 
     public List<TileProperties> tileColoredDuringPattern = new List<TileProperties>();
+    public Character currentCharacter;
 
-    public void ExecutePattern(PatternTemplate pattern, Character character)
+    public void ExecutePattern( Character character)
     {
-        int depth = pattern.actions.Length;
-        ExecuteAction(character, pattern, 0, depth);
+        int depth = character.mouvementPattern.actions.Length;
+        currentCharacter = character;
+        ExecuteAction(character, character.mouvementPattern, 0, depth);
     }
 
     private void ExecuteAction(Character character, PatternTemplate pattern, int index, int depth)
@@ -151,13 +153,22 @@ public class PatternExecuter : MonoBehaviour
 
 
             case TileProperties.TilesSpecific.Trap:
-                character.InitMovement(newTile);
-                //faudra gérer le cas de la zone enflammé
-                StartCoroutine(GetDamaged(pattern, character, index, depth, true, newTile.damageToDeal));
+                if (newTile.isActivated)
+                {
+                    newTile.ChangeTilesActivationStatut(false);
+                    character.InitMovement(newTile);
+                    TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.interactionMat);
+                    StartCoroutine(GetDamaged(pattern, character, index, depth, true, newTile.damageToDeal));
+
+                }
+                else
+                {
+                    MovementOnTile(pattern, character, index, depth, newTile);
+                }
                 break;
 
             default:
-                CharacterReorientation(character , false);
+                CharacterReorientation(character, false);
                 break;
         }
     }
@@ -187,12 +198,6 @@ public class PatternExecuter : MonoBehaviour
     {
         character.InitMovement(newTile);
 
-        if (newTile.isOnFire)
-        {
-            StartCoroutine(GetDamaged(pattern, character, index, depth, true, newTile.damageToDeal));
-            print("OnFIre");
-            return;
-        }
         TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.mouvementMat);
         ActionEnd(pattern, character.occupiedTile, character, index, depth);
     }
@@ -277,7 +282,7 @@ public class PatternExecuter : MonoBehaviour
         List<TileProperties> tiles = character.occupiedTile.GetTileOnDirection(character.occupiedTile.GetCurrentForward(), rayLength, false);
         if (tiles.Count == 0)
         {
-            CharacterReorientation(character , true);
+            CharacterReorientation(character, true);
             StartCoroutine(GetDamaged(pattern, character, index, depth, false, 1));
         }
         else

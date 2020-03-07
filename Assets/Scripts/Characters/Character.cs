@@ -50,6 +50,13 @@ public class Character : MonoBehaviour
         occupiedTile.occupant = null;
 
         transform.position = tileDestination.transform.position + Vector3.up;
+        if (tileDestination.isOnFire)
+        {
+            if (!TakeDamaged(1))      
+            {
+                //PatternReader.instance.s
+            }
+        }
         SetOccupiedTile();
     }
 

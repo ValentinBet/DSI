@@ -15,5 +15,5 @@ public class AllyCharacterSave
     public float AttackRange;
     public int movementRange;
 
-    public AllyType type;
+    public CharacterType type;
 }

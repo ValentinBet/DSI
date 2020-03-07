@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Heroes")]
     [SerializeField] private Image[] heroSlots;
+    [SerializeField] private List <TextMeshPro> allyTextDisplay = new List<TextMeshPro>();
     [SerializeField] private GameObject lifeItem;
     private Image[,] lifeDisplays;
 
@@ -105,7 +106,6 @@ public class UIManager : MonoBehaviour
                     break;
             }
         }
-
     }
 
     public void SetAllyHintState(bool value, Sprite CharacterSprite = null)
@@ -137,26 +137,26 @@ public class UIManager : MonoBehaviour
         PhaseManager.Instance.NextPhase(); // Logical transition to --> Ally Phase
     }
 
-    public void newTurn()
+    public void NewTurn()
     {
         endTurnButton.GetComponent<Button>().interactable = true;
         AlertAnim.Play("Alert");
         AlertText.text = "Player Phase";
     }
 
-    public void allyTurn()
+    public void AllyTurn()
     {
         AlertAnim.Play("Alert");
         AlertText.text = "Allies phase";
     }
 
-    public void enemyTurn()
+    public void EnemyTurn()
     {
         AlertAnim.Play("Alert");
         AlertText.text = "Enemies phase";
     }
 
-    public void setPA(int amount)
+    public void SetPA(int amount)
     {
         //PAtext.text = amount + "/5";
         for (int i = 0; i < PAdisplay.Length; i++)
@@ -179,7 +179,7 @@ public class UIManager : MonoBehaviour
         {
             for (int j = 0; j < CharactersManager.Instance.allyCharacter[i].life; j++)
             {
-                GameObject go = Instantiate(lifeItem, heroSlots[i].transform);
+                GameObject go = Instantiate(lifeItem, heroSlots[i].transform); // Change to pooling
                 go.GetComponent<RectTransform>().localPosition = -0.5f*Vector3.one;
                 go.transform.localRotation = Quaternion.Euler(0.0f,0.0f,((-60.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f)+60.0f*j);
                 lifeDisplays[i,j] = go.transform.GetChild(0).GetComponent<Image>();
@@ -201,4 +201,11 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    public void SetAllyLevelDisplay(int value)
+    {
+        allyTextDisplay[value].text = "LVL " + CharactersManager.Instance.allyCharacter[value].data.level;
+    }
+
+
 }

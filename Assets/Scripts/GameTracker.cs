@@ -40,8 +40,8 @@ public class GameTracker : MonoBehaviour
     public void TrackerStateUpdate()
     {
         GatherData();
-
-        /*if (!InitiatingEndGame)
+/*
+        if (!InitiatingEndGame)
         {
             if ((alliesRemaining < 1 || baseLife < 1))
             {
@@ -54,7 +54,7 @@ public class GameTracker : MonoBehaviour
             {
                 //Win
                 InitiatingEndGame = true;
-                GameManager.Instance.LoseActualLevel();
+                GameManager.Instance.WinActualLevel();
             }
         }*/
 
@@ -66,7 +66,7 @@ public class GameTracker : MonoBehaviour
         if (actualPA - cost > -1)
         {
             actualPA--;
-            UIManager.Instance.setPA(actualPA);
+            UIManager.Instance.SetPA(actualPA);
             return true;
         }
         else
@@ -78,7 +78,7 @@ public class GameTracker : MonoBehaviour
     public void RefreshPA()
     {
         actualPA = maxPA;
-        UIManager.Instance.setPA(actualPA);
+        UIManager.Instance.SetPA(actualPA);
     }
 
     public void TrackQuest()

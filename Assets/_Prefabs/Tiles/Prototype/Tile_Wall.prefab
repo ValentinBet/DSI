@@ -110,7 +110,7 @@ MonoBehaviour:
   tileDescription: "Peut \xEAtre d\xE9truit"
   sR: {fileID: 3526962619345647917}
   icon: {fileID: 21300000, guid: b5485b3d56dd96d4b98033fa3bac66bc, type: 3}
-  secondaryIcon: {fileID: 0}
+  secondaryIcon: {fileID: 21300000, guid: 7bef9bbae06b3e44a85eeefe089b56c0, type: 3}
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 1
@@ -118,6 +118,7 @@ MonoBehaviour:
   isMovable: 1
   isActivated: 0
   isOnFire: 0
+  damageToDeal: 0
   specificity: 5
   teleportChannel: 0
   order: 0
@@ -128,6 +129,7 @@ MonoBehaviour:
   isAllySpawnable: 0
   mR: {fileID: 0}
   baseMat: {fileID: 0}
+  occupant: {fileID: 0}
 --- !u!1001 &489376724758534262
 PrefabInstance:
   m_ObjectHideFlags: 0

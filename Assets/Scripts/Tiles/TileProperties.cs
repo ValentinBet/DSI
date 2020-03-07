@@ -20,6 +20,7 @@ public class TileProperties : MonoBehaviour
     public bool isActivated;
     public bool isOnFire;
     public int damageToDeal;
+    public int life;
 
     public TilesSpecific specificity;
     public int teleportChannel;
@@ -57,6 +58,9 @@ public class TileProperties : MonoBehaviour
                 case TilesSpecific.Trap:
                     TilesManager.Instance.trapList.Add(this);
                     break;
+                case TilesSpecific.Push:
+                    TilesManager.Instance.pusherList.Add(this);
+                    break;
             }
         }
     }
@@ -68,7 +72,6 @@ public class TileProperties : MonoBehaviour
         }
         return false;
     }
-
     public List<TileProperties> GetTileOnDirection(Vector3 direction, int lenght = 1, bool isIncludingMainTile = false)
     {
         List<TileProperties> listTilesOnDirection = new List<TileProperties>();
@@ -95,35 +98,51 @@ public class TileProperties : MonoBehaviour
 
         return listTilesOnDirection;
     }
-
     public Vector3 GetCurrentForward()
     {
         Debug.DrawLine(transform.position, (transform.position + (transform.forward * 3)) + new Vector3(0, 1, 0), Color.cyan, 2);
         return transform.forward;
     }
-
     public float GetRotationOffset(Vector3 directionToTest)
     {
-        float multiplier = 1f;
-        if (directionToTest.x > transform.forward.x)
-        {
-            multiplier = -1f;
-        }
-        Debug.DrawLine(transform.position, (transform.position + (transform.forward * 3)) + new Vector3(0, 1, 0), Color.cyan, 2);
-        float angle = (90 - (90 * Vector3.Dot(directionToTest, transform.forward))) * multiplier;
-        return angle;
-    }
+        
 
+        Vector3 transf = transform.position + new Vector3(0, 0.6f, 0);
+        Vector3 transf2 = transform.position + new Vector3(0, 1f, 0);
+
+
+        float dot = Vector3.Dot(directionToTest, transform.forward);
+        Debug.DrawLine(transf2, transf2 + (directionToTest * 3), Color.green, 2);
+        Debug.DrawLine(transf, transf + (transform.forward * 3), Color.cyan, 2);
+        Debug.Log(dot * dot);
+        if (dot * dot >= 0.1f)
+        {
+            Debug.Log("parelle");
+            if (dot >= 0f)
+            {
+                return 0;
+            }
+            return 180;
+
+        }
+        else
+        {
+            Debug.Log("perpendiculaire");
+            Quaternion rotation = Quaternion.Euler(0f, 90f, 0f);
+            directionToTest = rotation * directionToTest;
+            float dotPerpendiculaire = Vector3.Dot(directionToTest, transform.forward);
+            return dotPerpendiculaire * 90;
+       
+        }
+    }
     public TileProperties GetTeleportExit()
     {
-        print("try teleport");
         for (int i = 0; i < TilesManager.Instance.teleportList.Count; i++)
         {
             if (TilesManager.Instance.teleportList[i].teleportChannel == this.teleportChannel)
             {
                 if (TilesManager.Instance.teleportList[i] != this)
                 {
-                    print(i);
                     return TilesManager.Instance.teleportList[i];
                 }
             }
@@ -132,7 +151,6 @@ public class TileProperties : MonoBehaviour
         Debug.LogError("Il n'y a pas de sortie à ce teleporteur", this);
         return null;
     }
-
     public void ChangeTilesActivationStatut(bool _isActivated)
     {
         isActivated = _isActivated;
@@ -145,6 +163,16 @@ public class TileProperties : MonoBehaviour
             sR.sprite = secondaryIcon;
         }
     }
+
+    public void GetDamaged(int amount)
+    {
+        if (life <= 0)
+        {
+            specificity = TilesSpecific.None;
+            sR.sprite = secondaryIcon;
+        }
+    }
+
 
     public enum TilesSpecific
     {

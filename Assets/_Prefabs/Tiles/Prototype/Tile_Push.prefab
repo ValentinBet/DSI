@@ -110,14 +110,15 @@ MonoBehaviour:
   tileDescription: "Pousse dans le direction indiqu\xE9"
   sR: {fileID: 411981324068351665}
   icon: {fileID: 21300000, guid: ce9404e4994e5174282fba58c36a60d9, type: 3}
-  secondaryIcon: {fileID: 0}
+  secondaryIcon: {fileID: 21300000, guid: 7efa5de3d9221844a80c11008baa3c96, type: 3}
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
-  isActivated: 0
+  isActivated: 1
   isOnFire: 0
+  damageToDeal: 0
   specificity: 2
   teleportChannel: 0
   order: 0
@@ -128,6 +129,7 @@ MonoBehaviour:
   isAllySpawnable: 0
   mR: {fileID: 0}
   baseMat: {fileID: 0}
+  occupant: {fileID: 0}
 --- !u!1001 &3715314170834341866
 PrefabInstance:
   m_ObjectHideFlags: 0

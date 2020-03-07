@@ -63,7 +63,7 @@ public class PlayerControl : MonoBehaviour
                     }
                     else
                     {
-                        PatternReader.instance.PreviewReader.PreviewPattern(pattern, _tile, Vector3.forward);
+                        PatternReader.instance.PreviewReader.PreviewPattern(pattern, _tile);
                         MeshRenderer tMR = _tile.GetComponent<MeshRenderer>();
                         if (tMR != null)
                         {

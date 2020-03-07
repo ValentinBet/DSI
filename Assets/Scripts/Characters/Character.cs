@@ -104,7 +104,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void KillCharacter()
+    public void KillCharacter()
     {
         Debug.Log("This character died", this);
         myState = CharacterState.Dead;

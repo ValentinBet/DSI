@@ -167,6 +167,23 @@ public class PatternExecuter : MonoBehaviour
                 }
                 break;
 
+            case TileProperties.TilesSpecific.PlayerBase:
+                if (character.isAlly)
+                {
+                    CharacterReorientation(character, true, index, depth);
+                }
+                else
+                {
+                    //Anim à faire
+                    Vector3 newPos = character.transform.position + character.transform.forward;
+                    character.transform.position = newPos;
+                    PlayerBase.Instance.DamageBase(1);
+                    Debug.Log(PlayerBase.Instance.GetLife());
+                    character.KillCharacter();
+                }
+                break;
+
+
             default:
                 CharacterReorientation(character, true , index , depth);
                 break;
@@ -337,7 +354,6 @@ public class PatternExecuter : MonoBehaviour
         PatternReader.instance.FinishTurn();
     }
 
-
     public float GetRotationOffset(Vector3 directionToTest, Vector3 nexusDirection)
     {
 
@@ -362,7 +378,6 @@ public class PatternExecuter : MonoBehaviour
             return -90;
         }
     }
-
 
     #endregion
 }

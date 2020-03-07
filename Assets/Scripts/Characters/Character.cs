@@ -19,8 +19,14 @@ public class Character : MonoBehaviour
 
     public Vector3 position;
     public int priority;
+
     public CharacterState myState = CharacterState.Standby;
+<<<<<<< HEAD
     public CharacterType characterType;
+=======
+    public bool isAlly;
+
+>>>>>>> 5924b87f3feac66158f096b48e19475671b3c7de
     public PatternTemplate mouvementPattern;
 
     public List<TileProperties> pathFinding = new List<TileProperties>();
@@ -54,8 +60,14 @@ public class Character : MonoBehaviour
         occupiedTile.isOccupied = false;
         occupiedTile.occupant = null;
 
-
         transform.position = tileDestination.transform.position + Vector3.up;
+        if (tileDestination.isOnFire)
+        {
+            if (!TakeDamaged(1))      
+            {
+                //PatternReader.instance.s
+            }
+        }
         SetOccupiedTile();
     }
 
@@ -78,7 +90,6 @@ public class Character : MonoBehaviour
             //gameObject.SetActive(false);
             return false;
         }
-
         return true;
     }
 

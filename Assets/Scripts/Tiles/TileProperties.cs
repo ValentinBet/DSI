@@ -114,10 +114,8 @@ public class TileProperties : MonoBehaviour
         float dot = Vector3.Dot(directionToTest, transform.forward);
         Debug.DrawLine(transf2, transf2 + (directionToTest * 3), Color.green, 2);
         Debug.DrawLine(transf, transf + (transform.forward * 3), Color.cyan, 2);
-        Debug.Log(dot * dot);
         if (dot * dot >= 0.1f)
         {
-            Debug.Log("parelle");
             if (dot >= 0f)
             {
                 return 0;
@@ -127,7 +125,6 @@ public class TileProperties : MonoBehaviour
         }
         else
         {
-            Debug.Log("perpendiculaire");
             Quaternion rotation = Quaternion.Euler(0f, 90f, 0f);
             directionToTest = rotation * directionToTest;
             float dotPerpendiculaire = Vector3.Dot(directionToTest, transform.forward);
@@ -154,6 +151,7 @@ public class TileProperties : MonoBehaviour
     public void ChangeTilesActivationStatut(bool _isActivated)
     {
         isActivated = _isActivated;
+        Debug.Log(name + "is Activated : " + isActivated);
         if (_isActivated)
         {
             sR.sprite = icon;
@@ -185,7 +183,6 @@ public class TileProperties : MonoBehaviour
         Teleport,
         Trap,
         PlayerBase,
-        EnemyBase
     }
 
     public enum TilesOrder

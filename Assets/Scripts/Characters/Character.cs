@@ -21,12 +21,9 @@ public class Character : MonoBehaviour
     public int priority;
 
     public CharacterState myState = CharacterState.Standby;
-<<<<<<< HEAD
     public CharacterType characterType;
-=======
     public bool isAlly;
 
->>>>>>> 5924b87f3feac66158f096b48e19475671b3c7de
     public PatternTemplate mouvementPattern;
 
     public List<TileProperties> pathFinding = new List<TileProperties>();

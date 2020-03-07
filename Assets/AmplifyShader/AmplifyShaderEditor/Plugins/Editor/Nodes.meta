@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/_Prefabs/Pattern/Tests/Editor/Nodes.meta
-guid: 05e8a57c10030914c809410076d25125
-=======
-guid: 5b784c855c22d9d4f8295973f2597d91
->>>>>>> ff059948ad0ad58b99b66628d8a4dbd26f2d64c7:Assets/AmplifyShader/AmplifyShaderEditor/Plugins/Editor/Nodes.meta
+guid: aafa518fe58602042a9d4f5867690dc5
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/AmplifyShader/AmplifyShaderEditor/Examples.meta
 guid: 1e36d3b36c2712f4abb55011707c5687
+=======
+guid: 425c3aed47dd05444960ca41af18e591
+>>>>>>> ee1f98371a164b6dd2b1daaf3f088f875520de3a:Assets/AmplifyShader/AmplifyShaderEditor/Examples.meta~HEAD
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -62,26 +62,40 @@ public class CharactersGenerator : MonoBehaviour
         return _baseAllies;
     }
 
-    public AllyCharacterSave SetBasicStats(AllyCharacterSave ANewGameAlly, AllyType allyType = AllyType.Warrior)
+    public AllyCharacterSave GetNewCharacterSave(CharacterType allyType = CharacterType.Warrior)
+    {
+        AllyCharacterSave newCharacter = new AllyCharacterSave();
+
+        return SetBasicStats(newCharacter, allyType);
+    }
+
+
+    private GameObject GetBaseAllyByType(CharacterType allyType = CharacterType.Warrior)
     {
         int index = 0;
 
         switch (allyType)
         {
-            case AllyType.Warrior:
+            case CharacterType.Warrior:
                 index = 0;
                 break;
-            case AllyType.Archer:
+            case CharacterType.Archer:
                 index = 1;
                 break;
-            case AllyType.Mage:
+            case CharacterType.Mage:
                 index = 2;
                 break;
             default:
                 index = 0;
                 break;
         }
-        AllyCharacter baseCharacterStats = baseAllyList[index].GetComponent<AllyCharacter>();
+
+        return baseAllyList[index];
+    }
+
+    public AllyCharacterSave SetBasicStats(AllyCharacterSave ANewGameAlly, CharacterType allyType = CharacterType.Warrior)
+    {
+        AllyCharacter baseCharacterStats = GetBaseAllyByType(allyType).GetComponent<AllyCharacter>();
 
         ANewGameAlly.name = GetRandomName();
         ANewGameAlly.damage = baseCharacterStats.damage;

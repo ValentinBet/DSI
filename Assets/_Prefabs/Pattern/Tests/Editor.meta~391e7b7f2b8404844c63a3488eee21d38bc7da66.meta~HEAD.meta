@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/_Prefabs/Pattern/Tests/Editor.meta~391e7b7f2b8404844c63a3488eee21d38bc7da66.meta~HEAD.meta
 guid: ce5d1516fa1b1484f8b20d56149ac03a
+=======
+guid: 44017b810d658f740954651a728d1cae
+>>>>>>> 15ecfac1834287412842c3458f7d824be3657762:Assets/_Prefabs/Pattern/Tests/Editor.meta~391e7b7f2b8404844c63a3488eee21d38bc7da66.meta
+=======
+guid: cec7d3dfe63331f438d65e652fd7a600
+>>>>>>> 15ecfac1834287412842c3458f7d824be3657762
 DefaultImporter:
   externalObjects: {}
   userData: 

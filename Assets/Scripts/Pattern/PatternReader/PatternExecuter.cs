@@ -18,14 +18,11 @@ public class PatternExecuter : MonoBehaviour
         tileColoredDuringPattern.Add(character.occupiedTile);
         TileProperties characterTile = character.occupiedTile;
 
-
-
         int rayLength = 2;
         List<TileProperties> tiles = characterTile.GetTileOnDirection(character.transform.forward, rayLength, false);
         if (tiles.Count == 0)
         {
-            print("Rien");
-            StopPattern(character);
+            CharacterReorientation(character, false);
             return;
         }
         TileProperties testedTile = tiles[0];
@@ -34,7 +31,6 @@ public class PatternExecuter : MonoBehaviour
             case ActionType.Movement:
                 if (testedTile != null)
                 {
-
                     if (testedTile.isOccupied)
                     {
                         StartCoroutine(ExtraAttack(pattern, character, index, depth, true));
@@ -161,8 +157,27 @@ public class PatternExecuter : MonoBehaviour
                 break;
 
             default:
-                StopPattern(character);
+                CharacterReorientation(character , false);
                 break;
+        }
+    }
+
+    private void CharacterReorientation(Character character, bool continuePattern)
+    {
+        if (character.isAlly)
+        {
+            character.transform.Rotate(Vector3.up, 180f);
+        }
+        else
+        {
+            Vector3 nexusDirection = Vector3.right;
+            Quaternion rotation = Quaternion.Euler(0f, GetRotationOffset(character.transform.forward, nexusDirection), 0f);
+            character.transform.forward = rotation * character.transform.forward;
+        }
+
+        if (!continuePattern)
+        {
+            StopPattern(character);
         }
     }
 
@@ -262,7 +277,7 @@ public class PatternExecuter : MonoBehaviour
         List<TileProperties> tiles = character.occupiedTile.GetTileOnDirection(character.occupiedTile.GetCurrentForward(), rayLength, false);
         if (tiles.Count == 0)
         {
-            print("Rien");
+            CharacterReorientation(character , true);
             StartCoroutine(GetDamaged(pattern, character, index, depth, false, 1));
         }
         else
@@ -318,9 +333,35 @@ public class PatternExecuter : MonoBehaviour
         PatternReader.instance.FinishTurn();
     }
 
+
+    public float GetRotationOffset(Vector3 directionToTest, Vector3 nexusDirection)
+    {
+
+        float dot = Vector3.Dot(directionToTest, nexusDirection);
+        if (dot * dot >= 0.1f)
+        {
+            if (dot >= 0f)
+            {
+                return 0;
+            }
+            return 180;
+        }
+        else
+        {
+            Quaternion rotation = Quaternion.Euler(0f, 90f, 0f);
+            directionToTest = rotation * directionToTest;
+            float dotPerpendiculaire = Vector3.Dot(directionToTest, nexusDirection);
+            if (dotPerpendiculaire >= 0f)
+            {
+                return 90;
+            }
+            return -90;
+        }
+    }
+
+
     #endregion
 }
-
 
 //switch (pattern.actions[index].actionType)
 //{

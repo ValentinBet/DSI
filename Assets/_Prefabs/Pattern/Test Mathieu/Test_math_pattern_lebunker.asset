@@ -13,4 +13,16 @@ MonoBehaviour:
   m_Name: Test_math_pattern_lebunker
   m_EditorClassIdentifier: 
   initialDirection: 0
-  actions: []
+  actions:
+  - actionDuration: 1.5
+    actionType: 1
+    rotation: 0
+  - actionDuration: 1.5
+    actionType: 1
+    rotation: 0
+  - actionDuration: 1.5
+    actionType: 1
+    rotation: 0
+  - actionDuration: 1.5
+    actionType: 1
+    rotation: 0

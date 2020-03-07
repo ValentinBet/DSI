@@ -12,14 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e1084fab24a0948983da09e1cf83a9, type: 3}
   m_Name: LaMoula
   m_EditorClassIdentifier: 
-  initialDirection: 0
+  initialDirection: 2
   actions:
-  - actionDuration: 1
+  - actionDuration: 0.5
     actionType: 0
     rotation: 0
-  - actionDuration: 1
+  - actionDuration: 0.5
     actionType: 0
     rotation: 0
-  - actionDuration: 1
+  - actionDuration: 0.5
+    actionType: 0
+    rotation: 0
+  - actionDuration: 0.5
+    actionType: 1
+    rotation: 1
+  - actionDuration: 0.5
+    actionType: 0
+    rotation: 1
+  - actionDuration: 0.5
+    actionType: 1
+    rotation: 1
+  - actionDuration: 0.5
+    actionType: 0
+    rotation: 2
+  - actionDuration: 0.5
+    actionType: 1
+    rotation: 2
+  - actionDuration: 0.5
+    actionType: 0
+    rotation: 1
+  - actionDuration: 0.5
+    actionType: 0
+    rotation: 1
+  - actionDuration: 0.5
+    actionType: 0
+    rotation: 1
+  - actionDuration: 0.5
     actionType: 0
     rotation: 1

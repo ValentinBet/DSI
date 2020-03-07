@@ -15,8 +15,11 @@ public class TilesManager : MonoBehaviour
 
     #region Tiles Specific
 
+
     public List<TileProperties> trapList = new List<TileProperties>();
+    public List<TileProperties> pusherList = new List<TileProperties>();
     public List<TileProperties> teleportList = new List<TileProperties>();
+
     #endregion
 
     private void Awake()
@@ -91,5 +94,23 @@ public class TilesManager : MonoBehaviour
         }
     }
 
+    public void ResetTilesStatut()
+    {
+        for (int i = 0; i < trapList.Count; i++)
+        {
+            if (!trapList[i].isActivated)
+            {
+                trapList[i].ChangeTilesActivationStatut(true);
+            }
+        }
+
+        for (int y = 0; y < trapList.Count; y++)
+        {
+            if (!pusherList[y].isActivated)
+            {
+                pusherList[y].ChangeTilesActivationStatut(true);
+            }
+        }
+    }
 
 }

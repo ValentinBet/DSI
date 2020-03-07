@@ -118,13 +118,12 @@ MonoBehaviour:
   ObjectTypeMetaData: {fileID: 11400000, guid: afff1c7cb6ebbc74d8b5d8920419f5b7, type: 2}
   allyType: 2
   data:
-    name: Generate
+    name: 
     experience: 0
     level: 0
     levelMax: 3
-    allyDescription: OUI
+    allyDescription: 
     xpNeededPerLevel:
     - {x: 1, y: 10}
     - {x: 2, y: 20}
     - {x: 3, y: 40}
-

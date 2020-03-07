@@ -6,8 +6,6 @@ public class PatternReader : MonoBehaviour
 {
     public static PatternReader instance;
 
-    public List<TileProperties> tileColoredDuringPattern = new List<TileProperties>();
-
     public Material mouvementMat, attackMat, rotationMat, clickMat, interactionMat;
 
     public PreviewReader PreviewReader;
@@ -28,8 +26,9 @@ public class PatternReader : MonoBehaviour
 
     public void FinishTurn()
     {
-
-        PhaseManager.Instance.NextUnit();
+        Debug.Log("Tour Fini");
+        TilesManager.Instance.ResetTilesStatut();
+        //PhaseManager.Instance.NextUnit();
     }
 
 }

@@ -45,6 +45,7 @@ public class Character : MonoBehaviour
     public void InitMovement(TileProperties tileDestination)
     {
         occupiedTile.isOccupied = false;
+        occupiedTile.occupant = null;
 
 
         transform.position = tileDestination.transform.position + Vector3.up;
@@ -67,7 +68,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("This character died", this);
             myState = CharacterState.Dead;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             return false;
         }
 
@@ -81,7 +82,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("This character died", this);
             myState = CharacterState.Dead;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
     }

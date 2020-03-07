@@ -18,6 +18,7 @@ public class AllyCharacter : Character
     private void Start()
     {
         gameObject.tag = "AllyCharacter";
+        SetOccupiedTile();
     }
 
     public void AddExperience(int value)

@@ -37,6 +37,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Heroes")]
     [SerializeField] private Image[] heroSlots;
+    [SerializeField] private GameObject lifeItem;
+    private Image[,] lifeDisplays;
 
     [Header("Follow cursor image")]
     [SerializeField] private RectTransform allyHint;
@@ -170,4 +172,33 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void AllyLifeSetup()
+    {
+        lifeDisplays = new Image[3,5];
+        for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count;i++)
+        {
+            for (int j = 0; j < CharactersManager.Instance.allyCharacter[i].life; j++)
+            {
+                GameObject go = Instantiate(lifeItem, heroSlots[i].transform);
+                go.GetComponent<RectTransform>().localPosition = -0.5f*Vector3.one;
+                go.transform.localRotation = Quaternion.Euler(0.0f,0.0f,((-60.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f)+60.0f*j);
+                lifeDisplays[i,j] = go.transform.GetChild(0).GetComponent<Image>();
+            }
+        }
+    }
+
+    public void AllyLifeUpdate(int allyID, int value)
+    {
+        for (int i = 0; i < heroSlots[allyID].transform.childCount; i++)
+        {
+            if (i < value)
+            {
+                lifeDisplays[allyID, i].color = Color.white;
+            }
+            else
+            {
+                lifeDisplays[allyID, i].color = Color.black;
+            }
+        }
+    }
 }

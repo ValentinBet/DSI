@@ -82,11 +82,12 @@ public class CharactersGenerator : MonoBehaviour
                 break;
         }
         AllyCharacter baseCharacterStats = baseAllyList[index].GetComponent<AllyCharacter>();
+
         ANewGameAlly.name = GetRandomName();
         ANewGameAlly.damage = baseCharacterStats.damage;
-        ANewGameAlly.life = baseCharacterStats.damage;
-        ANewGameAlly.AttackRange = baseCharacterStats.damage;
-        ANewGameAlly.movementRange = baseCharacterStats.damage;
+        ANewGameAlly.life = baseCharacterStats.life;
+        ANewGameAlly.AttackRange = baseCharacterStats.AttackRange;
+        ANewGameAlly.movementRange = baseCharacterStats.movementRange;
         ANewGameAlly.type = allyType;
 
         return ANewGameAlly;

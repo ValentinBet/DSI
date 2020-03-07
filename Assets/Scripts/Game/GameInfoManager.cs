@@ -13,7 +13,7 @@ public class GameInfoManager : MonoBehaviour
     public static GameData GameData;
     private static string gameDataFileName;
 
-    [SerializeField] private CharactersGenerator charactersGenerator;
+    [SerializeField] public CharactersGenerator charactersGenerator;
 
     private void Awake()
     {
@@ -98,6 +98,19 @@ public class GameInfoManager : MonoBehaviour
         characterSave.type = allyCharacter.allyType;
 
         return characterSave;
+    }
+
+    public void UpdateCharacterObjToHisSave(ref AllyCharacter allyCharacter, AllyCharacterSave save)
+    {
+        allyCharacter.allyType = save.type;
+        allyCharacter.data.name = save.name;
+        allyCharacter.data.experience = save.experience;
+        allyCharacter.data.level = save.level;
+        allyCharacter.data.allyDescription = save.allyDescription;
+        allyCharacter.life = save.life;
+        allyCharacter.damage = save.damage;
+        allyCharacter.AttackRange = save.AttackRange;
+        allyCharacter.movementRange = save.movementRange;
     }
 
     private void UpdateJsonGameDataFile()

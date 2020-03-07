@@ -1,14 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/_Prefabs/Pattern/Tests/SamPatternArcher.asset.meta
-guid: 8d0cb9ef791e1394eab24781dd12fe5b
-NativeFormatImporter:
+<<<<<<< HEAD
+guid: dc6c181f8f08b20428e8b0881144547e
 =======
-guid: e7354e1a2beece044944bc1cba85aebc
-folderAsset: yes
-DefaultImporter:
->>>>>>> b32f823551426c42d6208591ffa947e0f166262d:Assets/_Prefabs/Pattern/Tests/Editor/Nodes/Constants.meta
+guid: c71ff18579cecdb43a763e5f85a1a37b
+>>>>>>> cba0082cdf3f9c7dc09026d5d9b90ab7c5f34c15
+NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 11400000
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

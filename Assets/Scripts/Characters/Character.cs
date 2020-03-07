@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum CharacterType
@@ -7,6 +8,13 @@ public enum CharacterType
     Warrior,
     Archer,
     Mage
+}
+
+public enum CharacterState
+{
+    Standby,
+    Finished,
+    Dead
 }
 
 public class Character : MonoBehaviour
@@ -77,15 +85,10 @@ public class Character : MonoBehaviour
     public bool TakeDamaged(int damageAmount)
     {
         life -= damageAmount;
-        if (life <= 0)
+
+        if (life < 1)
         {
-            Debug.Log("This character died", this);
-            myState = CharacterState.Dead;
-            occupiedTile.LostOccupant();
-            if (PatternReader.instance.PatternExecuter.currentCharacter == this)
-            {
-                PatternReader.instance.PatternExecuter.StopPattern(this);
-            }
+            KillCharacter();
 
             return false;
         }
@@ -95,23 +98,29 @@ public class Character : MonoBehaviour
     public void GotAttacked(int damageAmount)
     {
         life -= damageAmount;
-        if (life <= 0)
+        if (life < 1)
         {
-            Debug.Log("This character died", this);
-            myState = CharacterState.Dead;
-            occupiedTile.LostOccupant();
-            if (PatternReader.instance.PatternExecuter.currentCharacter == this)
-            {
-                PatternReader.instance.PatternExecuter.StopPattern(this);
-            }
+            KillCharacter();
         }
-
     }
 
+    private void KillCharacter()
+    {
+        Debug.Log("This character died", this);
+        myState = CharacterState.Dead;
+        occupiedTile.LostOccupant();
+
+        if (PatternReader.instance.PatternExecuter.currentCharacter == this)
+        {
+            PatternReader.instance.PatternExecuter.StopPattern(this);
+        }
+
+        //if (isAlly && CharactersManager.Instance.allyCharacter.Contains(GetComponent<AllyCharacter>())) // (LINQ)
+        //{
+        //    CharactersManager.Instance.allyCharacter.Remove(GetComponent<AllyCharacter>());
+        //}
+
+        gameObject.SetActive(false);
+    }
 }
-public enum CharacterState
-{
-    Standby,
-    Finished,
-    Dead
-}
+

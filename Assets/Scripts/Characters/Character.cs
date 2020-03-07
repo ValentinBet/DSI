@@ -60,10 +60,7 @@ public class Character : MonoBehaviour
         transform.position = tileDestination.transform.position + Vector3.up;
         if (tileDestination.isOnFire)
         {
-            if (!TakeDamaged(1))      
-            {
-                //PatternReader.instance.s
-            }
+            TakeDamaged(1);
         }
         SetOccupiedTile();
     }
@@ -84,7 +81,12 @@ public class Character : MonoBehaviour
         {
             Debug.Log("This character died", this);
             myState = CharacterState.Dead;
-            //gameObject.SetActive(false);
+            occupiedTile.LostOccupant();
+            if (PatternReader.instance.PatternExecuter.currentCharacter == this)
+            {
+                PatternReader.instance.PatternExecuter.StopPattern(this);
+            }
+
             return false;
         }
         return true;
@@ -97,7 +99,11 @@ public class Character : MonoBehaviour
         {
             Debug.Log("This character died", this);
             myState = CharacterState.Dead;
-            //gameObject.SetActive(false);
+            occupiedTile.LostOccupant();
+            if (PatternReader.instance.PatternExecuter.currentCharacter == this)
+            {
+                PatternReader.instance.PatternExecuter.StopPattern(this);
+            }
         }
 
     }

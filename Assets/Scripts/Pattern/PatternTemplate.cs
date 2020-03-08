@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "", menuName = "KUBZ/Action Pattern", order = 100)]
+[CreateAssetMenu(fileName = "Movement Pattern", menuName = "KUBZ/Movement Pattern", order = 0)]
 public class PatternTemplate : ScriptableObject
 {
     public Cardinal initialDirection;  

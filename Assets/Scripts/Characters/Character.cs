@@ -17,6 +17,9 @@ public enum CharacterState
     Dead
 }
 
+public enum CombatStyle { closeCombat, range }
+
+
 public class Character : MonoBehaviour
 {
     [Header("Properties")]
@@ -30,9 +33,11 @@ public class Character : MonoBehaviour
 
     public CharacterState myState = CharacterState.Standby;
     public CharacterType characterType;
+    public CombatStyle combatStyle;
     public bool isAlly;
 
     public PatternTemplate mouvementPattern;
+    public AttackTemplate AttackPattern;
 
     public List<TileProperties> pathFinding = new List<TileProperties>();
     public TileProperties occupiedTile;
@@ -95,7 +100,7 @@ public class Character : MonoBehaviour
         return true;
     }
 
-    public void GotAttacked(int damageAmount , Character attacker)
+    public void GotAttacked(int damageAmount, Character attacker)
     {
         life -= damageAmount;
         if (life < 1)
@@ -121,6 +126,33 @@ public class Character : MonoBehaviour
         //}
 
         gameObject.SetActive(false);
+    }
+
+
+    public TileProperties GetTileFromTransform(Vector2 tileOffset, int lenght = 1)
+    {
+        List<TileProperties> listTilesOnDirection = new List<TileProperties>();
+
+        RaycastHit hitTile;
+        float tilesSize = 2;
+        Vector3 targetPos = transform.position + (transform.right * (tileOffset.x * tilesSize)) + (transform.forward * (tileOffset.y * tilesSize));
+
+
+        //hitTiles = Physics.RaycastAll(transform.position, transform.TransformDirection(direction), lenght, TileLayer);
+        Physics.Raycast(targetPos, Vector3.down, out hitTile, lenght, TilesManager.Instance.tileLayer);
+
+        if (hitTile.collider != null)
+        {
+            Debug.Log(hitTile.collider.gameObject.name, hitTile.collider.gameObject);
+            if (hitTile.collider.gameObject.GetComponent<TileProperties>() != null)
+            {
+                return hitTile.collider.gameObject.GetComponent<TileProperties>();
+            }
+        }
+;
+        Debug.DrawRay(targetPos, Vector3.down, Color.red, 2);
+
+        return null;
     }
 }
 

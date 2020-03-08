@@ -460,7 +460,7 @@ public class PatternExecuter : MonoBehaviour
         }
     }
 
-    private void ActionEnd(PatternTemplate pattern, List<TileProperties> tilesToColored, Character character, int index, int depth)
+    public void ActionEnd(PatternTemplate pattern, List<TileProperties> tilesToColored, Character character, int index, int depth)
     {
         index++;
         for (int i = 0; i < tilesToColored.Count; i++)

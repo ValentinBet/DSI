@@ -161,13 +161,13 @@ public class Character : MonoBehaviour
         return null;
     }
 
-    public void RegisteredDeathProjectile(int index, int depth)
+    public void RegisteredDeathProjectile(int index, int depth, List<TileProperties> tilesToColored)
     {
         numberOfDeadProjectile++;
         if (numberOfDeadProjectile == AttackPattern.tilesAffected.Length)
         {
             numberOfDeadProjectile = 0;
-            //PatternReader.instance.PatternExecuter.ActionEnd(mouvementPattern, this, index, depth);
+            PatternReader.instance.PatternExecuter.ActionEnd(mouvementPattern, tilesToColored,  this, index, depth);
         }
     }
 }

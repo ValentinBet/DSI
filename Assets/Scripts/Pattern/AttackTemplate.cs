@@ -7,6 +7,14 @@ using UnityEngine;
 public class AttackTemplate : ScriptableObject
 {
     public AttackType attackType;
-    public Vector2[] tilesTargetOffset;
+    public AttackParameter[] tilesAffected;
+
 }
     public enum AttackType { Zone , Projectile}
+
+[System.Serializable]
+public  struct AttackParameter
+{
+    public Vector2 tilesTargetOffset;
+    public GameObject projectilePrefab;
+}

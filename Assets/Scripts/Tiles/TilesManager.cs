@@ -13,6 +13,17 @@ public class TilesManager : MonoBehaviour
 
     public List<TileProperties> AllTilesList = new List<TileProperties>();
 
+    public LayerMask tileLayer;
+
+    #region Tiles Specific
+
+
+    public List<TileProperties> trapList = new List<TileProperties>();
+    public List<TileProperties> pusherList = new List<TileProperties>();
+    public List<TileProperties> teleportList = new List<TileProperties>();
+
+    #endregion
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -66,17 +77,42 @@ public class TilesManager : MonoBehaviour
         {
             _TileNeighbors.Add(Tp);
         }
-         foreach (TileProperties Tp in tile.GetTileOnDirection(-Vector3.forward, lenght))
+        foreach (TileProperties Tp in tile.GetTileOnDirection(-Vector3.forward, lenght))
         {
             _TileNeighbors.Add(Tp);
         }
-         foreach (TileProperties Tp in tile.GetTileOnDirection(-Vector3.right, lenght))
+        foreach (TileProperties Tp in tile.GetTileOnDirection(-Vector3.right, lenght))
         {
             _TileNeighbors.Add(Tp);
         }
-                          
+
         return _TileNeighbors;
     }
+    public void ChangeTileMaterial(TileProperties tile, Material newMat)
+    {
+        if (tile.mR != null)
+        {
+            tile.mR.sharedMaterial = newMat;
+        }
+    }
 
+    public void ResetTilesStatut()
+    {
+        for (int i = 0; i < Instance.trapList.Count; i++)
+        {
+            if (Instance.trapList[i].isActivated == false)
+            {
+                Instance.trapList[i].ChangeTilesActivationStatut(true);
+            }
+        }
+
+        for (int y = 0; y <Instance.pusherList.Count; y++)
+        {
+            if (Instance.pusherList[y].isActivated == false)
+            {
+                Instance.pusherList[y].ChangeTilesActivationStatut(true);
+            }
+        }
+    }
 
 }

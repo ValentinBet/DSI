@@ -10,6 +10,13 @@ public class PhaseManager : MonoBehaviour
 
     private List<int> unitIndexs = new List<int>();
     private int currentUnit = 0;
+    private int actualTurn = 0;
+    private int actualWave = 0;
+
+    [SerializeField]
+    private Wave[] levelWaves;
+
+    private CharactersManager charactersManager;
 
     private void Awake()
     {
@@ -21,84 +28,131 @@ public class PhaseManager : MonoBehaviour
         {
             _instance = this;
         }
+
     }
 
     private void Start()
     {
+        charactersManager = CharactersManager.Instance;
         //Initial Phase
         PhaseTrigger();
 
     }
 
     // Update is called once per frame
-    void NextPhase()
+    public void NextPhase()
     {
-        if (actualPhase != Phase.Enemy)
+        if (actualPhase != Phase.WaveUpdate)
         {
             actualPhase++;
+            GameTracker.Instance.TrackerStateUpdate();
         }
         else
         {
+            UIManager.Instance.NewTurn();
             actualPhase = Phase.Control;
         }
+        Debug.Log(actualPhase);
         PhaseTrigger();
     }
 
     void PhaseTrigger()
     {
-        switch(actualPhase)
+        switch (actualPhase)
         {
             case Phase.Initial:
-                //Inputs
+                charactersManager.InitAllyPlacing();
+                charactersManager.SpawnWave(levelWaves[0]);
+                actualWave++;
                 break;
             case Phase.Control:
+                actualTurn++;
+                GameTracker.Instance.RefreshPA();
                 PlayerControl.Instance.EnableInputs(true);
-                for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count; i++)
+
+                for (int i = 0; i < charactersManager.allyCharacter.Count; i++)
                 {
-                    if (CharactersManager.Instance.allyCharacter[i].myState == CharacterState.Dead)
+                    if (charactersManager.allyCharacter[i].myState != CharacterState.Dead)
                     {
-                        Destroy(CharactersManager.Instance.allyCharacter[i].gameObject);
+                        charactersManager.allyCharacter[i].myState = CharacterState.Standby;
                     }
-                    else
-                    {
-                        CharactersManager.Instance.allyCharacter[i].myState = CharacterState.Standby;
-                    }
+
+
+                    //if (charactersManager.allyCharacter[i].myState == CharacterState.Dead)
+                    //{
+                    //    charactersManager.allyCharacter[i].gameObject.SetActive(false);
+                    //    charactersManager.allyCharacter.RemoveAt(i);
+                    //    i--;
+                    //}
+                    //else
+                    //{
+                    //    charactersManager.allyCharacter[i].myState = CharacterState.Standby;
+                    //}
                 }
-                for (int i = 0; i < CharactersManager.Instance.enemyCharacters.Count; i++)
+                for (int i = 0; i < charactersManager.enemyCharacters.Count; i++)
                 {
-                    if (CharactersManager.Instance.enemyCharacters[i].myState == CharacterState.Dead)
+                    if (charactersManager.enemyCharacters[i].myState != CharacterState.Dead)
                     {
-                        Destroy(CharactersManager.Instance.enemyCharacters[i].gameObject);
+                        charactersManager.enemyCharacters[i].myState = CharacterState.Standby;
                     }
-                    else
-                    {
-                        CharactersManager.Instance.enemyCharacters[i].myState = CharacterState.Standby;
-                    }
+
+                    //if (charactersManager.enemyCharacters[i].myState == CharacterState.Dead)
+                    //{
+                    //    Destroy(charactersManager.enemyCharacters[i].gameObject);
+                    //}
+                    //else
+                    //{
+                    //    charactersManager.enemyCharacters[i].myState = CharacterState.Standby;
+                    //}
                 }
                 break;
             case Phase.Allied:
+                UIManager.Instance.AllyTurn();
                 PlayerControl.Instance.EnableInputs(false);
                 unitIndexs.Clear();
-                for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count; i++)
+                currentUnit = 0;
+
+                for (int i = 0; i < charactersManager.allyCharacter.Count; i++)
                 {
-                    if (CharactersManager.Instance.allyCharacter[i].myState == CharacterState.Standby)
+                    if (charactersManager.allyCharacter[i].myState == CharacterState.Standby)
                     {
                         unitIndexs.Add(i);
                     }
                 }
+
                 NextAlly();
                 break;
             case Phase.Enemy:
+                UIManager.Instance.EnemyTurn();
                 unitIndexs.Clear();
-                for (int i = 0; i < CharactersManager.Instance.enemyCharacters.Count; i++)
+                currentUnit = 0;
+                for (int i = 0; i < charactersManager.enemyCharacters.Count; i++)
                 {
-                    if(CharactersManager.Instance.enemyCharacters[i].myState == CharacterState.Standby)
+                    if (charactersManager.enemyCharacters[i].myState == CharacterState.Standby)
                     {
                         unitIndexs.Add(i);
+                        //PatternReader.instance.ReadPattern(charactersManager.enemyCharacters[i].mouvementPattern, charactersManager.enemyCharacters[i]);
                     }
                 }
                 NextEnemy();
                 break;
+            case Phase.WaveUpdate:
+                if (actualWave < levelWaves.Length)
+                {
+                    if (actualTurn > levelWaves[actualWave].turnOfActivation - 1 || charactersManager.enemyCharacters.Count == 0) // Occurence mauvaise, à patcher
+                    {
+                        charactersManager.SpawnWave(levelWaves[actualWave]);
+                        //Animation ?
+                        actualWave++;
+                    }
+                    else
+                    {
+                        Debug.LogWarning("No New Wave : " + actualTurn + " aTurn " + levelWaves[actualWave].turnOfActivation + " ToActiv " + charactersManager.enemyCharacters.Count + " enemies");
+                    }
+                }
+                Invoke("NextPhase",1.0f);
+                break;
+
         }
     }
 
@@ -109,13 +163,13 @@ public class PhaseManager : MonoBehaviour
         PhaseTrigger();
     }
 
-    public void NextAlly()
+    void NextAlly()
     {
         if (currentUnit != unitIndexs.Count)
         {
-            if (CharactersManager.Instance.allyCharacter[unitIndexs[currentUnit]].myState == CharacterState.Standby)
+            if (charactersManager.allyCharacter[unitIndexs[currentUnit]].myState == CharacterState.Standby)
             {
-                //            CharactersManager.Instance.allyCharacter[unitIndexs[currentUnit]].Execute();
+                PatternReader.instance.PatternExecuter.ExecutePattern(charactersManager.allyCharacter[unitIndexs[currentUnit]]);
                 currentUnit++;
             }
             else
@@ -134,9 +188,9 @@ public class PhaseManager : MonoBehaviour
     {
         if (currentUnit != unitIndexs.Count)
         {
-            if (CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]].myState == CharacterState.Standby)
+            if (charactersManager.enemyCharacters[unitIndexs[currentUnit]].myState == CharacterState.Standby)
             {
-                //            CharactersManager.Instance.enemyCharacters[unitIndexs[currentUnit]].Execute();
+                PatternReader.instance.PatternExecuter.ExecutePattern(charactersManager.enemyCharacters[unitIndexs[currentUnit]]);
                 currentUnit++;
             }
             else
@@ -150,6 +204,45 @@ public class PhaseManager : MonoBehaviour
             NextPhase();
         }
     }
+
+    public void NextUnit()
+    {
+        if (actualPhase == Phase.Allied)
+        {
+            NextAlly();
+        }
+        else if (actualPhase == Phase.Enemy)
+        {
+            NextEnemy();
+        }
+        else
+        {
+            Debug.LogError("Phase not fit for \"NextUnit()\" call, check sequence order.");
+        }
+    }
+
+    public Wave GetWave(int waveNumber)
+    {
+        if (levelWaves.Length < waveNumber)
+        {
+            return levelWaves[waveNumber];
+        }
+        else
+        {
+            Debug.LogError("waveNumberIndex too High. returning null...");
+            return null;
+        }
+    }
+
+    public void LoadWaves(Wave[] waves)
+    {
+        levelWaves = waves;
+    }
+
+    public int GetRemainingWaves()
+    {
+        return levelWaves.Length - actualWave;
+    }
 }
 
 public enum Phase
@@ -157,5 +250,6 @@ public enum Phase
     Initial,
     Control,
     Allied,
-    Enemy
+    Enemy,
+    WaveUpdate
 }

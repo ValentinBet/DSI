@@ -13,7 +13,9 @@ public class PlayerControl : MonoBehaviour
 
     private bool isPlacingAllyCharacters = false;
     private AllyCharactersPlacer allyCharactersPlacer;
-    private bool inputsEnabled;
+    private bool inputsEnabled = true;
+
+    public PatternTemplate pattern;
 
     private void Awake()
     {
@@ -64,18 +66,19 @@ public class PlayerControl : MonoBehaviour
                 }
             }
 
-        if (Input.GetKeyDown(TileClearKey))
-        {
-            TilesManager.TilesChangerInstance.ClearChoice();
-        }
-
+            if (Input.GetKeyDown(TileClearKey))
+            {
+                TilesManager.TilesChangerInstance.ClearChoice();
+            }
             if (Input.GetKeyDown(TileSwapKey))
             {
-                TilesManager.TilesChangerInstance.InitChange();
+                if (GameTracker.Instance.PlayerAction())
+                    TilesManager.TilesChangerInstance.InitChange();
             }
             if (Input.GetKeyDown(TileRotateKey))
             {
-                TilesManager.TilesChangerInstance.RotateTile();
+                if (GameTracker.Instance.PlayerAction())
+                    TilesManager.TilesChangerInstance.RotateTile();
             }
         }
 

@@ -372,7 +372,6 @@ public class PatternExecuter : MonoBehaviour
             }
         }
 
-
         if (continuePatern)
         {
             ActionEnd(pattern, testedTiles, character, index, depth);

@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: WarriorBasic
   m_EditorClassIdentifier: 
   attackType: 0
-  tilesTargetOffset: []
+  tilesTargetOffset:
+  - {x: 0, y: 2}
+  - {x: -1, y: 1}
+  - {x: 1, y: 1}

@@ -180,8 +180,8 @@ public class UIManager : MonoBehaviour
             for (int j = 0; j < CharactersManager.Instance.allyCharacter[i].life; j++)
             {
                 GameObject go = Instantiate(lifeItem, heroSlots[i].transform); // Change to pooling
-                go.GetComponent<RectTransform>().localPosition = -0.5f*Vector3.one;
-                go.transform.localRotation = Quaternion.Euler(0.0f,0.0f,((-60.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f)+60.0f*j);
+                go.GetComponent<RectTransform>().localPosition =new Vector3(-1f,-1.1f,0.0f);
+                go.transform.localRotation = Quaternion.Euler(0.0f,0.0f,((-40.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f)+40.0f*j);
                 lifeDisplays[i,j] = go.transform.GetChild(0).GetComponent<Image>();
             }
         }

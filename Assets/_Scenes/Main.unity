@@ -4876,6 +4876,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllTilesList: []
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   trapList: []
   pusherList: []
   teleportList: []

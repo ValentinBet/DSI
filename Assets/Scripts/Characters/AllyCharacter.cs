@@ -5,7 +5,17 @@ using UnityEngine;
 
 public class AllyCharacter : Character
 {
-    public AllyCharacterData data;
+    public string allyName;
+    public float experience = 0;
+    public int level = 0;
+    public int yearSurvived = 0;
+    public int enemyKilled = 0;
+    public int levelMax = GameSettings.xpNeededPerLevel.Count;
+
+    public string allyDescription;
+
+    public List<Vector2> xpNeededPerLevel = GameSettings.xpNeededPerLevel;
+
     public GameObject ally_sprite;
 
     private void Start()
@@ -21,19 +31,19 @@ public class AllyCharacter : Character
 
     public void AddExperience(int value)
     {
-        data.experience += value;
+        experience += value;
 
         CheckLevels();
     }
 
     private void CheckLevels()
     {
-        if (data.level != data.levelMax)
+        if (level != levelMax)
         {
-            if (data.experience >= data.xpNeededPerLevel[data.level].y)
+            if (experience >= xpNeededPerLevel[level].y)
             {
-                data.level++;
-                data.experience -= data.xpNeededPerLevel[data.level - 1].y;
+                level++;
+                experience -= xpNeededPerLevel[level - 1].y;
                 UIManager.Instance.SetAllyLevelDisplay(priority);
                 CheckLevels();
             }

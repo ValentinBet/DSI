@@ -87,15 +87,17 @@ public class GameInfoManager : MonoBehaviour
     {
         AllyCharacterSave characterSave = new AllyCharacterSave();
 
-        characterSave.name = allyCharacter.data.name;
-        characterSave.experience = allyCharacter.data.experience;
-        characterSave.level = allyCharacter.data.level;
-        characterSave.allyDescription = allyCharacter.data.allyDescription;
+        characterSave.name = allyCharacter.allyName;
+        characterSave.experience = allyCharacter.experience;
+        characterSave.level = allyCharacter.level;
+        characterSave.allyDescription = allyCharacter.allyDescription;
         characterSave.life = allyCharacter.life;
         characterSave.damage = allyCharacter.damage;
         characterSave.AttackRange = allyCharacter.AttackRange;
         characterSave.movementRange = allyCharacter.movementRange;
         characterSave.type = allyCharacter.characterType;
+        characterSave.yearSurvived = allyCharacter.yearSurvived;
+        characterSave.enemyKilled = allyCharacter.enemyKilled;
 
         return characterSave;
     }
@@ -103,14 +105,16 @@ public class GameInfoManager : MonoBehaviour
     public void UpdateCharacterObjToHisSave(ref AllyCharacter allyCharacter, AllyCharacterSave save)
     {
         allyCharacter.characterType = save.type;
-        allyCharacter.data.name = save.name;
-        allyCharacter.data.experience = save.experience;
-        allyCharacter.data.level = save.level;
-        allyCharacter.data.allyDescription = save.allyDescription;
+        allyCharacter.allyName = save.name;
+        allyCharacter.experience = save.experience;
+        allyCharacter.level = save.level;
+        allyCharacter.allyDescription = save.allyDescription;
         allyCharacter.life = save.life;
         allyCharacter.damage = save.damage;
         allyCharacter.AttackRange = save.AttackRange;
         allyCharacter.movementRange = save.movementRange;
+        allyCharacter.yearSurvived = save.yearSurvived;
+        allyCharacter.enemyKilled = save.enemyKilled;
     }
 
     private void UpdateJsonGameDataFile()

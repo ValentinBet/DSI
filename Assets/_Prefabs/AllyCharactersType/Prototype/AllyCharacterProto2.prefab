@@ -113,8 +113,10 @@ MonoBehaviour:
   priority: 0
   myState: 0
   characterType: 2
+  combatStyle: 0
   isAlly: 1
   mouvementPattern: {fileID: 11400000, guid: 2f0583772e5a79542952643470869324, type: 2}
+  AttackPattern: {fileID: 11400000, guid: 7838aa6c7753adc49ac9c0356f10aef7, type: 2}
   pathFinding: []
   occupiedTile: {fileID: 0}
   ObjectTypeMetaData: {fileID: 11400000, guid: afff1c7cb6ebbc74d8b5d8920419f5b7, type: 2}
@@ -128,3 +130,4 @@ MonoBehaviour:
     - {x: 1, y: 10}
     - {x: 2, y: 20}
     - {x: 3, y: 40}
+  ally_sprite: {fileID: 0}

@@ -102,9 +102,15 @@ public class Character : MonoBehaviour
 
     public void GotAttacked(int damageAmount, Character attacker)
     {
+
         life -= damageAmount;
         if (life < 1)
         {
+            if (attacker.isAlly && !this.isAlly)
+            {
+                attacker.GetComponent<AllyCharacter>().AddExperience(this.GetComponent<EnemyCharacter>().xpEarnWhenKill);
+            }
+
             KillCharacter();
         }
     }

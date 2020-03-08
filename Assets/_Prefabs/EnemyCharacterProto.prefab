@@ -112,9 +112,14 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   priority: 0
   myState: 0
+  characterType: 0
+  combatStyle: 0
+  isAlly: 0
   mouvementPattern: {fileID: 11400000, guid: 2f0583772e5a79542952643470869324, type: 2}
+  AttackPattern: {fileID: 11400000, guid: 7838aa6c7753adc49ac9c0356f10aef7, type: 2}
   pathFinding: []
   occupiedTile: {fileID: 0}
   ObjectTypeMetaData: {fileID: 0}
   enemyName: 
   enemyDescription: 
+  xpEarnWhenKill: 10

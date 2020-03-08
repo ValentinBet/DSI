@@ -29,7 +29,7 @@ public class PatternReader : MonoBehaviour
     {
         Debug.Log("Tour Fini");
         TilesManager.Instance.ResetTilesStatut();
-        PhaseManager.Instance.NextUnit();
+        //PhaseManager.Instance.NextUnit();
     }
 
 }

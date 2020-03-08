@@ -13,6 +13,8 @@ public class TilesManager : MonoBehaviour
 
     public List<TileProperties> AllTilesList = new List<TileProperties>();
 
+    public LayerMask tileLayer;
+
     #region Tiles Specific
 
 

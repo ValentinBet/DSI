@@ -41,6 +41,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject lifeItem;
     private Image[,] lifeDisplays;
 
+    [Header("LotusLife")]
+    [SerializeField] private GameObject[] lotusLife;
+
     [Header("Follow cursor image")]
     [SerializeField] private RectTransform allyHint;
     [SerializeField] private Image allyHintImg;
@@ -183,6 +186,21 @@ public class UIManager : MonoBehaviour
                 go.GetComponent<RectTransform>().localPosition =new Vector3(-1f,-1.1f,0.0f);
                 go.transform.localRotation = Quaternion.Euler(0.0f,0.0f,((-40.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f)+40.0f*j);
                 lifeDisplays[i,j] = go.transform.GetChild(0).GetComponent<Image>();
+            }
+        }
+    }
+
+    public void BaseLifeUpdate(int value)
+    {
+        for (int i = 0; i < lotusLife.Length; i++)
+        {
+            if (i < value && !lotusLife[i].activeSelf)
+            {
+                lotusLife[i].SetActive(true);
+            }
+            else
+            {
+                lotusLife[i].SetActive(false);
             }
         }
     }

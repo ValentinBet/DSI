@@ -31,6 +31,8 @@ public class Character : MonoBehaviour
     public Vector3 position;
     public int priority;
 
+    private int numberOfDeadProjectile;
+
     public CharacterState myState = CharacterState.Standby;
     public CharacterType characterType;
     public CombatStyle combatStyle;
@@ -102,9 +104,17 @@ public class Character : MonoBehaviour
 
     public void GotAttacked(int damageAmount, Character attacker)
     {
+
         life -= damageAmount;
         if (life < 1)
         {
+            if (attacker.isAlly && !this.isAlly)
+            {
+                AllyCharacter _ac = attacker.GetComponent<AllyCharacter>();
+                _ac.AddExperience(this.GetComponent<EnemyCharacter>().xpEarnWhenKill);
+                _ac.enemyKilled++;
+            }
+
             KillCharacter();
         }
     }
@@ -128,7 +138,6 @@ public class Character : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-
     public TileProperties GetTileFromTransform(Vector2 tileOffset, int lenght = 1)
     {
         List<TileProperties> listTilesOnDirection = new List<TileProperties>();
@@ -143,7 +152,6 @@ public class Character : MonoBehaviour
 
         if (hitTile.collider != null)
         {
-            Debug.Log(hitTile.collider.gameObject.name, hitTile.collider.gameObject);
             if (hitTile.collider.gameObject.GetComponent<TileProperties>() != null)
             {
                 return hitTile.collider.gameObject.GetComponent<TileProperties>();
@@ -153,6 +161,16 @@ public class Character : MonoBehaviour
         Debug.DrawRay(targetPos, Vector3.down, Color.red, 2);
 
         return null;
+    }
+
+    public void RegisteredDeathProjectile(int index, int depth)
+    {
+        numberOfDeadProjectile++;
+        if (numberOfDeadProjectile == AttackPattern.tilesAffected.Length)
+        {
+            numberOfDeadProjectile = 0;
+            //PatternReader.instance.PatternExecuter.ActionEnd(mouvementPattern, this, index, depth);
+        }
     }
 }
 

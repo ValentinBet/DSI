@@ -357,9 +357,9 @@ public class PatternExecuter : MonoBehaviour
         {
             if (character.AttackPattern.attackType == AttackType.Zone)
             {
-                for (int i = 0; i < character.AttackPattern.tilesTargetOffset.Length; i++)
+                for (int i = 0; i < character.AttackPattern.tilesAffected.Length; i++)
                 {
-                    TileProperties tileTarget = character.GetTileFromTransform(character.AttackPattern.tilesTargetOffset[i], 2);
+                    TileProperties tileTarget = character.GetTileFromTransform(character.AttackPattern.tilesAffected[i].tilesTargetOffset, 2);
                     if (tileTarget != null)
                     {
                         AttackOnTargetTile(character, testedTiles, tileTarget);
@@ -368,17 +368,31 @@ public class PatternExecuter : MonoBehaviour
             }
             else
             {
+                for (int i = 0; i < character.AttackPattern.tilesAffected.Length; i++)
+                {
+                    TileProperties tileTarget = character.GetTileFromTransform(character.AttackPattern.tilesAffected[i].tilesTargetOffset, 2);
+                    if (tileTarget != null)
+                    {
+                        Vector3 spawnPos = tileTarget.transform.position + new Vector3(0, 0.5f, 0);
+                        GameObject newProj = Instantiate(character.AttackPattern.tilesAffected[i].projectilePrefab, spawnPos, character.transform.rotation);
+                        ProjectileBeheviour proj = newProj.GetComponent<ProjectileBeheviour>();
+                        proj.Init(character, index, depth);
 
+                    }
+                }
             }
         }
 
-        if (continuePatern)
+        if (character.AttackPattern.attackType == AttackType.Zone)
         {
-            ActionEnd(pattern, testedTiles, character, index, depth);
-        }
-        else
-        {
-            StopPattern(character);
+            if (continuePatern)
+            {
+                ActionEnd(pattern, testedTiles, character, index, depth);
+            }
+            else
+            {
+                StopPattern(character);
+            }
         }
     }
 
@@ -449,16 +463,17 @@ public class PatternExecuter : MonoBehaviour
     private void ActionEnd(PatternTemplate pattern, List<TileProperties> tilesToColored, Character character, int index, int depth)
     {
         index++;
+        for (int i = 0; i < tilesToColored.Count; i++)
+        {
+            tileColoredDuringPattern.Add(tilesToColored[i]);
+        }
+
         if (index < depth)
         {
             StartCoroutine(NextAction(pattern.actions[index].actionDuration, character, pattern, index, depth));
         }
         else
         {
-            for (int i = 0; i < tilesToColored.Count; i++)
-            {
-                tileColoredDuringPattern.Add(tilesToColored[i]);
-            }
             //tileColoredDuringPattern.Add(tileToColored);
             StopPattern(character);
         }

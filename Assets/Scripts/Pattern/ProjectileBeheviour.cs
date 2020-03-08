@@ -9,12 +9,12 @@ public class ProjectileBeheviour : MonoBehaviour
     private TileProperties currentTile;
 
 
-    public void Init(Character shooter, int index , int depth)
+    public void Init(Character shooter, int index, int depth)
     {
         _depth = depth;
         _index = index;
         _shooter = shooter;
-        
+
     }
 
 
@@ -50,7 +50,7 @@ public class ProjectileBeheviour : MonoBehaviour
 
     public void DestroyProjectile()
     {
-        _shooter.RegisteredDeathProjectile(_index , _depth);
+        _shooter.RegisteredDeathProjectile(_index, _depth);
 
     }
 }

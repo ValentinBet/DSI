@@ -305,11 +305,22 @@ public class PreviewReader : MonoBehaviour
 
     #region Coroutine
 
+
+
     /// <summary>
-    /// Suprime la preview avec un delay
+    /// Suprime la preview 
     /// </summary>
     /// <param name="duration"></param>
     /// <returns></returns>
+    /// 
+    public void EndPreview( )
+    {
+        for (int i = 0; i < tileColoredDuringPattern.Count; i++)
+        {
+            TilesManager.Instance.ChangeTileMaterial(tileColoredDuringPattern[i], tileColoredDuringPattern[i].baseMat);
+        }
+    }
+
     private IEnumerator EndPreview(float duration)
     {
         yield return new WaitForSeconds(duration);
@@ -349,22 +360,22 @@ public class PreviewReader : MonoBehaviour
     private void ActionPreviewEnd(TileProperties currentTile, TileProperties tileToColored, PatternTemplate pattern, int index, int depth, Vector3 currentDirection)
     {
         index++;
+        tileColoredDuringPattern.Add(tileToColored);
         if (index < depth)
         {
             StartCoroutine(NextPreview(pattern.actions[index].previewDuration, currentTile, pattern, index, depth, currentDirection));
         }
-        else
-        {
-            tileColoredDuringPattern.Add(tileToColored);
-            StartCoroutine(EndPreview(2f));
-        }
+        //else
+        //{
+        //    StartCoroutine(EndPreview(2f));
+        //}
     }
 
     private void StopPattern(TileProperties tileToColored)
     {
 
         tileColoredDuringPattern.Add(tileToColored);
-        StartCoroutine(EndPreview(2f));
+       // StartCoroutine(EndPreview(2f));
     }
     #endregion
 }

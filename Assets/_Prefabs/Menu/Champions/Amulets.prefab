@@ -136,8 +136,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Amulets
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 30b50c397780dee44b836d1dcb586d1f, type: 2}
+  m_sharedMaterial: {fileID: 2146441568058785108, guid: 30b50c397780dee44b836d1dcb586d1f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

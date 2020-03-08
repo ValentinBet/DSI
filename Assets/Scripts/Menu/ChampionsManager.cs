@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ChampionsManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> TabElement = new List<GameObject>();
+  //  [SerializeField] private List<GameObject> TabElement = new List<GameObject>();
     [SerializeField] private Color activatedTabElementColor;
     [SerializeField] private Color desactivatedTabElementColor;
 
@@ -17,30 +17,39 @@ public class ChampionsManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI lifePointsText;
     [SerializeField] private TextMeshProUGUI descriptionText;
 
+    [SerializeField] private GameObject championTab;
     [SerializeField] private GameObject patternLayout;
     [SerializeField] private GameObject amuletsLayout;
 
 
+
     private void Start()
     {
-        ActivateTabElement(0);
+       // ActivateTabElement(0);
     }
 
-    private void ResetTabElementColor()
-    {
-        foreach (GameObject TbElmt in TabElement)
-        {
-            TbElmt.GetComponent<Image>().color = desactivatedTabElementColor;
-        }
-    }
+    //private void ResetTabElementColor()
+    //{
+    //    foreach (GameObject TbElmt in TabElement)
+    //    {
+    //        TbElmt.GetComponent<Image>().color = desactivatedTabElementColor;
+    //    }
+    //}
 
     public void ActivateTabElement(int value)
     {
-        ResetTabElementColor();
-        TabElement[value].GetComponent<Image>().color = activatedTabElementColor;
+        //ResetTabElementColor();
+        //TabElement[value].GetComponent<Image>().color = activatedTabElementColor;
 
         UpdateTab(value);
+        championTab.SetActive(true);
     }
+
+    public void QuitTabElement()
+    {
+        championTab.SetActive(false);
+    }
+
 
     private void UpdateTab(int value)
     {

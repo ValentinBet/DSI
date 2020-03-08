@@ -6,11 +6,17 @@ using UnityEngine;
 public class AllyCharacter : Character
 {
     public AllyCharacterData data;
+    public GameObject ally_sprite;
 
     private void Start()
     {
         gameObject.tag = "AllyCharacter";
         SetOccupiedTile();
+    }
+
+    private void FixedUpdate()
+    {
+        LookAtCamera();
     }
 
     public void AddExperience(int value)
@@ -31,6 +37,14 @@ public class AllyCharacter : Character
                 UIManager.Instance.SetAllyLevelDisplay(priority);
                 CheckLevels();
             }
+        }
+    }
+
+    public void LookAtCamera()
+    {
+        if (ally_sprite != null)
+        {
+            ally_sprite.transform.LookAt(Camera.main.transform);
         }
 
     }

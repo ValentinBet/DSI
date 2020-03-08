@@ -61,16 +61,6 @@ public class PlayerControl : MonoBehaviour
                         allyCharactersPlacer.TryPlaceAlly(_tile);
                         return;
                     }
-                    else
-                    {
-                        PatternReader.instance.PreviewReader.PreviewPattern(pattern, _tile);
-                        MeshRenderer tMR = _tile.GetComponent<MeshRenderer>();
-                        if (tMR != null)
-                        {
-                            tMR.sharedMaterial = PatternReader.instance.clickMat;
-
-                        }
-                    }
 
                     TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject);
                 }

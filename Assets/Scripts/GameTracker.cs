@@ -27,6 +27,7 @@ public class GameTracker : MonoBehaviour
         {
             _instance = this;
         }
+        actualPA = maxPA;
     }
 
     public void GatherData()

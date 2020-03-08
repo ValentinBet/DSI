@@ -91,9 +91,9 @@ public class PhaseManager : MonoBehaviour
                 }
                 for (int i = 0; i < charactersManager.enemyCharacters.Count; i++)
                 {
-                    if (charactersManager.allyCharacter[i].myState != CharacterState.Dead)
+                    if (charactersManager.enemyCharacters[i].myState != CharacterState.Dead)
                     {
-                        charactersManager.allyCharacter[i].myState = CharacterState.Standby;
+                        charactersManager.enemyCharacters[i].myState = CharacterState.Standby;
                     }
 
                     //if (charactersManager.enemyCharacters[i].myState == CharacterState.Dead)

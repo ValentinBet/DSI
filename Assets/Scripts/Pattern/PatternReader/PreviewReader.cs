@@ -356,7 +356,7 @@ public class PreviewReader : MonoBehaviour
         else
         {
             tileColoredDuringPattern.Add(tileToColored);
-            StartCoroutine(EndPreview(0));
+            StartCoroutine(EndPreview(2f));
         }
     }
 
@@ -364,7 +364,7 @@ public class PreviewReader : MonoBehaviour
     {
 
         tileColoredDuringPattern.Add(tileToColored);
-        StartCoroutine(EndPreview(0.5f));
+        StartCoroutine(EndPreview(2f));
     }
     #endregion
 }

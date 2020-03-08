@@ -2220,7 +2220,7 @@ MonoBehaviour:
   qualityDropdown: {fileID: 745846863}
   ResolutionsList: []
   generalVolumeSlider: {fileID: 1388615854}
-  generalVolumeInputField: {fileID: 0}
+  generalVolumeInputField: {fileID: 713335726}
   settingsList: {fileID: 11400000, guid: 06228671242fdf348afcf4642c7f0a9c, type: 2}
 --- !u!4 &776443210
 Transform:

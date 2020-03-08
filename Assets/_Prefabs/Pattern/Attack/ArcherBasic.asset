@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33fbdc9118b641d4d9202ea1fba740e4, type: 3}
-  m_Name: WarriorBasic
+  m_Name: ArcherBasic
   m_EditorClassIdentifier: 
-  attackType: 0
+  attackType: 1
   tilesAffected:
   - tilesTargetOffset: {x: 0, y: 1}
-    projectilePrefab: {fileID: 0}
-  - tilesTargetOffset: {x: -1, y: 1}
-    projectilePrefab: {fileID: 0}
-  - tilesTargetOffset: {x: 1, y: 1}
-    projectilePrefab: {fileID: 0}
+    projectilePrefab: {fileID: 7175751292259566834, guid: f8963ec9f3cff0a42a7777b54a2636e8,
+      type: 3}

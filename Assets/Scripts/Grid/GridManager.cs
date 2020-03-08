@@ -12,6 +12,7 @@ public class GridManager : MonoBehaviour
 
     private RaycastHit hit;
     private GameObject lastObjHit;
+    private AllyCharacter lastAllyHit;
 
     private void Awake()
     {
@@ -36,12 +37,16 @@ public class GridManager : MonoBehaviour
 
             if (lastObjHit != hit.collider.gameObject)
             {
+                if (lastAllyHit != null)
+                {
+
+                }
                 lastObjHit = hit.collider.gameObject;
 
                 if (hit.collider.CompareTag("AllyCharacter"))
                 {
-                    AllyCharacter allyCharacter = hit.collider.GetComponent<AllyCharacter>();
-                    PatternReader.instance.PreviewReader.PreviewPattern(allyCharacter.mouvementPattern, allyCharacter.occupiedTile);
+                    lastAllyHit = hit.collider.GetComponent<AllyCharacter>();
+                    PatternReader.instance.PreviewReader.PreviewPattern(lastAllyHit.mouvementPattern, lastAllyHit.occupiedTile);
                 }
             }
 

@@ -95,7 +95,7 @@ public class UIManager : MonoBehaviour
             {
                 case "AllyCharacter":
                     AllyCharacter _ac = hit.collider.GetComponent<AllyCharacter>();
-                    SetClusterInfo(_ac.data.name, _ac.data.allyDescription, _ac.ObjectTypeMetaData.icon);
+                    SetClusterInfo(_ac.allyName, _ac.allyDescription, _ac.ObjectTypeMetaData.icon);
                     break;
                 case "EnemyCharacter":
                     EnemyCharacter _ec = hit.collider.GetComponent<EnemyCharacter>();
@@ -222,7 +222,7 @@ public class UIManager : MonoBehaviour
 
     public void SetAllyLevelDisplay(int value)
     {
-        allyTextDisplay[value].text = "LVL " + CharactersManager.Instance.allyCharacter[value].data.level;
+        allyTextDisplay[value].text = "LVL " + CharactersManager.Instance.allyCharacter[value].level;
     }
 
 

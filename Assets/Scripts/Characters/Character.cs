@@ -110,7 +110,9 @@ public class Character : MonoBehaviour
         {
             if (attacker.isAlly && !this.isAlly)
             {
-                attacker.GetComponent<AllyCharacter>().AddExperience(this.GetComponent<EnemyCharacter>().xpEarnWhenKill);
+                AllyCharacter _ac = attacker.GetComponent<AllyCharacter>();
+                _ac.AddExperience(this.GetComponent<EnemyCharacter>().xpEarnWhenKill);
+                _ac.enemyKilled++;
             }
 
             KillCharacter();

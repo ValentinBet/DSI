@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/_Scenes/Menu/Credits.unity.meta
 guid: baf8abe272b3d804581d311f1ba7ea8d
+=======
+guid: ef542242a893a5340823ee8efdfe289c
+folderAsset: yes
+>>>>>>> ThomasVFX:Assets/VFX/Shaders.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

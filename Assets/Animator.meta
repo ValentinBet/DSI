@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animator.meta
 guid: 959af68d373b0934f9151175d65b4ddf
+=======
+guid: 96a3b480508b19343839ab6181d6bbf0
+>>>>>>> ThomasVFX:Assets/VFX/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

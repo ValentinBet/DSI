@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/AmplifyShader/AmplifyShaderEditor/Plugins/Editor/Nodes/Official.meta~b24d151421d68c84baac90d10219bb5ea7a1f436.meta
 guid: 9251629922efbac4ab4f4be7dde7e28b
+=======
+guid: 17e6c09f782f5d945ac0e5ecda397a2d
+folderAsset: yes
+>>>>>>> ThomasVFX:Assets/VFX/Textures.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

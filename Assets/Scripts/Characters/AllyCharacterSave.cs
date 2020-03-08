@@ -15,5 +15,8 @@ public class AllyCharacterSave
     public float AttackRange;
     public int movementRange;
 
+    public int yearSurvived;
+    public int enemyKilled;
+
     public CharacterType type;
 }

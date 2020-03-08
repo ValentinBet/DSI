@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TEST_attackPa
   m_EditorClassIdentifier: 
   attackType: 0
-  tilesTargetOffset: []
+  tilesAffected: []

@@ -64,7 +64,7 @@ public class GameTracker : MonoBehaviour
     //Default Value
     public bool PlayerAction(int cost = 1)
     {
-        if (actualPA - cost > -1)
+        if (IsHavingEnoughtPa(cost))
         {
             actualPA--;
             UIManager.Instance.SetPA(actualPA);
@@ -80,6 +80,15 @@ public class GameTracker : MonoBehaviour
     {
         actualPA = maxPA;
         UIManager.Instance.SetPA(actualPA);
+    }
+
+    public bool IsHavingEnoughtPa(int value = 1)
+    {
+        if (actualPA - value > -1)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void TrackQuest()

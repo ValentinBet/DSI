@@ -149,7 +149,7 @@ MonoBehaviour:
   combatStyle: 0
   isAlly: 1
   mouvementPattern: {fileID: 11400000, guid: 56d52d547b6c5ec4faedfdaa9be68137, type: 2}
-  AttackPattern: {fileID: 0}
+  AttackPattern: {fileID: 11400000, guid: c7530073b3e84894f8083b54310f11ce, type: 2}
   pathFinding: []
   tilesColored: []
   occupiedTile: {fileID: 0}

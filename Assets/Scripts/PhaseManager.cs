@@ -18,6 +18,7 @@ public class PhaseManager : MonoBehaviour
 
     private CharactersManager charactersManager;
 
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -66,6 +67,7 @@ public class PhaseManager : MonoBehaviour
                 actualWave++;
                 break;
             case Phase.Control:
+               UIManager.Instance.SetTileMovementObj(true);
                 actualTurn++;
                 GameTracker.Instance.RefreshPA();
                 PlayerControl.Instance.EnableInputs(true);
@@ -107,6 +109,7 @@ public class PhaseManager : MonoBehaviour
                 }
                 break;
             case Phase.Allied:
+                UIManager.Instance.SetTileMovementObj(false);
                 UIManager.Instance.AllyTurn();
                 PlayerControl.Instance.EnableInputs(false);
                 unitIndexs.Clear();

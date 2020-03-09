@@ -68,11 +68,11 @@ public class PatternExecuter : MonoBehaviour
                     {
                         if (character.combatStyle == CombatStyle.closeCombat)
                         {
-                            StartCoroutine(ExtraAttack(pattern, character, index, depth, true, true));
+                            StartCoroutine(ExtraAttack(pattern, character, index, depth, false, true));
                         }
                         else
                         {
-                            StartCoroutine(ExtraAttack(pattern, character, index, depth, true, false));
+                            StartCoroutine(ExtraAttack(pattern, character, index, depth, false, false));
                         }
                         return;
                     }
@@ -193,11 +193,11 @@ public class PatternExecuter : MonoBehaviour
                     }
                     else
                     {
-                        if (!character.isAlly)
-                        {
-                            CharacterReorientation(character, false, index, depth);
-                        }
 
+                        //if (!character.isAlly)
+                        //{
+                        //    CharacterReorientation(character, false, index, depth);
+                        //}
 
                         if (character.combatStyle == CombatStyle.closeCombat)
                         {
@@ -294,7 +294,6 @@ public class PatternExecuter : MonoBehaviour
         }
     }
 
-
     #region SpecificAction
     private void MovementOnTile(PatternTemplate pattern, Character character, int index, int depth, TileProperties newTile)
     {
@@ -347,12 +346,13 @@ public class PatternExecuter : MonoBehaviour
         {
             int rayLength = 2;
             List<TileProperties> tiles = character.occupiedTile.GetTileOnDirection(character.transform.forward, rayLength, false);
-            if (tiles.Count == 0)
+            if (tiles.Count != 0)
             {
-                ActionEnd(pattern, character.occupiedTile, character, index, depth);
+                //ActionEnd(pattern, character.occupiedTile, character, index, depth);
+                AttackOnTargetTile(character, testedTiles, tiles[0]);
             }
-            AttackOnTargetTile(character, testedTiles, tiles[0]);
         }
+
         else
         {
             if (character.AttackPattern.attackType == AttackType.Zone)
@@ -376,18 +376,17 @@ public class PatternExecuter : MonoBehaviour
                         Vector3 spawnPos = tileTarget.transform.position + new Vector3(0, 0.5f, 0);
                         GameObject newProj = Instantiate(character.AttackPattern.tilesAffected[i].projectilePrefab, spawnPos, character.transform.rotation);
                         ProjectileBeheviour proj = newProj.GetComponent<ProjectileBeheviour>();
-                        proj.Init(character, index, depth);
-
+                        proj.Init(character, index, depth , continuePatern);
                     }
                 }
             }
         }
 
-        if (character.AttackPattern.attackType == AttackType.Zone)
+        if (character.AttackPattern.attackType == AttackType.Zone || !useCharacterPattern)
         {
             if (continuePatern)
             {
-                ActionEnd(pattern, testedTiles, character, index, depth);
+                ActionEnd(pattern, testedTiles, character, index, depth , continuePatern);
             }
             else
             {
@@ -460,7 +459,7 @@ public class PatternExecuter : MonoBehaviour
         }
     }
 
-    public void ActionEnd(PatternTemplate pattern, List<TileProperties> tilesToColored, Character character, int index, int depth)
+    public void ActionEnd(PatternTemplate pattern, List<TileProperties> tilesToColored, Character character, int index, int depth , bool continuePattern)
     {
         index++;
         for (int i = 0; i < tilesToColored.Count; i++)
@@ -468,7 +467,7 @@ public class PatternExecuter : MonoBehaviour
             tileColoredDuringPattern.Add(tilesToColored[i]);
         }
 
-        if (index < depth)
+        if (index < depth && continuePattern)
         {
             Debug.Log("NextAction");
             StartCoroutine(NextAction(pattern.actions[index].actionDuration, character, pattern, index, depth));

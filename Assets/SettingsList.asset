@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SettingsList
   m_EditorClassIdentifier: 
   settings:
-    Windowmode: 0
+    Windowmode: 3
     Resolution: 0
     Quality: 0
-    GeneralVolume: 0
+    GeneralVolume: 100
     MouseSensitivity: 0

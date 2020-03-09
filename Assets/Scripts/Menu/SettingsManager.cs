@@ -32,6 +32,20 @@ public class SettingsManager : MonoBehaviour
     private void Start()
     {
         filename = Application.persistentDataPath + "Settings" + ".json";
+        if (!File.Exists(filename))
+        {
+            // Save settings >>
+            settingsList.settings.Windowmode = 0;
+
+            resPlace = 0;
+            settingsList.settings.Resolution = resPlace;
+
+            settingsList.settings.Quality = 0;
+
+            settingsList.settings.GeneralVolume = 100;
+
+            SaveAsJson();
+        }
         InitSettingsList();
 
         InitResDropdown();

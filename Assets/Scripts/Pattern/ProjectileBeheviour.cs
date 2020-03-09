@@ -10,7 +10,8 @@ public class ProjectileBeheviour : MonoBehaviour
     private bool isOnFire;
     private List<TileProperties> tilesColored = new List<TileProperties>();
     private TileProperties lastTeleoprtUsed;
-
+    public int maxTeleportSupported = 3;
+    private int teleportNumber;
 
     public void Init(Character shooter, int index, int depth)
     {
@@ -73,9 +74,12 @@ public class ProjectileBeheviour : MonoBehaviour
             return;
         }
 
-        tilesColored.Add(testedTile);
-        TilesManager.Instance.ChangeTileMaterial(testedTile, PatternReader.instance.attackMat);
-        currentTile = testedTile;
+        if (testedTile.specificity != TileProperties.TilesSpecific.PlayerBase)
+        {
+            tilesColored.Add(testedTile);
+            TilesManager.Instance.ChangeTileMaterial(testedTile, PatternReader.instance.attackMat);
+            currentTile = testedTile;
+        }
 
         if (testedTile.isOccupied)
         {
@@ -116,7 +120,6 @@ public class ProjectileBeheviour : MonoBehaviour
             case TileProperties.TilesSpecific.Wall:
                 testedTile.GetDamaged(1);
                 DestroyProjectile();
-
                 break;
             case TileProperties.TilesSpecific.Teleport:
 
@@ -127,6 +130,11 @@ public class ProjectileBeheviour : MonoBehaviour
                     return;
                 }
                 lastTeleoprtUsed = testedTile;
+                teleportNumber++;
+                if (teleportNumber == maxTeleportSupported)
+                {
+                    DestroyProjectile();
+                }
                 // Vector added = space between the bullet and the ground;
                 transform.position = teleportExit.transform.position + new Vector3(0, 0.5f, 0);
                 transform.rotation = teleportExit.transform.rotation;
@@ -136,12 +144,12 @@ public class ProjectileBeheviour : MonoBehaviour
                 DestroyProjectile();
                 break;
 
-            case TileProperties.TilesSpecific.Ordre:
-                if (testedTile.order == TileProperties.TilesOrder.rotate)
-                {
-                    transform.rotation = testedTile.transform.rotation;
-                }
-                break;
+                //case TileProperties.TilesSpecific.Ordre:
+                //    if (testedTile.order == TileProperties.TilesOrder.rotate)
+                //    {
+                //        transform.rotation = testedTile.transform.rotation;
+                //    }
+                //    break;
 
 
         }

@@ -88,7 +88,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7175751292259566834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07fe39348277dab40baa6ef0257268f8, type: 3}
+  m_Script: {fileID: 11500000, guid: e04d05ae060f5c245819d44713f2cdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxTeleportSupported: 3

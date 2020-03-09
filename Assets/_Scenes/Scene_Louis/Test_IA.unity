@@ -656,7 +656,7 @@ PrefabInstance:
         type: 3}
       propertyPath: AttackPattern
       value: 
-      objectReference: {fileID: 11400000, guid: 2224d5f5ce52a1d49a4bb9e98be03456,
+      objectReference: {fileID: 11400000, guid: ef9e4b7ff4841ac40978131db2812bb4,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d83a8370bfa9ed1488ea05b32f89de66, type: 3}

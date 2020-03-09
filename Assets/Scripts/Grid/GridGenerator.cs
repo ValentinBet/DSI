@@ -64,7 +64,7 @@ public class GridGenerator : MonoBehaviour
 
     public void SpawnTile(int GridX, int GridY,GameObject prefab)
     {
-        GameObject GO = Instantiate(prefab, new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), Quaternion.identity);
+        GameObject GO = Instantiate(prefab, new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), prefab.transform.rotation);
         GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
     }
 

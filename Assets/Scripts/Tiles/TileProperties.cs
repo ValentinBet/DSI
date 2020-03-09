@@ -156,7 +156,6 @@ public class TileProperties : MonoBehaviour
     public void ChangeTilesActivationStatut(bool _isActivated)
     {
         isActivated = _isActivated;
-        Debug.Log(name + "is Activated : " + isActivated);
         if (_isActivated)
         {
             sR.sprite = icon;

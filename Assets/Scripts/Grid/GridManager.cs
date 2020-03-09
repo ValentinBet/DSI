@@ -37,14 +37,14 @@ public class GridManager : MonoBehaviour
 
             if (lastObjHit != hit.collider.gameObject)
             {
-                PatternReader.instance.PreviewReader.EndPreview();
+                PatternReader.instance.PreviewPattern.EndPreview();
 
                 lastObjHit = hit.collider.gameObject;
 
                 if (hit.collider.CompareTag("AllyCharacter"))
                 {
                     lastAllyHit = hit.collider.GetComponent<AllyCharacter>();
-                    PatternReader.instance.PreviewReader.PreviewPattern(lastAllyHit.mouvementPattern, lastAllyHit.occupiedTile);
+                    PatternReader.instance.PreviewPattern.ReadPattern(lastAllyHit);
                 }
             }
 

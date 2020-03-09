@@ -10,6 +10,7 @@ public class TilesChanger : MonoBehaviour
 
     private Vector3 tempPos;
     [SerializeField] private GameObject swapSprite;
+    [SerializeField] private GameObject rotateSprite;
     private List<GameObject> swapSpriteList;
 
 
@@ -83,11 +84,23 @@ public class TilesChanger : MonoBehaviour
         initTile = null;
         lastTile = null;
 
+        HideAllHints();
+
+    }
+
+    public void HideAllHints()
+    {
         for (int i = 0; i < swapSpriteList.Count; i++)
         {
             swapSpriteList[i].SetActive(false);
         }
 
+        rotateSprite.SetActive(false);
+    }
+
+    public void DisplayRotateHint()
+    {
+        rotateSprite.transform.position = GridManager.Instance.gridSelector.transform.position;
     }
 
     public bool RotateTile()

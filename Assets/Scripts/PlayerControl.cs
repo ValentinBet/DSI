@@ -71,6 +71,7 @@ public class PlayerControl : MonoBehaviour
 
                     if (isOnRotateMode)
                     {
+                        TilesManager.TilesChangerInstance.DisplayRotateHint();
                         if (!TilesManager.TilesChangerInstance.RotateTile())
                             DoActionWithPANeeded();
                     }
@@ -93,13 +94,14 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void DoActionWithPANeeded()
+    private void DoActionWithPANeeded(int pa = 1)
     {
-        GameTracker.Instance.PlayerAction();
+        GameTracker.Instance.PlayerAction(pa);
 
         if (!GameTracker.Instance.IsHavingEnoughtPa())
         {
             EndAllModes();
+
         }
     }
 
@@ -129,6 +131,7 @@ public class PlayerControl : MonoBehaviour
     {
         isOnRotateMode = false;
         isOnSwapMode = false;
+        TilesManager.TilesChangerInstance.HideAllHints();
         UIManager.Instance.HideFollowMouseObj();
     }
 

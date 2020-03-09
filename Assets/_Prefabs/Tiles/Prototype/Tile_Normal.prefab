@@ -83,8 +83,6 @@ MonoBehaviour:
   mR: {fileID: 6002113455115811045}
   baseMat: {fileID: 0}
   occupant: {fileID: 0}
-<<<<<<< HEAD
-=======
 --- !u!1001 &9187525145969198491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,4 +170,3 @@ MeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 9187525145969198491}
   m_PrefabAsset: {fileID: 0}
->>>>>>> 3cdaf994f17086d6d34533a6590b635b700d1203

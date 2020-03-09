@@ -55,14 +55,14 @@ public class CharactersManager : MonoBehaviour
         {
             foreach (TileProperties tp in freeTiles)
             {
-                tp.GetComponent<MeshRenderer>().materials = new Material[] { tp.GetComponent<MeshRenderer>().materials[0], highlightedMaterial };
+                tp.GetComponentInChildren<MeshRenderer>().materials = new Material[] { tp.GetComponentInChildren<MeshRenderer>().materials[0], highlightedMaterial };
             }
         }
         else
         {
             foreach (TileProperties tp in freeTiles)
             {
-                tp.GetComponent<MeshRenderer>().materials = new Material[] { tp.GetComponent<MeshRenderer>().materials[0] };
+                tp.GetComponentInChildren<MeshRenderer>().materials = new Material[] { tp.GetComponentInChildren<MeshRenderer>().materials[0] };
             }
         }
 

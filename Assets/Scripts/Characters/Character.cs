@@ -49,7 +49,6 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-        //hahahahaha prankeeeeeedddd
         Time.timeScale = 0.2f;
         Application.targetFrameRate = 12;
         SetOccupiedTile();
@@ -167,7 +166,7 @@ public class Character : MonoBehaviour
         return null;
     }
 
-    public void RegisteredDeathProjectile(int index, int depth, List<TileProperties> tilesToColored)
+    public void RegisteredDeathProjectile(int index, int depth, List<TileProperties> tilesToColored, bool continuePattern)
     {
         numberOfDeadProjectile++;
         for (int i = 0; i < tilesToColored.Count; i++)
@@ -177,9 +176,9 @@ public class Character : MonoBehaviour
 
         if (numberOfDeadProjectile == AttackPattern.tilesAffected.Length)
         {
-            Debug.Log("No More Projectile");
+            // Debug.Log(continuePattern);
             numberOfDeadProjectile = 0;
-            PatternReader.instance.PatternExecuter.ActionEnd(mouvementPattern, tilesColored,  this, index, depth);
+            PatternReader.instance.PatternExecuter.ActionEnd(mouvementPattern, tilesColored, this, index, depth, continuePattern);
             tilesColored.Clear();
         }
     }

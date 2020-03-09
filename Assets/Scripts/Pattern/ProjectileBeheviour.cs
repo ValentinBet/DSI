@@ -12,13 +12,14 @@ public class ProjectileBeheviour : MonoBehaviour
     private TileProperties lastTeleoprtUsed;
     public int maxTeleportSupported = 3;
     private int teleportNumber;
+    private bool _continuePartern;
 
-    public void Init(Character shooter, int index, int depth)
+    public void Init(Character shooter, int index, int depth , bool continuePattern)
     {
         _depth = depth;
         _index = index;
         _shooter = shooter;
-
+        _continuePartern = continuePattern;
     }
 
 
@@ -59,18 +60,17 @@ public class ProjectileBeheviour : MonoBehaviour
 
     public void DestroyProjectile()
     {
-        _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored);
+        _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored , _continuePartern);
 
-        StartCoroutine(WaitBeforeDeath());
-
+        //StartCoroutine(WaitBeforeDeath());
+        Destroy(this.gameObject);
     }
 
     private void CheckTile(TileProperties testedTile)
     {
-        Debug.Log("TileChange");
         if (testedTile == null)
         {
-            // DestroyProjectile();
+             //DestroyProjectile();
             return;
         }
 
@@ -118,6 +118,7 @@ public class ProjectileBeheviour : MonoBehaviour
                 break;
 
             case TileProperties.TilesSpecific.Wall:
+              
                 testedTile.GetDamaged(1);
                 DestroyProjectile();
                 break;
@@ -157,7 +158,7 @@ public class ProjectileBeheviour : MonoBehaviour
 
     private IEnumerator WaitBeforeDeath()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForFixedUpdate();
         Destroy(this.gameObject);
     }
 }

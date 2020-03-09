@@ -149,18 +149,20 @@ MonoBehaviour:
   combatStyle: 0
   isAlly: 1
   mouvementPattern: {fileID: 11400000, guid: 56d52d547b6c5ec4faedfdaa9be68137, type: 2}
-  AttackPattern: {fileID: 11400000, guid: 7838aa6c7753adc49ac9c0356f10aef7, type: 2}
+  AttackPattern: {fileID: 0}
   pathFinding: []
+  tilesColored: []
   occupiedTile: {fileID: 0}
   ObjectTypeMetaData: {fileID: 11400000, guid: 5c1090fb84e2e994cbcd4bf8f6c6bfae, type: 2}
-  data:
-    name: 
-    experience: 0
-    level: 0
-    levelMax: 3
-    allyDescription: 
-    xpNeededPerLevel:
-    - {x: 1, y: 10}
-    - {x: 2, y: 20}
-    - {x: 3, y: 40}
+  allyName: 
+  experience: 0
+  level: 0
+  yearSurvived: 0
+  enemyKilled: 0
+  levelMax: 3
+  allyDescription: 
+  xpNeededPerLevel:
+  - {x: 1, y: 10}
+  - {x: 2, y: 20}
+  - {x: 3, y: 40}
   ally_sprite: {fileID: 3494320492829516244}

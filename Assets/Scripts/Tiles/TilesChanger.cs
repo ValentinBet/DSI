@@ -6,7 +6,7 @@ public class TilesChanger : MonoBehaviour
 {
     public GameObject initTile;
     public GameObject lastTile;
-    private List<GameObject> tileRotateList;
+    private List<TileProperties> tileRotateList = new List<TileProperties>();
 
     private Vector3 tempPos;
     [SerializeField] private GameObject swapSprite;
@@ -105,17 +105,17 @@ public class TilesChanger : MonoBehaviour
 
     public bool RotateTile()
     {
-        initTile.transform.Rotate(new Vector3(0, 90, 0));
+        TileProperties _tp = GridManager.Instance.GetTileUnderSelector();
+        _tp.transform.Rotate(new Vector3(0, 90, 0));
 
-        if (tileRotateList.Contains(initTile))
+        if (tileRotateList.Contains(_tp))
         {
             return true;
         }
         else
         {
+            tileRotateList.Add(_tp);
             return false;
         }
-
-
     }
 }

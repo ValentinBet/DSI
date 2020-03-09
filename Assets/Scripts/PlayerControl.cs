@@ -97,7 +97,6 @@ public class PlayerControl : MonoBehaviour
     private void DoActionWithPANeeded(int pa = 1)
     {
         GameTracker.Instance.PlayerAction(pa);
-
         if (!GameTracker.Instance.IsHavingEnoughtPa())
         {
             EndAllModes();

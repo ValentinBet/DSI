@@ -4098,7 +4098,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initTile: {fileID: 0}
   lastTile: {fileID: 0}
-  swapSprite: {fileID: 2478270573563977564, guid: 6a827b091bdb10c43addc365637e889c,
+  swapSprite: {fileID: 2478270573563977564, guid: 41825c8473677c4499aa5893b37e5a66,
+    type: 3}
+  rotateSprite: {fileID: 2478270573563977564, guid: 6a827b091bdb10c43addc365637e889c,
     type: 3}
 --- !u!1 &1371052655653785006
 GameObject:

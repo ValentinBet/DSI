@@ -14,8 +14,11 @@ public class PreviewPatternV2 : MonoBehaviour
     private Vector3 currentDirection;
     private int currentLife;
 
+    private bool previewEnd;
+
     public void ReadPattern(Character character)
     {
+        previewEnd = false;
         int depth = character.mouvementPattern.actions.Length;
         currentCharacter = character;
         currentTile = currentCharacter.occupiedTile;
@@ -28,6 +31,11 @@ public class PreviewPatternV2 : MonoBehaviour
 
     private void ExecuteAction(int index, int depth)
     {
+        if (previewEnd)
+        {
+            EndPreview();
+            return;
+        }
         tileColoredDuringPattern.Add(currentTile);
 
         int rayLength = 2;
@@ -134,7 +142,11 @@ public class PreviewPatternV2 : MonoBehaviour
 
     private void TileCheck(int index, int depth, TileProperties newTile, bool bonusAction)
     {
-
+        if (previewEnd)
+        {
+            EndPreview();
+            return;
+        }
 
         if (bonusAction && newTile.isOccupied)
         {
@@ -465,6 +477,7 @@ public class PreviewPatternV2 : MonoBehaviour
 
     private IEnumerator NextAction(float duration, int index, int depth)
     {
+
         yield return new WaitForSeconds(duration);
         ExecuteAction(index, depth);
     }
@@ -537,6 +550,8 @@ public class PreviewPatternV2 : MonoBehaviour
 
     public void EndPreview()
     {
+        StopAllCoroutines();
+        previewEnd = true;
         for (int i = 0; i < tileColoredDuringPattern.Count; i++)
         {
             TilesManager.Instance.ChangeTileMaterial(tileColoredDuringPattern[i], tileColoredDuringPattern[i].baseMat);

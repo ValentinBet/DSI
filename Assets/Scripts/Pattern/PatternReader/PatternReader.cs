@@ -8,7 +8,7 @@ public class PatternReader : MonoBehaviour
     public static PatternReader instance { get { return _instance; } }
     private static PatternReader _instance;
 
-    public Material mouvementMat, attackMat, rotationMat, clickMat, interactionMat;
+    public Material mouvementMat, attackMat, rotationMat, clickMat, interactionMat , deathMat , receiveDamageMat;
 
     //public PreviewReader PreviewReader;
     public PreviewPatternV2 PreviewPattern;

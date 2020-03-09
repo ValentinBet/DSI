@@ -40,7 +40,7 @@ public class PreviewPatternV2 : MonoBehaviour
             {
                 case ActionType.Movement:
 
-                    CharacterReorientation(true, index, depth);
+                    PreviewReorientation(true, index, depth);
                     TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.rotationMat);
                     break;
 
@@ -85,11 +85,11 @@ public class PreviewPatternV2 : MonoBehaviour
                     {
                         if (currentCharacter.combatStyle == CombatStyle.closeCombat)
                         {
-                            StartCoroutine(ExtraAttack(index, depth, false, true));
+                            ExtraAttack(index, depth, false, true);
                         }
                         else
                         {
-                            StartCoroutine(ExtraAttack(index, depth, false, false));
+                            ExtraAttack(index, depth, false, false);
                         }
                         return;
                     }
@@ -123,7 +123,7 @@ public class PreviewPatternV2 : MonoBehaviour
                 break;
 
             case ActionType.Attack:
-                StartCoroutine(ExtraAttack(index, depth, true, true));
+                ExtraAttack(index, depth, true, true);
                 break;
 
             default:
@@ -141,7 +141,7 @@ public class PreviewPatternV2 : MonoBehaviour
 
             TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.attackMat);
             tileColoredDuringPattern.Add(newTile);
-            StartCoroutine(GetDamaged(index, depth, false, 1));
+            GetDamaged(index, depth, false, 1);
         }
         else
         {
@@ -160,13 +160,13 @@ public class PreviewPatternV2 : MonoBehaviour
                             TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.mouvementMat);
                             tileColoredDuringPattern.Add(newTile);
                             currentTile = newTile;
-                            StartCoroutine(ExtraRotation(index, depth));
+                            ExtraRotation(index, depth);
                             break;
                         case TileProperties.TilesOrder.attack:
                             TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.mouvementMat);
                             tileColoredDuringPattern.Add(newTile);
                             currentTile = newTile;
-                            StartCoroutine(ExtraAttack(index, depth, true, true));
+                            ExtraAttack(index, depth, true, true);
                             break;
                         case TileProperties.TilesOrder.stop:
                             TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
@@ -181,11 +181,10 @@ public class PreviewPatternV2 : MonoBehaviour
                 case TileProperties.TilesSpecific.Push:
                     if (newTile.isActivated)
                     {
-                        newTile.ChangeTilesActivationStatut(false);
                         tileColoredDuringPattern.Add(newTile);
                         currentTile = newTile;
                         TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
-                        StartCoroutine(ExtraDeplacement(index, depth));
+                        ExtraDeplacement(index, depth);
                     }
                     else
                     {
@@ -196,8 +195,6 @@ public class PreviewPatternV2 : MonoBehaviour
                 case TileProperties.TilesSpecific.Door:
                     if (newTile.isActivated)
                     {
-                        newTile.ChangeTilesActivationStatut(false);
-
                         TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
                         tileColoredDuringPattern.Add(newTile);
                     }
@@ -211,8 +208,7 @@ public class PreviewPatternV2 : MonoBehaviour
                 case TileProperties.TilesSpecific.Wall:
                     if (bonusAction)
                     {
-                        newTile.GetDamaged(1);
-                        StartCoroutine(GetDamaged(index, depth, false, 1));
+                        GetDamaged(index, depth, false, 1);
                     }
                     else
                     {
@@ -224,11 +220,11 @@ public class PreviewPatternV2 : MonoBehaviour
 
                         if (currentCharacter.combatStyle == CombatStyle.closeCombat)
                         {
-                            StartCoroutine(ExtraAttack(index, depth, false, true));
+                            ExtraAttack(index, depth, false, true);
                         }
                         else
                         {
-                            StartCoroutine(ExtraAttack(index, depth, false, false));
+                            ExtraAttack(index, depth, false, false);
                         }
 
                     }
@@ -239,19 +235,17 @@ public class PreviewPatternV2 : MonoBehaviour
                     TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
                     tileColoredDuringPattern.Add(newTile);
                     currentTile = newTile;
-                    StartCoroutine(Teleportation(index, depth));
+                    Teleportation(index, depth);
                     break;
 
                 case TileProperties.TilesSpecific.Trap:
                     if (newTile.isActivated)
                     {
-                        newTile.ChangeTilesActivationStatut(false);
-                        StartCoroutine(GetDamaged( index, depth, true, newTile.damageToDeal));
+                        GetDamaged(index, depth, true, newTile.damageToDeal);
                         currentTile = newTile;
 
                         //TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.interactionMat);
                         //tileColoredDuringPattern.Add(character.occupiedTile);
-
                     }
                     else
                     {
@@ -264,13 +258,12 @@ public class PreviewPatternV2 : MonoBehaviour
                     {
                         if (bonusAction)
                         {
-
-                            CharacterReorientation(false, index, depth);
-                            StartCoroutine(GetDamaged( index, depth, false, 1));
+                            PreviewReorientation(false, index, depth);
+                            GetDamaged(index, depth, false, 1);
                         }
                         else
                         {
-                            CharacterReorientation(true, index, depth);
+                            PreviewReorientation(true, index, depth);
                         }
                     }
                     //else
@@ -288,11 +281,11 @@ public class PreviewPatternV2 : MonoBehaviour
                 default:
                     if (bonusAction)
                     {
-                        CharacterReorientation(false, index, depth);
+                        PreviewReorientation(false, index, depth);
                     }
                     else
                     {
-                        CharacterReorientation(true, index, depth);
+                        PreviewReorientation(true, index, depth);
 
                     }
                     break;
@@ -301,7 +294,7 @@ public class PreviewPatternV2 : MonoBehaviour
 
     }
 
-    private void CharacterReorientation(bool doNextAction, int index, int depth)
+    private void PreviewReorientation(bool doNextAction, int index, int depth)
     {
         Quaternion rotation;
         if (currentCharacter.isAlly)
@@ -329,27 +322,30 @@ public class PreviewPatternV2 : MonoBehaviour
         ActionEnd(newTile, index, depth);
     }
 
-    private IEnumerator GetDamaged(int index, int depth, bool continuePattern, int receivedDeal)
+    private void GetDamaged(int index, int depth, bool continuePattern, int receivedDeal)
     {
-        TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.attackMat);
+        //damage MAt
+        TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.receiveDamageMat);
         tileColoredDuringPattern.Add(currentTile);
 
         currentLife -= receivedDeal;
 
-        yield return new WaitForSeconds(0);
         if (continuePattern && currentLife > 0)
         {
             ActionEnd(currentTile, index, depth);
         }
         else
         {
+            if (currentLife < 1)
+            {
+                TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.deathMat);
+            }
             Debug.Log("Pattern finsh , get damaged");
         }
     }
 
-    private IEnumerator Teleportation(int index, int depth)
+    private void Teleportation(int index, int depth)
     {
-        yield return new WaitForSeconds(0.5f);
 
         TileProperties teleportExit = currentTile.GetTeleportExit();
         if (teleportExit != null && !teleportExit.isOccupied)
@@ -366,9 +362,8 @@ public class PreviewPatternV2 : MonoBehaviour
 
     }
 
-    private IEnumerator ExtraAttack(int index, int depth, bool continuePatern, bool useCharacterPattern)
+    private void ExtraAttack(int index, int depth, bool continuePatern, bool useCharacterPattern)
     {
-        yield return new WaitForSeconds(0);
         List<TileProperties> testedTiles = new List<TileProperties>();
 
         if (!useCharacterPattern)
@@ -402,17 +397,15 @@ public class PreviewPatternV2 : MonoBehaviour
 
     }
 
-
-    private IEnumerator ExtraDeplacement(int index, int depth)
+    private void ExtraDeplacement(int index, int depth)
     {
-        yield return new WaitForSeconds(0);
 
         int rayLength = 2;
         List<TileProperties> tiles = currentTile.GetTileOnDirection(currentDirection, rayLength, false);
         if (tiles.Count == 0)
         {
-            CharacterReorientation(false, index, depth);
-            StartCoroutine(GetDamaged(index, depth, false, 1));
+            PreviewReorientation(false, index, depth);
+            GetDamaged(index, depth, false, 1);
         }
         else
         {
@@ -421,9 +414,8 @@ public class PreviewPatternV2 : MonoBehaviour
         }
     }
 
-    private IEnumerator ExtraRotation(int index, int depth)
+    private void ExtraRotation(int index, int depth)
     {
-        yield return new WaitForSeconds(0);
         Quaternion rotation = Quaternion.Euler(0f, currentTile.GetRotationOffset(currentDirection), 0f);
 
         currentDirection = rotation * currentDirection;
@@ -448,7 +440,7 @@ public class PreviewPatternV2 : MonoBehaviour
         index++;
         if (index < depth)
         {
-            StartCoroutine(NextAction(0, index, depth));
+            StartCoroutine(NextAction(currentMouvmentTemplate.actions[index].previewDuration, index, depth));
         }
         else
         {
@@ -467,14 +459,14 @@ public class PreviewPatternV2 : MonoBehaviour
         if (index < depth && continuePattern)
         {
             Debug.Log("NextAction");
-            StartCoroutine(NextAction(currentMouvmentTemplate.actions[index].actionDuration,  index, depth));
+            StartCoroutine(NextAction(currentMouvmentTemplate.actions[index].previewDuration, index, depth));
         }
     }
 
     private IEnumerator NextAction(float duration, int index, int depth)
     {
         yield return new WaitForSeconds(duration);
-        ExecuteAction( index, depth);
+        ExecuteAction(index, depth);
     }
 
     public void StopPattern(Character character)

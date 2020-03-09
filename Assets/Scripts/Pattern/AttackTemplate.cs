@@ -17,4 +17,5 @@ public  struct AttackParameter
 {
     public Vector2 tilesTargetOffset;
     public GameObject projectilePrefab;
+    public float impactValue;
 }

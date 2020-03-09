@@ -316,6 +316,10 @@ public class PatternExecuter : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0f, GetRotationOffset(character.transform.forward, nexusDirection), 0f);
             character.transform.forward = rotation * character.transform.forward;
         }
+
+        TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.interactionMat);
+        tileColoredDuringPattern.Add(character.occupiedTile);
+
         if (doNextAction)
         {
             ActionEnd(character.mouvementPattern, character.occupiedTile, character, index, depth);
@@ -358,8 +362,6 @@ public class PatternExecuter : MonoBehaviour
         }
         else
         {
-            TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.interactionMat);
-            tileColoredDuringPattern.Add(character.occupiedTile);
             TilesManager.Instance.ChangeTileMaterial(teleportExit, PatternReader.instance.interactionMat);
             tileColoredDuringPattern.Add(teleportExit);
             character.InitMovement(teleportExit);

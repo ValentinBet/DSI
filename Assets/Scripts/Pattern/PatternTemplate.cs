@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "", menuName = "KUBZ/Action Pattern", order = 100)]
+[CreateAssetMenu(fileName = "Movement Pattern", menuName = "KUBZ/Movement Pattern", order = 0)]
 public class PatternTemplate : ScriptableObject
 {
     public Cardinal initialDirection;  
@@ -20,6 +20,7 @@ public enum Rotation { Left, Rigth, Reverse }
 public struct PatternAction
 {
     public float actionDuration;
+    public float previewDuration;
     public ActionType actionType;
     public Rotation rotation;
     // public AttackType AttackType;

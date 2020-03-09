@@ -72,6 +72,7 @@ public class TileProperties : MonoBehaviour
         }
         return false;
     }
+
     public List<TileProperties> GetTileOnDirection(Vector3 direction, int lenght = 1, bool isIncludingMainTile = false)
     {
         List<TileProperties> listTilesOnDirection = new List<TileProperties>();
@@ -98,11 +99,13 @@ public class TileProperties : MonoBehaviour
 
         return listTilesOnDirection;
     }
+
     public Vector3 GetCurrentForward()
     {
         Debug.DrawLine(transform.position, (transform.position + (transform.forward * 3)) + new Vector3(0, 1, 0), Color.cyan, 2);
         return transform.forward;
     }
+
     public float GetRotationOffset(Vector3 directionToTest)
     {
         
@@ -132,6 +135,7 @@ public class TileProperties : MonoBehaviour
        
         }
     }
+
     public TileProperties GetTeleportExit()
     {
         for (int i = 0; i < TilesManager.Instance.teleportList.Count; i++)
@@ -148,6 +152,7 @@ public class TileProperties : MonoBehaviour
         Debug.LogError("Il n'y a pas de sortie à ce teleporteur", this);
         return null;
     }
+
     public void ChangeTilesActivationStatut(bool _isActivated)
     {
         isActivated = _isActivated;
@@ -161,6 +166,7 @@ public class TileProperties : MonoBehaviour
             sR.sprite = secondaryIcon;
         }
     }
+
     public void GetDamaged(int amount)
     {
         if (life <= 0)

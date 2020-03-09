@@ -8,8 +8,11 @@ public class GridManager : MonoBehaviour
     public static GridManager Instance { get { return _instance; } }
 
     public LayerMask tilesLayer;
-
     [SerializeField] GridSelector gridSelector;
+
+    private RaycastHit hit;
+    private GameObject lastObjHit;
+    private AllyCharacter lastAllyHit;
 
     private void Awake()
     {
@@ -20,6 +23,35 @@ public class GridManager : MonoBehaviour
         else
         {
             _instance = this;
+        }
+    }
+
+
+    private void FixedUpdate()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, 1000))
+        {
+            gridSelector.gameObject.SetActive(true);
+
+            if (lastObjHit != hit.collider.gameObject)
+            {
+                PatternReader.instance.PreviewReader.EndPreview();
+
+                lastObjHit = hit.collider.gameObject;
+
+                if (hit.collider.CompareTag("AllyCharacter"))
+                {
+                    lastAllyHit = hit.collider.GetComponent<AllyCharacter>();
+                    PatternReader.instance.PreviewReader.PreviewPattern(lastAllyHit.mouvementPattern, lastAllyHit.occupiedTile);
+                }
+            }
+
+        }
+        else
+        {
+            gridSelector.gameObject.SetActive(false);
         }
     }
 

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PatternReader : MonoBehaviour
 {
-    public static PatternReader instance;
+    public static PatternReader instance { get { return _instance; } }
+    private static PatternReader _instance;
 
     public Material mouvementMat, attackMat, rotationMat, clickMat, interactionMat;
 
@@ -13,13 +15,13 @@ public class PatternReader : MonoBehaviour
 
     private void Awake()
     {
-        if (!instance)
+        if (_instance != null && _instance != this)
         {
-            instance = this;
+            Destroy(this.gameObject);
         }
         else
         {
-            DestroyImmediate(this);
+            _instance = this;
         }
     }
 
@@ -27,7 +29,7 @@ public class PatternReader : MonoBehaviour
     {
         Debug.Log("Tour Fini");
         TilesManager.Instance.ResetTilesStatut();
-        //PhaseManager.Instance.NextUnit();
+        PhaseManager.Instance.NextUnit();
     }
 
 }

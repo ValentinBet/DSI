@@ -41,6 +41,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject lifeItem;
     private Image[,] lifeDisplays;
 
+    [Header("LotusLife")]
+    [SerializeField] private GameObject[] lotusLife;
+
     [Header("Follow cursor image")]
     [SerializeField] private RectTransform allyHint;
     [SerializeField] private Image allyHintImg;
@@ -92,7 +95,7 @@ public class UIManager : MonoBehaviour
             {
                 case "AllyCharacter":
                     AllyCharacter _ac = hit.collider.GetComponent<AllyCharacter>();
-                    SetClusterInfo(_ac.data.name, _ac.data.allyDescription, _ac.ObjectTypeMetaData.icon);
+                    SetClusterInfo(_ac.allyName, _ac.allyDescription, _ac.ObjectTypeMetaData.icon);
                     break;
                 case "EnemyCharacter":
                     EnemyCharacter _ec = hit.collider.GetComponent<EnemyCharacter>();
@@ -180,9 +183,24 @@ public class UIManager : MonoBehaviour
             for (int j = 0; j < CharactersManager.Instance.allyCharacter[i].life; j++)
             {
                 GameObject go = Instantiate(lifeItem, heroSlots[i].transform); // Change to pooling
-                go.GetComponent<RectTransform>().localPosition = -0.5f*Vector3.one;
-                go.transform.localRotation = Quaternion.Euler(0.0f,0.0f,((-60.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f)+60.0f*j);
+                go.GetComponent<RectTransform>().localPosition =new Vector3(-1f,-1.1f,0.0f);
+                go.transform.localRotation = Quaternion.Euler(0.0f,0.0f,((-40.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f)+40.0f*j);
                 lifeDisplays[i,j] = go.transform.GetChild(0).GetComponent<Image>();
+            }
+        }
+    }
+
+    public void BaseLifeUpdate(int value)
+    {
+        for (int i = 0; i < lotusLife.Length; i++)
+        {
+            if (i < value && !lotusLife[i].activeSelf)
+            {
+                lotusLife[i].SetActive(true);
+            }
+            else
+            {
+                lotusLife[i].SetActive(false);
             }
         }
     }
@@ -204,7 +222,7 @@ public class UIManager : MonoBehaviour
 
     public void SetAllyLevelDisplay(int value)
     {
-        allyTextDisplay[value].text = "LVL " + CharactersManager.Instance.allyCharacter[value].data.level;
+        allyTextDisplay[value].text = "LVL " + CharactersManager.Instance.allyCharacter[value].level;
     }
 
 

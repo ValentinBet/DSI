@@ -116,10 +116,11 @@ MonoBehaviour:
   combatStyle: 0
   isAlly: 0
   mouvementPattern: {fileID: 11400000, guid: 2f0583772e5a79542952643470869324, type: 2}
-  AttackPattern: {fileID: 11400000, guid: 7838aa6c7753adc49ac9c0356f10aef7, type: 2}
+  AttackPattern: {fileID: 11400000, guid: c7530073b3e84894f8083b54310f11ce, type: 2}
   pathFinding: []
+  tilesColored: []
   occupiedTile: {fileID: 0}
-  ObjectTypeMetaData: {fileID: 0}
+  ObjectTypeMetaData: {fileID: 11400000, guid: abe8fba56004a4e4eb54d4c4ae602581, type: 2}
   enemyName: 
   enemyDescription: 
   xpEarnWhenKill: 10

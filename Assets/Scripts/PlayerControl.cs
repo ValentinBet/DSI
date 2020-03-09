@@ -7,14 +7,16 @@ public class PlayerControl : MonoBehaviour
     private static PlayerControl _instance;
     public static PlayerControl Instance { get { return _instance; } }
 
-    public KeyCode TileClearKey;
     public KeyCode TileSwapKey;
     public KeyCode TileRotateKey;
+    public KeyCode TileClearKey;
 
     private bool isPlacingAllyCharacters = false;
-    private AllyCharactersPlacer allyCharactersPlacer;
+    private bool isOnRotateMode = false;
+    private bool isOnSwapMode = false;
     private bool inputsEnabled = true;
 
+    private AllyCharactersPlacer allyCharactersPlacer;
     public PatternTemplate pattern;
 
     private void Awake()
@@ -62,26 +64,74 @@ public class PlayerControl : MonoBehaviour
                         return;
                     }
 
-                    TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject);
+                    if (isOnSwapMode)
+                    {
+                        TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject);
+                    }
+
+                    if (isOnRotateMode)
+                    {
+                        TilesManager.TilesChangerInstance.DisplayRotateHint();
+                        if (!TilesManager.TilesChangerInstance.RotateTile())
+                            DoActionWithPANeeded();
+                    }
                 }
             }
 
-            if (Input.GetKeyDown(TileClearKey))
+            if (!isPlacingAllyCharacters)
             {
-                TilesManager.TilesChangerInstance.ClearChoice();
-            }
-            if (Input.GetKeyDown(TileSwapKey))
-            {
-                if (GameTracker.Instance.PlayerAction())
-                    TilesManager.TilesChangerInstance.InitChange();
-            }
-            if (Input.GetKeyDown(TileRotateKey))
-            {
-                if (GameTracker.Instance.PlayerAction())
-                    TilesManager.TilesChangerInstance.RotateTile();
+                if (Input.GetKeyDown(TileSwapKey) && isOnSwapMode)
+                {
+                    if (TilesManager.TilesChangerInstance.InitChange())
+                        DoActionWithPANeeded();
+                }
+
+                if (Input.GetKeyDown(TileClearKey))
+                {
+                    TilesManager.TilesChangerInstance.ClearChoice();
+                }
             }
         }
+    }
 
+    private void DoActionWithPANeeded(int pa = 1)
+    {
+        GameTracker.Instance.PlayerAction(pa);
+        if (!GameTracker.Instance.IsHavingEnoughtPa())
+        {
+            EndAllModes();
+
+        }
+    }
+
+    public void SetSwapMode(bool value)
+    {
+        EndAllModes();
+
+        if (GameTracker.Instance.IsHavingEnoughtPa())
+        {
+            isOnSwapMode = value;
+            UIManager.Instance.DisplaySwap(value);
+        }
+    }
+
+    public void SetRotateMode(bool value)
+    {
+        EndAllModes();
+
+        if (GameTracker.Instance.IsHavingEnoughtPa())
+        {
+            isOnRotateMode = value;
+            UIManager.Instance.DisplayRotate(value);
+        }
+    }
+
+    public void EndAllModes()
+    {
+        isOnRotateMode = false;
+        isOnSwapMode = false;
+        TilesManager.TilesChangerInstance.HideAllHints();
+        UIManager.Instance.HideFollowMouseObj();
     }
 
     public void EnableInputs(bool newState)

@@ -8,7 +8,7 @@ public class GridManager : MonoBehaviour
     public static GridManager Instance { get { return _instance; } }
 
     public LayerMask tilesLayer;
-    [SerializeField] GridSelector gridSelector;
+    public GridSelector gridSelector;
 
     private RaycastHit hit;
     private GameObject lastObjHit;
@@ -57,6 +57,13 @@ public class GridManager : MonoBehaviour
 
     public TileProperties GetTileUnderSelector()
     {
-        return gridSelector.GetTile();
+        if (gridSelector.gameObject.activeInHierarchy)
+        {
+            return gridSelector.GetTile();
+        } else
+        {
+            return null;
+        }
+
     }
 }

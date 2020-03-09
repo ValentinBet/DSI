@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite PAsprite;
     [SerializeField] private Sprite PAdisabled;
     //[SerializeField] private TextMeshProUGUI PAtext;
+    [SerializeField] private GameObject tileMovementObj;
 
     [Header("Heroes")]
     [SerializeField] private Image[] heroSlots;
@@ -45,11 +46,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject[] lotusLife;
 
     [Header("Follow cursor image")]
+    [SerializeField] private RectTransform mouseFollowObj;
     [SerializeField] private RectTransform allyHint;
     [SerializeField] private Image allyHintImg;
+    [SerializeField] private GameObject rotateHint;
+    [SerializeField] private GameObject swapHint;
 
     private RaycastHit hit;
-    private bool isAllyHintFollowingMouse = false;
+    private bool ObjFollowingMouse = false;
 
     private void Awake()
     {
@@ -65,9 +69,9 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (isAllyHintFollowingMouse)
+        if (ObjFollowingMouse)
         {
-            allyHint.transform.position = Input.mousePosition;
+            mouseFollowObj.transform.position = Input.mousePosition;
         }
     }
 
@@ -114,7 +118,7 @@ public class UIManager : MonoBehaviour
     public void SetAllyHintState(bool value, Sprite CharacterSprite = null)
     {
         allyHint.gameObject.SetActive(value);
-        isAllyHintFollowingMouse = value;
+        ObjFollowingMouse = value;
 
         if (CharacterSprite != null)
         {
@@ -219,11 +223,35 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
+     
     public void SetAllyLevelDisplay(int value)
     {
         allyTextDisplay[value].text = "LVL " + CharactersManager.Instance.allyCharacter[value].level;
     }
 
+    public void DisplayRotate(bool value)
+    {
+        HideFollowMouseObj();
+        ObjFollowingMouse = value;
+        rotateHint.SetActive(value);
+    }
+    public void DisplaySwap(bool value)
+    {
+        HideFollowMouseObj();
+        ObjFollowingMouse = value;
+        swapHint.SetActive(value);
+    }
+
+    public void HideFollowMouseObj()
+    {
+        ObjFollowingMouse = false;
+        swapHint.SetActive(false);
+        rotateHint.SetActive(false);
+    }
+
+    public void SetTileMovementObj(bool value)
+    {
+        tileMovementObj.SetActive(value);
+    }
 
 }

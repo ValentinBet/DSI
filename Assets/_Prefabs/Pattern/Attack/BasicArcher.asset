@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33fbdc9118b641d4d9202ea1fba740e4, type: 3}
+  m_Script: {fileID: 11500000, guid: d0e04a785b6a58c41b6555f260e62676, type: 3}
   m_Name: BasicArcher
   m_EditorClassIdentifier: 
   attackType: 1
   tilesAffected:
   - tilesTargetOffset: {x: 0, y: 1}
-    projectilePrefab: {fileID: 7175751292259566834, guid: f8963ec9f3cff0a42a7777b54a2636e8,
+    projectilePrefab: {fileID: 7175751292259566834, guid: 074f03c001a701d4c965b26583c55502,
       type: 3}

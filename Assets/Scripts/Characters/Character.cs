@@ -49,6 +49,9 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
+        //hahahahaha prankeeeeeedddd
+        Time.timeScale = 0.2f;
+        Application.targetFrameRate = 12;
         SetOccupiedTile();
     }
 

@@ -42,6 +42,7 @@ public class Character : MonoBehaviour
     public AttackTemplate AttackPattern;
 
     public List<TileProperties> pathFinding = new List<TileProperties>();
+    public List<TileProperties> tilesColored = new List<TileProperties>();
     public TileProperties occupiedTile;
 
     public ObjectTypeMetaData ObjectTypeMetaData;
@@ -166,11 +167,17 @@ public class Character : MonoBehaviour
     public void RegisteredDeathProjectile(int index, int depth, List<TileProperties> tilesToColored)
     {
         numberOfDeadProjectile++;
+        for (int i = 0; i < tilesToColored.Count; i++)
+        {
+            tilesColored.Add(tilesToColored[i]);
+        }
+
         if (numberOfDeadProjectile == AttackPattern.tilesAffected.Length)
         {
             Debug.Log("No More Projectile");
             numberOfDeadProjectile = 0;
-            PatternReader.instance.PatternExecuter.ActionEnd(mouvementPattern, tilesToColored,  this, index, depth);
+            PatternReader.instance.PatternExecuter.ActionEnd(mouvementPattern, tilesColored,  this, index, depth);
+            tilesColored.Clear();
         }
     }
 }

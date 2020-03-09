@@ -80,7 +80,7 @@ MonoBehaviour:
     m_Bits: 512
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   isAllySpawnable: 0
-  mR: {fileID: 0}
+  mR: {fileID: 6002113455115811045}
   baseMat: {fileID: 0}
   occupant: {fileID: 0}
 --- !u!1001 &9187525145969198491
@@ -161,6 +161,12 @@ PrefabInstance:
 --- !u!4 &1741267034151252057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7469954820965168578, guid: d9c0665a46a40674f9afe397686c5df5,
+    type: 3}
+  m_PrefabInstance: {fileID: 9187525145969198491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6002113455115811045 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3227795682579692926, guid: d9c0665a46a40674f9afe397686c5df5,
     type: 3}
   m_PrefabInstance: {fileID: 9187525145969198491}
   m_PrefabAsset: {fileID: 0}

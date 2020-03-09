@@ -51,6 +51,8 @@ MonoBehaviour:
   rotationMat: {fileID: 2100000, guid: 487e2e7edc5a33d4383378dc7515bdc9, type: 2}
   clickMat: {fileID: 2100000, guid: 0f1e0cf9d7cb74d4ab201a3c8ea8b797, type: 2}
   interactionMat: {fileID: 2100000, guid: f49a7d397169f334d9672e66eaa79605, type: 2}
+  deathMat: {fileID: 2100000, guid: bc7720549c8690045b022e38e58ae332, type: 2}
+  receiveDamageMat: {fileID: 2100000, guid: c2fa9caddc2f23345a231a87c7135784, type: 2}
   PreviewPattern: {fileID: 7099745192290303484}
   PatternExecuter: {fileID: 5534699308375591939}
 --- !u!114 &5534699308375591939

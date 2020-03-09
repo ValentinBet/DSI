@@ -21,6 +21,10 @@ public class LevelEditor : EditorWindow
     private bool gridSizeValidation;
     private bool gridCreated;
 
+    private Editor currentTemplateEditor;
+    private GridTemplate currentTemplate;
+
+
     //private string[] prefabsName;
     //private Object[] prefabsArray;
 
@@ -36,6 +40,7 @@ public class LevelEditor : EditorWindow
         //{
         //    prefabsName[i] = prefabsArray[i].name;
         //}   
+        //currentTemplateEditor = Editor.CreateEditor(currentTemplate);
     }
 
     private void OnGUI()
@@ -49,6 +54,8 @@ public class LevelEditor : EditorWindow
 
 
     #region WindowsBehaviour
+
+
     private void GridParameterBehaviour()
     {
         GUILayout.BeginArea(new Rect(0, 0, position.width / 4f, position.height));
@@ -64,11 +71,31 @@ public class LevelEditor : EditorWindow
 
 
         templateName = EditorGUILayout.TextField("Asset Name", templateName);
+
+
+        EditorGUI.BeginChangeCheck();
         width = EditorGUILayout.IntSlider("Width", width, 1, 25);
         heigth = EditorGUILayout.IntSlider("Heigth", heigth, 1, 25);
+        if (EditorGUI.EndChangeCheck())
+        {
+            // Do something when the property changes 
+            gridCreated = false;
+            gridSizeValidation = false;
+        }
+
         gridSizeValidation = EditorGUILayout.Toggle("Grid Size Valide", gridSizeValidation);
+        currentTemplate = EditorGUILayout.ObjectField("Current Template", currentTemplate, typeof(GridTemplate), false) as GridTemplate;
         EditorGUIUtility.labelWidth = labelWidthBase;
         EditorGUILayout.EndVertical();
+
+        if (currentTemplate != null)
+        {
+            if (GUILayout.Button("Load Template"))
+            {
+                // ClearGrid();
+                LoadTemplate();
+            }
+        }
 
         GUILayout.FlexibleSpace();
 
@@ -87,23 +114,34 @@ public class LevelEditor : EditorWindow
                 GridEditorGeneration();
             }
         }
-        if (GUILayout.Button("Generate Template"))
+
+        EditorGUILayout.BeginVertical();
+        if (GUILayout.Button("Overwrite Template"))
         {
-            CreateTemplate(heigth, width);
+            CreateTemplate(heigth, width, true);
         }
+
+        if (GUILayout.Button("Create Template"))
+        {
+            CreateTemplate(heigth, width, false);
+        }
+
+        EditorGUILayout.EndVertical();
         GUILayout.EndArea();
     }
 
+
+
     private GameObject currentTile;
     TileEditorData[] tilesDatas;
-
     private void GraphEditorBehaviour()
     {
         GUILayout.BeginArea(new Rect(position.width / 4f, 0, position.width * 3f / 4f, position.height));
 
         //material = (Material)EditorGUILayout.ObjectField("Material", material, typeof(Material));
         //tilesType = (TilesType)EditorGUILayout.EnumPopup("Tiles Type", tilesType);
-        currentTile = (GameObject)EditorGUILayout.ObjectField("Tiles Prefab", currentTile, typeof(GameObject));
+        currentTile = EditorGUILayout.ObjectField("Tiles Prefab", currentTile, typeof(GameObject), false) as GameObject;
+
 
         //draw rect 
         //event.current isMouse
@@ -127,11 +165,13 @@ public class LevelEditor : EditorWindow
 
         GUILayout.EndArea();
     }
+
+
     #endregion
 
     #region AssetCreation 
 
-    private void CreateTemplate(int heigth, int width)
+    private void CreateTemplate(int heigth, int width, bool overridePattern)
     {
         CheckDirectoryPath("Assets/_Prefabs");
         CheckDirectoryPath("Assets/_Prefabs/LevelTemplate/");
@@ -143,7 +183,17 @@ public class LevelEditor : EditorWindow
         template.Heigth = heigth;
         template.Width = width;
 
-        string tempName = CheckEmplacement("Assets/_Prefabs/LevelTemplate/" + templateName + ".asset", 1);
+        string tempName;
+        if (!overridePattern)
+        {
+
+            tempName = CheckEmplacement("Assets/_Prefabs/LevelTemplate/" + templateName + ".asset", 1);
+        }
+        else
+        {
+
+            tempName = "Assets/_Prefabs/LevelTemplate/" + templateName + ".asset";
+        }
 
         Debug.Log("Grid of dimension " + width + " : " + heigth + " as been generated");
         AssetDatabase.CreateAsset(template, tempName);
@@ -177,6 +227,7 @@ public class LevelEditor : EditorWindow
     }
 
     #endregion
+
 
     #region Map Creation 
 
@@ -214,13 +265,29 @@ public class LevelEditor : EditorWindow
 
     #region Utility
 
-    private void GridEditorGeneration()
+    private void GridEditorGeneration(TileEditorData[] _tilesDatas = null)
     {
+        ClearGrid();
         gridCreated = true;
-        gridSizeValidation = false;
+        gridSizeValidation = true;
         int tileNumbers = width * heigth;
-        tilesDatas = new TileEditorData[tileNumbers];
         Currenttiles = new GameObject[tileNumbers];
+        if (_tilesDatas == null)
+        {
+            tilesDatas = new TileEditorData[tileNumbers];
+        }
+        else
+        {
+            tilesDatas = _tilesDatas;
+            for (int i = heigth; i > 0; i--)
+            {
+
+                for (int y = 0; y < width; y++)
+                {
+                    SpawnTile(i, y, tilesDatas[((i * width + y) - width)].prefab, ((i * width + y) - width));
+                }
+            }
+        }
     }
 
     private void SectionTitle(string title, float labelSize)
@@ -237,10 +304,10 @@ public class LevelEditor : EditorWindow
 
     private void ClearGrid()
     {
-        for (int i = 0; i < Currenttiles.Length; i++)
-        {
-            DestroyImmediate(Currenttiles[i]);
-        }
+        //for (int i = 0; i < Currenttiles.Length; i++)
+        //{
+        //    DestroyImmediate(Currenttiles[i]);
+        //}
         GameObject folder = GameObject.Find("TilesFolder");
         if (folder != null)
         {
@@ -248,7 +315,7 @@ public class LevelEditor : EditorWindow
 
             for (int i = 0; i < childCount; i++)
             {
-                DestroyImmediate(folder.transform.GetChild(i).gameObject);
+                DestroyImmediate(folder.transform.GetChild(0).gameObject);
                 Debug.Log(childCount);
             }
         }
@@ -258,17 +325,18 @@ public class LevelEditor : EditorWindow
         gridCreated = false;
     }
 
+    private void LoadTemplate()
+    {
+        templateName = currentTemplate.name;
+        heigth = currentTemplate.Heigth;
+        width = currentTemplate.Width;
+
+        GridEditorGeneration(currentTemplate.datas);
+    }
+
     #endregion
 
 
-
-
-
-    private void GetPrefabs()
-    {
-        //drag and drop 
-        //event
-    }
 
 
 }

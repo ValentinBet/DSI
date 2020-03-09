@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33fbdc9118b641d4d9202ea1fba740e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 882615ca899693d4880a8612fe527246, type: 3}
   m_Name: WarriorBasic
   m_EditorClassIdentifier: 
   attackType: 0
-  tilesAffected:
-  - tilesTargetOffset: {x: 0, y: 1}
-    projectilePrefab: {fileID: 0}
-  - tilesTargetOffset: {x: -1, y: 1}
-    projectilePrefab: {fileID: 0}
-  - tilesTargetOffset: {x: 1, y: 1}
-    projectilePrefab: {fileID: 0}
+  tilesAffected: []

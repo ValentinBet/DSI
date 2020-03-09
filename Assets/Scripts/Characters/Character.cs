@@ -78,7 +78,8 @@ public class Character : MonoBehaviour
         transform.position = tileDestination.transform.position + Vector3.up;
         if (tileDestination.isOnFire)
         {
-            TakeDamaged(1);
+         
+            TakeDamaged(1, true);
         }
         SetOccupiedTile();
     }
@@ -92,13 +93,17 @@ public class Character : MonoBehaviour
         }
     }
 
-    public bool TakeDamaged(int damageAmount)
+
+
+
+
+    public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {
         life -= damageAmount;
 
         if (life < 1)
         {
-            KillCharacter();
+            KillCharacter(cancelPattern);
 
             return false;
         }
@@ -118,17 +123,17 @@ public class Character : MonoBehaviour
                 _ac.enemyKilled++;
             }
 
-            KillCharacter();
+            KillCharacter(false);
         }
     }
 
-    public void KillCharacter()
+    public void KillCharacter(bool cancelPattern)
     {
         Debug.Log("This character died", this);
         myState = CharacterState.Dead;
         occupiedTile.LostOccupant();
 
-        if (PatternReader.instance.PatternExecuter.currentCharacter == this)
+        if (PatternReader.instance.PatternExecuter.currentCharacter == this && cancelPattern)
         {
             PatternReader.instance.PatternExecuter.StopPattern(this);
         }

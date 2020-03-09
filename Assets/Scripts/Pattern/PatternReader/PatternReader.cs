@@ -10,7 +10,8 @@ public class PatternReader : MonoBehaviour
 
     public Material mouvementMat, attackMat, rotationMat, clickMat, interactionMat;
 
-    public PreviewReader PreviewReader;
+    //public PreviewReader PreviewReader;
+    public PreviewPatternV2 PreviewPattern;
     public PatternExecuter PatternExecuter;
 
     private void Awake()

@@ -543,5 +543,13 @@ public class PreviewPatternV2 : MonoBehaviour
         return null;
     }
 
+    public void EndPreview()
+    {
+        for (int i = 0; i < tileColoredDuringPattern.Count; i++)
+        {
+            TilesManager.Instance.ChangeTileMaterial(tileColoredDuringPattern[i], tileColoredDuringPattern[i].baseMat);
+        }
+    }
+
     #endregion
 }

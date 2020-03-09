@@ -8,7 +8,7 @@ public class PatternExecuter : MonoBehaviour
     public List<TileProperties> tileColoredDuringPattern = new List<TileProperties>();
     public Character currentCharacter;
 
-    public void ExecutePattern(Character character)
+    public void ReadPattern(Character character)
     {
         int depth = character.mouvementPattern.actions.Length;
         currentCharacter = character;
@@ -27,7 +27,11 @@ public class PatternExecuter : MonoBehaviour
             switch (pattern.actions[index].actionType)
             {
                 case ActionType.Movement:
-                    CharacterReorientation(character, true, index, depth);
+
+
+                        CharacterReorientation(character, true, index, depth);
+
+                    TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                     break;
                 case ActionType.Rotation:
                     switch (pattern.actions[index].rotation)
@@ -174,6 +178,7 @@ public class PatternExecuter : MonoBehaviour
                     if (newTile.isActivated)
                     {
                         newTile.ChangeTilesActivationStatut(false);
+
                         TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
                         tileColoredDuringPattern.Add(newTile);
                         StopPattern(character);
@@ -264,11 +269,13 @@ public class PatternExecuter : MonoBehaviour
                     if (bonusAction)
                     {
                         CharacterReorientation(character, false, index, depth);
+
                         StopPattern(character);
                     }
                     else
                     {
                         CharacterReorientation(character, true, index, depth);
+
                     }
                     break;
             }
@@ -376,7 +383,7 @@ public class PatternExecuter : MonoBehaviour
                         Vector3 spawnPos = tileTarget.transform.position + new Vector3(0, 0.5f, 0);
                         GameObject newProj = Instantiate(character.AttackPattern.tilesAffected[i].projectilePrefab, spawnPos, character.transform.rotation);
                         ProjectileBeheviour proj = newProj.GetComponent<ProjectileBeheviour>();
-                        proj.Init(character, index, depth , continuePatern);
+                        proj.Init(character, index, depth, continuePatern);
                     }
                 }
             }
@@ -386,7 +393,7 @@ public class PatternExecuter : MonoBehaviour
         {
             if (continuePatern)
             {
-                ActionEnd(pattern, testedTiles, character, index, depth , continuePatern);
+                ActionEnd(pattern, testedTiles, character, index, depth, continuePatern);
             }
             else
             {
@@ -459,7 +466,7 @@ public class PatternExecuter : MonoBehaviour
         }
     }
 
-    public void ActionEnd(PatternTemplate pattern, List<TileProperties> tilesToColored, Character character, int index, int depth , bool continuePattern)
+    public void ActionEnd(PatternTemplate pattern, List<TileProperties> tilesToColored, Character character, int index, int depth, bool continuePattern)
     {
         index++;
         for (int i = 0; i < tilesToColored.Count; i++)
@@ -492,11 +499,12 @@ public class PatternExecuter : MonoBehaviour
             TilesManager.Instance.ChangeTileMaterial(tileColoredDuringPattern[i], tileColoredDuringPattern[i].baseMat);
         }
 
-        if (character.myState == CharacterState.Standby)
-        {
-            character.myState = CharacterState.Finished;
-        }
-        PatternReader.instance.FinishTurn();
+            if (character.myState == CharacterState.Standby)
+            {
+                character.myState = CharacterState.Finished;
+            }
+            PatternReader.instance.FinishTurn();
+
     }
 
     public float GetRotationOffset(Vector3 directionToTest, Vector3 nexusDirection)

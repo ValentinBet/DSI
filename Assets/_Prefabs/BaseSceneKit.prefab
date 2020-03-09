@@ -88,7 +88,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 446.69995, y: 181}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1371052654399974444
@@ -3341,7 +3341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.000061035156, y: 200}
+  m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &1371052655296812737
@@ -4348,6 +4348,7 @@ GameObject:
   - component: {fileID: 1371052655745939729}
   - component: {fileID: 1371052655745939731}
   - component: {fileID: 1371052655745939730}
+  - component: {fileID: 1372317620}
   m_Layer: 0
   m_Name: PatternReader
   m_TagString: Untagged
@@ -4386,9 +4387,9 @@ MonoBehaviour:
   rotationMat: {fileID: 2100000, guid: 487e2e7edc5a33d4383378dc7515bdc9, type: 2}
   clickMat: {fileID: 2100000, guid: 0f1e0cf9d7cb74d4ab201a3c8ea8b797, type: 2}
   interactionMat: {fileID: 2100000, guid: f49a7d397169f334d9672e66eaa79605, type: 2}
-  deathMat: {fileID: 0}
-  receiveDamageMat: {fileID: 0}
-  PreviewPattern: {fileID: 0}
+  deathMat: {fileID: 2100000, guid: bc7720549c8690045b022e38e58ae332, type: 2}
+  receiveDamageMat: {fileID: 2100000, guid: c2fa9caddc2f23345a231a87c7135784, type: 2}
+  PreviewPattern: {fileID: 1372317620}
   PatternExecuter: {fileID: 1371052655745939730}
 --- !u!114 &1371052655745939731
 MonoBehaviour:
@@ -4413,6 +4414,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 186d11a49ef42b0459631bb992ce8602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileColoredDuringPattern: []
+  currentCharacter: {fileID: 0}
+--- !u!114 &1372317620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371052655745939735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a010dcc26ee676e47981b1daa0f191f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tileColoredDuringPattern: []
@@ -4609,7 +4624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.000061035156, y: 200}
+  m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &1371052655847912960
@@ -6762,6 +6777,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &609237899965315851 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1977792188730958699, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371052655240730720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3109850604174282830 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4048346313462204462, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
@@ -6774,12 +6795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &609237899965315851 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1977792188730958699, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1371052655240730720}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2754183094404206982
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -168,6 +168,7 @@ public class Character : MonoBehaviour
         numberOfDeadProjectile++;
         if (numberOfDeadProjectile == AttackPattern.tilesAffected.Length)
         {
+            Debug.Log("No More Projectile");
             numberOfDeadProjectile = 0;
             PatternReader.instance.PatternExecuter.ActionEnd(mouvementPattern, tilesToColored,  this, index, depth);
         }

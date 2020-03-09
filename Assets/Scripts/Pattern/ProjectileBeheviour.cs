@@ -9,7 +9,7 @@ public class ProjectileBeheviour : MonoBehaviour
     private TileProperties currentTile;
     private bool isOnFire;
     private List<TileProperties> tilesColored = new List<TileProperties>();
-    private TileProperties lastTeleoprtUsed; 
+    private TileProperties lastTeleoprtUsed;
 
 
     public void Init(Character shooter, int index, int depth)
@@ -58,8 +58,9 @@ public class ProjectileBeheviour : MonoBehaviour
 
     public void DestroyProjectile()
     {
-        _shooter.RegisteredDeathProjectile(_index, _depth , tilesColored);
-        Destroy(this.gameObject);
+        _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored);
+
+        StartCoroutine(WaitBeforeDeath());
 
     }
 
@@ -68,7 +69,7 @@ public class ProjectileBeheviour : MonoBehaviour
         Debug.Log("TileChange");
         if (testedTile == null)
         {
-            DestroyProjectile();
+            // DestroyProjectile();
             return;
         }
 
@@ -91,12 +92,15 @@ public class ProjectileBeheviour : MonoBehaviour
         }
         switch (testedTile.specificity)
         {
-
             case TileProperties.TilesSpecific.Push:
-
                 // 2 = tile Size
-                Vector3 pushPos = transform.position + testedTile.transform.forward * 2;
-                testedTile.ChangeTilesActivationStatut(false);
+                if (testedTile.isActivated)
+                {
+                    Debug.Log("Projectile Pushed");
+                    Vector3 pushPos = transform.position + testedTile.transform.forward * 2;
+                    transform.position = pushPos;
+                    testedTile.ChangeTilesActivationStatut(false);
+                }
                 break;
             case TileProperties.TilesSpecific.Fire:
                 isOnFire = true;
@@ -115,7 +119,7 @@ public class ProjectileBeheviour : MonoBehaviour
 
                 break;
             case TileProperties.TilesSpecific.Teleport:
-               
+
 
                 TileProperties teleportExit = testedTile.GetTeleportExit();
                 if (lastTeleoprtUsed == teleportExit)
@@ -124,14 +128,29 @@ public class ProjectileBeheviour : MonoBehaviour
                 }
                 lastTeleoprtUsed = testedTile;
                 // Vector added = space between the bullet and the ground;
-                transform.position = teleportExit.transform.position + new Vector3(0,0.5f,0);
+                transform.position = teleportExit.transform.position + new Vector3(0, 0.5f, 0);
                 transform.rotation = teleportExit.transform.rotation;
 
                 break;
             case TileProperties.TilesSpecific.PlayerBase:
                 DestroyProjectile();
                 break;
+
+            case TileProperties.TilesSpecific.Ordre:
+                if (testedTile.order == TileProperties.TilesOrder.rotate)
+                {
+                    transform.rotation = testedTile.transform.rotation;
+                }
+                break;
+
+
         }
+    }
+
+    private IEnumerator WaitBeforeDeath()
+    {
+        yield return new WaitForEndOfFrame();
+        Destroy(this.gameObject);
     }
 }
 

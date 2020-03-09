@@ -470,6 +470,7 @@ public class PatternExecuter : MonoBehaviour
 
         if (index < depth)
         {
+            Debug.Log("NextAction");
             StartCoroutine(NextAction(pattern.actions[index].actionDuration, character, pattern, index, depth));
         }
         else

@@ -30,7 +30,7 @@ public class TileProperties : MonoBehaviour
 
     public ObjectTypeMetaData ObjectTypeMetaData;
     [HideInInspector] public bool isAllySpawnable = false;
-    [HideInInspector] public MeshRenderer mR;
+    public MeshRenderer mR;
     [HideInInspector] public Material baseMat;
     public Character occupant;
 
@@ -39,7 +39,6 @@ public class TileProperties : MonoBehaviour
     private void Start()
     {
         gameObject.tag = "Tile";
-        mR = GetComponent<MeshRenderer>();
         baseMat = mR.sharedMaterial;
 
         if (sR != null)
@@ -108,7 +107,7 @@ public class TileProperties : MonoBehaviour
 
     public float GetRotationOffset(Vector3 directionToTest)
     {
-        
+
 
         Vector3 transf = transform.position + new Vector3(0, 0.6f, 0);
         Vector3 transf2 = transform.position + new Vector3(0, 1f, 0);
@@ -132,7 +131,7 @@ public class TileProperties : MonoBehaviour
             directionToTest = rotation * directionToTest;
             float dotPerpendiculaire = Vector3.Dot(directionToTest, transform.forward);
             return dotPerpendiculaire * 90;
-       
+
         }
     }
 
@@ -156,7 +155,6 @@ public class TileProperties : MonoBehaviour
     public void ChangeTilesActivationStatut(bool _isActivated)
     {
         isActivated = _isActivated;
-        Debug.Log(name + "is Activated : " + isActivated);
         if (_isActivated)
         {
             sR.sprite = icon;

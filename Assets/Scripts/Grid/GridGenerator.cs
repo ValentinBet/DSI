@@ -7,6 +7,9 @@ public class GridGenerator : MonoBehaviour
     [SerializeField]
     private GridTemplate GT;
 
+    [SerializeField]
+    private Transform levelParent;
+
     public static GridGenerator Instance { get { return _instance; } }
     private static GridGenerator _instance;
 
@@ -26,12 +29,20 @@ public class GridGenerator : MonoBehaviour
     {
        if (GT != null)
        {
-           GenerateMap(GT);
-       }
+           //GenerateMap(GT);
+           //SetCamSettings(GT.Width, GT.Heigth);
+        }
        else
        {
            Debug.LogError("No Grid Template Assigned, generation stopped");
        }
+    }
+
+
+    [ContextMenu("EditorGenerate")]
+    public void GenerateMap()
+    {
+        GenerateMap(GT);
     }
 
     //Using GridTemplate (Ld Tool format)
@@ -51,7 +62,6 @@ public class GridGenerator : MonoBehaviour
                 }
             }
         }
-        SetCamSettings(template.Width, template.Heigth);
     }
 
     //Spawning using GridTemplate Material data
@@ -64,12 +74,12 @@ public class GridGenerator : MonoBehaviour
 
     public void SpawnTile(int GridX, int GridY,GameObject prefab)
     {
-        GameObject GO = Instantiate(prefab, new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), Quaternion.identity);
+        GameObject GO = Instantiate(prefab, new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), prefab.transform.rotation,levelParent);
         GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
     }
 
     //Update camera to center it on the level
-    void SetCamSettings(int width,int height)
+    public void SetCamSettings(int width,int height)
     {
         CameraManager.Instance.ChangeCamPivot(new Vector3(width / 2 * 2, 0, height / 2 * 2));
         if (width < height)

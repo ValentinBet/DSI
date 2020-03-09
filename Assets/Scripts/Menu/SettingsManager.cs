@@ -32,6 +32,20 @@ public class SettingsManager : MonoBehaviour
     private void Start()
     {
         filename = Application.persistentDataPath + "Settings" + ".json";
+        if (!File.Exists(filename))
+        {
+            // Save settings >>
+            settingsList.settings.Windowmode = 0;
+
+            resPlace = 0;
+            settingsList.settings.Resolution = resPlace;
+
+            settingsList.settings.Quality = 0;
+
+            settingsList.settings.GeneralVolume = 100;
+
+            SaveAsJson();
+        }
         InitSettingsList();
 
         InitResDropdown();
@@ -146,7 +160,6 @@ public class SettingsManager : MonoBehaviour
             var dataAsJson = r.ReadToEnd();
             settingsSaves = JsonUtility.FromJson<SettingsSaves>(dataAsJson);
         }
-
         generalVolumeInputField.text = (settingsSaves.GeneralVolume * 100).ToString();
         generalVolumeSlider.value = settingsSaves.GeneralVolume * 100;
     }
@@ -193,21 +206,4 @@ public class SettingsSaves
     public bool init;
 
     public float GeneralVolume;
-}
-
-[CreateAssetMenu(fileName = "SettingsList.asset", menuName = "Tools/Settings List", order = 100)]
-public class SettingsList : ScriptableObject
-{
-    public Settings settings;
-}
-
-[System.Serializable]
-public struct Settings
-{
-    public int Windowmode;
-    public int Resolution;
-    public int Quality;
-    public float GeneralVolume;
-
-    public float MouseSensitivity;
 }

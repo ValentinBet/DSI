@@ -8,9 +8,10 @@ public class PatternReader : MonoBehaviour
     public static PatternReader instance { get { return _instance; } }
     private static PatternReader _instance;
 
-    public Material mouvementMat, attackMat, rotationMat, clickMat, interactionMat;
+    public Material mouvementMat, attackMat, rotationMat, clickMat, interactionMat , deathMat , receiveDamageMat;
 
-    public PreviewReader PreviewReader;
+    //public PreviewReader PreviewReader;
+    public PreviewPatternV2 PreviewPattern;
     public PatternExecuter PatternExecuter;
 
     private void Awake()
@@ -29,7 +30,10 @@ public class PatternReader : MonoBehaviour
     {
         Debug.Log("Tour Fini");
         TilesManager.Instance.ResetTilesStatut();
-        PhaseManager.Instance.NextUnit();
+        if (PhaseManager.Instance != null)
+        {
+            PhaseManager.Instance.NextUnit();
+        }
     }
 
 }

@@ -13,13 +13,14 @@ public class LouisController : MonoBehaviour
         {
             if (characters[0] != null)
             {
-
-                PatternReader.instance.PatternExecuter.ExecutePattern( characters[0]);
+                characters[0].myState = CharacterState.Standby;
+                PatternReader.instance.PatternExecuter.ReadPattern(characters[0]);
             }
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            PatternReader.instance.PatternExecuter.ExecutePattern(characters[currentIndex]);
+            characters[currentIndex].myState = CharacterState.Standby;
+            PatternReader.instance.PatternExecuter.ReadPattern(characters[currentIndex]);
             currentIndex++;
             if (currentIndex >= characters.Length)
             {

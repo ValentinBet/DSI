@@ -437,7 +437,7 @@ public class PreviewPatternV2 : MonoBehaviour
     {
 
         int rayLength = 2;
-        List<TileProperties> tiles = currentTile.GetTileOnDirection(currentDirection, rayLength, false);
+        List<TileProperties> tiles = currentTile.GetTileOnDirection(currentTile.GetCurrentForward(), rayLength, false);
         if (tiles.Count == 0)
         {
             PreviewReorientation(false, index, depth);

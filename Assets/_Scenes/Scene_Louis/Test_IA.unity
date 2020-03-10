@@ -4348,7 +4348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891211722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.05, y: 0, z: -9.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10637,7 +10637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5335539690854211920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 1, z: 5}
+  m_LocalPosition: {x: 5, y: 1, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8880420200667887544}
@@ -10668,7 +10668,7 @@ MonoBehaviour:
   combatStyle: 0
   isAlly: 0
   mouvementPattern: {fileID: 11400000, guid: 56d52d547b6c5ec4faedfdaa9be68137, type: 2}
-  AttackPattern: {fileID: 11400000, guid: c7530073b3e84894f8083b54310f11ce, type: 2}
+  AttackPattern: {fileID: 11400000, guid: 54ee4c15a4250b04a877e2fb5c571ded, type: 2}
   pathFinding: []
   tilesColored: []
   occupiedTile: {fileID: 0}

@@ -3264,8 +3264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TileSwapKey: 115
   TileRotateKey: 114
-  TileClearKey: 0
-  TileQuitKey: 0
+  TileClearKey: 99
+  TileQuitKey: 120
   pattern: {fileID: 11400000, guid: 56d52d547b6c5ec4faedfdaa9be68137, type: 2}
 --- !u!1 &1371052655227751794
 GameObject:

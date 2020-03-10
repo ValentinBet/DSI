@@ -16,17 +16,11 @@ public class AllyCharacter : Character
 
     public List<Vector2> xpNeededPerLevel = GameSettings.xpNeededPerLevel;
 
-    public GameObject ally_sprite;
 
     private void Start()
     {
         gameObject.tag = "AllyCharacter";
         SetOccupiedTile();
-    }
-
-    private void FixedUpdate()
-    {
-        LookAtCamera();
     }
 
     public void AddExperience(int value)
@@ -48,14 +42,5 @@ public class AllyCharacter : Character
                 CheckLevels();
             }
         }
-    }
-
-    public void LookAtCamera()
-    {
-        if (ally_sprite != null)
-        {
-            ally_sprite.transform.LookAt(Camera.main.transform);
-        }
-
     }
 }

@@ -37,7 +37,7 @@ public class AllyCharactersPlacer : MonoBehaviour
         {
             if (tile.isAllySpawnable && tile.CharacterCanSpawn())
             {
-                GameObject _ally = Instantiate(GetCharacterObjByType(GameInfoManager.GameData.allies[AllyPriority].type), tile.transform.position + Vector3.up, Quaternion.identity);
+                GameObject _ally = Instantiate(GetCharacterObjByType(GameInfoManager.GameData.allies[AllyPriority].type), tile.transform.position + Vector3.up, Quaternion.Euler(0,-90,0));
                 AllyCharacter _allyChar = _ally.GetComponent<AllyCharacter>();
                 GameInfoManager.Instance.UpdateCharacterObjToHisSave(ref _allyChar, GameInfoManager.GameData.allies[AllyPriority]);
                 _allyChar.SetOccupiedTile();

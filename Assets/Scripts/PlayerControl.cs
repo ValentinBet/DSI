@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     public KeyCode TileSwapKey;
     public KeyCode TileRotateKey;
     public KeyCode TileClearKey;
+    public KeyCode TileQuitKey;
 
     private bool isPlacingAllyCharacters = false;
     private bool isOnRotateMode = false;
@@ -67,6 +68,7 @@ public class PlayerControl : MonoBehaviour
                     if (isOnSwapMode)
                     {
                         TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject);
+                        UIManager.Instance.DisplayCancelHelpKey(true);
                     }
 
                     if (isOnRotateMode)
@@ -89,6 +91,13 @@ public class PlayerControl : MonoBehaviour
                 if (Input.GetKeyDown(TileClearKey))
                 {
                     TilesManager.TilesChangerInstance.ClearChoice();
+                    UIManager.Instance.DisplayCancelHelpKey(false);
+                    UIManager.Instance.DisplaySwapHelpKey(false);
+                }
+
+                if (Input.GetKeyDown(TileQuitKey))
+                {
+                    EndAllModes();
                 }
             }
         }
@@ -97,6 +106,8 @@ public class PlayerControl : MonoBehaviour
     private void DoActionWithPANeeded(int pa = 1)
     {
         GameTracker.Instance.PlayerAction(pa);
+        UIManager.Instance.DisplayCancelHelpKey(false);
+        UIManager.Instance.DisplaySwapHelpKey(false);
         if (!GameTracker.Instance.IsHavingEnoughtPa())
         {
             EndAllModes();
@@ -131,7 +142,7 @@ public class PlayerControl : MonoBehaviour
         isOnRotateMode = false;
         isOnSwapMode = false;
         TilesManager.TilesChangerInstance.HideAllHints();
-        UIManager.Instance.HideFollowMouseObj();
+        UIManager.Instance.EndMode();
     }
 
     public void EnableInputs(bool newState)

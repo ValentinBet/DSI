@@ -88,7 +88,7 @@ public class GridGenerator : MonoBehaviour
 
     public void SpawnTile(int GridX, int GridY,GameObject prefab,int orientation)
     {
-        GameObject GO = Instantiate(prefab, new Vector3(t_height*2-GridX * 2 + 1, 0,GridY * 2 + 1), prefab.transform.rotation,levelParent);
+        GameObject GO = Instantiate(prefab, new Vector3(t_height*2-GridX * 2 -1, 0,GridY * 2 + 1), prefab.transform.rotation,levelParent);
         switch (orientation)
         {
             case 0:

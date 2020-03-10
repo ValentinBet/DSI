@@ -130,12 +130,26 @@ public class PatternExecuter : MonoBehaviour
         }
 
 
-        if (bonusAction && newTile.isOccupied)
+        if (newTile.isOccupied)
         {
-            newTile.occupant.GotAttacked(1, character);
-            TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.attackMat);
-            tileColoredDuringPattern.Add(newTile);
-            StartCoroutine(GetDamaged(pattern, character, index, depth, false, 1));
+            if (bonusAction)
+            {
+                newTile.occupant.GotAttacked(1, character);
+                TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.attackMat);
+                tileColoredDuringPattern.Add(newTile);
+                StartCoroutine(GetDamaged(pattern, character, index, depth, false, 1));
+            }
+            else
+            {
+                if (character.combatStyle == CombatStyle.closeCombat)
+                {
+                    StartCoroutine(ExtraAttack(pattern, character, index, depth, false, true));
+                }
+                else
+                {
+                    StartCoroutine(ExtraAttack(pattern, character, index, depth, false, false));
+                }
+            }
         }
         else
         {
@@ -358,7 +372,7 @@ public class PatternExecuter : MonoBehaviour
         TileProperties teleportExit = character.occupiedTile.GetTeleportExit();
         if (teleportExit == null && !teleportExit.isOccupied)
         {
-            StopPattern(character);
+            ActionEnd(pattern, character.occupiedTile, character, index, depth);
         }
         else
         {

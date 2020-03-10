@@ -14,43 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialDirection: 2
   actions:
-  - actionDuration: 0.5
+  - actionDuration: 0
     previewDuration: 0
     actionType: 0
     rotation: 0
-  - actionDuration: 0.5
-    previewDuration: 0
-    actionType: 1
-    rotation: 0
-  - actionDuration: 0.5
+  - actionDuration: 0
     previewDuration: 0
     actionType: 0
     rotation: 0
-  - actionDuration: 0.5
-    previewDuration: 0
-    actionType: 1
-    rotation: 1
-  - actionDuration: 0.5
-    previewDuration: 0
-    actionType: 0
-    rotation: 1
-  - actionDuration: 0.5
-    previewDuration: 0
-    actionType: 1
-    rotation: 0
-  - actionDuration: 0.5
+  - actionDuration: 0
     previewDuration: 0
     actionType: 0
     rotation: 0
-  - actionDuration: 0.5
+  - actionDuration: 0
     previewDuration: 0
     actionType: 0
     rotation: 0
-  - actionDuration: 0.5
+  - actionDuration: 0
     previewDuration: 0
-    actionType: 1
-    rotation: 1
-  - actionDuration: 0.5
+    actionType: 0
+    rotation: 0
+  - actionDuration: 0
     previewDuration: 0
     actionType: 0
     rotation: 0

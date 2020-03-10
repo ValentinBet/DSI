@@ -1,12 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/_Prefabs/LevelTemplate/Level_Template_Sam_1.asset.meta
-guid: ce1c8a8aa8c0acc448f3707d1ab0ff4d
-=======
-guid: 68840ea17831cf349a3d9776ff81c285
->>>>>>> f01b83b490bd981d5912ecd57a0cf298b25e1a2b:Assets/_Prefabs/Pattern/Attack/BasicMage.asset.meta
+guid: d44896683dd36094ea2688a4643383b0
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 11400000
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

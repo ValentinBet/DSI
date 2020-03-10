@@ -13,8 +13,6 @@ public class TilesChanger : MonoBehaviour
     [SerializeField] private GameObject rotateSprite;
     private List<GameObject> swapSpriteList;
 
-
-
     private void Start()
     {
         PoolObjects();
@@ -52,7 +50,7 @@ public class TilesChanger : MonoBehaviour
         else
         {
             lastTile = tile;
-            UIManager.Instance.DisplaySwapHelpKey(true);
+            InitChange();
         }
 
         GameObject _swapSprite = GetSwapSpriteInPool();
@@ -72,7 +70,7 @@ public class TilesChanger : MonoBehaviour
             tempPos = initTile.transform.position;
             initTile.transform.position = lastTile.transform.position;
             lastTile.transform.position = tempPos;
-
+            AudioManager.Instance.PlaySwap();
             ClearChoice();
             return true;
         }
@@ -108,7 +106,7 @@ public class TilesChanger : MonoBehaviour
     {
         TileProperties _tp = GridManager.Instance.GetTileUnderSelector();
         _tp.transform.Rotate(new Vector3(0, 90, 0));
-
+        AudioManager.Instance.PlayTileRotate();
         if (tileRotateList.Contains(_tp))
         {
             return true;

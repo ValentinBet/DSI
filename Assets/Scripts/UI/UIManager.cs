@@ -53,7 +53,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject swapHint;
 
     [Header("Keyboard Help")]
-    [SerializeField] private GameObject swapHelpKey;
     [SerializeField] private GameObject cancelHelpKey;
     [SerializeField] private GameObject quitModeHelpKey;
 
@@ -239,6 +238,7 @@ public class UIManager : MonoBehaviour
         EndMode();
         quitModeHelpKey.SetActive(true);
         ObjFollowingMouse = value;
+        AudioManager.Instance.PlayButtonClick();
     }
 
     public void DisplayRotate(bool value)
@@ -256,16 +256,10 @@ public class UIManager : MonoBehaviour
     public void EndMode()
     {
         quitModeHelpKey.SetActive(false);
-        swapHelpKey.SetActive(false);
         cancelHelpKey.SetActive(false);
         ObjFollowingMouse = false;
         swapHint.SetActive(false);
         rotateHint.SetActive(false);
-    }
-
-    public void DisplaySwapHelpKey(bool value)
-    {
-        swapHelpKey.SetActive(value);
     }
 
     public void DisplayCancelHelpKey(bool value)

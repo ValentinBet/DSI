@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Scene_Mathieu/Scene_Test_Mathieu2.unity
     guid: c37c9a40695b52043b6629fafcf02e15
+  - enabled: 1
+    path: Assets/_Scenes/Scenes Sam/LD_1_Sam.unity
+    guid: 8c0b63e7f549f1f4ea29c297bfa1376d
   m_configObjects: {}

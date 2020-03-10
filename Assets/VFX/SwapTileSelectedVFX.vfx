@@ -24,9 +24,7 @@ MonoBehaviour:
   m_Label: 
   m_Data: {fileID: 0}
   m_InputFlowSlot:
-  - link:
-    - context: {fileID: 8926484042661617189}
-      slotIndex: 0
+  - link: []
   - link:
     - context: {fileID: 8926484042661617210}
       slotIndex: 0
@@ -189,7 +187,6 @@ MonoBehaviour:
   - {fileID: 8926484042661616778}
   - {fileID: 8926484042661617174}
   - {fileID: 8926484042661617179}
-  - {fileID: 8926484042661617189}
   - {fileID: 8926484042661617210}
   - {fileID: 8926484042661617215}
   m_UIPosition: {x: 0, y: 0}
@@ -3264,7 +3261,7 @@ VisualEffectResource:
         data: 00000000
     m_Events:
     - name: OnPlay
-      playSystems: 0100000001000000
+      playSystems: 01000000
       stopSystems: 
     - name: OnStop
       playSystems: 
@@ -13866,34 +13863,6 @@ MonoBehaviour:
     attributes: []
   m_Direction: 0
   m_LinkedSlots: []
---- !u!114 &8926484042661617189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2461f61b3c026d54db1951a4e17ab20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 114350483966674976}
-  m_Children: []
-  m_UIPosition: {x: -656, y: -585}
-  m_UICollapsed: 0
-  m_UISuperCollapsed: 0
-  m_InputSlots: []
-  m_OutputSlots: []
-  m_Label: 
-  m_Data: {fileID: 0}
-  m_InputFlowSlot:
-  - link: []
-  m_OutputFlowSlot:
-  - link:
-    - context: {fileID: 114023846229194376}
-      slotIndex: 0
-  eventName: OnPlay
 --- !u!114 &8926484042661617210
 MonoBehaviour:
   m_ObjectHideFlags: 0

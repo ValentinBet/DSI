@@ -281,7 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: Trap
   tileDescription: inflige des dommages
-  sR: {fileID: 0}
+  sR: {fileID: 3907106155976859995, guid: 89703251c51ce8646ad8dab65c600f65, type: 3}
   icon: {fileID: 21300000, guid: ce9404e4994e5174282fba58c36a60d9, type: 3}
   secondaryIcon: {fileID: 21300000, guid: 7efa5de3d9221844a80c11008baa3c96, type: 3}
   tileID: {x: 0, y: 0}

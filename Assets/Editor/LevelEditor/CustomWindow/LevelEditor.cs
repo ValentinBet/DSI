@@ -267,36 +267,45 @@ public class LevelEditor : EditorWindow
 
         if (prefab != null)
         {
-            GameObject GO = Instantiate(prefab, new Vector3(heigth * 2 - (GridX * 2) + 1, 0, GridY * 2 + 1), Quaternion.identity);
-            Currenttiles[index] = GO;
-
-            if (GameObject.Find("TilesFolder") == null)
+            //GameObject GO = Instantiate(prefab, new Vector3(heigth * 2 - (GridX * 2) + 1, 0, GridY * 2 + 1), Quaternion.identity);
+            GameObject folder = GameObject.Find("TilesFolder");
+            if (folder == null)
             {
-                GameObject tilesFolder = new GameObject("TilesFolder");
-                Instantiate(tilesFolder);
-                GO.transform.parent = tilesFolder.transform;
-
+                folder = new GameObject("TilesFolder");
+                Instantiate(folder);
             }
-            else
-            {
-                GameObject folder = GameObject.Find("TilesFolder");
-                GO.transform.parent = folder.transform;
 
-            }
+            GameObject G0 = PrefabUtility.InstantiatePrefab(prefab , folder.transform) as GameObject;
+            G0.transform.position = new Vector3(heigth * 2 - (GridX * 2) + 1, 0, GridY * 2 + 1);
+            Currenttiles[index] = G0;
+
+            //if (GameObject.Find("TilesFolder") == null)
+            //{
+            //    GameObject tilesFolder = new GameObject("TilesFolder");
+            //    Instantiate(tilesFolder);
+            //    GO.transform.parent = tilesFolder.transform;
+
+            //}
+            //else
+            //{
+            //    GameObject folder = GameObject.Find("TilesFolder");
+            //    GO.transform.parent = folder.transform;
+
+            //}
 
             switch (orientation)
             {
                 case 0:
-                    GO.transform.rotation = Quaternion.Euler(0, -90, 0);
+                    G0.transform.rotation = Quaternion.Euler(0, -90, 0);
                     break;
                 case 1:
-                    GO.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    G0.transform.rotation = Quaternion.Euler(0, 90, 0);
                     break;
                 case 2:
-                    GO.transform.rotation = Quaternion.Euler(0, 180, 0);
+                    G0.transform.rotation = Quaternion.Euler(0, 180, 0);
                     break;
                 case 3:
-                    GO.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    G0.transform.rotation = Quaternion.Euler(0, 0, 0);
                     break;
                 default:
                     break;

@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 <<<<<<< HEAD:Assets/AmplifyShader/AmplifyShaderEditor/Examples/Community.meta~HEAD.meta
+<<<<<<< HEAD
+guid: 738599e41c560f84aace8d0cc2aa733f
+=======
+guid: c37c9a40695b52043b6629fafcf02e15
+>>>>>>> e06af09a6980a63ce7c9676a99309e7568b21219:Assets/_Scenes/Scene_Mathieu/Scene_Test_Mathieu2.unity.meta
+=======
 guid: a535db7aa25cf30478837e9f3e4882ff
 =======
 guid: 22b0bdc1820fb934e81238ceb3ee142e
 >>>>>>> f01b83b490bd981d5912ecd57a0cf298b25e1a2b:Assets/AmplifyShader/AmplifyShaderEditor/Examples/Community.meta~HEAD.meta
+>>>>>>> e06af09a6980a63ce7c9676a99309e7568b21219
 DefaultImporter:
   externalObjects: {}
   userData: 

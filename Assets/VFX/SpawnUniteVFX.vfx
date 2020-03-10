@@ -26,6 +26,8 @@ MonoBehaviour:
   - link:
     - context: {fileID: 8926484042661616318}
       slotIndex: 0
+    - context: {fileID: 8926484042661616319}
+      slotIndex: 0
   - link: []
   m_OutputFlowSlot:
   - link:
@@ -142,9 +144,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 204
-    y: -631
+    y: -647
     width: 3623
-    height: 2523
+    height: 2539
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,6 +189,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616232}
   - {fileID: 8926484042661616277}
   - {fileID: 8926484042661616318}
+  - {fileID: 8926484042661616319}
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
@@ -3791,11 +3794,14 @@ VisualEffectResource:
         data: 00000000
     m_Events:
     - name: OnPlay
-      playSystems: 00000000050000000500000000000000
+      playSystems: 0500000000000000
       stopSystems: 
     - name: OnStop
       playSystems: 
       stopSystems: 000000000100000002000000030000000400000005000000
+    - name: OnSpawnUnite
+      playSystems: 0000000005000000
+      stopSystems: 
     m_RuntimeVersion: 10
     m_RendererSettings:
       motionVectorGenerationMode: 0
@@ -14458,6 +14464,8 @@ MonoBehaviour:
   - link:
     - context: {fileID: 8926484042661616318}
       slotIndex: 0
+    - context: {fileID: 8926484042661616319}
+      slotIndex: 0
   - link: []
   m_OutputFlowSlot:
   - link:
@@ -17193,7 +17201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 752, y: -631}
+  m_UIPosition: {x: 876, y: -647}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -17209,3 +17217,33 @@ MonoBehaviour:
     - context: {fileID: 8926484042661616163}
       slotIndex: 0
   eventName: OnPlay
+--- !u!114 &8926484042661616319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2461f61b3c026d54db1951a4e17ab20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 388, y: -647}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots: []
+  m_Label: 
+  m_Data: {fileID: 0}
+  m_InputFlowSlot:
+  - link: []
+  m_OutputFlowSlot:
+  - link:
+    - context: {fileID: 8926484042661616163}
+      slotIndex: 0
+    - context: {fileID: 114023846229194376}
+      slotIndex: 0
+  eventName: OnSpawnUnite

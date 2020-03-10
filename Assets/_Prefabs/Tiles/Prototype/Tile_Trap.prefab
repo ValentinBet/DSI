@@ -72,7 +72,7 @@ MonoBehaviour:
   isMovable: 1
   isActivated: 1
   isOnFire: 0
-  damageToDeal: 0
+  damageToDeal: 1
   life: 0
   specificity: 7
   teleportChannel: 0

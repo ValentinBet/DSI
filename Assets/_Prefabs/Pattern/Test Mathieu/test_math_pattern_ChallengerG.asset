@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialDirection: 2
   actions:
-  - actionDuration: 1
+  - actionDuration: 0.5
+    previewDuration: 0
     actionType: 0
     rotation: 0
-  - actionDuration: 1
+  - actionDuration: 0.5
+    previewDuration: 0
     actionType: 0
     rotation: 0

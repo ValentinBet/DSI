@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0e04a785b6a58c41b6555f260e62676, type: 3}
-  m_Name: BasicArcher
+  m_Name: ChallengerWarrior
   m_EditorClassIdentifier: 
-  attackType: 1
+  attackType: 0
   tilesAffected:
   - tilesTargetOffset: {x: 0, y: 1}
-    projectilePrefab: {fileID: 7175751292259566834, guid: 074f03c001a701d4c965b26583c55502,
-      type: 3}
+    projectilePrefab: {fileID: 0}
     impactValue: 1

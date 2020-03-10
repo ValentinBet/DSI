@@ -77,8 +77,7 @@ public class Character : MonoBehaviour
 
         transform.position = tileDestination.transform.position + Vector3.up;
         if (tileDestination.isOnFire)
-        {
-         
+        {    
             TakeDamaged(1, true);
         }
         SetOccupiedTile();

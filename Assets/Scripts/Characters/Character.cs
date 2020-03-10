@@ -172,7 +172,7 @@ public class Character : MonoBehaviour
             }
         }
 ;
-        Debug.DrawRay(targetPos, Vector3.down, Color.red, 2);
+        Debug.DrawRay(targetPos, Vector3.down, Color.yellow, 10);
 
         return null;
     }

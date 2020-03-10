@@ -19,9 +19,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 27
-    y: 132
+    y: -142
     width: 2158
-    height: 1913
+    height: 2187
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617340}
   - {fileID: 8926484042661617364}
   - {fileID: 8926484042661617366}
+  - {fileID: 8926484042661617409}
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
@@ -1836,11 +1837,14 @@ VisualEffectResource:
         data: 00000000
     m_Events:
     - name: OnPlay
-      playSystems: 000000000100000002000000
+      playSystems: 
       stopSystems: 
     - name: OnStop
       playSystems: 
       stopSystems: 000000000100000002000000
+    - name: OnAttack
+      playSystems: 000000000100000002000000
+      stopSystems: 
     m_RuntimeVersion: 10
     m_RendererSettings:
       motionVectorGenerationMode: 0
@@ -2791,7 +2795,9 @@ MonoBehaviour:
   m_Label: 
   m_Data: {fileID: 0}
   m_InputFlowSlot:
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661617409}
+      slotIndex: 0
   - link: []
   m_OutputFlowSlot:
   - link:
@@ -7418,7 +7424,9 @@ MonoBehaviour:
   m_Label: 
   m_Data: {fileID: 0}
   m_InputFlowSlot:
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661617409}
+      slotIndex: 0
   - link: []
   m_OutputFlowSlot:
   - link:
@@ -8427,7 +8435,9 @@ MonoBehaviour:
   m_Label: 
   m_Data: {fileID: 0}
   m_InputFlowSlot:
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661617409}
+      slotIndex: 0
   - link: []
   m_OutputFlowSlot:
   - link:
@@ -9182,3 +9192,35 @@ MonoBehaviour:
     attributes: []
   m_Direction: 1
   m_LinkedSlots: []
+--- !u!114 &8926484042661617409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2461f61b3c026d54db1951a4e17ab20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 1124, y: -117}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots: []
+  m_Label: 
+  m_Data: {fileID: 0}
+  m_InputFlowSlot:
+  - link: []
+  m_OutputFlowSlot:
+  - link:
+    - context: {fileID: 8926484042661617366}
+      slotIndex: 0
+    - context: {fileID: 8926484042661617336}
+      slotIndex: 0
+    - context: {fileID: 8926484042661617082}
+      slotIndex: 0
+  eventName: OnAttack

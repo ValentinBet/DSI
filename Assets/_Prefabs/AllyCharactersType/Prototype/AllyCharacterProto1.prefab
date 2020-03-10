@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3821157573504362316}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 7120553143214575377}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &5766998280823888939
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   tilesColored: []
   occupiedTile: {fileID: 0}
   ObjectTypeMetaData: {fileID: 11400000, guid: afff1c7cb6ebbc74d8b5d8920419f5b7, type: 2}
+  ally_sprite: {fileID: 3821157573504362316}
   allyName: 
   experience: 0
   level: 0
@@ -165,4 +166,3 @@ MonoBehaviour:
   - {x: 1, y: 10}
   - {x: 2, y: 20}
   - {x: 3, y: 40}
-  ally_sprite: {fileID: 0}

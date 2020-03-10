@@ -47,11 +47,18 @@ public class Character : MonoBehaviour
 
     public ObjectTypeMetaData ObjectTypeMetaData;
 
+    public GameObject ally_sprite;
+
     private void Start()
     {
         Time.timeScale = 0.2f;
         Application.targetFrameRate = 12;
         SetOccupiedTile();
+    }
+
+    private void FixedUpdate()
+    {
+        LookAtCamera();
     }
 
     public void SetOccupiedTile()
@@ -185,6 +192,16 @@ public class Character : MonoBehaviour
             PatternReader.instance.PatternExecuter.ActionEnd(mouvementPattern, tilesColored, this, index, depth, continuePattern);
             tilesColored.Clear();
         }
+    }
+
+
+    public void LookAtCamera()
+    {
+        if (ally_sprite != null)
+        {
+            ally_sprite.transform.LookAt(Camera.main.transform);
+        }
+
     }
 }
 

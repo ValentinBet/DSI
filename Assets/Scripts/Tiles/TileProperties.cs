@@ -155,14 +155,14 @@ public class TileProperties : MonoBehaviour
     public void ChangeTilesActivationStatut(bool _isActivated)
     {
         isActivated = _isActivated;
-        if (_isActivated)
-        {
-            sR.sprite = icon;
-        }
-        else
-        {
-            sR.sprite = secondaryIcon;
-        }
+        //if (_isActivated)
+        //{
+        //    sR.sprite = icon;
+        //}
+        //else
+        //{
+        //    sR.sprite = secondaryIcon;
+        //}
     }
 
     public void GetDamaged(int amount)
@@ -170,7 +170,7 @@ public class TileProperties : MonoBehaviour
         if (life <= 0)
         {
             specificity = TilesSpecific.None;
-            sR.sprite = secondaryIcon;
+            //sR.sprite = secondaryIcon;
         }
     }
 

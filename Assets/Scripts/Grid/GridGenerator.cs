@@ -13,6 +13,8 @@ public class GridGenerator : MonoBehaviour
     public static GridGenerator Instance { get { return _instance; } }
     private static GridGenerator _instance;
 
+    private int debugInt;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -76,6 +78,8 @@ public class GridGenerator : MonoBehaviour
     {
         GameObject GO = Instantiate(prefab, new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), prefab.transform.rotation,levelParent);
         GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
+        debugInt++;
+        GO.name = debugInt.ToString();
     }
 
     //Update camera to center it on the level

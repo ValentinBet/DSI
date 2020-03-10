@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea95a649c536074b8be751059222dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileName: Tile Psuh
+  tileName: Tile Push
   tileDescription: "Pousse dans le direction indiqu\xE9"
   sR: {fileID: 411981324068351665}
   icon: {fileID: 21300000, guid: ce9404e4994e5174282fba58c36a60d9, type: 3}

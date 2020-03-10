@@ -52,6 +52,7 @@ public class TilesChanger : MonoBehaviour
         else
         {
             lastTile = tile;
+            UIManager.Instance.DisplaySwapHelpKey(true);
         }
 
         GameObject _swapSprite = GetSwapSpriteInPool();

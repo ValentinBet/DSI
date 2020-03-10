@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181c0ffda5efea949a7790c97f3a3bf9, type: 3}
   m_Name: level_X_Template
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+  Heigth: 1
+  Width: 1
+  datas: []
+=======
   Heigth: 10
   Width: 10
   datas:
@@ -315,3 +320,4 @@ MonoBehaviour:
   - prefab: {fileID: 2044990667826019268, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
       type: 3}
     currentOrientation: 0
+>>>>>>> 078079305b00e4d0b8cc3f46fd22ffc77a3079ce

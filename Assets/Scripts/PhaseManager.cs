@@ -67,7 +67,8 @@ public class PhaseManager : MonoBehaviour
                 actualWave++;
                 break;
             case Phase.Control:
-               UIManager.Instance.SetTileMovementObj(true);
+                AudioManager.Instance.PlayNewTurn();
+                UIManager.Instance.SetTileMovementObj(true);
                 actualTurn++;
                 GameTracker.Instance.RefreshPA();
                 PlayerControl.Instance.EnableInputs(true);

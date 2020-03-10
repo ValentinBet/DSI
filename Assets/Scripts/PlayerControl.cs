@@ -92,7 +92,6 @@ public class PlayerControl : MonoBehaviour
                 {
                     TilesManager.TilesChangerInstance.ClearChoice();
                     UIManager.Instance.DisplayCancelHelpKey(false);
-                    UIManager.Instance.DisplaySwapHelpKey(false);
                 }
 
                 if (Input.GetKeyDown(TileQuitKey))
@@ -107,11 +106,9 @@ public class PlayerControl : MonoBehaviour
     {
         GameTracker.Instance.PlayerAction(pa);
         UIManager.Instance.DisplayCancelHelpKey(false);
-        UIManager.Instance.DisplaySwapHelpKey(false);
         if (!GameTracker.Instance.IsHavingEnoughtPa())
         {
             EndAllModes();
-
         }
     }
 

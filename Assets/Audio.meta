@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 72b1409f374587145a6c4691707f73b7
+=======
+<<<<<<< HEAD:Assets/_Scenes/Templates.meta
+guid: b847c0162eec1ba45aa41dd4160fe539
+=======
+guid: 72b1409f374587145a6c4691707f73b7
+>>>>>>> aade4e456690add07f52393cb6797b68c76c4856:Assets/Audio.meta
+>>>>>>> aade4e456690add07f52393cb6797b68c76c4856
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

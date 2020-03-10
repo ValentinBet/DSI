@@ -93,7 +93,7 @@ public class CharactersManager : MonoBehaviour
         {
             for (int i = 0; i < ennemyNumber; i++)
             {
-                GameObject _enemy = Instantiate(enemyTypeList[0], PickTileRandomly(freeTiles).transform.position + Vector3.up, Quaternion.identity);
+                GameObject _enemy = Instantiate(enemyTypeList[0], PickTileRandomly(freeTiles).transform.position + Vector3.up, Quaternion.Euler(0,90,0));
                 EnemyCharacter _enemyChar = _enemy.GetComponent<EnemyCharacter>();
                 _enemyChar.SetOccupiedTile();
                 _enemyChar.priority = lastEnnemyPriority;
@@ -106,7 +106,7 @@ public class CharactersManager : MonoBehaviour
     //Used for Waves
     public void SpawnEnemyCharacterAtPos(Vector2 gridPos)
     {
-        GameObject _enemy = Instantiate(enemyTypeList[0], new Vector3(gridPos.x * 2 + 1, 0, gridPos.y * 2 + 1) + Vector3.up, Quaternion.identity);
+        GameObject _enemy = Instantiate(enemyTypeList[0], new Vector3(gridPos.x * 2 + 1, 0, gridPos.y * 2 + 1) + Vector3.up, Quaternion.Euler(0, 90, 0));
         EnemyCharacter _enemyChar = _enemy.GetComponent<EnemyCharacter>();
         _enemyChar.SetOccupiedTile();
         _enemyChar.priority = lastEnnemyPriority;

@@ -180,7 +180,7 @@ public class PatternExecuter : MonoBehaviour
                             TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
                             tileColoredDuringPattern.Add(newTile);
                             character.InitMovement(newTile);
-                            StopPattern(character);
+                            StartCoroutine(StopPattern(character));
                             break;
                         default:
                             break;
@@ -209,7 +209,7 @@ public class PatternExecuter : MonoBehaviour
 
                         TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
                         tileColoredDuringPattern.Add(newTile);
-                        StopPattern(character);
+                        StartCoroutine(StopPattern(character));
                     }
                     else
                     {
@@ -298,9 +298,8 @@ public class PatternExecuter : MonoBehaviour
                 default:
                     if (bonusAction)
                     {
-                        CharacterReorientation(character, false, index, depth);
-
-                        StopPattern(character);
+                        CharacterReorientation(character, true, index, depth);
+                        //StartCoroutine(StopPattern(character));
                     }
                     else
                     {
@@ -361,7 +360,7 @@ public class PatternExecuter : MonoBehaviour
         else
         {
             Debug.Log("Pattern finsh , get dmaged");
-            StopPattern(character);
+            StartCoroutine(StopPattern(character));
         }
     }
 
@@ -437,7 +436,7 @@ public class PatternExecuter : MonoBehaviour
             }
             else
             {
-                StopPattern(character);
+                StartCoroutine(StopPattern(character));
             }
         }
     }
@@ -501,8 +500,9 @@ public class PatternExecuter : MonoBehaviour
         }
         else
         {
+            Debug.Log("no more action");
             tileColoredDuringPattern.Add(tileToColored);
-            StopPattern(character);
+            StartCoroutine(StopPattern(character));
         }
     }
 
@@ -521,8 +521,8 @@ public class PatternExecuter : MonoBehaviour
         }
         else
         {
-            //tileColoredDuringPattern.Add(tileToColored);
-            StopPattern(character);
+            Debug.Log("no more action");
+            StartCoroutine(StopPattern(character));
         }
     }
 
@@ -532,9 +532,11 @@ public class PatternExecuter : MonoBehaviour
         ExecuteAction(character, pattern, index, depth);
     }
 
-    public void StopPattern(Character character)
+    public IEnumerator StopPattern(Character character)
     {
         tileColoredDuringPattern.Add(character.occupiedTile);
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("Pattern End");
 
         for (int i = 0; i < tileColoredDuringPattern.Count; i++)
         {

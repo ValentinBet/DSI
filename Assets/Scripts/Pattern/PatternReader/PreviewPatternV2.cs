@@ -235,10 +235,6 @@ public class PreviewPatternV2 : MonoBehaviour
                     }
                     else
                     {
-                        //if (!character.isAlly)
-                        //{
-                        //    CharacterReorientation(character, false, index, depth);
-                        //}
                         if (currentCharacter.combatStyle == CombatStyle.closeCombat)
                         {
                             ExtraAttack(index, depth, false, true);
@@ -248,6 +244,10 @@ public class PreviewPatternV2 : MonoBehaviour
                             ExtraAttack(index, depth, false, false);
                         }
 
+                        if (!currentCharacter.isAlly)
+                        {
+                            PreviewReorientation(false, index, depth);
+                        }
                     }
 
 

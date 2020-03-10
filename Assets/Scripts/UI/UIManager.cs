@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Heroes")]
     [SerializeField] private Image[] heroSlots;
-    [SerializeField] private List <TextMeshPro> allyTextDisplay = new List<TextMeshPro>();
+    [SerializeField] private List<TextMeshPro> allyTextDisplay = new List<TextMeshPro>();
     [SerializeField] private GameObject lifeItem;
     private Image[,] lifeDisplays;
 
@@ -51,6 +51,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image allyHintImg;
     [SerializeField] private GameObject rotateHint;
     [SerializeField] private GameObject swapHint;
+
+    [Header("Keyboard Help")]
+    [SerializeField] private GameObject swapHelpKey;
+    [SerializeField] private GameObject cancelHelpKey;
+    [SerializeField] private GameObject quitModeHelpKey;
 
     private RaycastHit hit;
     private bool ObjFollowingMouse = false;
@@ -181,15 +186,15 @@ public class UIManager : MonoBehaviour
 
     public void AllyLifeSetup()
     {
-        lifeDisplays = new Image[3,5];
-        for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count;i++)
+        lifeDisplays = new Image[3, 5];
+        for (int i = 0; i < CharactersManager.Instance.allyCharacter.Count; i++)
         {
             for (int j = 0; j < CharactersManager.Instance.allyCharacter[i].life; j++)
             {
                 GameObject go = Instantiate(lifeItem, heroSlots[i].transform); // Change to pooling
-                go.GetComponent<RectTransform>().localPosition =new Vector3(-1f,-1.1f,0.0f);
-                go.transform.localRotation = Quaternion.Euler(0.0f,0.0f,((-40.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f)+40.0f*j);
-                lifeDisplays[i,j] = go.transform.GetChild(0).GetComponent<Image>();
+                go.GetComponent<RectTransform>().localPosition = new Vector3(-1f, -1.1f, 0.0f);
+                go.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, ((-40.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f) + 40.0f * j);
+                lifeDisplays[i, j] = go.transform.GetChild(0).GetComponent<Image>();
             }
         }
     }
@@ -223,31 +228,51 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-     
+
     public void SetAllyLevelDisplay(int value)
     {
         allyTextDisplay[value].text = "LVL " + CharactersManager.Instance.allyCharacter[value].level;
     }
 
+    private void LaunchMode(bool value)
+    {
+        EndMode();
+        quitModeHelpKey.SetActive(true);
+        ObjFollowingMouse = value;
+    }
+
     public void DisplayRotate(bool value)
     {
-        HideFollowMouseObj();
-        ObjFollowingMouse = value;
+        LaunchMode(value);
         rotateHint.SetActive(value);
     }
+
     public void DisplaySwap(bool value)
     {
-        HideFollowMouseObj();
-        ObjFollowingMouse = value;
+        LaunchMode(value);
         swapHint.SetActive(value);
     }
 
-    public void HideFollowMouseObj()
+    public void EndMode()
     {
+        quitModeHelpKey.SetActive(false);
+        swapHelpKey.SetActive(false);
+        cancelHelpKey.SetActive(false);
         ObjFollowingMouse = false;
         swapHint.SetActive(false);
         rotateHint.SetActive(false);
     }
+
+    public void DisplaySwapHelpKey(bool value)
+    {
+        swapHelpKey.SetActive(value);
+    }
+
+    public void DisplayCancelHelpKey(bool value)
+    {
+        cancelHelpKey.SetActive(value);
+    }
+
 
     public void SetTileMovementObj(bool value)
     {

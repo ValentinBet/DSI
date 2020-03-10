@@ -14,6 +14,8 @@ public class GridGenerator : MonoBehaviour
     private static GridGenerator _instance;
 
     private int debugInt;
+    int t_height;
+    int t_width;
 
     private void Awake()
     {
@@ -44,23 +46,33 @@ public class GridGenerator : MonoBehaviour
     [ContextMenu("EditorGenerate")]
     public void GenerateMap()
     {
-        GenerateMap(GT);
+        if (levelParent.childCount == 0)
+        {
+            debugInt = 0;
+            GenerateMap(GT);
+        }
+        else
+        {
+            Debug.LogWarning("To Generate level, make sure that the level parent is empty");
+        }
     }
 
     //Using GridTemplate (Ld Tool format)
     public void GenerateMap(GridTemplate template)
     {
+        t_height = template.Heigth;
+        t_width = template.Width;
         for (int i = 0; i < template.Heigth; i++)
         {
             for (int j = 0; j < template.Width; j++)
             {
                 if (template.datas[i * template.Width + j].prefab != null)
                 {
-                    SpawnTile(j, i, template.datas[i * template.Width + j].prefab);
+                    SpawnTile(i, j, template.datas[i * template.Width + j].prefab,(int)template.datas[i*template.Width+j].currentOrientation);
                 }
                 else
                 {
-                    Debug.LogWarning("Void Tile (" + (i * template.Width + j).ToString() + ") consider assigning a prefab.");
+                    Debug.LogWarning("Void Tile (" + (j * template.Width + i).ToString() + ") consider assigning a prefab.");
                 }
             }
         }
@@ -74,9 +86,26 @@ public class GridGenerator : MonoBehaviour
         GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
     }*/
 
-    public void SpawnTile(int GridX, int GridY,GameObject prefab)
+    public void SpawnTile(int GridX, int GridY,GameObject prefab,int orientation)
     {
-        GameObject GO = Instantiate(prefab, new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), prefab.transform.rotation,levelParent);
+        GameObject GO = Instantiate(prefab, new Vector3(t_height*2-GridX * 2 + 1, 0,GridY * 2 + 1), prefab.transform.rotation,levelParent);
+        switch (orientation)
+        {
+            case 0:
+                GO.transform.localRotation = Quaternion.Euler(0, -90, 0);
+                break;
+            case 1:
+                GO.transform.localRotation = Quaternion.Euler(0, 90, 0);
+                break;
+            case 2:
+                GO.transform.localRotation = Quaternion.Euler(0, 180, 0);
+                break;
+            case 3:
+                GO.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                break;
+            default:
+                break;
+        }
         GO.GetComponent<TileProperties>().tileID = new Vector2(GridX, GridY);
         debugInt++;
         GO.name = debugInt.ToString();

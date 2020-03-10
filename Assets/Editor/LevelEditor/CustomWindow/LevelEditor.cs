@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using UnityEditor.SceneManagement;
 
 public class LevelEditor : EditorWindow
 {
@@ -52,8 +53,14 @@ public class LevelEditor : EditorWindow
         GridParameterBehaviour();
         if (gridCreated)
         {
+            EditorGUI.BeginChangeCheck();
             GraphEditorBehaviour();
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorSceneManager.MarkAllScenesDirty();
+            }
         }
+
     }
 
 
@@ -92,6 +99,7 @@ public class LevelEditor : EditorWindow
         EditorGUIUtility.labelWidth = labelWidthBase;
         EditorGUILayout.EndVertical();
 
+        EditorGUI.BeginChangeCheck();
         if (currentTemplate != null)
         {
             if (GUILayout.Button("Load Template"))
@@ -102,6 +110,7 @@ public class LevelEditor : EditorWindow
         }
 
         GUILayout.FlexibleSpace();
+
 
         if (gridCreated)
         {
@@ -118,6 +127,11 @@ public class LevelEditor : EditorWindow
                 GridEditorGeneration();
             }
         }
+        if (EditorGUI.EndChangeCheck())
+        {
+            EditorSceneManager.MarkAllScenesDirty();
+        }
+
 
         EditorGUILayout.BeginVertical();
         if (GUILayout.Button("Overwrite Template"))
@@ -172,7 +186,7 @@ public class LevelEditor : EditorWindow
 
             for (int y = 0; y < width; y++)
             {
-                if (GUILayout.Button(((i * width + y) - width + 1).ToString()))
+                if (GUILayout.Button(((i * width + y) - width + 1).ToString(), GUILayout.MaxWidth(60)))
                 {
                     tilesDatas[(i * width + y) - width].prefab = currentTile;
                     tilesDatas[(i * width + y) - width].currentOrientation = (Orientation)objectOrientation;
@@ -275,7 +289,7 @@ public class LevelEditor : EditorWindow
                 Instantiate(folder);
             }
 
-            GameObject G0 = PrefabUtility.InstantiatePrefab(prefab , folder.transform) as GameObject;
+            GameObject G0 = PrefabUtility.InstantiatePrefab(prefab, folder.transform) as GameObject;
             G0.transform.position = new Vector3(heigth * 2 - (GridX * 2) + 1, 0, GridY * 2 + 1);
             Currenttiles[index] = G0;
 

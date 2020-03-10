@@ -15,10 +15,11 @@ public class GridTemplate : ScriptableObject
 public struct TileEditorData
 {
     // public int index;
-    public TilesType type;
+    //public TilesType type;
     public GameObject prefab;
-    public Material mat;
+    public Orientation currentOrientation;
+    //public Material mat;
 }
 
-
+public enum Orientation { North, South, West, East }
 

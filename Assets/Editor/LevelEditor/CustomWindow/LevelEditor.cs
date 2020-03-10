@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
 using System.IO;
+using System;
 
 public class LevelEditor : EditorWindow
 {
@@ -23,6 +24,9 @@ public class LevelEditor : EditorWindow
 
     private Editor currentTemplateEditor;
     private GridTemplate currentTemplate;
+    //private Orientation objectOrientation;
+    private int objectOrientation;
+
 
 
     //private string[] prefabsName;
@@ -141,7 +145,22 @@ public class LevelEditor : EditorWindow
         //material = (Material)EditorGUILayout.ObjectField("Material", material, typeof(Material));
         //tilesType = (TilesType)EditorGUILayout.EnumPopup("Tiles Type", tilesType);
         currentTile = EditorGUILayout.ObjectField("Tiles Prefab", currentTile, typeof(GameObject), false) as GameObject;
+        objectOrientation = EditorGUILayout.Popup("Object Orientation", objectOrientation, Enum.GetNames(typeof(Orientation)));
 
+        if (GUILayout.Button("Fill"))
+        {
+            for (int i = heigth; i > 0; i--)
+            {
+                for (int y = 0; y < width; y++)
+                {
+                    tilesDatas[(i * width + y) - width].prefab = currentTile;
+                    tilesDatas[(i * width + y) - width].currentOrientation = (Orientation)objectOrientation;
+
+                    SpawnTile(i, y, currentTile, ((i * width + y) - width), objectOrientation);
+                }
+            }
+
+        }
 
         //draw rect 
         //event.current isMouse
@@ -156,7 +175,10 @@ public class LevelEditor : EditorWindow
                 if (GUILayout.Button(((i * width + y) - width + 1).ToString()))
                 {
                     tilesDatas[(i * width + y) - width].prefab = currentTile;
-                    SpawnTile(i, y, currentTile, ((i * width + y) - width));
+                    tilesDatas[(i * width + y) - width].currentOrientation = (Orientation)objectOrientation;
+
+                    SpawnTile(i, y, currentTile, ((i * width + y) - width), objectOrientation);
+
                 }
             }
             EditorGUILayout.EndHorizontal();
@@ -235,16 +257,17 @@ public class LevelEditor : EditorWindow
     GameObject[] Currenttiles;
     //private GameObject _tilesFolder;
 
-    public void SpawnTile(int GridX, int GridY, GameObject prefab, int index)
+    public void SpawnTile(int GridX, int GridY, GameObject prefab, int index, int orientation)
     {
 
         if (Currenttiles[index] != null)
         {
             DestroyImmediate(Currenttiles[index]);
         }
+
         if (prefab != null)
         {
-            GameObject GO = Instantiate(prefab, new Vector3(GridX * 2 + 1, 0, GridY * 2 + 1), Quaternion.identity);
+            GameObject GO = Instantiate(prefab, new Vector3(heigth * 2 - (GridX * 2) + 1, 0, GridY * 2 + 1), Quaternion.identity);
             Currenttiles[index] = GO;
 
             if (GameObject.Find("TilesFolder") == null)
@@ -252,13 +275,34 @@ public class LevelEditor : EditorWindow
                 GameObject tilesFolder = new GameObject("TilesFolder");
                 Instantiate(tilesFolder);
                 GO.transform.parent = tilesFolder.transform;
+
             }
             else
             {
                 GameObject folder = GameObject.Find("TilesFolder");
                 GO.transform.parent = folder.transform;
+
+            }
+
+            switch (orientation)
+            {
+                case 0:
+                    GO.transform.rotation = Quaternion.Euler(0, -90, 0);
+                    break;
+                case 1:
+                    GO.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    break;
+                case 2:
+                    GO.transform.rotation = Quaternion.Euler(0, 180, 0);
+                    break;
+                case 3:
+                    GO.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    break;
+                default:
+                    break;
             }
         }
+
     }
 
     #endregion
@@ -284,7 +328,7 @@ public class LevelEditor : EditorWindow
 
                 for (int y = 0; y < width; y++)
                 {
-                    SpawnTile(i, y, tilesDatas[((i * width + y) - width)].prefab, ((i * width + y) - width));
+                    SpawnTile(i, y, tilesDatas[((i * width + y) - width)].prefab, ((i * width + y) - width), (int)tilesDatas[((i * width + y) - width)].currentOrientation);
                 }
             }
         }

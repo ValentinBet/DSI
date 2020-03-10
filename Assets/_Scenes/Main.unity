@@ -16681,6 +16681,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -2.63
       objectReference: {fileID: 0}
+    - target: {fileID: 1371052655224541949, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: TileClearKey
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371052655224541949, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: TileQuitKey
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 1371052655656156036, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16749,6 +16759,11 @@ PrefabInstance:
     - target: {fileID: 1371052656508498324, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402811998217311626, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

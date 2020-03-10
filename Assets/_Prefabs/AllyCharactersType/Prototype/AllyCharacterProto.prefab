@@ -139,16 +139,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
-  damage: 2
+  damage: 1
   AttackRange: 1
-  movementRange: 8
+  movementRange: 3
   position: {x: 0, y: 0, z: 0}
   priority: 0
   myState: 0
   characterType: 0
   combatStyle: 0
   isAlly: 1
-  mouvementPattern: {fileID: 11400000, guid: 56d52d547b6c5ec4faedfdaa9be68137, type: 2}
+  mouvementPattern: {fileID: 11400000, guid: 1678a3bf75740b54da44b9e0499b55b3, type: 2}
   AttackPattern: {fileID: 11400000, guid: c7530073b3e84894f8083b54310f11ce, type: 2}
   pathFinding: []
   tilesColored: []

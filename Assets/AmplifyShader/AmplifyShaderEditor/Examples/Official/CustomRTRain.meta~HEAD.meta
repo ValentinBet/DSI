@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/AmplifyShader/AmplifyShaderEditor/Examples/Official/CustomRTRain.meta~HEAD.meta
 guid: 4cc4e9395f0bb2447828c9511e872722
+=======
+guid: cc36709c3b6bfc84584641aa9d3e1f0e
+>>>>>>> f01b83b490bd981d5912ecd57a0cf298b25e1a2b:Assets/AmplifyShader/AmplifyShaderEditor/Examples/Official/CustomRTRain.meta~HEAD.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

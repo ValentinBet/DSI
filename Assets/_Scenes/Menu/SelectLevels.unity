@@ -599,7 +599,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 400.29, y: -40.497}
+  m_AnchoredPosition: {x: 400.29, y: -40.49707}
   m_SizeDelta: {x: 1709.4, y: 153.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &498387677
@@ -1626,7 +1626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845ec4644fbcf18459522cf2f5c475bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelScene: Main
+  LevelScene: Scene_Test_Mathieu2
   buttonText: {fileID: 1853872034}
   remainingLifePointsText: {fileID: 2087759451}
   yearSurvivedText: {fileID: 789124360}

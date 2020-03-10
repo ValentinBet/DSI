@@ -105,18 +105,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db57a2679353f84dbb396f88368a3a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0
-  damage: 0
-  AttackRange: 0
-  movementRange: 0
+  life: 1
+  damage: 1
+  AttackRange: 1
+  movementRange: 2
   position: {x: 0, y: 0, z: 0}
   priority: 0
   myState: 0
   characterType: 0
   combatStyle: 0
   isAlly: 0
-  mouvementPattern: {fileID: 11400000, guid: 2f0583772e5a79542952643470869324, type: 2}
-  AttackPattern: {fileID: 11400000, guid: c7530073b3e84894f8083b54310f11ce, type: 2}
+  mouvementPattern: {fileID: 11400000, guid: 48cfd84f6390b034dbb13c2e4bd5f7a2, type: 2}
+  AttackPattern: {fileID: 11400000, guid: 67cf363503a09354f9b948a01505e5f3, type: 2}
   pathFinding: []
   tilesColored: []
   occupiedTile: {fileID: 0}

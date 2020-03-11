@@ -48,6 +48,8 @@ public class Character : MonoBehaviour
     public ObjectTypeMetaData ObjectTypeMetaData;
 
     public GameObject character_sprite;
+    public Animator anim;
+    public AnimationValue animationValue;
 
     private void Start()
     {
@@ -134,7 +136,7 @@ public class Character : MonoBehaviour
     public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {
         life = life - damageAmount;
-        if(isAlly)
+        if (isAlly)
         {
             UIManager.Instance.AllyLifeUpdate(priority, life);
         }
@@ -147,7 +149,7 @@ public class Character : MonoBehaviour
         return true;
     }
 
-    public void GotAttacked(int damageAmount, Character attacker , string context)
+    public void GotAttacked(int damageAmount, Character attacker, string context)
     {
 
         Debug.Log(this.gameObject + " attacked by " + attacker.gameObject + " CONTEXT : " + context);
@@ -252,5 +254,34 @@ public class Character : MonoBehaviour
             character_sprite.transform.localScale = 0.5f * Vector3.one;
         }
     }
+
+    public void PlayAnim(float duration, string key, bool keyIsStrigger, float durationRatio = 1)
+    {
+        float animSpeed = 1 / (duration * durationRatio);
+        anim.speed = animSpeed;
+        if (keyIsStrigger)
+        {
+            anim.SetTrigger(key);
+        }
+        else
+        {
+            anim.Play(key);
+        }
+
+    }
+
+
+
+    public void EndAnim(string key)
+    {
+        anim.SetTrigger(key);
+    }
+}
+
+[System.Serializable]
+public struct AnimationValue
+{
+    public float AttackDuration;
+    public float DeplacementDuration;
 }
 

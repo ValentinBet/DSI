@@ -176,6 +176,10 @@ MonoBehaviour:
   occupiedTile: {fileID: 0}
   ObjectTypeMetaData: {fileID: 11400000, guid: afff1c7cb6ebbc74d8b5d8920419f5b7, type: 2}
   character_sprite: {fileID: 3821157573504362316}
+  anim: {fileID: 2982628306689087035}
+  animationValue:
+    AttackDuration: 0.5
+    DeplacementDuration: 0
   allyName: 
   experience: 0
   level: 0

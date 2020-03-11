@@ -134,7 +134,7 @@ public class PatternExecuter : MonoBehaviour
         {
             if (bonusAction)
             {
-                newTile.occupant.GotAttacked(1, character , "attacker pushed");
+                newTile.occupant.GotAttacked(1, character, "attacker pushed");
                 TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.attackMat);
                 tileColoredDuringPattern.Add(newTile);
                 StartCoroutine(GetDamaged(pattern, character, index, depth, false, 1));
@@ -376,7 +376,10 @@ public class PatternExecuter : MonoBehaviour
 
     private IEnumerator ExtraAttack(PatternTemplate pattern, Character character, int index, int depth, bool continuePatern, bool useCharacterPattern)
     {
-        yield return new WaitForSeconds(0.5f);
+        character.PlayAnim(character.animationValue.AttackDuration, "Attacking", true, 0.90f);
+
+
+        yield return new WaitForSeconds(character.animationValue.AttackDuration);
         List<TileProperties> testedTiles = new List<TileProperties>();
 
         if (!useCharacterPattern)
@@ -389,7 +392,6 @@ public class PatternExecuter : MonoBehaviour
                 AttackOnTargetTile(character, testedTiles, tiles[0], 0.5f);
             }
         }
-
         else
         {
             if (character.AttackPattern.attackType == AttackType.Zone)
@@ -418,6 +420,8 @@ public class PatternExecuter : MonoBehaviour
                 }
             }
         }
+
+        character.EndAnim("Attacking");
 
         if (character.AttackPattern.attackType == AttackType.Zone || !useCharacterPattern)
         {
@@ -464,10 +468,13 @@ public class PatternExecuter : MonoBehaviour
 
     private void AttackOnTargetTile(Character character, List<TileProperties> testedTiles, TileProperties targetTile, float impactValue)
     {
-        testedTiles.Add(targetTile);
-        TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
-        tileColoredDuringPattern.Add(targetTile);
-        targetTile.tileImpact.ActivateImpact(impactValue);
+        if (targetTile.specificity != TileProperties.TilesSpecific.PlayerBase)
+        {
+            testedTiles.Add(targetTile);
+            TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
+            tileColoredDuringPattern.Add(targetTile);
+            targetTile.tileImpact.ActivateImpact(impactValue);
+        }
 
         if (targetTile.specificity == TileProperties.TilesSpecific.Wall)
         {
@@ -477,7 +484,7 @@ public class PatternExecuter : MonoBehaviour
         {
             if (targetTile.occupant != null)
             {
-                targetTile.occupant.GotAttacked(character.damage, character , "attack on target");
+                targetTile.occupant.GotAttacked(character.damage, character, "attack on target");
             }
         }
     }

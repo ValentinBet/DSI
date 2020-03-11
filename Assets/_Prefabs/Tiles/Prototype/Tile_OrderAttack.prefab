@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: Order Attack
-  tileDescription: "D\xE9clenche un pattern d'attaque"
+  tileDescription: "D\xE9clenche une attaque"
   specificity: 1
   order: 1
   teleportChannel: 0

@@ -81,7 +81,7 @@ MonoBehaviour:
   yearSurvived: 0
   enemyKilled: 0
   levelMax: 3
-  allyDescription: 
+  allyDescription: "Lance un projectile qui fait des d\xE9g\xE2ts de zones"
   xpNeededPerLevel:
   - {x: 1, y: 10}
   - {x: 2, y: 20}

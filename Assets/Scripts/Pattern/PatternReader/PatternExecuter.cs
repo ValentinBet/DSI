@@ -277,7 +277,7 @@ public class PatternExecuter : MonoBehaviour
                     else
                     {
                         //Anim à faire
-                        Vector3 newPos = character.transform.position + character.transform.forward * 2;
+                        Vector3 newPos = character.transform.position + character.transform.forward;
                         character.transform.position = newPos;
                         PlayerBase.Instance.DamageBase(1);
                         Debug.Log(PlayerBase.Instance.GetLife());
@@ -360,7 +360,7 @@ public class PatternExecuter : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         TileProperties teleportExit = character.occupiedTile.GetTeleportExit();
-        if (teleportExit == null && !teleportExit.isOccupied)
+        if (teleportExit == null || teleportExit.isOccupied)
         {
             ActionEnd(pattern, character.occupiedTile, character, index, depth);
         }

@@ -78,6 +78,30 @@ public class Character : MonoBehaviour
             }
         }
     }
+    public bool GetOccupiedTile()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, Vector3.down * 10, out hit, Mathf.Infinity, GridManager.Instance.tilesLayer))
+        {
+            if (hit.collider.gameObject.GetComponent<TileProperties>() != null)
+            {
+                occupiedTile = hit.collider.gameObject.GetComponent<TileProperties>();
+
+                if (occupiedTile.isOccupied)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        Debug.LogError("Not A Tile");
+        return false;
+    }
+
 
     public void InitMovement(TileProperties tileDestination)
     {
@@ -107,10 +131,6 @@ public class Character : MonoBehaviour
     {
         life = life - damageAmount;
         Debug.Log("OUCH");
-        if (isAlly)
-        {
-            UIManager.Instance.AllyLifeUpdate(priority, life);
-        }
         if (life < 1)
         {
             KillCharacter(cancelPattern);
@@ -125,10 +145,6 @@ public class Character : MonoBehaviour
 
         Debug.Log(this.gameObject + " attacked by " + attacker.gameObject + " CONTEXT : " + context);
         life -= damageAmount;
-        if (isAlly)
-        {
-            UIManager.Instance.AllyLifeUpdate(priority, life);
-        }
         if (life < 1)
         {
             if (attacker.isAlly && !this.isAlly)
@@ -151,7 +167,6 @@ public class Character : MonoBehaviour
         if (PatternReader.instance.PatternExecuter.currentCharacter == this && cancelPattern)
         {
             PatternReader.instance.PatternExecuter.StopPattern(this);
-            Debug.Log("TPattern cancel : Death");
         }
 
         //if (isAlly && CharactersManager.Instance.allyCharacter.Contains(GetComponent<AllyCharacter>())) // (LINQ)

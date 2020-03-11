@@ -253,10 +253,6 @@ public class PatternExecuter : MonoBehaviour
                         newTile.ChangeTilesActivationStatut(false);
                         StartCoroutine(GetDamaged(pattern, character, index, depth, true, newTile.damageToDeal));
                         character.InitMovement(newTile);
-
-                        //TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.interactionMat);
-                        //tileColoredDuringPattern.Add(character.occupiedTile);
-
                     }
                     else
                     {
@@ -285,7 +281,7 @@ public class PatternExecuter : MonoBehaviour
                         character.transform.position = newPos;
                         PlayerBase.Instance.DamageBase(1);
                         Debug.Log(PlayerBase.Instance.GetLife());
-                        character.KillCharacter(true);
+                        StartCoroutine(GetDamaged(pattern, character, index, depth, false, 100));
                     }
                     break;
 

@@ -7,33 +7,41 @@ public class TileProperties : MonoBehaviour
     [Header("Properties")]
     public string tileName;
     public string tileDescription;
+    public TilesSpecific specificity;
+    public TilesOrder order;
+    public int teleportChannel;
     [Header("REFS")]
     public SpriteRenderer sR;
     public Sprite icon;
     public Sprite secondaryIcon;
+    public MeshRenderer mR;
+    public ObjectTypeMetaData ObjectTypeMetaData;
+    [HideInInspector] public Material baseMat;
+    public int damageToDeal;
+    public int life;
+    public Character occupant;
+
+    [Header("GameObject to Toggle")]
+    public GameObject[] toggleActivated;
+    public GameObject[] toggleOnAttackPreview;
+    public GameObject[] toggleOnAttack;
+    public GameObject[] previewItem;
+    
+
 
     public Vector2 tileID;
+    [Header("Boolean State")]
     public bool canSeeThrough;
     public bool isWalkable;
     public bool isOccupied;
     public bool isMovable;
     public bool isActivated;
     public bool isOnFire;
-    public int damageToDeal;
-    public int life;
 
-    public TilesSpecific specificity;
-    public int teleportChannel;
 
-    public TilesOrder order;
     public LayerMask TileLayer;
 
-    public ObjectTypeMetaData ObjectTypeMetaData;
     [HideInInspector] public bool isAllySpawnable = false;
-    public MeshRenderer mR;
-    [HideInInspector] public Material baseMat;
-    public Character occupant;
-
 
 
     private void Start()
@@ -155,14 +163,20 @@ public class TileProperties : MonoBehaviour
     public void ChangeTilesActivationStatut(bool _isActivated)
     {
         isActivated = _isActivated;
-        //if (_isActivated)
-        //{
-        //    sR.sprite = icon;
-        //}
-        //else
-        //{
-        //    sR.sprite = secondaryIcon;
-        //}
+        if (_isActivated)
+        {
+            for (int i = 0; i < toggleActivated.Length; i++)
+            {
+                toggleActivated[i].SetActive(true);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < toggleActivated.Length; i++)
+            {
+                toggleActivated[i].SetActive(false);
+            }
+        }
     }
 
     public void GetDamaged(int amount)

@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 2044990667826019264}
   - component: {fileID: 2044990667826019269}
   - component: {fileID: -2733430505101648800}
+  - component: {fileID: 5426450302182941947}
   m_Layer: 9
   m_Name: Tile_Trap
   m_TagString: Untagged
@@ -281,9 +282,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: Trap
   tileDescription: inflige des dommages
+  specificity: 7
+  order: 0
+  teleportChannel: 0
   sR: {fileID: 3907106155976859995, guid: 89703251c51ce8646ad8dab65c600f65, type: 3}
   icon: {fileID: 21300000, guid: ce9404e4994e5174282fba58c36a60d9, type: 3}
   secondaryIcon: {fileID: 21300000, guid: 7efa5de3d9221844a80c11008baa3c96, type: 3}
+  mR: {fileID: 3717622905893958983}
+  ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
+  baseMat: {fileID: 0}
+  damageToDeal: 0
+  life: 0
+  occupant: {fileID: 0}
+  toggleActivated: []
+  toggleOnAttackPreview: []
+  toggleOnAttack: []
+  previewItem: []
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 1
@@ -291,19 +305,29 @@ MonoBehaviour:
   isMovable: 1
   isActivated: 1
   isOnFire: 0
-  damageToDeal: 0
-  life: 0
-  specificity: 7
-  teleportChannel: 0
-  order: 0
   TileLayer:
     serializedVersion: 2
     m_Bits: 512
-  ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   isAllySpawnable: 0
-  mR: {fileID: 3717622905893958983}
-  baseMat: {fileID: 0}
-  occupant: {fileID: 0}
+--- !u!95 &5426450302182941947
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044990667826019268}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4cdfd00c9e2897b4ebc209a829052d4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2337005252687527065
 GameObject:
   m_ObjectHideFlags: 0

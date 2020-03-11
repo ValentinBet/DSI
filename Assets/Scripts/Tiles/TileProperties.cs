@@ -185,6 +185,10 @@ public class TileProperties : MonoBehaviour
         {
             specificity = TilesSpecific.None;
             //sR.sprite = secondaryIcon;
+            for (int i = 0; i < toggleActivated.Length; i++)
+            {
+                toggleActivated[i].SetActive(false);
+            }
         }
     }
 

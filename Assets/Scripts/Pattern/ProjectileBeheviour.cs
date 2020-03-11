@@ -13,7 +13,7 @@ public class ProjectileBeheviour : MonoBehaviour
     public int maxTeleportSupported = 3;
     private int teleportNumber;
     private bool _continuePartern;
-    private bool isInit;
+    private bool isInit = false;
 
     public void Init(Character shooter, int index, int depth, bool continuePattern)
     {

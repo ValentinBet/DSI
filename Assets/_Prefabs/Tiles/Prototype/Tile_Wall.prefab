@@ -254,7 +254,6 @@ Transform:
   - {fileID: 2084103297918214022}
   - {fileID: 7862024845241178741}
   - {fileID: 154156719127414793}
-  - {fileID: 6995915787293315894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -297,7 +296,8 @@ MonoBehaviour:
   damageToDeal: 0
   life: 0
   occupant: {fileID: 0}
-  toggleActivated: []
+  toggleActivated:
+  - {fileID: 8683860635824606765}
   toggleOnAttackPreview: []
   toggleOnAttack: []
   previewItem: []
@@ -575,12 +575,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8086269066088991010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.521, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.3980001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2044990667826019264}
-  m_RootOrder: 6
+  m_Father: {fileID: 5938482315298130370}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &375243144458323963
 MeshFilter:
@@ -727,6 +727,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileGraph (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5566558386063045165, guid: d9c0665a46a40674f9afe397686c5df5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7469954820965168578, guid: d9c0665a46a40674f9afe397686c5df5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -799,6 +804,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9c0665a46a40674f9afe397686c5df5, type: 3}
+--- !u!1 &8683860635824606765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5566558386063045165, guid: d9c0665a46a40674f9afe397686c5df5,
+    type: 3}
+  m_PrefabInstance: {fileID: 3873982327412538368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5938482315298130370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7469954820965168578, guid: d9c0665a46a40674f9afe397686c5df5,

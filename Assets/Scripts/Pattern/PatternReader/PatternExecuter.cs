@@ -395,7 +395,7 @@ public class PatternExecuter : MonoBehaviour
             if (tiles.Count != 0)
             {
                 //ActionEnd(pattern, character.occupiedTile, character, index, depth);
-                AttackOnTargetTile(character, testedTiles, tiles[0]);
+                AttackOnTargetTile(character, testedTiles, tiles[0] , 0.5f);
             }
         }
 
@@ -408,7 +408,7 @@ public class PatternExecuter : MonoBehaviour
                     TileProperties tileTarget = character.GetTileFromTransform(character.AttackPattern.tilesAffected[i].tilesTargetOffset, 2);
                     if (tileTarget != null)
                     {
-                        AttackOnTargetTile(character, testedTiles, tileTarget);
+                        AttackOnTargetTile(character, testedTiles, tileTarget , character.AttackPattern.tilesAffected[i].impactValue);
                     }
                 }
             }
@@ -472,11 +472,12 @@ public class PatternExecuter : MonoBehaviour
 
     #region Utility
 
-    private void AttackOnTargetTile(Character character, List<TileProperties> testedTiles, TileProperties targetTile)
+    private void AttackOnTargetTile(Character character, List<TileProperties> testedTiles, TileProperties targetTile , float impactValue)
     {
         testedTiles.Add(targetTile);
         TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
         tileColoredDuringPattern.Add(targetTile);
+        targetTile.tileImpact.ActivateImpact(impactValue);
 
         if (targetTile.specificity == TileProperties.TilesSpecific.Wall)
         {

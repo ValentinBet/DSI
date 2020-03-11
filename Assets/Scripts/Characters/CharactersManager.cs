@@ -126,7 +126,7 @@ public class CharactersManager : MonoBehaviour
     {
         for (int i = 0; i < wave.enemies.Length; i++)
         {
-            SpawnEnemyCharacterAtPos(wave.enemies[i].gridPosition);
+            SpawnEnemyCharacterAtPos(wave.enemies[i].gridPosition, (int)wave.enemies[i].type);
         }
     }
 

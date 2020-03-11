@@ -5,15 +5,14 @@ using UnityEngine;
 public class TileImpact : MonoBehaviour
 {
     public AnimationCurve multiplier = AnimationCurve.Linear(0, 0, 1, 1);
-    [Range (0.1f , 3f)]
+    [Range(0.1f, 3f)]
     public float totalAnimationTime = 0.2f;
-
-
 
     private bool impactEnable;
     private Transform _transform;
     private float timer;
     private float _impactValue;
+    private float initialPosY;
 
     private void Awake()
     {
@@ -28,14 +27,16 @@ public class TileImpact : MonoBehaviour
     {
         impactEnable = true;
         timer = 0f;
-        _impactValue = impactValue; 
-
+        _impactValue = impactValue;
+        initialPosY = _transform.position.y;
 
         StartCoroutine(ContinueUpdate());
     }
 
     private void UpdatePos()
     {
+        float yDisplacment = initialPosY + (multiplier.Evaluate(timer / totalAnimationTime)) * _impactValue;
+        _transform.position = new Vector3(_transform.position.x, yDisplacment, _transform.position.z);
     }
 
     private IEnumerator ContinueUpdate()
@@ -43,7 +44,10 @@ public class TileImpact : MonoBehaviour
         while (impactEnable)
         {
             timer += Time.deltaTime;
-            float ratio = timer / totalAnimationTime;
+            if (timer / totalAnimationTime > 1)
+            {
+                DesactiveImpact();
+            }
             UpdatePos();
             yield return new WaitForFixedUpdate();
             //

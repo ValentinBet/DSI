@@ -116,9 +116,10 @@ public class Character : MonoBehaviour
         return true;
     }
 
-    public void GotAttacked(int damageAmount, Character attacker)
+    public void GotAttacked(int damageAmount, Character attacker , string context)
     {
 
+        Debug.Log(this.gameObject + " attacked by " + attacker.gameObject + " CONTEXT : " + context);
         life -= damageAmount;
         if (life < 1)
         {

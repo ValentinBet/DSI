@@ -281,7 +281,7 @@ public class PatternExecuter : MonoBehaviour
                     else
                     {
                         //Anim à faire
-                        Vector3 newPos = character.transform.position + character.transform.forward;
+                        Vector3 newPos = character.transform.position + character.transform.forward * 2;
                         character.transform.position = newPos;
                         PlayerBase.Instance.DamageBase(1);
                         Debug.Log(PlayerBase.Instance.GetLife());

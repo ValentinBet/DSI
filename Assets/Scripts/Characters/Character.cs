@@ -151,6 +151,7 @@ public class Character : MonoBehaviour
         if (PatternReader.instance.PatternExecuter.currentCharacter == this && cancelPattern)
         {
             PatternReader.instance.PatternExecuter.StopPattern(this);
+            Debug.Log("TPattern cancel : Death");
         }
 
         //if (isAlly && CharactersManager.Instance.allyCharacter.Contains(GetComponent<AllyCharacter>())) // (LINQ)

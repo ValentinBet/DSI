@@ -18,7 +18,6 @@ public class PlayerControl : MonoBehaviour
     private bool inputsEnabled = true;
 
     private AllyCharactersPlacer allyCharactersPlacer;
-    private TileProperties lastTileHit;
     public PatternTemplate pattern;
 
     private void Awake()
@@ -66,24 +65,21 @@ public class PlayerControl : MonoBehaviour
                         return;
                     }
 
-                    if (_tile.isMovable && !_tile.isOccupied)
+                    if (isOnSwapMode)
                     {
-                        if (isOnSwapMode)
+                        if (TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject))
                         {
-                            if (TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject))
-                            {
-                                DoActionWithPANeeded();
-                            }
-
-                            UIManager.Instance.DisplayCancelHelpKey(true);
+                            DoActionWithPANeeded();
                         }
 
-                        if (isOnRotateMode)
-                        {
-                            TilesManager.TilesChangerInstance.DisplayRotateHint();
-                            if (!TilesManager.TilesChangerInstance.TryRotateTile())
-                                DoActionWithPANeeded();
-                        }
+                        UIManager.Instance.DisplayCancelHelpKey(true);
+                    }
+
+                    if (isOnRotateMode)
+                    {
+                        TilesManager.TilesChangerInstance.DisplayRotateHint();
+                        if (!TilesManager.TilesChangerInstance.TryRotateTile())
+                            DoActionWithPANeeded();
                     }
                 }
             }
@@ -100,23 +96,6 @@ public class PlayerControl : MonoBehaviour
                 {
                     EndAllModes();
                 }
-            }
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (isPlacingAllyCharacters)
-        {
-            TileProperties _tile = GridManager.Instance.GetTileUnderSelector();
-
-            if (_tile != lastTileHit)
-            {
-                lastTileHit = _tile;
-                print(CharactersManager.Instance.allyCharactersPlacer.GetActualAllyToBePlace());
-                //PatternReader.instance.PreviewPattern.EndPreview();
-                //PatternReader.instance.PreviewPattern.ReadPattern(CharactersManager.Instance.allyCharactersPlacer.GetActualAllyToBePlace());
-
             }
         }
     }

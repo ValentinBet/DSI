@@ -108,23 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: Tile de base
   tileDescription: description test
-  specificity: 8
-  order: 0
-  teleportChannel: 0
   sR: {fileID: 0}
   icon: {fileID: 0}
   secondaryIcon: {fileID: 0}
-  mR: {fileID: 5144871786083905971}
-  ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
-  baseMat: {fileID: 0}
-  damageToDeal: 0
-  life: 0
-  occupant: {fileID: 0}
-  toggleActivated: []
-  toggleOnAttackPreview: []
-  toggleOnAttack: []
-  previewItem: []
-  tileImpact: {fileID: 0}
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 0
@@ -132,11 +118,19 @@ MonoBehaviour:
   isMovable: 0
   isActivated: 0
   isOnFire: 0
-  spawnable: 0
+  damageToDeal: 0
+  life: 0
+  specificity: 8
+  teleportChannel: 0
+  order: 0
   TileLayer:
     serializedVersion: 2
     m_Bits: 512
+  ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   isAllySpawnable: 0
+  mR: {fileID: 5144871786083905971}
+  baseMat: {fileID: 0}
+  occupant: {fileID: 0}
 --- !u!1 &8297856016997939591
 GameObject:
   m_ObjectHideFlags: 0

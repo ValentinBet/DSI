@@ -1465,6 +1465,7 @@ MonoBehaviour:
   allyHintImg: {fileID: 1371052656253843062}
   rotateHint: {fileID: 37776202658461649}
   swapHint: {fileID: 7477937240468731378}
+  swapHelpKey: {fileID: 7402811998217311626}
   cancelHelpKey: {fileID: 4820594310879514285}
   quitModeHelpKey: {fileID: 3790225121352862765}
 --- !u!1 &1371052654814784104
@@ -4669,7 +4670,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileColoredDuringPattern: []
   currentCharacter: {fileID: 0}
-  timeBetweenAction: 0.2
 --- !u!1 &1371052655834341494
 GameObject:
   m_ObjectHideFlags: 0

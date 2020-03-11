@@ -16,16 +16,16 @@ MonoBehaviour:
   tilesAffected:
   - tilesTargetOffset: {x: 0, y: 3}
     projectilePrefab: {fileID: 0}
-    impactValue: 0.8
+    impactValue: 1
   - tilesTargetOffset: {x: 1, y: 3}
     projectilePrefab: {fileID: 0}
-    impactValue: 0.4
+    impactValue: 1
   - tilesTargetOffset: {x: -1, y: 3}
     projectilePrefab: {fileID: 0}
-    impactValue: 0.4
+    impactValue: 1
   - tilesTargetOffset: {x: 0, y: 4}
     projectilePrefab: {fileID: 0}
-    impactValue: 0.4
+    impactValue: 1
   - tilesTargetOffset: {x: 0, y: 2}
     projectilePrefab: {fileID: 0}
-    impactValue: 0.4
+    impactValue: 1

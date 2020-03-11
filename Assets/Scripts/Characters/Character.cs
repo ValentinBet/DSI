@@ -60,6 +60,10 @@ public class Character : MonoBehaviour
     {
         LookAtCamera();
     }
+    private void LateUpdate()
+    {
+        UpdateOrientation();
+    }
 
     public void SetOccupiedTile()
     {
@@ -83,12 +87,10 @@ public class Character : MonoBehaviour
         occupiedTile.occupant = null;
 
         transform.position = tileDestination.transform.position + Vector3.up;
-
         if (tileDestination.isOnFire)
         {    
             TakeDamaged(1, true);
         }
-
         SetOccupiedTile();
     }
 
@@ -101,10 +103,14 @@ public class Character : MonoBehaviour
         }
     }
 
+
+
+
+
     public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {
-        life =  life - damageAmount;
-        Debug.Log("OUCH");
+        life -= damageAmount;
+
         if (life < 1)
         {
             KillCharacter(cancelPattern);
@@ -198,9 +204,23 @@ public class Character : MonoBehaviour
         if (character_sprite != null)
         {
             character_sprite.transform.LookAt(Camera.main.transform);
-            character_sprite.transform.localScale = 0.5f * Vector3.one;
+            
         }
 
+    }
+
+    private void UpdateOrientation()
+    {
+        if ((transform.rotation.eulerAngles.y > -135.0f && transform.rotation.eulerAngles.y < 45.0f) || (transform.rotation.eulerAngles.y > 225.0f && transform.rotation.eulerAngles.y < 405.0f))
+        {
+            character_sprite.transform.localScale = new Vector3(-0.5f,0.5f,0.5f);
+            Debug.Log("facing right " + transform.rotation.eulerAngles.y);
+        }
+        else
+        {
+            character_sprite.transform.localScale = 0.5f * Vector3.one;
+            Debug.Log("facing left " + transform.rotation.eulerAngles.y);
+        }
     }
 }
 

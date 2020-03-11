@@ -199,7 +199,6 @@ MonoBehaviour:
   isMovable: 1
   isActivated: 0
   isOnFire: 0
-  spawnable: 0
   TileLayer:
     serializedVersion: 2
     m_Bits: 512

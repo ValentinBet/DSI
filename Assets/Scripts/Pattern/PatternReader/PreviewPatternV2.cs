@@ -37,6 +37,7 @@ public class PreviewPatternV2 : MonoBehaviour
 
     private void ExecuteAction(int index, int depth)
     {
+        Debug.Log("", currentTile);
         if (previewEnd)
         {
             EndPreview();

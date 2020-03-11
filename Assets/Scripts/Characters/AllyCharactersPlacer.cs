@@ -74,7 +74,7 @@ public class AllyCharactersPlacer : MonoBehaviour
                 // Preview pattern purpose >>
                 allyHover.GetComponent<Character>().SetOccupiedTile();
             }
-     
+
         }
     }
 
@@ -84,25 +84,25 @@ public class AllyCharactersPlacer : MonoBehaviour
         {
             if (tile.isAllySpawnable && tile.CharacterCanSpawn(allyHoverChara))
             {
-                if (IsAllAllyedSpawned())
+                AllyCharacter _allyChar = allyHover.GetComponent<AllyCharacter>();
+                GameInfoManager.Instance.UpdateCharacterObjToHisSave(ref _allyChar, GameInfoManager.GameData.allies[AllyPriority]);
+                _allyChar.SetOccupiedTile();
+                _allyChar.priority = AllyPriority;
+                CharactersManager.Instance.allyCharacter.Add(_allyChar);
+                UIManager.Instance.SetAllyLevelDisplay(AllyPriority);
+                AllyPriority++;
+                tileOccupedByAllies.Add(lastTile);
+
+                if (!IsAllAllyedSpawned())
+                {
+                    SpawnNextAlly();
+                    UpdateUIToActualAlly();
+                }
+                else
                 {
                     StopPlacing();
                     return;
                 }
-                else
-                {
-                    AllyCharacter _allyChar = allyHover.GetComponent<AllyCharacter>();
-                    GameInfoManager.Instance.UpdateCharacterObjToHisSave(ref _allyChar, GameInfoManager.GameData.allies[AllyPriority]);
-                    _allyChar.SetOccupiedTile();
-                    _allyChar.priority = AllyPriority;
-                    CharactersManager.Instance.allyCharacter.Add(_allyChar);
-                    UIManager.Instance.SetAllyLevelDisplay(AllyPriority);
-                    AllyPriority++;
-                    tileOccupedByAllies.Add(lastTile);
-                    SpawnNextAlly();
-                    UpdateUIToActualAlly();
-                }
-
             }
         }
     }

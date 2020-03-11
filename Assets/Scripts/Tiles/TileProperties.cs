@@ -27,7 +27,7 @@ public class TileProperties : MonoBehaviour
     public GameObject[] toggleOnAttack;
     public GameObject[] previewItem;
     public TileImpact tileImpact;
-    
+
 
 
     public Vector2 tileID;
@@ -181,7 +181,8 @@ public class TileProperties : MonoBehaviour
 
     public void GetDamaged(int amount)
     {
-        if (life <= 0)
+        life = life - amount;
+        if (life < 1)
         {
             specificity = TilesSpecific.None;
             for (int i = 0; i < toggleActivated.Length; i++)

@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e04a785b6a58c41b6555f260e62676, type: 3}
-  m_Name: BasicArcher
+  m_Script: {fileID: 11500000, guid: 1ec01650f24c4194b909eeb566f21ffe, type: 3}
+  m_Name: Wave02
   m_EditorClassIdentifier: 
-  attackType: 1
-  tilesAffected:
-  - tilesTargetOffset: {x: 0, y: 1}
-    projectilePrefab: {fileID: 1453855368044438279, guid: 074f03c001a701d4c965b26583c55502,
-      type: 3}
-    impactValue: 1
+  turnOfActivation: 0
+  needsEmptyBoard: 0
+  enemies:
+  - type: 0
+    gridPosition: {x: 1, y: 2}
+  - type: 0
+    gridPosition: {x: 2, y: 5}
+  - type: 0
+    gridPosition: {x: 1, y: 8}

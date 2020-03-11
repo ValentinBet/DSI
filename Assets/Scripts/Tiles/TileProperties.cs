@@ -27,7 +27,7 @@ public class TileProperties : MonoBehaviour
     public GameObject[] toggleOnAttack;
     public GameObject[] previewItem;
     public TileImpact tileImpact;
-    
+
 
 
     public Vector2 tileID;
@@ -38,11 +38,10 @@ public class TileProperties : MonoBehaviour
     public bool isMovable;
     public bool isActivated;
     public bool isOnFire;
-
-
+    public bool spawnable = false;
     public LayerMask TileLayer;
 
-    [HideInInspector] public bool isAllySpawnable = false;
+    public bool isAllySpawnable = false;
 
 
     private void Start()
@@ -72,12 +71,18 @@ public class TileProperties : MonoBehaviour
             }
         }
     }
-    public bool CharacterCanSpawn()
+    public bool CharacterCanSpawn(Character character = null)
     {
-        if (isWalkable && !isOccupied)
+        if (isWalkable && spawnable)
         {
-            return true;
+            if ((!isOccupied) || (isOccupied && occupant == character))
+            {
+                print(isOccupied + "------" + (isOccupied && occupant == character));
+                print( "------" + occupant + "-" + character);
+                return true;
+            }
         }
+
         return false;
     }
 
@@ -110,7 +115,6 @@ public class TileProperties : MonoBehaviour
 
     public Vector3 GetCurrentForward()
     {
-        Debug.DrawLine(transform.position, (transform.position + (transform.forward * 3)) + new Vector3(0, 1, 0), Color.cyan, 2);
         return transform.forward;
     }
 
@@ -185,10 +189,10 @@ public class TileProperties : MonoBehaviour
         if (life <= 0)
         {
             specificity = TilesSpecific.None;
-            //sR.sprite = secondaryIcon;
             for (int i = 0; i < toggleActivated.Length; i++)
             {
                 toggleActivated[i].SetActive(false);
+                isWalkable = true;
             }
         }
     }

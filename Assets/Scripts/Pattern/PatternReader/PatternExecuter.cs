@@ -221,9 +221,9 @@ public class PatternExecuter : MonoBehaviour
                 case TileProperties.TilesSpecific.Wall:
                     if (bonusAction)
                     {
+                        Debug.Log("Smashed contre un mur");
                         newTile.GetDamaged(1);
                         StartCoroutine(GetDamaged(pattern, character, index, depth, false, 1));
-                        Debug.Log("Smashed contre un mur");
                     }
                     else
                     {
@@ -347,8 +347,8 @@ public class PatternExecuter : MonoBehaviour
     {
         TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.mouvementMat);
         tileColoredDuringPattern.Add(character.occupiedTile);
-        yield return new WaitForSeconds(0.5f);
-        if (continuePattern && character.TakeDamaged(receivedDeal, false))
+        yield return new WaitForSeconds(0.0f);
+        if (character.TakeDamaged(receivedDeal, false) && continuePattern)
         {
             ActionEnd(pattern, character.occupiedTile, character, index, depth);
         }
@@ -531,7 +531,6 @@ public class PatternExecuter : MonoBehaviour
     {
         tileColoredDuringPattern.Add(character.occupiedTile);
         yield return new WaitForSeconds(0.2f);
-        Debug.Log("Pattern End");
 
         for (int i = 0; i < tileColoredDuringPattern.Count; i++)
         {

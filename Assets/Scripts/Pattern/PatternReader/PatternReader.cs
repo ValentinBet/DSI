@@ -28,7 +28,6 @@ public class PatternReader : MonoBehaviour
 
     public void FinishTurn()
     {
-        Debug.Log("Tour Fini");
         TilesManager.Instance.ResetTilesStatut();
         if (PhaseManager.Instance != null)
         {

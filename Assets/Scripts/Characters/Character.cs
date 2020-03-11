@@ -105,8 +105,8 @@ public class Character : MonoBehaviour
 
     public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {
-        life -= damageAmount;
-
+        life =  life - damageAmount;
+        Debug.Log("OUCH");
         if (life < 1)
         {
             KillCharacter(cancelPattern);

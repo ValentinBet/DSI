@@ -43,24 +43,25 @@ public class TilesChanger : MonoBehaviour
 
     public bool TryChangePos(GameObject tile)
     {
-        if (initTile == null)
-        {
-            initTile = tile;
 
-            GameObject _swapSprite = GetSwapSpriteInPool();
-
-            if (_swapSprite != null)
+            if (initTile == null)
             {
-                _swapSprite.SetActive(true);
-                _swapSprite.transform.position = GridManager.Instance.gridSelector.transform.position;
-            }
-        }
-        else if (tile != initTile)
-        {
-            lastTile = tile;
-            return InitChange();
-        }
+                initTile = tile;
 
+                GameObject _swapSprite = GetSwapSpriteInPool();
+
+                if (_swapSprite != null)
+                {
+                    _swapSprite.SetActive(true);
+                    _swapSprite.transform.position = GridManager.Instance.gridSelector.transform.position;
+                }
+            }
+            else if (tile != initTile)
+            {
+                lastTile = tile;
+                return InitChange();
+            }
+        
         return false;
     }
 
@@ -118,6 +119,7 @@ public class TilesChanger : MonoBehaviour
             {
                 RotateTile(_tp);
             }
+
             return false;
         }
     }

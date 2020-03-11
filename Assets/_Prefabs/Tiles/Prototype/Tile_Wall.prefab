@@ -303,11 +303,12 @@ MonoBehaviour:
   tileImpact: {fileID: 2674390621172108782}
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
-  isWalkable: 1
+  isWalkable: 0
   isOccupied: 0
   isMovable: 1
   isActivated: 0
   isOnFire: 0
+  spawnable: 0
   TileLayer:
     serializedVersion: 2
     m_Bits: 512

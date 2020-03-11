@@ -2560,6 +2560,18 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 81.01
       objectReference: {fileID: 0}
+    - target: {fileID: 2635198138646243750, guid: 3dee331241597f64aa58451b4c106b2c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b65b219e89272984cbeec83dbd678f6d,
+        type: 2}
+    - target: {fileID: 2635198138646243750, guid: 3dee331241597f64aa58451b4c106b2c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6670419310842059442, guid: b65b219e89272984cbeec83dbd678f6d,
+        type: 2}
     - target: {fileID: 2635198139021121305, guid: 3dee331241597f64aa58451b4c106b2c,
         type: 3}
       propertyPath: m_Name

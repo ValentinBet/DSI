@@ -77,7 +77,11 @@ public class ProjectileBeheviour : MonoBehaviour
             //DestroyProjectile();
             return;
         }
-        testedTile.tileImpact.ActivateImpact(0.4f , 0.3f);
+
+        if (testedTile.tileImpact != null)
+        {
+            testedTile.tileImpact.ActivateImpact(0.4f, 0.3f);
+        }
 
 
         if (testedTile.specificity != TileProperties.TilesSpecific.PlayerBase)
@@ -91,12 +95,12 @@ public class ProjectileBeheviour : MonoBehaviour
         {
             if (isOnFire)
             {
-                testedTile.occupant.GotAttacked(_shooter.damage + 1, _shooter , "by projectile on fire");
+                testedTile.occupant.GotAttacked(_shooter.damage + 1, _shooter, "by projectile on fire");
                 DestroyProjectile();
             }
             else
             {
-                testedTile.occupant.GotAttacked(_shooter.damage, _shooter , "by projectile");
+                testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile");
                 DestroyProjectile();
             }
         }

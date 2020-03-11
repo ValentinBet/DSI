@@ -223,15 +223,10 @@ public class PatternExecuter : MonoBehaviour
                     {
                         newTile.GetDamaged(1);
                         StartCoroutine(GetDamaged(pattern, character, index, depth, false, 1));
+                        Debug.Log("Smashed contre un mur");
                     }
                     else
                     {
-
-                        //if (!character.isAlly)
-                        //{
-                        //    CharacterReorientation(character, false, index, depth);
-                        //}
-
                         if (character.combatStyle == CombatStyle.closeCombat)
                         {
                             StartCoroutine(ExtraAttack(pattern, character, index, depth, false, true));
@@ -395,7 +390,7 @@ public class PatternExecuter : MonoBehaviour
             if (tiles.Count != 0)
             {
                 //ActionEnd(pattern, character.occupiedTile, character, index, depth);
-                AttackOnTargetTile(character, testedTiles, tiles[0] , 0.5f);
+                AttackOnTargetTile(character, testedTiles, tiles[0], 0.5f);
             }
         }
 
@@ -408,7 +403,7 @@ public class PatternExecuter : MonoBehaviour
                     TileProperties tileTarget = character.GetTileFromTransform(character.AttackPattern.tilesAffected[i].tilesTargetOffset, 2);
                     if (tileTarget != null)
                     {
-                        AttackOnTargetTile(character, testedTiles, tileTarget , character.AttackPattern.tilesAffected[i].impactValue);
+                        AttackOnTargetTile(character, testedTiles, tileTarget, character.AttackPattern.tilesAffected[i].impactValue);
                     }
                 }
             }
@@ -441,7 +436,6 @@ public class PatternExecuter : MonoBehaviour
         }
     }
 
-
     private IEnumerator ExtraDeplacement(PatternTemplate pattern, Character character, int index, int depth)
     {
         yield return new WaitForSeconds(0.5f);
@@ -472,7 +466,7 @@ public class PatternExecuter : MonoBehaviour
 
     #region Utility
 
-    private void AttackOnTargetTile(Character character, List<TileProperties> testedTiles, TileProperties targetTile , float impactValue)
+    private void AttackOnTargetTile(Character character, List<TileProperties> testedTiles, TileProperties targetTile, float impactValue)
     {
         testedTiles.Add(targetTile);
         TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);

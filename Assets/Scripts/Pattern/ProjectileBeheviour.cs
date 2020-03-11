@@ -13,29 +13,33 @@ public class ProjectileBeheviour : MonoBehaviour
     public int maxTeleportSupported = 3;
     private int teleportNumber;
     private bool _continuePartern;
+    private bool isInit;
 
-    public void Init(Character shooter, int index, int depth , bool continuePattern)
+    public void Init(Character shooter, int index, int depth, bool continuePattern)
     {
         _depth = depth;
         _index = index;
         _shooter = shooter;
         _continuePartern = continuePattern;
+        isInit = true;
     }
 
 
     public void FixedUpdate()
     {
-
-        transform.Translate(Vector3.forward * Time.deltaTime * 6);
-
-        TileProperties testedTile = GetCurrentTile(2);
-        if (testedTile == null)
+        if (isInit)
         {
-            DestroyProjectile();
-        }
-        if (currentTile != testedTile)
-        {
-            CheckTile(testedTile);
+            transform.Translate(Vector3.forward * Time.deltaTime * 6);
+
+            TileProperties testedTile = GetCurrentTile(2);
+            if (testedTile == null)
+            {
+                DestroyProjectile();
+            }
+            if (currentTile != testedTile)
+            {
+                CheckTile(testedTile);
+            }
         }
 
     }
@@ -60,7 +64,7 @@ public class ProjectileBeheviour : MonoBehaviour
 
     public void DestroyProjectile()
     {
-        _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored , _continuePartern);
+        _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
 
         //StartCoroutine(WaitBeforeDeath());
         Destroy(this.gameObject);
@@ -70,7 +74,7 @@ public class ProjectileBeheviour : MonoBehaviour
     {
         if (testedTile == null)
         {
-             //DestroyProjectile();
+            //DestroyProjectile();
             return;
         }
 
@@ -118,7 +122,7 @@ public class ProjectileBeheviour : MonoBehaviour
                 break;
 
             case TileProperties.TilesSpecific.Wall:
-              
+
                 testedTile.GetDamaged(1);
                 DestroyProjectile();
                 break;

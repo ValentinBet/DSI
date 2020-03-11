@@ -18,6 +18,7 @@ public class PlayerControl : MonoBehaviour
     private bool inputsEnabled = true;
 
     private AllyCharactersPlacer allyCharactersPlacer;
+    private TileProperties lastTileHit;
     public PatternTemplate pattern;
 
     private void Awake()
@@ -65,29 +66,30 @@ public class PlayerControl : MonoBehaviour
                         return;
                     }
 
-                    if (isOnSwapMode)
+                    if (_tile.isMovable && !_tile.isOccupied)
                     {
-                        TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject);
-                        UIManager.Instance.DisplayCancelHelpKey(true);
-                    }
+                        if (isOnSwapMode)
+                        {
+                            if (TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject))
+                            {
+                                DoActionWithPANeeded();
+                            }
 
-                    if (isOnRotateMode)
-                    {
-                        TilesManager.TilesChangerInstance.DisplayRotateHint();
-                        if (!TilesManager.TilesChangerInstance.RotateTile())
-                            DoActionWithPANeeded();
+                            UIManager.Instance.DisplayCancelHelpKey(true);
+                        }
+
+                        if (isOnRotateMode)
+                        {
+                            TilesManager.TilesChangerInstance.DisplayRotateHint();
+                            if (!TilesManager.TilesChangerInstance.TryRotateTile())
+                                DoActionWithPANeeded();
+                        }
                     }
                 }
             }
 
             if (!isPlacingAllyCharacters)
             {
-                if (Input.GetKeyDown(TileSwapKey) && isOnSwapMode)
-                {
-                    if (TilesManager.TilesChangerInstance.InitChange())
-                        DoActionWithPANeeded();
-                }
-
                 if (Input.GetKeyDown(TileClearKey))
                 {
                     TilesManager.TilesChangerInstance.ClearChoice();
@@ -98,6 +100,23 @@ public class PlayerControl : MonoBehaviour
                 {
                     EndAllModes();
                 }
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isPlacingAllyCharacters)
+        {
+            TileProperties _tile = GridManager.Instance.GetTileUnderSelector();
+
+            if (_tile != lastTileHit)
+            {
+                lastTileHit = _tile;
+                print(CharactersManager.Instance.allyCharactersPlacer.GetActualAllyToBePlace());
+                //PatternReader.instance.PreviewPattern.EndPreview();
+                //PatternReader.instance.PreviewPattern.ReadPattern(CharactersManager.Instance.allyCharactersPlacer.GetActualAllyToBePlace());
+
             }
         }
     }
@@ -127,11 +146,9 @@ public class PlayerControl : MonoBehaviour
     {
         EndAllModes();
 
-        if (GameTracker.Instance.IsHavingEnoughtPa())
-        {
-            isOnRotateMode = value;
-            UIManager.Instance.DisplayRotate(value);
-        }
+        isOnRotateMode = value;
+        UIManager.Instance.DisplayRotate(value);
+
     }
 
     public void EndAllModes()

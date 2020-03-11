@@ -78,6 +78,7 @@ MonoBehaviour:
   toggleOnAttackPreview: []
   toggleOnAttack: []
   previewItem: []
+  tileImpact: {fileID: 0}
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 1
@@ -85,6 +86,7 @@ MonoBehaviour:
   isMovable: 1
   isActivated: 0
   isOnFire: 0
+  spawnable: 0
   TileLayer:
     serializedVersion: 2
     m_Bits: 512

@@ -710,6 +710,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProjectileBase
       objectReference: {fileID: 0}
+    - target: {fileID: 1453855368044438279, guid: 074f03c001a701d4c965b26583c55502,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573179843690496033, guid: 074f03c001a701d4c965b26583c55502,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -779,6 +784,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622752342560286634, guid: 074f03c001a701d4c965b26583c55502,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 074f03c001a701d4c965b26583c55502, type: 3}

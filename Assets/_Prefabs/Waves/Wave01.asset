@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ec01650f24c4194b909eeb566f21ffe, type: 3}
-  m_Name: TestWave
+  m_Name: Wave01
   m_EditorClassIdentifier: 
-  turnOfActivation: 0
+  turnOfActivation: 3
   needsEmptyBoard: 0
   enemies:
   - type: 0
-    gridPosition: {x: 0, y: 0}
+    gridPosition: {x: 1, y: 3}
   - type: 0
-    gridPosition: {x: 0, y: 2}
-  - type: 0
-    gridPosition: {x: 0, y: 4}
+    gridPosition: {x: 2, y: 6}

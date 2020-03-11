@@ -37,7 +37,6 @@ public class PreviewPatternV2 : MonoBehaviour
 
     private void ExecuteAction(int index, int depth)
     {
-        Debug.Log("", currentTile);
         if (previewEnd)
         {
             EndPreview();
@@ -491,7 +490,6 @@ public class PreviewPatternV2 : MonoBehaviour
   
         if (index < depth && continuePattern)
         {
-            Debug.Log("NextAction");
             StartCoroutine(NextAction(timeBetweenAction, index, depth));
         }
         else

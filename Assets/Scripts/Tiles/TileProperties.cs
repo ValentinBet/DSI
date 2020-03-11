@@ -184,6 +184,7 @@ public class TileProperties : MonoBehaviour
 
     public void GetDamaged(int amount)
     {
+        life -= amount;
         if (life <= 0)
         {
             specificity = TilesSpecific.None;

@@ -16,8 +16,8 @@ MonoBehaviour:
   needsEmptyBoard: 0
   enemies:
   - type: 1
-    gridPosition: {x: 1, y: 3}
+    gridPosition: {x: 0, y: 3}
   - type: 1
-    gridPosition: {x: 1, y: 6}
+    gridPosition: {x: 0, y: 6}
   - type: 1
-    gridPosition: {x: 1, y: 8}
+    gridPosition: {x: 0, y: 8}

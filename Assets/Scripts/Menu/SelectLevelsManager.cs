@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class SelectLevelsManager : MonoBehaviour
     public string LevelScene;
 
     [Header("Launch Button")]
-    [SerializeField] private TextMeshProUGUI buttonText;
+    [SerializeField] private List<TextMeshProUGUI> yearButtonTextList = new List<TextMeshProUGUI>();
 
     [Header("Game Infos")]
     [SerializeField] private TextMeshProUGUI remainingLifePointsText;
@@ -28,7 +29,11 @@ public class SelectLevelsManager : MonoBehaviour
 
     private void InitVisuals()
     {
-        buttonText.text = "Year " + (GameSettings.FIRST_YEAR + GameInfoManager.GameData.yearSurvived);
+        for (int i = 0; i < yearButtonTextList.Count; i++)
+        {
+            yearButtonTextList[i].text = "Year " + (GameSettings.FIRST_YEAR + GameInfoManager.GameData.yearSurvived) + i;
+        }
+
         remainingLifePointsText.text = GameInfoManager.GameData.lifePoints + " / " + GameSettings.LIFE_POINTS;
         yearSurvivedText.text = GameInfoManager.GameData.yearSurvived > 1 ? GameInfoManager.GameData.yearSurvived + " Years survived" : GameInfoManager.GameData.yearSurvived + " Year survived";
     }

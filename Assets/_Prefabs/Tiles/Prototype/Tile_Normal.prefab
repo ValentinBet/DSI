@@ -83,6 +83,7 @@ MonoBehaviour:
   toggleOnAttack: []
   previewItem:
   - {fileID: 7531251154522167964}
+  tileImpact: {fileID: 4905506725031405583}
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 1
@@ -746,3 +747,15 @@ MeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 9187525145969198491}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4905506725031405583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4292907985593691540, guid: d9c0665a46a40674f9afe397686c5df5,
+    type: 3}
+  m_PrefabInstance: {fileID: 9187525145969198491}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054987c467a8c9445a6f355d3ebe9197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

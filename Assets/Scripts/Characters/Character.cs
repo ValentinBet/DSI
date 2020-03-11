@@ -200,6 +200,7 @@ public class Character : MonoBehaviour
         if (character_sprite != null)
         {
             character_sprite.transform.LookAt(Camera.main.transform);
+            character_sprite.transform.localScale = 0.5f * Vector3.one;
         }
 
     }

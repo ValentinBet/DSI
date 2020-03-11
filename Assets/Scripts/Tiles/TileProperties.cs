@@ -26,6 +26,7 @@ public class TileProperties : MonoBehaviour
     public GameObject[] toggleOnAttackPreview;
     public GameObject[] toggleOnAttack;
     public GameObject[] previewItem;
+    public TileImpact tileImpact;
     
 
 

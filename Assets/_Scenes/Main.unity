@@ -35109,6 +35109,12 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2882787084527821759, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2146441568058785108, guid: 30b50c397780dee44b836d1dcb586d1f,
+        type: 2}
     - target: {fileID: 2899894617680087887, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
         type: 3}
       propertyPath: m_AnchoredPosition.x

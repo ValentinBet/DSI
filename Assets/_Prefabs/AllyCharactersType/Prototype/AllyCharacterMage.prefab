@@ -81,7 +81,7 @@ MonoBehaviour:
   yearSurvived: 0
   enemyKilled: 0
   levelMax: 3
-  allyDescription: 
+  allyDescription: "Te nucl\xE9arise !"
   xpNeededPerLevel:
   - {x: 1, y: 10}
   - {x: 2, y: 20}

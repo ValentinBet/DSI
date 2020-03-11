@@ -274,4 +274,9 @@ public class UIManager : MonoBehaviour
         tileMovementObj.SetActive(value);
     }
 
+    public void UpdateWave(int actualWave, int waveAmount)
+    {
+        waveText.text = "Wave " + actualWave+'/'+waveAmount;
+    }
+
 }

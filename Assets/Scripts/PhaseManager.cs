@@ -65,6 +65,7 @@ public class PhaseManager : MonoBehaviour
                 charactersManager.InitAllyPlacing();
                 charactersManager.SpawnWave(levelWaves[0]);
                 actualWave++;
+                UIManager.Instance.UpdateWave(actualWave, levelWaves.Length);
                 break;
             case Phase.Control:
                 AudioManager.Instance.PlayNewTurn();
@@ -148,6 +149,7 @@ public class PhaseManager : MonoBehaviour
                         charactersManager.SpawnWave(levelWaves[actualWave]);
                         //Animation ?
                         actualWave++;
+                        UIManager.Instance.UpdateWave(actualWave, levelWaves.Length);
                     }
                     else
                     {

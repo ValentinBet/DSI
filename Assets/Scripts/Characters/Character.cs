@@ -78,6 +78,30 @@ public class Character : MonoBehaviour
             }
         }
     }
+    public bool GetOccupiedTile()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, Vector3.down * 10, out hit, Mathf.Infinity, GridManager.Instance.tilesLayer))
+        {
+            if (hit.collider.gameObject.GetComponent<TileProperties>() != null)
+            {
+                occupiedTile = hit.collider.gameObject.GetComponent<TileProperties>();
+
+                if (occupiedTile.isOccupied)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        Debug.LogError("Not A Tile");
+        return false;
+    }
+
 
     public void InitMovement(TileProperties tileDestination)
     {

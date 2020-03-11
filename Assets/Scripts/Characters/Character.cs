@@ -78,7 +78,7 @@ public class Character : MonoBehaviour
             }
         }
     }
-    public bool GetOccupiedTile()
+    public bool GetSpawnableTile()
     {
         RaycastHit hit;
 
@@ -88,7 +88,7 @@ public class Character : MonoBehaviour
             {
                 occupiedTile = hit.collider.gameObject.GetComponent<TileProperties>();
 
-                if (occupiedTile.isOccupied)
+                if (occupiedTile.spawnable)
                 {
                     return true;
                 }

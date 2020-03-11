@@ -104,11 +104,11 @@ public class CharactersManager : MonoBehaviour
     }
 
     //Used for Waves
-    public void SpawnEnemyCharacterAtPos(Vector2 gridPos)
+    public void SpawnEnemyCharacterAtPos(Vector2 gridPos, int ennemyType = 0)
     {
-        GameObject _enemy = Instantiate(enemyTypeList[0], new Vector3(gridPos.x * 2 + 1, 1, gridPos.y * 2 + 1), Quaternion.Euler(0, 90, 0));
+        GameObject _enemy = Instantiate(enemyTypeList[ennemyType], new Vector3(gridPos.x * 2 + 1, 1, gridPos.y * 2 + 1), Quaternion.Euler(0, 90, 0));
         EnemyCharacter _enemyChar = _enemy.GetComponent<EnemyCharacter>();
-        if (!_enemyChar.GetOccupiedTile())
+        if (_enemyChar.GetSpawnableTile())
         {
             _enemyChar.SetOccupiedTile();
             _enemyChar.priority = lastEnnemyPriority;
@@ -117,7 +117,8 @@ public class CharactersManager : MonoBehaviour
         }
         else
         {
-            SpawnEnemyCharacterRandomly();
+            Destroy(_enemy);
+            SpawnEnemyCharacterRandomly(1,ennemyType);
         }
     }
 

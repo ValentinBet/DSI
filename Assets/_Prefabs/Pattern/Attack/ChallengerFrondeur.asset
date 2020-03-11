@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e04a785b6a58c41b6555f260e62676, type: 3}
   m_Name: ChallengerFrondeur
   m_EditorClassIdentifier: 
-  attackType: 0
+  attackType: 1
   tilesAffected:
   - tilesTargetOffset: {x: 0, y: 1}
     projectilePrefab: {fileID: 1453855368044438279, guid: 074f03c001a701d4c965b26583c55502,

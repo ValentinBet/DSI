@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: Order Rotation
-  tileDescription: Tourne le personnage
+  tileDescription: fait faire une rotation
   specificity: 1
   order: 0
   teleportChannel: 0

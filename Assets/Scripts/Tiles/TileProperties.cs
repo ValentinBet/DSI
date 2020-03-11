@@ -77,6 +77,8 @@ public class TileProperties : MonoBehaviour
         {
             if ((!isOccupied) || (isOccupied && occupant == character))
             {
+                print(isOccupied + "------" + (isOccupied && occupant == character));
+                print( "------" + occupant + "-" + character);
                 return true;
             }
         }
@@ -184,8 +186,7 @@ public class TileProperties : MonoBehaviour
 
     public void GetDamaged(int amount)
     {
-        life = life - amount;
-        if (life < 1)
+        if (life <= 0)
         {
             specificity = TilesSpecific.None;
             for (int i = 0; i < toggleActivated.Length; i++)

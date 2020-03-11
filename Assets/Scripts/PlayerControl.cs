@@ -113,7 +113,6 @@ public class PlayerControl : MonoBehaviour
             if (_tile != lastTileHit)
             {
                 lastTileHit = _tile;
-                print(CharactersManager.Instance.allyCharactersPlacer.GetActualAllyToBePlace());
                 //PatternReader.instance.PreviewPattern.EndPreview();
                 //PatternReader.instance.PreviewPattern.ReadPattern(CharactersManager.Instance.allyCharactersPlacer.GetActualAllyToBePlace());
 

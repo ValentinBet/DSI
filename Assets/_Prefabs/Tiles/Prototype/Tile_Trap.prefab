@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: Trap
-  tileDescription: "inflige des d\xE9g\xE2ts"
+  tileDescription: inflige des dommages
   specificity: 7
   order: 0
   teleportChannel: 0

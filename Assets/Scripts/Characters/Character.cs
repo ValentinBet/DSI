@@ -53,7 +53,6 @@ public class Character : MonoBehaviour
     {
         Time.timeScale = 0.2f;
         Application.targetFrameRate = 12;
-        SetOccupiedTile();
     }
 
     private void FixedUpdate()
@@ -71,8 +70,11 @@ public class Character : MonoBehaviour
             {
                 occupiedTile = hit.collider.gameObject.GetComponent<TileProperties>();
 
-                occupiedTile.occupant = this;
-                occupiedTile.isOccupied = true;
+                if (!occupiedTile.isOccupied)
+                {
+                    occupiedTile.occupant = this;
+                    occupiedTile.isOccupied = true;
+                }
             }
         }
     }
@@ -85,7 +87,7 @@ public class Character : MonoBehaviour
         transform.position = tileDestination.transform.position + Vector3.up;
 
         if (tileDestination.isOnFire)
-        {    
+        {
             TakeDamaged(1, true);
         }
 
@@ -103,7 +105,7 @@ public class Character : MonoBehaviour
 
     public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {
-        life =  life - damageAmount;
+        life = life - damageAmount;
         Debug.Log("OUCH");
         if (life < 1)
         {

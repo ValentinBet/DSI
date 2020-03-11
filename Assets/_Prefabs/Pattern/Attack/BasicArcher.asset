@@ -15,6 +15,6 @@ MonoBehaviour:
   attackType: 1
   tilesAffected:
   - tilesTargetOffset: {x: 0, y: 1}
-    projectilePrefab: {fileID: 7175751292259566834, guid: 074f03c001a701d4c965b26583c55502,
+    projectilePrefab: {fileID: 1453855368044438279, guid: 074f03c001a701d4c965b26583c55502,
       type: 3}
     impactValue: 1

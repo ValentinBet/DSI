@@ -53,7 +53,6 @@ public class Character : MonoBehaviour
     {
         Time.timeScale = 0.2f;
         Application.targetFrameRate = 12;
-        SetOccupiedTile();
     }
 
     private void FixedUpdate()
@@ -71,8 +70,11 @@ public class Character : MonoBehaviour
             {
                 occupiedTile = hit.collider.gameObject.GetComponent<TileProperties>();
 
-                occupiedTile.occupant = this;
-                occupiedTile.isOccupied = true;
+                if (!occupiedTile.isOccupied)
+                {
+                    occupiedTile.occupant = this;
+                    occupiedTile.isOccupied = true;
+                }
             }
         }
     }
@@ -104,7 +106,7 @@ public class Character : MonoBehaviour
     public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {
         life = life - damageAmount;
-        Debug.Log("Character Take damage");
+        Debug.Log("OUCH");
         if (life < 1)
         {
             KillCharacter(cancelPattern);
@@ -114,10 +116,9 @@ public class Character : MonoBehaviour
         return true;
     }
 
-    public void GotAttacked(int damageAmount, Character attacker, string context)
+    public void GotAttacked(int damageAmount, Character attacker)
     {
 
-        Debug.Log(this + "is attacked by : " + attacker + " CONTEXT : " + context);
         life -= damageAmount;
         if (life < 1)
         {
@@ -134,6 +135,7 @@ public class Character : MonoBehaviour
 
     public void KillCharacter(bool cancelPattern)
     {
+        Debug.Log("This character died", this);
         myState = CharacterState.Dead;
         occupiedTile.LostOccupant();
 

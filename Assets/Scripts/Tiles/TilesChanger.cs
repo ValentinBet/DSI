@@ -41,26 +41,27 @@ public class TilesChanger : MonoBehaviour
         return null;
     }
 
-    public void TryChangePos(GameObject tile)
+    public bool TryChangePos(GameObject tile)
     {
         if (initTile == null)
         {
             initTile = tile;
+
+            GameObject _swapSprite = GetSwapSpriteInPool();
+
+            if (_swapSprite != null)
+            {
+                _swapSprite.SetActive(true);
+                _swapSprite.transform.position = GridManager.Instance.gridSelector.transform.position;
+            }
         }
-        else
+        else if (tile != initTile)
         {
             lastTile = tile;
-            InitChange();
+            return InitChange();
         }
 
-        GameObject _swapSprite = GetSwapSpriteInPool();
-
-        if (_swapSprite != null)
-        {
-            _swapSprite.SetActive(true);
-            _swapSprite.transform.position = GridManager.Instance.gridSelector.transform.position;
-        }
-
+        return false;
     }
 
     public bool InitChange()
@@ -102,19 +103,30 @@ public class TilesChanger : MonoBehaviour
         rotateSprite.transform.position = GridManager.Instance.gridSelector.transform.position;
     }
 
-    public bool RotateTile()
+    public bool TryRotateTile()
     {
         TileProperties _tp = GridManager.Instance.GetTileUnderSelector();
-        _tp.transform.Rotate(new Vector3(0, 90, 0));
-        AudioManager.Instance.PlayTileRotate();
+
         if (tileRotateList.Contains(_tp))
         {
+            RotateTile(_tp);
             return true;
         }
         else
         {
-            tileRotateList.Add(_tp);
+            if (GameTracker.Instance.IsHavingEnoughtPa())
+            {
+                RotateTile(_tp);
+            }
             return false;
         }
+    }
+
+    private void RotateTile(TileProperties _tp)
+    {
+        _tp.transform.Rotate(new Vector3(0, 90, 0));
+        AudioManager.Instance.PlayTileRotate();
+        initTile = null;
+        tileRotateList.Add(_tp);
     }
 }

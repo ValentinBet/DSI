@@ -67,14 +67,18 @@ public class PlayerControl : MonoBehaviour
 
                     if (isOnSwapMode)
                     {
-                        TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject);
+                        if (TilesManager.TilesChangerInstance.TryChangePos(_tile.gameObject))
+                        {
+                            DoActionWithPANeeded();
+                        }
+
                         UIManager.Instance.DisplayCancelHelpKey(true);
                     }
 
                     if (isOnRotateMode)
                     {
                         TilesManager.TilesChangerInstance.DisplayRotateHint();
-                        if (!TilesManager.TilesChangerInstance.RotateTile())
+                        if (!TilesManager.TilesChangerInstance.TryRotateTile())
                             DoActionWithPANeeded();
                     }
                 }
@@ -82,12 +86,6 @@ public class PlayerControl : MonoBehaviour
 
             if (!isPlacingAllyCharacters)
             {
-                if (Input.GetKeyDown(TileSwapKey) && isOnSwapMode)
-                {
-                    if (TilesManager.TilesChangerInstance.InitChange())
-                        DoActionWithPANeeded();
-                }
-
                 if (Input.GetKeyDown(TileClearKey))
                 {
                     TilesManager.TilesChangerInstance.ClearChoice();
@@ -127,11 +125,9 @@ public class PlayerControl : MonoBehaviour
     {
         EndAllModes();
 
-        if (GameTracker.Instance.IsHavingEnoughtPa())
-        {
-            isOnRotateMode = value;
-            UIManager.Instance.DisplayRotate(value);
-        }
+        isOnRotateMode = value;
+        UIManager.Instance.DisplayRotate(value);
+
     }
 
     public void EndAllModes()

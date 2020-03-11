@@ -192,7 +192,7 @@ public class UIManager : MonoBehaviour
             {
                 GameObject go = Instantiate(lifeItem, heroSlots[i].transform); // Change to pooling
                 go.GetComponent<RectTransform>().localPosition = new Vector3(-1f, -1.1f, 0.0f);
-                go.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, ((+40.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f) - 40.0f * j);
+                go.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, ((-40.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f) + 40.0f * j);
                 lifeDisplays[i, j] = go.transform.GetChild(0).GetComponent<Image>();
             }
         }
@@ -215,7 +215,6 @@ public class UIManager : MonoBehaviour
 
     public void AllyLifeUpdate(int allyID, int value)
     {
-        Debug.Log("OUMPF");
         for (int i = 0; i < heroSlots[allyID].transform.childCount; i++)
         {
             if (i < value)
@@ -237,7 +236,7 @@ public class UIManager : MonoBehaviour
     private void LaunchMode(bool value)
     {
         EndMode();
-        quitModeHelpKey.SetActive(true);
+        quitModeHelpKey.SetActive(value);
         ObjFollowingMouse = value;
         AudioManager.Instance.PlayButtonClick();
     }
@@ -272,6 +271,11 @@ public class UIManager : MonoBehaviour
     public void SetTileMovementObj(bool value)
     {
         tileMovementObj.SetActive(value);
+    }
+
+    public void UpdateWave(int actualWave, int waveAmount)
+    {
+        waveText.text = "Wave " + actualWave+'/'+waveAmount;
     }
 
 }

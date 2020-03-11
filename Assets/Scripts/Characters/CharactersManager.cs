@@ -85,7 +85,7 @@ public class CharactersManager : MonoBehaviour
     }
 
     // Spawn Ennemy characters
-    public void SpawnEnemyCharacterRandomly(int ennemyNumber = 1)
+    public void SpawnEnemyCharacterRandomly(int ennemyNumber = 1,int ennemyType=0)
     {
         List<TileProperties> freeTiles = enemySpawnZone.GetTiles();
 
@@ -93,7 +93,7 @@ public class CharactersManager : MonoBehaviour
         {
             for (int i = 0; i < ennemyNumber; i++)
             {
-                GameObject _enemy = Instantiate(enemyTypeList[0], PickTileRandomly(freeTiles).transform.position + Vector3.up, Quaternion.Euler(0,90,0));
+                GameObject _enemy = Instantiate(enemyTypeList[ennemyType], PickTileRandomly(freeTiles).transform.position + Vector3.up, Quaternion.Euler(0,90,0));
                 EnemyCharacter _enemyChar = _enemy.GetComponent<EnemyCharacter>();
                 _enemyChar.SetOccupiedTile();
                 _enemyChar.priority = lastEnnemyPriority;
@@ -106,12 +106,19 @@ public class CharactersManager : MonoBehaviour
     //Used for Waves
     public void SpawnEnemyCharacterAtPos(Vector2 gridPos)
     {
-        GameObject _enemy = Instantiate(enemyTypeList[0], new Vector3(gridPos.x * 2 + 1, 0, gridPos.y * 2 + 1) + Vector3.up, Quaternion.Euler(0, 90, 0));
+        GameObject _enemy = Instantiate(enemyTypeList[0], new Vector3(gridPos.x * 2 + 1, 1, gridPos.y * 2 + 1), Quaternion.Euler(0, 90, 0));
         EnemyCharacter _enemyChar = _enemy.GetComponent<EnemyCharacter>();
-        _enemyChar.SetOccupiedTile();
-        _enemyChar.priority = lastEnnemyPriority;
-        enemyCharacters.Add(_enemyChar);
-        lastEnnemyPriority++;
+        if (!_enemyChar.GetOccupiedTile())
+        {
+            _enemyChar.SetOccupiedTile();
+            _enemyChar.priority = lastEnnemyPriority;
+            enemyCharacters.Add(_enemyChar);
+            lastEnnemyPriority++;
+        }
+        else
+        {
+            SpawnEnemyCharacterRandomly();
+        }
     }
 
     public void SpawnWave(Wave wave)

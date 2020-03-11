@@ -77,8 +77,6 @@ public class TileProperties : MonoBehaviour
         {
             if ((!isOccupied) || (isOccupied && occupant == character))
             {
-                print(isOccupied + "------" + (isOccupied && occupant == character));
-                print( "------" + occupant + "-" + character);
                 return true;
             }
         }

@@ -7,6 +7,7 @@ public class TileImpact : MonoBehaviour
     public AnimationCurve multiplier = AnimationCurve.Linear(0, 0, 1, 1);
     [Range(0.1f, 3f)]
     public float totalAnimationTime = 0.2f;
+    private float animationTime;
 
     private bool impactEnable;
     private Transform _transform;
@@ -23,8 +24,16 @@ public class TileImpact : MonoBehaviour
     }
 
 
-    public void ActivateImpact(float impactValue)
+    public void ActivateImpact(float impactValue , float time = 0)
     {
+        if (time <= 0)
+        {
+            animationTime = totalAnimationTime;
+        }
+        else
+        {
+            animationTime = time;
+        }
         impactEnable = true;
         timer = 0f;
         _impactValue = impactValue;
@@ -35,7 +44,7 @@ public class TileImpact : MonoBehaviour
 
     private void UpdatePos()
     {
-        float yDisplacment = initialPosY + (multiplier.Evaluate(timer / totalAnimationTime)) * _impactValue;
+        float yDisplacment = initialPosY + (multiplier.Evaluate(timer / animationTime)) * _impactValue;
         _transform.position = new Vector3(_transform.position.x, yDisplacment, _transform.position.z);
     }
 

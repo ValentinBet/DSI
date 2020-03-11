@@ -29,7 +29,7 @@ public class ProjectileBeheviour : MonoBehaviour
     {
         if (isInit)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * 6);
+            transform.Translate(Vector3.forward * Time.deltaTime * 10);
 
             TileProperties testedTile = GetCurrentTile(2);
             if (testedTile == null)
@@ -77,6 +77,8 @@ public class ProjectileBeheviour : MonoBehaviour
             //DestroyProjectile();
             return;
         }
+        testedTile.tileImpact.ActivateImpact(0.4f , 0.3f);
+
 
         if (testedTile.specificity != TileProperties.TilesSpecific.PlayerBase)
         {
@@ -123,7 +125,7 @@ public class ProjectileBeheviour : MonoBehaviour
 
             case TileProperties.TilesSpecific.Wall:
 
-                testedTile.GetDamaged(1);
+                testedTile.GetDamaged(_shooter.damage);
                 DestroyProjectile();
                 break;
             case TileProperties.TilesSpecific.Teleport:

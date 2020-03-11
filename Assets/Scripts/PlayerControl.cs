@@ -104,21 +104,6 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (isPlacingAllyCharacters)
-        {
-            TileProperties _tile = GridManager.Instance.GetTileUnderSelector();
-
-            if (_tile != lastTileHit)
-            {
-                lastTileHit = _tile;
-                //PatternReader.instance.PreviewPattern.EndPreview();
-                //PatternReader.instance.PreviewPattern.ReadPattern(CharactersManager.Instance.allyCharactersPlacer.GetActualAllyToBePlace());
-
-            }
-        }
-    }
 
     private void DoActionWithPANeeded(int pa = 1)
     {

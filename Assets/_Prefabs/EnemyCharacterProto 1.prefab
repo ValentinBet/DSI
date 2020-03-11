@@ -65,18 +65,18 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   priority: 0
   myState: 0
-  characterType: 0
-  combatStyle: 0
+  characterType: 1
+  combatStyle: 1
   isAlly: 0
-  mouvementPattern: {fileID: 11400000, guid: 48cfd84f6390b034dbb13c2e4bd5f7a2, type: 2}
-  AttackPattern: {fileID: 11400000, guid: 69daccda306d85d4fbb0aec64392d58f, type: 2}
+  mouvementPattern: {fileID: 11400000, guid: e477f0827df0aa841bf1c7924ff8968a, type: 2}
+  AttackPattern: {fileID: 11400000, guid: d0314552a36062240855b8d17fc13b62, type: 2}
   pathFinding: []
   tilesColored: []
   occupiedTile: {fileID: 0}
   ObjectTypeMetaData: {fileID: 11400000, guid: abe8fba56004a4e4eb54d4c4ae602581, type: 2}
   character_sprite: {fileID: 7426566809267760232}
-  enemyName: 
-  enemyDescription: 
+  enemyName: Challenger Frondeur
+  enemyDescription: "M\xE9chant M\xE9chant"
   xpEarnWhenKill: 10
 --- !u!1 &7426566809267760232
 GameObject:

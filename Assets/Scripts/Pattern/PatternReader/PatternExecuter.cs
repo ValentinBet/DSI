@@ -421,7 +421,7 @@ public class PatternExecuter : MonoBehaviour
             }
         }
 
-        character.EndAnim("Attacking");
+        // character.EndAnim("Attacking");
 
         if (character.AttackPattern.attackType == AttackType.Zone || !useCharacterPattern)
         {

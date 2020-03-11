@@ -66,7 +66,7 @@ MonoBehaviour:
   priority: 0
   myState: 0
   characterType: 2
-  combatStyle: 0
+  combatStyle: 1
   isAlly: 1
   mouvementPattern: {fileID: 11400000, guid: addad5cc1eb28254681f323c94b30c64, type: 2}
   AttackPattern: {fileID: 11400000, guid: 54ee4c15a4250b04a877e2fb5c571ded, type: 2}

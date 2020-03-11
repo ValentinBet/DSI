@@ -113,7 +113,6 @@ public class TileProperties : MonoBehaviour
 
     public Vector3 GetCurrentForward()
     {
-        Debug.DrawLine(transform.position, (transform.position + (transform.forward * 3)) + new Vector3(0, 1, 0), Color.cyan, 2);
         return transform.forward;
     }
 
@@ -188,10 +187,10 @@ public class TileProperties : MonoBehaviour
         if (life <= 0)
         {
             specificity = TilesSpecific.None;
-            //sR.sprite = secondaryIcon;
             for (int i = 0; i < toggleActivated.Length; i++)
             {
                 toggleActivated[i].SetActive(false);
+                isWalkable = true;
             }
         }
     }

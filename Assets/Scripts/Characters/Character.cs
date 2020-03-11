@@ -103,8 +103,8 @@ public class Character : MonoBehaviour
 
     public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {
-        life -= damageAmount;
-
+        life =  life - damageAmount;
+        Debug.Log("OUCH");
         if (life < 1)
         {
             KillCharacter(cancelPattern);
@@ -198,6 +198,7 @@ public class Character : MonoBehaviour
         if (character_sprite != null)
         {
             character_sprite.transform.LookAt(Camera.main.transform);
+            character_sprite.transform.localScale = 0.5f * Vector3.one;
         }
 
     }

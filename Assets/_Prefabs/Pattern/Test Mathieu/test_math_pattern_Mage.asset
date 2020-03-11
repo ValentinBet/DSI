@@ -33,7 +33,7 @@ MonoBehaviour:
   - actionDuration: 0.5
     previewDuration: 0
     actionType: 1
-    rotation: 1
+    rotation: 0
   - actionDuration: 0.5
     previewDuration: 0
     actionType: 2

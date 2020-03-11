@@ -78,6 +78,7 @@ MonoBehaviour:
   toggleOnAttackPreview: []
   toggleOnAttack: []
   previewItem: []
+  tileImpact: {fileID: 0}
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 1
@@ -115,6 +116,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2044990667826019264}
     m_Modifications:
+    - target: {fileID: 3227795682579692926, guid: d9c0665a46a40674f9afe397686c5df5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d93a1147605835c40afa267cdd7cb48d, type: 2}
     - target: {fileID: 5566558386063045165, guid: d9c0665a46a40674f9afe397686c5df5,
         type: 3}
       propertyPath: m_Name

@@ -89,12 +89,12 @@ public class ProjectileBeheviour : MonoBehaviour
         {
             if (isOnFire)
             {
-                testedTile.occupant.GotAttacked(_shooter.damage + 1, _shooter);
+                testedTile.occupant.GotAttacked(_shooter.damage + 1, _shooter , "by projectile on fire");
                 DestroyProjectile();
             }
             else
             {
-                testedTile.occupant.GotAttacked(_shooter.damage, _shooter);
+                testedTile.occupant.GotAttacked(_shooter.damage, _shooter , "by projectile");
                 DestroyProjectile();
             }
         }

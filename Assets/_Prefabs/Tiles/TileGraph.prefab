@@ -104,8 +104,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.13417053
-      value: -1.0012817
+      time: 0.122024536
+      value: -0.60028076
       inSlope: -0.254259
       outSlope: 1.3347055
       tangentMode: 1
@@ -124,4 +124,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  totalAnimationTime: 0.6
+  totalAnimationTime: 0.5

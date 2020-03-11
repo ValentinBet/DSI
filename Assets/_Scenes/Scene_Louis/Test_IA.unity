@@ -16738,6 +16738,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 567622884}
     m_Modifications:
+    - target: {fileID: -2733430505101648800, guid: fd2e629bea171be42bae356d90b89ae4,
+        type: 3}
+      propertyPath: life
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2044990667826019264, guid: fd2e629bea171be42bae356d90b89ae4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23072,7 +23077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30416ed101a03b74c90dda7d71d7c470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
+  life: 1
   damage: 1
   AttackRange: 1
   movementRange: 3

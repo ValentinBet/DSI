@@ -73,7 +73,7 @@ public class PatternExecuter : MonoBehaviour
             case ActionType.Movement:
                 if (testedTile != null)
                 {
-                    if (testedTile.isOccupied)
+                    if (testedTile.isOccupied || testedTile.specificity == TileProperties.TilesSpecific.Wall)
                     {
                         if (character.combatStyle == CombatStyle.closeCombat)
                         {
@@ -134,7 +134,7 @@ public class PatternExecuter : MonoBehaviour
         {
             if (bonusAction)
             {
-                newTile.occupant.GotAttacked(1, character);
+                newTile.occupant.GotAttacked(1, character , "attacker pushed");
                 TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.attackMat);
                 tileColoredDuringPattern.Add(newTile);
                 StartCoroutine(GetDamaged(pattern, character, index, depth, false, 1));
@@ -481,7 +481,7 @@ public class PatternExecuter : MonoBehaviour
         {
             if (targetTile.occupant != null)
             {
-                targetTile.occupant.GotAttacked(character.damage, character);
+                targetTile.occupant.GotAttacked(character.damage, character , "attack on target");
             }
         }
     }
@@ -511,12 +511,10 @@ public class PatternExecuter : MonoBehaviour
 
         if (index < depth && continuePattern)
         {
-            Debug.Log("NextAction");
             StartCoroutine(NextAction(pattern.actions[index].actionDuration, character, pattern, index, depth));
         }
         else
         {
-            Debug.Log("no more action");
             StartCoroutine(StopPattern(character));
         }
     }

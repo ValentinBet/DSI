@@ -85,7 +85,7 @@ public class Character : MonoBehaviour
         transform.position = tileDestination.transform.position + Vector3.up;
 
         if (tileDestination.isOnFire)
-        {    
+        {
             TakeDamaged(1, true);
         }
 
@@ -103,8 +103,8 @@ public class Character : MonoBehaviour
 
     public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {
-        life =  life - damageAmount;
-        Debug.Log("OUCH");
+        life = life - damageAmount;
+        Debug.Log("Character Take damage");
         if (life < 1)
         {
             KillCharacter(cancelPattern);
@@ -114,9 +114,10 @@ public class Character : MonoBehaviour
         return true;
     }
 
-    public void GotAttacked(int damageAmount, Character attacker)
+    public void GotAttacked(int damageAmount, Character attacker, string context)
     {
 
+        Debug.Log(this + "is attacked by : " + attacker + " CONTEXT : " + context);
         life -= damageAmount;
         if (life < 1)
         {
@@ -133,7 +134,6 @@ public class Character : MonoBehaviour
 
     public void KillCharacter(bool cancelPattern)
     {
-        Debug.Log("This character died", this);
         myState = CharacterState.Dead;
         occupiedTile.LostOccupant();
 

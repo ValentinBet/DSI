@@ -490,7 +490,6 @@ public class PreviewPatternV2 : MonoBehaviour
   
         if (index < depth && continuePattern)
         {
-            Debug.Log("NextAction");
             StartCoroutine(NextAction(timeBetweenAction, index, depth));
         }
         else

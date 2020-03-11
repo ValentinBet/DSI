@@ -16,9 +16,9 @@ MonoBehaviour:
   actions:
   - actionDuration: 0
     previewDuration: 0
-    actionType: 0
+    actionType: 1
     rotation: 0
   - actionDuration: 0
     previewDuration: 0
-    actionType: 0
+    actionType: 2
     rotation: 0

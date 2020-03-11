@@ -83,10 +83,12 @@ public class Character : MonoBehaviour
         occupiedTile.occupant = null;
 
         transform.position = tileDestination.transform.position + Vector3.up;
+
         if (tileDestination.isOnFire)
         {    
             TakeDamaged(1, true);
         }
+
         SetOccupiedTile();
     }
 
@@ -98,10 +100,6 @@ public class Character : MonoBehaviour
             tMR.material = PatternReader.instance.attackMat;
         }
     }
-
-
-
-
 
     public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {

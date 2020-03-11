@@ -38,11 +38,10 @@ public class TileProperties : MonoBehaviour
     public bool isMovable;
     public bool isActivated;
     public bool isOnFire;
-
-
+    public bool spawnable = false;
     public LayerMask TileLayer;
 
-    [HideInInspector] public bool isAllySpawnable = false;
+    public bool isAllySpawnable = false;
 
 
     private void Start()
@@ -72,12 +71,16 @@ public class TileProperties : MonoBehaviour
             }
         }
     }
-    public bool CharacterCanSpawn()
+    public bool CharacterCanSpawn(Character character = null)
     {
-        if (isWalkable && !isOccupied)
+        if (isWalkable && spawnable)
         {
-            return true;
+            if ((!isOccupied) || (isOccupied && occupant == character))
+            {
+                return true;
+            }
         }
+
         return false;
     }
 

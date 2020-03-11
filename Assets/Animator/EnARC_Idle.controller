@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c074143144ac3fe448e7f5de0e45ab73, type: 2}
+  m_Motion: {fileID: 0}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -83,7 +83,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cac_Idle
+  m_Name: EnARC_Idle
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Attacking
@@ -112,7 +112,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CAC_Jaune
+  m_Name: En ARC_Bleu
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -126,7 +126,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6b4ea785116a30243a9a8d779368361f, type: 2}
+  m_Motion: {fileID: 7400000, guid: bb1006c0f2bfae843a676fef25a801e6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

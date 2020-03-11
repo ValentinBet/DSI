@@ -59,6 +59,10 @@ public class Character : MonoBehaviour
     {
         LookAtCamera();
     }
+    private void LateUpdate()
+    {
+        UpdateOrientation();
+    }
 
     public void SetOccupiedTile()
     {
@@ -232,9 +236,21 @@ public class Character : MonoBehaviour
         if (character_sprite != null)
         {
             character_sprite.transform.LookAt(Camera.main.transform);
-            character_sprite.transform.localScale = 0.5f * Vector3.one;
+
         }
 
+    }
+
+    private void UpdateOrientation()
+    {
+        if ((transform.rotation.eulerAngles.y > -135.0f && transform.rotation.eulerAngles.y < 45.0f) || (transform.rotation.eulerAngles.y > 225.0f && transform.rotation.eulerAngles.y < 405.0f))
+        {
+            character_sprite.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+        }
+        else
+        {
+            character_sprite.transform.localScale = 0.5f * Vector3.one;
+        }
     }
 }
 

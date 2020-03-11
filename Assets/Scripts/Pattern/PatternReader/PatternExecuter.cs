@@ -360,7 +360,7 @@ public class PatternExecuter : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         TileProperties teleportExit = character.occupiedTile.GetTeleportExit();
-        if (teleportExit == null && !teleportExit.isOccupied)
+        if (teleportExit == null || teleportExit.isOccupied)
         {
             ActionEnd(pattern, character.occupiedTile, character, index, depth);
         }

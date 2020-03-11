@@ -47,7 +47,7 @@ public class Character : MonoBehaviour
 
     public ObjectTypeMetaData ObjectTypeMetaData;
 
-    public GameObject ally_sprite;
+    public GameObject character_sprite;
 
     private void Start()
     {
@@ -197,9 +197,9 @@ public class Character : MonoBehaviour
 
     public void LookAtCamera()
     {
-        if (ally_sprite != null)
+        if (character_sprite != null)
         {
-            ally_sprite.transform.LookAt(Camera.main.transform);
+            character_sprite.transform.LookAt(Camera.main.transform);
         }
 
     }

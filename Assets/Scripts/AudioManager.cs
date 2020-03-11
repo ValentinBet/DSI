@@ -7,7 +7,9 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } }
 
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource as_main;
+    [SerializeField] private AudioSource as_backgroundMusic;
+    [SerializeField] private float backgroundMusicBaseVolume = 0f;
 
     [Header("Tiles")]
     [SerializeField] private AudioClip swap;
@@ -59,103 +61,113 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    private void Start()
+    {
+        as_backgroundMusic.volume = backgroundMusicBaseVolume;
+    }
+
+    private void FixedUpdate()
+    {
+        as_backgroundMusic.volume = Mathf.Lerp(as_backgroundMusic.volume, AudioListener.volume, Time.deltaTime);
+    }
+
     public void PlayFootsteps()
     {
-        audioSource.PlayOneShot(footstepList[Random.Range(0, footstepList.Count)]);
+        as_main.PlayOneShot(footstepList[Random.Range(0, footstepList.Count)]);
     }
 
     public void PlayTileRotate()
     {
-        audioSource.PlayOneShot(sfxRotateList[Random.Range(0, sfxRotateList.Count)]);
+        as_main.PlayOneShot(sfxRotateList[Random.Range(0, sfxRotateList.Count)]);
     }
     public void PlaySwap()
     {
-        audioSource.PlayOneShot(swap);
+        as_main.PlayOneShot(swap);
     }
     public void PlaySelectTile()
     {
-        audioSource.PlayOneShot(selectTile);
+        as_main.PlayOneShot(selectTile);
     }
 
     public void PlayWallDestruct()
     {
-        audioSource.PlayOneShot(wallDestruct);
+        as_main.PlayOneShot(wallDestruct);
     }
     public void PlayWallHit()
     {
-        audioSource.PlayOneShot(wallHit);
+        as_main.PlayOneShot(wallHit);
     }
     public void PlayProjectileWallHit()
     {
-        audioSource.PlayOneShot(projectileWallHit);
+        as_main.PlayOneShot(projectileWallHit);
     }
     public void PlayTeleport()
     {
-        audioSource.PlayOneShot(teleport);
+        as_main.PlayOneShot(teleport);
     }
     public void PlayPush()
     {
-        audioSource.PlayOneShot(push);
+        as_main.PlayOneShot(push);
     }
     public void PlayAoeHit()
     {
-        audioSource.PlayOneShot(aoeHit);
+        as_main.PlayOneShot(aoeHit);
     }
     public void PlayAoeLaunch()
     {
-        audioSource.PlayOneShot(aoeLaunch);
+        as_main.PlayOneShot(aoeLaunch);
     }
     public void PlayCloseAttack()
     {
-        audioSource.PlayOneShot(closeAttack);
+        as_main.PlayOneShot(closeAttack);
     }
     public void PlayShootProjectile()
     {
-        audioSource.PlayOneShot(shootProjectile);
+        as_main.PlayOneShot(shootProjectile);
     }
     public void Playdefeat()
     {
-        audioSource.PlayOneShot(defeat);
+        as_main.PlayOneShot(defeat);
     }
     public void PlayVictory()
     {
-        audioSource.PlayOneShot(victory);
+        as_main.PlayOneShot(victory);
     }
     public void PlayEndTurn()
     {
-        audioSource.PlayOneShot(endTurn);
+        as_main.PlayOneShot(endTurn);
     }
     public void PlayButtonClick()
     {
-        audioSource.PlayOneShot(buttonClick);
+        as_main.PlayOneShot(buttonClick);
     }
     public void PlayNewTurn()
     {
-        audioSource.PlayOneShot(newTurn);
+        as_main.PlayOneShot(newTurn);
     }
     public void PlayProjectileCharacterHit()
     {
-        audioSource.PlayOneShot(projectileCharacterHit);
+        as_main.PlayOneShot(projectileCharacterHit);
     }
     public void PlayCharacterDie()
     {
-        audioSource.PlayOneShot(characterDie);
+        as_main.PlayOneShot(characterDie);
     }
     public void PlayCharacterHit()
     {
-        audioSource.PlayOneShot(characterHit);
+        as_main.PlayOneShot(characterHit);
     }
     public void PlayCharacterRotate()
     {
-        audioSource.PlayOneShot(characterRotate);
+        as_main.PlayOneShot(characterRotate);
     }
     public void PlayAllyDie()
     {
-        audioSource.PlayOneShot(allyDie);
+        as_main.PlayOneShot(allyDie);
     }
     public void PlayLevelUp()
     {
-        audioSource.PlayOneShot(levelUp);
+        as_main.PlayOneShot(levelUp);
     }
 
 }

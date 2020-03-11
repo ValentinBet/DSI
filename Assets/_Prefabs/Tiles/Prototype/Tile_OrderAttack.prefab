@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 2044990667826019264}
   - component: {fileID: 2044990667826019269}
   - component: {fileID: -2733430505101648800}
+  - component: {fileID: 2376781605694627596}
   m_Layer: 9
   m_Name: Tile_OrderAttack
   m_TagString: Untagged
@@ -176,9 +177,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: Order Attack
   tileDescription: "D\xE9clenche un pattern d'attaque"
+  specificity: 1
+  order: 1
+  teleportChannel: 0
   sR: {fileID: 3052919043448456675}
   icon: {fileID: 21300000, guid: dbf0050e9daa83b4aa3caeeedde35e2e, type: 3}
   secondaryIcon: {fileID: 0}
+  mR: {fileID: 1832763035720817468}
+  ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
+  baseMat: {fileID: 0}
+  damageToDeal: 0
+  life: 0
+  occupant: {fileID: 0}
+  toggleActivated: []
+  toggleOnAttackPreview: []
+  toggleOnAttack: []
+  previewItem:
+  - {fileID: 5838491204238514870}
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 1
@@ -186,19 +201,29 @@ MonoBehaviour:
   isMovable: 1
   isActivated: 0
   isOnFire: 0
-  damageToDeal: 0
-  life: 0
-  specificity: 1
-  teleportChannel: 0
-  order: 1
   TileLayer:
     serializedVersion: 2
     m_Bits: 512
-  ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   isAllySpawnable: 0
-  mR: {fileID: 1832763035720817468}
-  baseMat: {fileID: 0}
-  occupant: {fileID: 0}
+--- !u!95 &2376781605694627596
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044990667826019268}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4cdfd00c9e2897b4ebc209a829052d4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4258998324482740666
 GameObject:
   m_ObjectHideFlags: 0

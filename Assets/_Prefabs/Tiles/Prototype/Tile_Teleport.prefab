@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &-9185675509316724996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3489165402810594901}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2716599217869660158}
+  m_Layer: 0
+  m_Name: Teleporter (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2716599217869660158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3489165402810594901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: -9185675509316724996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5604294029115415537}
+  m_Father: {fileID: 2044990667826019264}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &-6772886796938903610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3489165402810594901}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5604294029115415537}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5604294029115415537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9055176206439148964, guid: 50953bb501fd7c941b7c18ed4a2b04a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3489165402810594901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: -6772886796938903610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2716599217869660158}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364836174858612229
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +184,7 @@ GameObject:
   - component: {fileID: 2044990667826019264}
   - component: {fileID: 2044990667826019269}
   - component: {fileID: -2733430505101648800}
+  - component: {fileID: 7782959062791431756}
   m_Layer: 9
   m_Name: Tile_Teleport
   m_TagString: Untagged
@@ -142,7 +205,7 @@ Transform:
   m_Children:
   - {fileID: 2413896912057247169}
   - {fileID: 4484086086752802880}
-  - {fileID: 5604294029115415537}
+  - {fileID: 2716599217869660158}
   - {fileID: 4435706430618036200}
   - {fileID: 3322259415547349355}
   m_Father: {fileID: 0}
@@ -175,9 +238,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: Teleporteur
   tileDescription: 'Teleporte et oriente le personnage '
+  specificity: 6
+  order: 0
+  teleportChannel: 0
   sR: {fileID: 4063166328878829511}
   icon: {fileID: 21300000, guid: ce9404e4994e5174282fba58c36a60d9, type: 3}
   secondaryIcon: {fileID: 0}
+  mR: {fileID: 8456458066291314940}
+  ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
+  baseMat: {fileID: 0}
+  damageToDeal: 0
+  life: 0
+  occupant: {fileID: 0}
+  toggleActivated: []
+  toggleOnAttackPreview: []
+  toggleOnAttack: []
+  previewItem: []
   tileID: {x: 0, y: 0}
   canSeeThrough: 0
   isWalkable: 1
@@ -185,19 +261,29 @@ MonoBehaviour:
   isMovable: 1
   isActivated: 0
   isOnFire: 0
-  damageToDeal: 0
-  life: 0
-  specificity: 6
-  teleportChannel: 0
-  order: 0
   TileLayer:
     serializedVersion: 2
     m_Bits: 512
-  ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   isAllySpawnable: 0
-  mR: {fileID: 8456458066291314940}
-  baseMat: {fileID: 0}
-  occupant: {fileID: 0}
+--- !u!95 &7782959062791431756
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044990667826019268}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4cdfd00c9e2897b4ebc209a829052d4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7665545553763991406
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,12 +599,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50953bb501fd7c941b7c18ed4a2b04a2, type: 3}
---- !u!4 &5604294029115415537 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9055176206439148964, guid: 50953bb501fd7c941b7c18ed4a2b04a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 3489165402810594901}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6453711990710103426
 PrefabInstance:
   m_ObjectHideFlags: 0

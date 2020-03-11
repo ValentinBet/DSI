@@ -185,9 +185,11 @@ public class TileProperties : MonoBehaviour
     public void GetDamaged(int amount)
     {
         life -= amount;
+        //AudioManager.Instance.PlayWallHit();
         if (life <= 0)
         {
             specificity = TilesSpecific.None;
+            AudioManager.Instance.PlayWallDestruct();
             for (int i = 0; i < toggleActivated.Length; i++)
             {
                 toggleActivated[i].SetActive(false);

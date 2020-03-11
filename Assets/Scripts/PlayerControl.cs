@@ -90,10 +90,33 @@ public class PlayerControl : MonoBehaviour
 
             if (!isPlacingAllyCharacters)
             {
+                if (Input.GetKeyDown(TileRotateKey))
+                {
+                    if (isOnRotateMode)
+                    {
+                        SetRotateMode(false);
+                    }
+                    else
+                    {
+                        SetRotateMode(true);
+                    }
+                }
+
+                if (Input.GetKeyDown(TileSwapKey))
+                {
+                    if (isOnSwapMode)
+                    {
+                        SetSwapMode(false);
+                    }
+                    else
+                    {
+                        SetSwapMode(true);
+                    }
+                }
+
                 if (Input.GetKeyDown(TileClearKey))
                 {
-                    TilesManager.TilesChangerInstance.ClearChoice();
-                    UIManager.Instance.DisplayCancelHelpKey(false);
+                    Cancel();
                 }
 
                 if (Input.GetKeyDown(TileQuitKey))
@@ -113,6 +136,12 @@ public class PlayerControl : MonoBehaviour
         {
             EndAllModes();
         }
+    }
+
+    public void Cancel()
+    {
+        TilesManager.TilesChangerInstance.ClearChoice();
+        UIManager.Instance.DisplayCancelHelpKey(false);
     }
 
     public void SetSwapMode(bool value)

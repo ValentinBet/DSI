@@ -47,6 +47,7 @@ public class GameTracker : MonoBehaviour
             if ((alliesRemaining < 1 || baseLife < 1))
             {
                 //Defeat
+                Debug.Log("defeat");
                 InitiatingEndGame = true;
                 GameManager.Instance.LoseActualLevel();
 
@@ -54,6 +55,7 @@ public class GameTracker : MonoBehaviour
             else if (enemiesRemaining < 1 && wavesRemaining < 1)
             {
                 //Win
+                Debug.Log("win");
                 InitiatingEndGame = true;
                 GameManager.Instance.WinActualLevel();
             }

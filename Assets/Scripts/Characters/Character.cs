@@ -24,6 +24,7 @@ public class Character : MonoBehaviour
 {
     [Header("Properties")]
     public int life;
+    public int maxLife;
     public int damage;
     public float AttackRange;
     public int movementRange;

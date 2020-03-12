@@ -11,13 +11,13 @@ public class VFXGestion : MonoBehaviour
     public VFXAsset attack;
 
 
-    public void toggleVFx(GameObject vfx, bool activate, bool haveAWaitingTime = false, float duration = 0)
+    public void toggleVFx(GameObject vfx, bool activate, bool haveADesactivationTime = false, float duration = 0)
     {
-        if (haveAWaitingTime)
-        {
-            StartCoroutine(toggleVFx(vfx, activate, duration));
-        }
         vfx.SetActive(activate);
+        if (haveADesactivationTime)
+        {
+            StartCoroutine(toggleVFx(vfx, !activate, duration));
+        }
     }
 
     private IEnumerator toggleVFx(GameObject vfx, bool activate, float duration)

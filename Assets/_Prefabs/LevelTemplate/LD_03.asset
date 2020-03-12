@@ -116,13 +116,13 @@ MonoBehaviour:
     currentOrientation: 2
   - prefab: {fileID: 2044990667826019268, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
       type: 3}
-    currentOrientation: 2
+    currentOrientation: 0
   - prefab: {fileID: 2044990667826019268, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
       type: 3}
     currentOrientation: 2
-  - prefab: {fileID: 2044990667826019268, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
+  - prefab: {fileID: 2044990667826019268, guid: fbeecf3f6aaf07140a3d2803a6d5c896,
       type: 3}
-    currentOrientation: 2
+    currentOrientation: 0
   - prefab: {fileID: 2044990667826019268, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
       type: 3}
     currentOrientation: 2
@@ -180,9 +180,9 @@ MonoBehaviour:
   - prefab: {fileID: 2044990667826019268, guid: fd2e629bea171be42bae356d90b89ae4,
       type: 3}
     currentOrientation: 2
-  - prefab: {fileID: 2044990667826019268, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
+  - prefab: {fileID: 2044990667826019268, guid: 2c0c6c05d48a64642a76d97784b26669,
       type: 3}
-    currentOrientation: 2
+    currentOrientation: 0
   - prefab: {fileID: 2044990667826019268, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
       type: 3}
     currentOrientation: 2
@@ -192,7 +192,7 @@ MonoBehaviour:
   - prefab: {fileID: 2044990667826019268, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
       type: 3}
     currentOrientation: 2
-  - prefab: {fileID: 2044990667826019268, guid: 2c0c6c05d48a64642a76d97784b26669,
+  - prefab: {fileID: 2044990667826019268, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
       type: 3}
     currentOrientation: 0
   - prefab: {fileID: 2044990667826019268, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,

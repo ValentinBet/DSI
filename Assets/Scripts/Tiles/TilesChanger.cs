@@ -108,20 +108,25 @@ public class TilesChanger : MonoBehaviour
     {
         TileProperties _tp = GridManager.Instance.GetTileUnderSelector();
 
-        if (tileRotateList.Contains(_tp))
+        if (_tp.isRotatable)
         {
-            RotateTile(_tp);
-            return true;
-        }
-        else
-        {
-            if (GameTracker.Instance.IsHavingEnoughtPa())
+            if (tileRotateList.Contains(_tp))
             {
                 RotateTile(_tp);
+                return true;
             }
+            else
+            {
+                if (GameTracker.Instance.IsHavingEnoughtPa())
+                {
+                    RotateTile(_tp);
+                }
 
-            return false;
+                return false;
+            }
         }
+        return true; // TRUE renvoi une action ne nécessitant aucun PA
+
     }
 
     private void RotateTile(TileProperties _tp)

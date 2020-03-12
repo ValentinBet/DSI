@@ -66,8 +66,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 4732418314923231360}
-  icon: {fileID: 21300000, guid: 7bef9bbae06b3e44a85eeefe089b56c0, type: 3}
-  secondaryIcon: {fileID: 21300000, guid: c41fc2f2f15224249a79f9c8b2dd1f04, type: 3}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 6449567957263279652}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -121,7 +120,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d93a1147605835c40afa267cdd7cb48d, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5566558386063045165, guid: d9c0665a46a40674f9afe397686c5df5,
         type: 3}
       propertyPath: m_Name

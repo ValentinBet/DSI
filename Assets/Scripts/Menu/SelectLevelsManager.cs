@@ -73,6 +73,17 @@ public class SelectLevelsManager : MonoBehaviour
         SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
     }
 
+    public void UnlockAllLevels()
+    {
+        for (int i = 0; i < yearButtonTextList.Count; i++)
+        {
+            yearButtonTextList[i].transform.parent.localScale = Vector3.one;
+            yearButtonTextList[i].GetComponentInParent<Button>().interactable = true;
+            yearButtonTextList[i].GetComponentInParent<Image>().sprite = actualSprite;
+            stateTextList[i].text = "Click to Play !";
+        }
+    }
+
     public void LoadSceneAdditive(string sceneName)
     {
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);

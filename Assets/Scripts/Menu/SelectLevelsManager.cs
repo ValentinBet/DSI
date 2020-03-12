@@ -12,6 +12,10 @@ public class SelectLevelsManager : MonoBehaviour
 
     [Header("Launch Button")]
     [SerializeField] private List<TextMeshProUGUI> yearButtonTextList = new List<TextMeshProUGUI>();
+    [SerializeField] private List<Text> stateTextList = new List<Text>();
+    [SerializeField] private Sprite lockedSprite;
+    [SerializeField] private Sprite actualSprite;
+    [SerializeField] private Sprite clearedSprite;
 
     [Header("Game Infos")]
     [SerializeField] private GameObject[] lifePointsElements;
@@ -22,6 +26,7 @@ public class SelectLevelsManager : MonoBehaviour
     [Header("Quests")]
     [SerializeField] private GameObject questsLayout;
 
+
     private void Start()
     {
         InitVisuals();
@@ -31,7 +36,24 @@ public class SelectLevelsManager : MonoBehaviour
     {
         for (int i = 0; i < yearButtonTextList.Count; i++)
         {
-            yearButtonTextList[i].text = "Year " + (GameSettings.FIRST_YEAR + GameInfoManager.GameData.yearSurvived) + i;
+            yearButtonTextList[i].text = "Level " + (GameInfoManager.GameData.yearSurvived + i).ToString();//(GameSettings.FIRST_YEAR + GameInfoManager.GameData.yearSurvived) + i;
+            if (i != GameInfoManager.GameData.yearSurvived - (3 - GameInfoManager.GameData.lifePoints))
+            {
+                if (i < GameInfoManager.GameData.yearSurvived - (3 - GameInfoManager.GameData.lifePoints))
+                {
+                    yearButtonTextList[i].GetComponentInParent<Image>().sprite = clearedSprite;
+                }
+                else
+                {
+                    yearButtonTextList[i].GetComponentInParent<Image>().sprite = lockedSprite;
+                }
+                yearButtonTextList[i].transform.parent.localScale = Vector3.one * 0.7f;
+                yearButtonTextList[i].GetComponentInParent<Button>().interactable = false;
+            }
+            else
+            {
+                yearButtonTextList[i].GetComponentInParent<Image>().sprite = actualSprite;
+            }
         }
 
         for (int i =0; i < GameInfoManager.GameData.lifePoints && i < lifePointsElements.Length;i++)
@@ -44,6 +66,11 @@ public class SelectLevelsManager : MonoBehaviour
     public void LaunchGame(string scene)
     {
         SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
+    }
+
+    public void LoadSceneAdditive(string sceneName)
+    {
+        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
     }
 
     public void UnloadLevelsScene()

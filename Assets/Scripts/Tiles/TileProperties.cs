@@ -188,6 +188,7 @@ public class TileProperties : MonoBehaviour
     public void GetDamaged(int amount)
     {
         life -= amount;
+        CameraManager.Instance.InitScreenShake(0.3f, 0.2f);
         //AudioManager.Instance.PlayWallHit();
         if (life <= 0)
         {

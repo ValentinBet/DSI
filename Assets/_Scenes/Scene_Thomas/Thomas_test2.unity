@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.12765595, g: 0.1789688, b: 0.21101682, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1579,8 +1579,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1905364712}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -2271,8 +2270,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 71903803}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -3779,8 +3777,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1646237623}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -4924,8 +4921,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1353340285}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -5313,8 +5309,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1159057775}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -6248,8 +6243,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1072083966}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -6448,8 +6442,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 105194839}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -6542,8 +6535,7 @@ MonoBehaviour:
   order: 2
   teleportChannel: 0
   sR: {fileID: 1485888546}
-  icon: {fileID: 21300000, guid: 6750dc840154cc945b5687f97777fa2a, type: 3}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1228141926}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -8959,8 +8951,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1354359462}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -10096,8 +10087,7 @@ MonoBehaviour:
   order: 1
   teleportChannel: 0
   sR: {fileID: 1100107809}
-  icon: {fileID: 21300000, guid: dbf0050e9daa83b4aa3caeeedde35e2e, type: 3}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1371796293}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -10726,8 +10716,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1456327905}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -12121,8 +12110,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1471643270}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -12433,8 +12421,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1571862624}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -12605,8 +12592,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 329239413}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -13567,8 +13553,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 21300000, guid: b5485b3d56dd96d4b98033fa3bac66bc, type: 3}
-  secondaryIcon: {fileID: 21300000, guid: 7bef9bbae06b3e44a85eeefe089b56c0, type: 3}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1199316818}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -14444,8 +14429,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 11691484}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -14991,8 +14975,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1140592955}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -16589,8 +16572,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 765772126}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -20313,8 +20295,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 907029446}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -23394,8 +23375,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 2045651110}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -23598,8 +23578,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 21300000, guid: b5485b3d56dd96d4b98033fa3bac66bc, type: 3}
-  secondaryIcon: {fileID: 21300000, guid: 7bef9bbae06b3e44a85eeefe089b56c0, type: 3}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1923314528}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -25535,8 +25514,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1811419505}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -25969,8 +25947,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 583219684}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -28251,8 +28228,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 2075782331}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -29111,8 +29087,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 21300000, guid: b5485b3d56dd96d4b98033fa3bac66bc, type: 3}
-  secondaryIcon: {fileID: 21300000, guid: 7bef9bbae06b3e44a85eeefe089b56c0, type: 3}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 653823532}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -31656,8 +31631,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1052092774}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -32050,8 +32024,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 252933742}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -32362,8 +32335,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 2064978791}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -33100,8 +33072,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 485283462}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -34463,8 +34434,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1956863937}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -35010,8 +34980,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 407149825}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -35104,8 +35073,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1193006152}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -35531,8 +35499,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1738484446}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -36778,8 +36745,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1827411847}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -37618,8 +37584,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 559407996}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -40144,8 +40109,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1771937022}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -40461,8 +40425,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1051380052}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -40555,8 +40518,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1988064780}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -40649,8 +40611,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1749253352}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -40851,8 +40812,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1584530517}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -41960,8 +41920,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1828191995}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -42163,8 +42122,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 123276821}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -42335,8 +42293,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 415389528}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -43184,8 +43141,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 316194075}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -44152,8 +44108,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 905128455}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -44355,8 +44310,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1836907790}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -44782,8 +44736,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 2039877399}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -45204,8 +45157,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1090831778}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -46797,8 +46749,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 829607000}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -48262,8 +48213,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1998608271}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -48872,8 +48822,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 488494458}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -51861,8 +51810,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 240629627}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -52547,8 +52495,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 624125195}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -53942,8 +53889,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 638133216}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -54338,8 +54284,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 672091860}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -54432,8 +54377,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1701969212}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -54635,8 +54579,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 230731443}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -54964,8 +54907,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1342293630}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -56670,8 +56612,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 379831184}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -60020,8 +59961,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 700543798}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -60944,8 +60884,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 21300000, guid: b5485b3d56dd96d4b98033fa3bac66bc, type: 3}
-  secondaryIcon: {fileID: 21300000, guid: 7bef9bbae06b3e44a85eeefe089b56c0, type: 3}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 66468125}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -63214,8 +63153,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1282760645}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -63641,8 +63579,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1469020924}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -67184,8 +67121,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1105439723}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -69368,8 +69304,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 521790775}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -69973,8 +69908,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 422881767}
-  icon: {fileID: 21300000, guid: 42d902ddd2899c948b8f27d47a7e4939, type: 3}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1841010395}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -70369,8 +70303,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1894524617}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -71109,8 +71042,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1291439039}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -71203,8 +71135,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 2032786115}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -72226,8 +72157,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1085658469}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -73525,8 +73455,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1048132353}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -74520,8 +74449,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 553387294}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -75423,8 +75351,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 618048041}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -76086,8 +76013,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 453946179}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -76476,8 +76402,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 823340914}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -76897,8 +76822,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 2044088446}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -77419,8 +77343,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 251789407}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -77629,8 +77552,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 21300000, guid: b5485b3d56dd96d4b98033fa3bac66bc, type: 3}
-  secondaryIcon: {fileID: 21300000, guid: 7bef9bbae06b3e44a85eeefe089b56c0, type: 3}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 371243223}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -78062,8 +77984,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1894929492}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -79905,6 +79826,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3889530119388622011, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4649131914324273518, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
         type: 3}
       propertyPath: m_IsActive
@@ -79994,6 +79920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[11]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531251154522167964, guid: fbfcbe28fa5cd654dab08c5a4500c8fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbfcbe28fa5cd654dab08c5a4500c8fd, type: 3}
@@ -80645,8 +80576,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 468046192}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -83475,8 +83405,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 1248721491}
-  icon: {fileID: 21300000, guid: 42d902ddd2899c948b8f27d47a7e4939, type: 3}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1422791088}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -85091,8 +85020,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 21300000, guid: b5485b3d56dd96d4b98033fa3bac66bc, type: 3}
-  secondaryIcon: {fileID: 21300000, guid: 7bef9bbae06b3e44a85eeefe089b56c0, type: 3}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1291375009}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -85403,8 +85331,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 23303352}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -86019,8 +85946,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 48340258}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -87516,8 +87442,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 395534991}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -87610,8 +87535,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1164088132}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -88397,8 +88321,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 970481522}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -89601,8 +89524,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 722972971}
-  icon: {fileID: 21300000, guid: 42d902ddd2899c948b8f27d47a7e4939, type: 3}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 48911627}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -90027,8 +89949,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 396699886}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -90543,8 +90464,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 681703910}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -90747,8 +90667,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1468719269}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -90841,8 +90760,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1128861193}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -91153,8 +91071,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1702892155}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -93481,8 +93398,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 78997817}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -93653,8 +93569,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 281702622}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -93965,8 +93880,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 248825334}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -94704,8 +94618,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 578551349}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -95994,8 +95907,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 721268658}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -96311,8 +96223,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 229966202}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -96514,8 +96425,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 1744669840}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}

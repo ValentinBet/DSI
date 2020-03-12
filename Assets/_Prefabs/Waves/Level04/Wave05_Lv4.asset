@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec01650f24c4194b909eeb566f21ffe, type: 3}
   m_Name: Wave05_Lv4
   m_EditorClassIdentifier: 
-  turnOfActivation: 8
+  turnOfActivation: 5
   needsEmptyBoard: 1
   enemies:
   - type: 0
@@ -20,10 +20,8 @@ MonoBehaviour:
   - type: 0
     gridPosition: {x: 1, y: 9}
   - type: 1
-    gridPosition: {x: 0, y: 4}
+    gridPosition: {x: 0, y: 1}
   - type: 1
-    gridPosition: {x: 0, y: 6}
+    gridPosition: {x: 0, y: 7}
   - type: 1
-    gridPosition: {x: 0, y: 5}
-  - type: 0
-    gridPosition: {x: 1, y: 3}
+    gridPosition: {x: 0, y: 10}

@@ -20,6 +20,6 @@ MonoBehaviour:
   - type: 0
     gridPosition: {x: 1, y: 4}
   - type: 1
-    gridPosition: {x: 0, y: 4}
+    gridPosition: {x: 0, y: 5}
   - type: 0
-    gridPosition: {x: 0, y: 6}
+    gridPosition: {x: 0, y: 10}

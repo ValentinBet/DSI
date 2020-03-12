@@ -292,5 +292,6 @@ public struct AnimationValue
 {
     public float AttackDuration;
     public float DeplacementDuration;
+    public float AttackRatioDuration;
 }
 

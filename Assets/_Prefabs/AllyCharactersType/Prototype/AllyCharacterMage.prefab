@@ -78,8 +78,9 @@ MonoBehaviour:
   character_sprite: {fileID: 7124241749366363148}
   anim: {fileID: 1644373449271813889}
   animationValue:
-    AttackDuration: 0.6
+    AttackDuration: 1
     DeplacementDuration: 0
+    AttackRatioDuration: 0.7
   allyName: 
   experience: 0
   level: 0

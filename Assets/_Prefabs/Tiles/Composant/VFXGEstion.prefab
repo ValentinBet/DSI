@@ -284,8 +284,8 @@ MonoBehaviour:
     VFXGameObject: {fileID: 5727623941254408789}
     duration: 0
   attack:
-    VFXGameObject: {fileID: 5727623941254408789}
-    duration: 0
+    VFXGameObject: {fileID: 7457383176710412711}
+    duration: 1
 --- !u!1 &5998037964168912315
 GameObject:
   m_ObjectHideFlags: 0

@@ -181,8 +181,9 @@ public class Character : MonoBehaviour
     {
         for (int i = 0; i < lifeObj.Count; i++)
         {
-            if (i > life)
+            if (i > life -1)
             {
+                print(lifeObj[i]);
                 lifeObj[i].SetActive(false);
             }
             else

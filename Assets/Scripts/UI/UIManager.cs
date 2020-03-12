@@ -47,8 +47,6 @@ public class UIManager : MonoBehaviour
 
     [Header("Follow cursor image")]
     [SerializeField] private RectTransform mouseFollowObj;
-    [SerializeField] private RectTransform allyHint;
-    [SerializeField] private Image allyHintImg;
     [SerializeField] private GameObject rotateHint;
     [SerializeField] private GameObject swapHint;
 
@@ -103,15 +101,15 @@ public class UIManager : MonoBehaviour
             {
                 case "AllyCharacter":
                     AllyCharacter _ac = hit.collider.GetComponent<AllyCharacter>();
-                    SetClusterInfo(_ac.allyName, _ac.allyDescription, _ac.ObjectTypeMetaData.icon);
+                    SetClusterInfo(_ac.allyName, _ac.allyDescription);
                     break;
                 case "EnemyCharacter":
                     EnemyCharacter _ec = hit.collider.GetComponent<EnemyCharacter>();
-                    SetClusterInfo(_ec.name, _ec.enemyDescription, _ec.ObjectTypeMetaData.icon);
+                    SetClusterInfo(_ec.name, _ec.enemyDescription);
                     break;
                 case "Tile":
                     TileProperties _tile = hit.collider.GetComponent<TileProperties>();
-                    SetClusterInfo(_tile.tileName, _tile.tileDescription, _tile.ObjectTypeMetaData.icon);
+                    SetClusterInfo(_tile.tileName, _tile.tileDescription);
                     break;
                 default:
                     break;
@@ -119,27 +117,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetAllyHintState(bool value, Sprite CharacterSprite = null)
-    {
-        allyHint.gameObject.SetActive(value);
-        ObjFollowingMouse = value;
-
-        if (CharacterSprite != null)
-        {
-            SetAllyHintImg(CharacterSprite);
-        }
-    }
-
-    public void SetAllyHintImg(Sprite CharacterSprite)
-    {
-        allyHintImg.sprite = CharacterSprite;
-    }
-
-    public void SetClusterInfo(string clusterTitle, string clusterDesc, Sprite clusterImg)
+    public void SetClusterInfo(string clusterTitle, string clusterDesc)
     {
         this.clusterTitle.text = clusterTitle;
         this.clusterDesc.text = clusterDesc;
-        this.clusterImg.sprite = clusterImg;
     }
 
     public void EndTurnButtonClicked()

@@ -2539,106 +2539,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1494264536609353346, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494264536609353346, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494264536609353346, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494264536609353346, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494264536609353346, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 240
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494264536609353346, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 240
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494264536609353346, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2340131855227391084, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_PreserveAspect
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2792047500556617179, guid: 6d681562fba1d2547b27fa99fb34191b,
         type: 3}
       propertyPath: m_Name
       value: HomeButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 9059733419441097876, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9059733419441097876, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.5999985
-      objectReference: {fileID: 0}
-    - target: {fileID: 9059733419441097876, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9059733419441097876, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9059733419441097876, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9166235261997046699, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9166235261997046699, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9166235261997046699, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9166235261997046699, guid: 6d681562fba1d2547b27fa99fb34191b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1341938203}
-    - target: {fileID: 9166235261997046699, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UnloadCreditsScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 9166235261997046699, guid: 6d681562fba1d2547b27fa99fb34191b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d681562fba1d2547b27fa99fb34191b, type: 3}
 --- !u!224 &1678559372 stripped

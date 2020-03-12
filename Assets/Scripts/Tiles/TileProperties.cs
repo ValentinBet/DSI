@@ -18,7 +18,6 @@ public class TileProperties : MonoBehaviour
     //public Sprite secondaryIcon;
     public MeshRenderer mR;
 
-    public ObjectTypeMetaData ObjectTypeMetaData;
     [HideInInspector] public Material baseMat;
     public int damageToDeal;
     public int life;

@@ -102,6 +102,7 @@ public class ProjectileBeheviour : MonoBehaviour
                 testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
                 AudioManager.Instance.PlayProjectileCharacterHit();
                 Destroy(this.gameObject);
+                return;
             }
 
             testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile");
@@ -112,8 +113,9 @@ public class ProjectileBeheviour : MonoBehaviour
             testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
             AudioManager.Instance.PlayProjectileCharacterHit();
             DestroyProjectile();
-
+            return;
         }
+
         switch (testedTile.specificity)
         {
             case TileProperties.TilesSpecific.Push:

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/_Prefabs/Examples.meta
+guid: 82d793bddb901454f8d2bf9f2264ba2e
+=======
+guid: a8797a81ecbf0324796a36678b8c4bff
+>>>>>>> e19661c8dc986792160b7f853bf0693aac430994:Assets/AmplifyShader/AmplifyShaderEditor/Examples/Official/TemplateExamples.meta
+=======
+guid: 82d793bddb901454f8d2bf9f2264ba2e
+>>>>>>> e19661c8dc986792160b7f853bf0693aac430994
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

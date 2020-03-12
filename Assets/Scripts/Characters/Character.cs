@@ -203,7 +203,7 @@ public class Character : MonoBehaviour
 
     public TileProperties GetTileFromTransform(Vector2 tileOffset, int lenght = 1)
     {
-        List<TileProperties> listTilesOnDirection = new List<TileProperties>();
+        // List<TileProperties> listTilesOnDirection = new List<TileProperties>();
 
         RaycastHit hitTile;
         float tilesSize = 2;
@@ -229,9 +229,12 @@ public class Character : MonoBehaviour
     public void RegisteredDeathProjectile(int index, int depth, List<TileProperties> tilesToColored, bool continuePattern)
     {
         numberOfDeadProjectile++;
-        for (int i = 0; i < tilesToColored.Count; i++)
+        if (tilesToColored != null)
         {
-            tilesColored.Add(tilesToColored[i]);
+            for (int i = 0; i < tilesToColored.Count; i++)
+            {
+                tilesColored.Add(tilesToColored[i]);
+            }
         }
 
         if (numberOfDeadProjectile == AttackPattern.tilesAffected.Length)

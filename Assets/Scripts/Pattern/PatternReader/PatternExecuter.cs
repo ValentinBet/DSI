@@ -114,6 +114,7 @@ public class PatternExecuter : MonoBehaviour
                 break;
 
             case ActionType.Attack:
+
                 StartCoroutine(ExtraAttack(pattern, character, index, depth, true, true));
                 break;
 
@@ -356,7 +357,6 @@ public class PatternExecuter : MonoBehaviour
         }
         else
         {
-            Debug.Log("Pattern finsh , get dmaged");
             StartCoroutine(StopPattern(character));
         }
     }
@@ -438,10 +438,22 @@ public class PatternExecuter : MonoBehaviour
                     TileProperties tileTarget = character.GetTileFromTransform(character.AttackPattern.tilesAffected[i].tilesTargetOffset, 2);
                     if (tileTarget != null)
                     {
-                        Vector3 spawnPos = tileTarget.transform.position + new Vector3(0, 0.5f, 0);
-                        GameObject newProj = Instantiate(character.AttackPattern.tilesAffected[i].projectilePrefab, spawnPos, character.transform.rotation);
-                        ProjectileBeheviour proj = newProj.GetComponent<ProjectileBeheviour>();
-                        proj.Init(character, index, depth, continuePatern);
+                        if (tileTarget.specificity == TileProperties.TilesSpecific.PlayerBase)
+                        {
+                            character.RegisteredDeathProjectile(index, depth, null, true);
+
+                        }
+                        else
+                        {
+                            Vector3 spawnPos = tileTarget.transform.position + new Vector3(0, 0.5f, 0);
+                            GameObject newProj = Instantiate(character.AttackPattern.tilesAffected[i].projectilePrefab, spawnPos, character.transform.rotation);
+                            ProjectileBeheviour proj = newProj.GetComponent<ProjectileBeheviour>();
+                            proj.Init(character, index, depth, continuePatern);
+                        }
+                    }
+                    else
+                    {
+                        character.RegisteredDeathProjectile(index, depth, null, true);
                     }
                 }
                 //AudioManager.Instance.PlayShootProjectile();
@@ -501,9 +513,10 @@ public class PatternExecuter : MonoBehaviour
 
 
             ///FEEDBACK
-            targetTile.VFXGestion.toggleVFx(targetTile.VFXGestion.attack.VFXGameObject, true , true  , targetTile.VFXGestion.attack.duration );
+            targetTile.VFXGestion.toggleVFx(targetTile.VFXGestion.attack.VFXGameObject, true, true, targetTile.VFXGestion.attack.duration);
             targetTile.tileImpact.ActivateImpact(impactValue);
         }
+
         if (targetTile.specificity == TileProperties.TilesSpecific.Wall)
         {
             targetTile.GetDamaged(character.damage);
@@ -527,7 +540,6 @@ public class PatternExecuter : MonoBehaviour
         }
         else
         {
-            Debug.Log("no more action");
             tileColoredDuringPattern.Add(tileToColored);
             StartCoroutine(StopPattern(character));
         }
@@ -545,7 +557,6 @@ public class PatternExecuter : MonoBehaviour
         }
         else
         {
-            Debug.Log("no more action");
             tileColoredDuringPattern.Add(tileToColored);
             StartCoroutine(StopPattern(character));
         }

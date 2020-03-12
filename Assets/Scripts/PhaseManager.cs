@@ -194,16 +194,17 @@ public class PhaseManager : MonoBehaviour
     {
         if (currentUnit != unitIndexs.Count)
         {
-            if (charactersManager.enemyCharacters[unitIndexs[currentUnit]].myState == CharacterState.Standby)
+            if (charactersManager.enemyCharacters[unitIndexs[currentUnit]] != null && charactersManager.enemyCharacters[unitIndexs[currentUnit]].myState == CharacterState.Standby)
             {
-                PatternReader.instance.PatternExecuter.ReadPattern(charactersManager.enemyCharacters[unitIndexs[currentUnit]]);
-                currentUnit++;
+                    PatternReader.instance.PatternExecuter.ReadPattern(charactersManager.enemyCharacters[unitIndexs[currentUnit]]);
+                    currentUnit++;
             }
             else
             {
                 currentUnit++;
                 NextEnemy();
             }
+
         }
         else
         {

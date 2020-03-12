@@ -25,7 +25,7 @@ public class ProjectileBeheviour : MonoBehaviour
     }
 
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
         if (isInit)
         {
@@ -115,7 +115,6 @@ public class ProjectileBeheviour : MonoBehaviour
                 if (testedTile.isActivated)
                 {
                     AudioManager.Instance.PlayPush();
-                    Debug.Log("Projectile Pushed");
                     Vector3 pushPos = transform.position + testedTile.transform.forward * 2;
                     transform.position = pushPos;
                     testedTile.ChangeTilesActivationStatut(false);

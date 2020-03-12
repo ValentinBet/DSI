@@ -14,7 +14,7 @@ public class SelectLevelsManager : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> yearButtonTextList = new List<TextMeshProUGUI>();
 
     [Header("Game Infos")]
-    [SerializeField] private TextMeshProUGUI remainingLifePointsText;
+    [SerializeField] private GameObject[] lifePointsElements;
 
     [Header("Years survived panel")]
     [SerializeField] private TextMeshProUGUI yearSurvivedText;
@@ -34,7 +34,10 @@ public class SelectLevelsManager : MonoBehaviour
             yearButtonTextList[i].text = "Year " + (GameSettings.FIRST_YEAR + GameInfoManager.GameData.yearSurvived) + i;
         }
 
-        remainingLifePointsText.text = GameInfoManager.GameData.lifePoints + " / " + GameSettings.LIFE_POINTS;
+        for (int i =0; i < GameInfoManager.GameData.lifePoints && i < lifePointsElements.Length;i++)
+        {
+            lifePointsElements[i].SetActive(false);
+        }
         yearSurvivedText.text = GameInfoManager.GameData.yearSurvived > 1 ? GameInfoManager.GameData.yearSurvived + " Years survived" : GameInfoManager.GameData.yearSurvived + " Year survived";
     }
 

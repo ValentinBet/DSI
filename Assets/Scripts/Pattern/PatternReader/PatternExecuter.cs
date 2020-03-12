@@ -57,7 +57,7 @@ public class PatternExecuter : MonoBehaviour
                     break;
                 case ActionType.Attack:
                     //Anim d'attack à faire manuellement ici 
-                    character.PlayAnim(character.animationValue.AttackDuration, "Attacking", true, 0.90f);
+                    character.PlayAnim(character.animationValue.AttackDuration, "Attacking", true, character.animationValue.AttackRatioDuration);
                     AudioManager.Instance.PlayCloseAttack();
                     StartCoroutine(ActionEnd(pattern, character.occupiedTile, character, index, depth, character.animationValue.AttackDuration));
                     break;
@@ -383,7 +383,7 @@ public class PatternExecuter : MonoBehaviour
 
     private IEnumerator ExtraAttack(PatternTemplate pattern, Character character, int index, int depth, bool continuePatern, bool useCharacterPattern)
     {
-        character.PlayAnim(character.animationValue.AttackDuration, "Attacking", true, 0.90f);
+        character.PlayAnim(character.animationValue.AttackDuration, "Attacking", true, character.animationValue.AttackRatioDuration);
         if (character.AttackPattern.attackType == AttackType.Zone)
         {
             AudioManager.Instance.PlayAoeLaunch();
@@ -498,8 +498,10 @@ public class PatternExecuter : MonoBehaviour
         if (targetTile.specificity != TileProperties.TilesSpecific.PlayerBase)
         {
             testedTiles.Add(targetTile);
-            TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
-            tileColoredDuringPattern.Add(targetTile);
+
+
+            ///FEEDBACK
+            targetTile.VFXGestion.toggleVFx(targetTile.VFXGestion.attack.VFXGameObject, true , true  , targetTile.VFXGestion.attack.duration );
             targetTile.tileImpact.ActivateImpact(impactValue);
         }
         if (targetTile.specificity == TileProperties.TilesSpecific.Wall)
@@ -548,7 +550,6 @@ public class PatternExecuter : MonoBehaviour
             StartCoroutine(StopPattern(character));
         }
     }
-
 
     public void ActionEnd(PatternTemplate pattern, List<TileProperties> tilesToColored, Character character, int index, int depth, bool continuePattern)
     {

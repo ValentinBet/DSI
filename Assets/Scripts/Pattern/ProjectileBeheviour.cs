@@ -96,12 +96,14 @@ public class ProjectileBeheviour : MonoBehaviour
             if (isOnFire)
             {
                 testedTile.occupant.GotAttacked(_shooter.damage + 1, _shooter, "by projectile on fire");
+                testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
                 AudioManager.Instance.PlayProjectileCharacterHit();
                 DestroyProjectile();
             }
             else
             {
                 testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile");
+                testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
                 AudioManager.Instance.PlayProjectileCharacterHit();
                 DestroyProjectile();
             }
@@ -133,6 +135,7 @@ public class ProjectileBeheviour : MonoBehaviour
             case TileProperties.TilesSpecific.Wall:
 
                 testedTile.GetDamaged(_shooter.damage);
+                testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
                 AudioManager.Instance.PlayProjectileWallHit();
                 DestroyProjectile();
                 break;
@@ -156,6 +159,8 @@ public class ProjectileBeheviour : MonoBehaviour
 
                 break;
             case TileProperties.TilesSpecific.PlayerBase:
+
+                Debug.Log("Projectile on base");
                 DestroyProjectile();
                 break;
 

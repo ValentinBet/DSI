@@ -49,7 +49,7 @@ public class Character : MonoBehaviour
 
     public GameObject character_sprite;
     public Animator anim;
-    public AnimationValue animationValue;
+    public AnimationDatas animAttack;
 
     private void Start()
     {
@@ -291,10 +291,11 @@ public class Character : MonoBehaviour
 }
 
 [System.Serializable]
-public struct AnimationValue
+public struct AnimationDatas
 {
-    public float AttackDuration;
-    public float DeplacementDuration;
-    public float AttackRatioDuration;
+    public float Duration;
+    public float AnimRatio;
+    public float SoundRatio;
+
 }
 

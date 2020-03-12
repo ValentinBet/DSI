@@ -51,7 +51,7 @@ public class CharactersGenerator : MonoBehaviour
         "Damurah",
         "Fakih",
         "Mamenos",
-        "Mamenosh"
+        "Kaaris"
     };
 
     public List<GameObject> GetBaseAllyList()

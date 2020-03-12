@@ -12,14 +12,18 @@ public class TileProperties : MonoBehaviour
     public int teleportChannel;
     [Header("REFS")]
     public SpriteRenderer sR;
-    public Sprite icon;
-    public Sprite secondaryIcon;
+    public VFXGestion VFXGestion;
+
+    //public Sprite icon;
+    //public Sprite secondaryIcon;
     public MeshRenderer mR;
+
     public ObjectTypeMetaData ObjectTypeMetaData;
     [HideInInspector] public Material baseMat;
     public int damageToDeal;
     public int life;
     public Character occupant;
+
 
     [Header("GameObject to Toggle")]
     public GameObject[] toggleActivated;
@@ -51,7 +55,7 @@ public class TileProperties : MonoBehaviour
 
         if (sR != null)
         {
-            sR.sprite = icon;
+            //sR.sprite = icon;
         }
 
 
@@ -185,9 +189,11 @@ public class TileProperties : MonoBehaviour
     public void GetDamaged(int amount)
     {
         life -= amount;
+        //AudioManager.Instance.PlayWallHit();
         if (life <= 0)
         {
             specificity = TilesSpecific.None;
+            AudioManager.Instance.PlayWallDestruct();
             for (int i = 0; i < toggleActivated.Length; i++)
             {
                 toggleActivated[i].SetActive(false);
@@ -201,6 +207,8 @@ public class TileProperties : MonoBehaviour
         occupant = null;
         isOccupied = false;
     }
+
+
 
 
     public enum TilesSpecific

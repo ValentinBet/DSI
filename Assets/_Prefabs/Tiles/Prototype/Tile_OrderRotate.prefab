@@ -91,6 +91,10 @@ VFXRenderer:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -412,6 +416,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Rotator
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945784216685158673, guid: 1ad2103f80471ab47af98ee4db1931ae,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057998616148943818, guid: 1ad2103f80471ab47af98ee4db1931ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ad2103f80471ab47af98ee4db1931ae, type: 3}

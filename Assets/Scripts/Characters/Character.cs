@@ -48,6 +48,8 @@ public class Character : MonoBehaviour
     public ObjectTypeMetaData ObjectTypeMetaData;
 
     public GameObject character_sprite;
+    public Animator anim;
+    public AnimationValue animationValue;
 
     private void Start()
     {
@@ -58,6 +60,10 @@ public class Character : MonoBehaviour
     private void FixedUpdate()
     {
         LookAtCamera();
+    }
+    private void LateUpdate()
+    {
+        UpdateOrientation();
     }
 
     public void SetOccupiedTile()
@@ -107,12 +113,14 @@ public class Character : MonoBehaviour
     {
         occupiedTile.isOccupied = false;
         occupiedTile.occupant = null;
+        AudioManager.Instance.PlayFootsteps();
 
         transform.position = tileDestination.transform.position + Vector3.up;
 
         if (tileDestination.isOnFire)
         {
             TakeDamaged(1, true);
+            AudioManager.Instance.PlayProjectileCharacterHit();
         }
 
         SetOccupiedTile();
@@ -130,7 +138,10 @@ public class Character : MonoBehaviour
     public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {
         life = life - damageAmount;
-        Debug.Log("OUCH");
+        if (isAlly)
+        {
+            UIManager.Instance.AllyLifeUpdate(priority, life);
+        }
         if (life < 1)
         {
             KillCharacter(cancelPattern);
@@ -140,11 +151,15 @@ public class Character : MonoBehaviour
         return true;
     }
 
-    public void GotAttacked(int damageAmount, Character attacker , string context)
+    public void GotAttacked(int damageAmount, Character attacker, string context)
     {
 
         Debug.Log(this.gameObject + " attacked by " + attacker.gameObject + " CONTEXT : " + context);
         life -= damageAmount;
+        if (isAlly)
+        {
+            UIManager.Instance.AllyLifeUpdate(priority, life);
+        }
         if (life < 1)
         {
             if (attacker.isAlly && !this.isAlly)
@@ -163,6 +178,15 @@ public class Character : MonoBehaviour
         Debug.Log("This character died", this);
         myState = CharacterState.Dead;
         occupiedTile.LostOccupant();
+
+        if (isAlly)
+        {
+            AudioManager.Instance.PlayAllyDie();
+        }
+        else
+        {
+            AudioManager.Instance.PlayCharacterDie();
+        }
 
         if (PatternReader.instance.PatternExecuter.currentCharacter == this && cancelPattern)
         {
@@ -225,9 +249,48 @@ public class Character : MonoBehaviour
         if (character_sprite != null)
         {
             character_sprite.transform.LookAt(Camera.main.transform);
-            character_sprite.transform.localScale = 0.5f * Vector3.one;
+
         }
 
     }
+
+    private void UpdateOrientation()
+    {
+        if ((transform.rotation.eulerAngles.y > -135.0f && transform.rotation.eulerAngles.y < 45.0f) || (transform.rotation.eulerAngles.y > 225.0f && transform.rotation.eulerAngles.y < 405.0f))
+        {
+            character_sprite.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+        }
+        else
+        {
+            character_sprite.transform.localScale = 0.5f * Vector3.one;
+        }
+    }
+
+    public void PlayAnim(float duration, string key, bool keyIsStrigger, float durationRatio = 1)
+    {
+        float animSpeed = 1 / (duration * durationRatio);
+        anim.speed = animSpeed;
+        if (keyIsStrigger)
+        {
+            anim.SetTrigger(key);
+        }
+        else
+        {
+            anim.Play(key);
+        }
+
+    }
+
+    public void EndAnim(string key)
+    {
+        anim.SetTrigger(key);
+    }
+}
+
+[System.Serializable]
+public struct AnimationValue
+{
+    public float AttackDuration;
+    public float DeplacementDuration;
 }
 

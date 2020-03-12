@@ -32,10 +32,7 @@ public class PatternExecuter : MonoBehaviour
             switch (pattern.actions[index].actionType)
             {
                 case ActionType.Movement:
-
-
                     CharacterReorientation(character, true, index, depth);
-
                     TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                     break;
                 case ActionType.Rotation:
@@ -54,12 +51,15 @@ public class PatternExecuter : MonoBehaviour
                             character.transform.Rotate(Vector3.up, 0f);
                             break;
                     }
+                    AudioManager.Instance.PlayCloseAttack();
                     TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                     ActionEnd(pattern, character.occupiedTile, character, index, depth);
                     break;
                 case ActionType.Attack:
                     //Anim d'attack à faire manuellement ici 
-                    ActionEnd(pattern, character.occupiedTile, character, index, depth);
+                    character.PlayAnim(character.animationValue.AttackDuration, "Attacking", true, 0.90f);
+                    AudioManager.Instance.PlayCloseAttack();
+                    StartCoroutine(ActionEnd(pattern, character.occupiedTile, character, index, depth, character.animationValue.AttackDuration));
                     break;
                 default:
                     break;
@@ -108,6 +108,7 @@ public class PatternExecuter : MonoBehaviour
                         character.transform.Rotate(Vector3.up, 0f);
                         break;
                 }
+                AudioManager.Instance.PlayCloseAttack();
                 TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                 ActionEnd(pattern, character.occupiedTile, character, index, depth);
                 break;
@@ -134,7 +135,8 @@ public class PatternExecuter : MonoBehaviour
         {
             if (bonusAction)
             {
-                newTile.occupant.GotAttacked(1, character , "attacker pushed");
+                AudioManager.Instance.PlayWallHit();
+                newTile.occupant.GotAttacked(1, character, "attacker pushed");
                 TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.attackMat);
                 tileColoredDuringPattern.Add(newTile);
                 StartCoroutine(GetDamaged(pattern, character, index, depth, false, 1));
@@ -168,6 +170,7 @@ public class PatternExecuter : MonoBehaviour
                             TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.mouvementMat);
                             tileColoredDuringPattern.Add(newTile);
                             character.InitMovement(newTile);
+                            AudioManager.Instance.PlayCharacterRotate();
                             StartCoroutine(ExtraRotation(pattern, character, index, depth));
                             break;
                         case TileProperties.TilesOrder.attack:
@@ -190,6 +193,7 @@ public class PatternExecuter : MonoBehaviour
                 case TileProperties.TilesSpecific.Push:
                     if (newTile.isActivated)
                     {
+                        AudioManager.Instance.PlayPush();
                         newTile.ChangeTilesActivationStatut(false);
                         tileColoredDuringPattern.Add(newTile);
                         character.InitMovement(newTile);
@@ -305,6 +309,7 @@ public class PatternExecuter : MonoBehaviour
 
     private void CharacterReorientation(Character character, bool doNextAction, int index, int depth)
     {
+        AudioManager.Instance.PlayCloseAttack();
         if (character.myState != CharacterState.Standby)
         {
             return;
@@ -343,7 +348,8 @@ public class PatternExecuter : MonoBehaviour
     {
         TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.mouvementMat);
         tileColoredDuringPattern.Add(character.occupiedTile);
-        yield return new WaitForSeconds(0.0f);
+        AudioManager.Instance.PlayProjectileCharacterHit();
+        yield return new WaitForSeconds(0.2f);
         if (character.TakeDamaged(receivedDeal, false) && continuePattern)
         {
             ActionEnd(pattern, character.occupiedTile, character, index, depth);
@@ -366,6 +372,7 @@ public class PatternExecuter : MonoBehaviour
         }
         else
         {
+            AudioManager.Instance.PlayTeleport();
             TilesManager.Instance.ChangeTileMaterial(teleportExit, PatternReader.instance.interactionMat);
             tileColoredDuringPattern.Add(teleportExit);
             character.InitMovement(teleportExit);
@@ -376,7 +383,17 @@ public class PatternExecuter : MonoBehaviour
 
     private IEnumerator ExtraAttack(PatternTemplate pattern, Character character, int index, int depth, bool continuePatern, bool useCharacterPattern)
     {
-        yield return new WaitForSeconds(0.5f);
+        character.PlayAnim(character.animationValue.AttackDuration, "Attacking", true, 0.90f);
+        if (character.AttackPattern.attackType == AttackType.Zone)
+        {
+            AudioManager.Instance.PlayAoeLaunch();
+        }
+        else
+        {
+            AudioManager.Instance.PlayShootProjectile();
+        }
+
+        yield return new WaitForSeconds(character.animationValue.AttackDuration);
         List<TileProperties> testedTiles = new List<TileProperties>();
 
         if (!useCharacterPattern)
@@ -385,15 +402,25 @@ public class PatternExecuter : MonoBehaviour
             List<TileProperties> tiles = character.occupiedTile.GetTileOnDirection(character.transform.forward, rayLength, false);
             if (tiles.Count != 0)
             {
+
+                AudioManager.Instance.PlayCloseAttack();
                 //ActionEnd(pattern, character.occupiedTile, character, index, depth);
                 AttackOnTargetTile(character, testedTiles, tiles[0], 0.5f);
             }
         }
-
         else
         {
             if (character.AttackPattern.attackType == AttackType.Zone)
             {
+                if (character.combatStyle == CombatStyle.closeCombat)
+                {
+                    AudioManager.Instance.PlayCloseAttack();
+                }
+                else
+                {
+                    AudioManager.Instance.PlayAoeHit();
+                }
+
                 for (int i = 0; i < character.AttackPattern.tilesAffected.Length; i++)
                 {
                     TileProperties tileTarget = character.GetTileFromTransform(character.AttackPattern.tilesAffected[i].tilesTargetOffset, 2);
@@ -402,6 +429,7 @@ public class PatternExecuter : MonoBehaviour
                         AttackOnTargetTile(character, testedTiles, tileTarget, character.AttackPattern.tilesAffected[i].impactValue);
                     }
                 }
+
             }
             else
             {
@@ -416,8 +444,11 @@ public class PatternExecuter : MonoBehaviour
                         proj.Init(character, index, depth, continuePatern);
                     }
                 }
+                //AudioManager.Instance.PlayShootProjectile();
             }
         }
+
+        // character.EndAnim("Attacking");
 
         if (character.AttackPattern.attackType == AttackType.Zone || !useCharacterPattern)
         {
@@ -464,11 +495,13 @@ public class PatternExecuter : MonoBehaviour
 
     private void AttackOnTargetTile(Character character, List<TileProperties> testedTiles, TileProperties targetTile, float impactValue)
     {
-        testedTiles.Add(targetTile);
-        TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
-        tileColoredDuringPattern.Add(targetTile);
-        targetTile.tileImpact.ActivateImpact(impactValue);
-
+        if (targetTile.specificity != TileProperties.TilesSpecific.PlayerBase)
+        {
+            testedTiles.Add(targetTile);
+            TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
+            tileColoredDuringPattern.Add(targetTile);
+            targetTile.tileImpact.ActivateImpact(impactValue);
+        }
         if (targetTile.specificity == TileProperties.TilesSpecific.Wall)
         {
             targetTile.GetDamaged(character.damage);
@@ -477,7 +510,8 @@ public class PatternExecuter : MonoBehaviour
         {
             if (targetTile.occupant != null)
             {
-                targetTile.occupant.GotAttacked(character.damage, character , "attack on target");
+                targetTile.occupant.GotAttacked(character.damage, character, "attack on target");
+                AudioManager.Instance.PlayProjectileCharacterHit();
             }
         }
     }
@@ -496,6 +530,25 @@ public class PatternExecuter : MonoBehaviour
             StartCoroutine(StopPattern(character));
         }
     }
+
+
+    private IEnumerator ActionEnd(PatternTemplate pattern, TileProperties tileToColored, Character character, int index, int depth, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        index++;
+        if (index < depth)
+        {
+            StartCoroutine(NextAction(pattern.actions[index].actionDuration, character, pattern, index, depth));
+        }
+        else
+        {
+            Debug.Log("no more action");
+            tileColoredDuringPattern.Add(tileToColored);
+            StartCoroutine(StopPattern(character));
+        }
+    }
+
 
     public void ActionEnd(PatternTemplate pattern, List<TileProperties> tilesToColored, Character character, int index, int depth, bool continuePattern)
     {
@@ -536,7 +589,7 @@ public class PatternExecuter : MonoBehaviour
             character.myState = CharacterState.Finished;
         }
         PatternReader.instance.FinishTurn();
-
+        AudioManager.Instance.PlayEndTurn();
     }
 
     public float GetRotationOffset(Vector3 directionToTest, Vector3 nexusDirection)

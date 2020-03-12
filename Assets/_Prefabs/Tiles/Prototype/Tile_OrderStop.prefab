@@ -288,8 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea95a649c536074b8be751059222dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileName: Ordre Stop
-  tileDescription: Stop le pattern en cour
+  tileName: Stop Order
+  tileDescription: Stop the pattern of the character
   specificity: 1
   order: 2
   teleportChannel: 0

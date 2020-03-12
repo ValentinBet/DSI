@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea95a649c536074b8be751059222dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileName: Tile Push
-  tileDescription: "Pousse dans le direction indiqu\xE9"
+  tileName: Pusher
+  tileDescription: Push in a certain direction
   specificity: 2
   order: 0
   teleportChannel: 0

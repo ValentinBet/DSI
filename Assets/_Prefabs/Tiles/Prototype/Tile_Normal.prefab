@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea95a649c536074b8be751059222dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileName: Tile Normal
+  tileName: Normal Tile
   tileDescription: 
   specificity: 0
   order: 0

@@ -45,8 +45,6 @@ public class Character : MonoBehaviour
     public List<TileProperties> tilesColored = new List<TileProperties>();
     public TileProperties occupiedTile;
 
-    public ObjectTypeMetaData ObjectTypeMetaData;
-
     public GameObject character_sprite;
     public Animator anim;
     public AnimationDatas animAttack;
@@ -137,6 +135,7 @@ public class Character : MonoBehaviour
 
     public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {
+        CameraManager.Instance.InitScreenShake(0.3f, 0.2f);
         life = life - damageAmount;
         if (isAlly)
         {
@@ -154,6 +153,7 @@ public class Character : MonoBehaviour
     public void GotAttacked(int damageAmount, Character attacker, string context)
     {
 
+        CameraManager.Instance.InitScreenShake( 0.3f, 0.2f);
         Debug.Log(this.gameObject + " attacked by " + attacker.gameObject + " CONTEXT : " + context);
         life -= damageAmount;
         if (isAlly)

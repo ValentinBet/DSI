@@ -287,6 +287,7 @@ public class PatternExecuter : MonoBehaviour
                         PlayerBase.Instance.DamageBase(1);
                         Debug.Log(PlayerBase.Instance.GetLife());
                         StartCoroutine(GetDamaged(pattern, character, index, depth, false, 100));
+                        CameraManager.Instance.InitScreenShake(1, 0.55f);
                     }
                     break;
 
@@ -384,7 +385,7 @@ public class PatternExecuter : MonoBehaviour
     private IEnumerator ExtraAttack(PatternTemplate pattern, Character character, int index, int depth, bool continuePatern, bool useCharacterPattern)
     {
         character.PlayAnim(character.animAttack.Duration, "Attacking", true, character.animAttack.AnimRatio);
-        StartCoroutine(AttackPlaySound(character , !useCharacterPattern , character.animAttack.SoundRatio));
+        StartCoroutine(AttackPlaySound(character, !useCharacterPattern, character.animAttack.SoundRatio));
 
         yield return new WaitForSeconds(character.animAttack.Duration);
         List<TileProperties> testedTiles = new List<TileProperties>();
@@ -473,9 +474,7 @@ public class PatternExecuter : MonoBehaviour
         {
             if (character.AttackPattern.attackType == AttackType.Zone)
             {
-
                 AudioManager.Instance.PlayAoeLaunch();
-
             }
             else
             {
@@ -521,11 +520,13 @@ public class PatternExecuter : MonoBehaviour
         {
             testedTiles.Add(targetTile);
 
-
             ///FEEDBACK
             targetTile.VFXGestion.toggleVFx(targetTile.VFXGestion.attack.VFXGameObject, true, true, targetTile.VFXGestion.attack.duration);
             targetTile.tileImpact.ActivateImpact(impactValue);
+
+            CameraManager.Instance.InitScreenShake(impactValue / 2, impactValue / 5);
         }
+
 
         if (targetTile.specificity == TileProperties.TilesSpecific.Wall)
         {

@@ -99,7 +99,7 @@ public class CharactersGenerator : MonoBehaviour
 
         ANewGameAlly.name = GetRandomName();
         ANewGameAlly.damage = baseCharacterStats.damage;
-        ANewGameAlly.life = baseCharacterStats.life;
+        ANewGameAlly.life = baseCharacterStats.maxLife;
         ANewGameAlly.AttackRange = baseCharacterStats.AttackRange;
         ANewGameAlly.movementRange = baseCharacterStats.movementRange;
         ANewGameAlly.type = allyType;

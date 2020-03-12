@@ -24,6 +24,7 @@ public class Character : MonoBehaviour
 {
     [Header("Properties")]
     public int life;
+    public int maxLife;
     public int damage;
     public float AttackRange;
     public int movementRange;
@@ -92,7 +93,7 @@ public class Character : MonoBehaviour
             {
                 occupiedTile = hit.collider.gameObject.GetComponent<TileProperties>();
 
-                if (occupiedTile.spawnable)
+                if (occupiedTile.spawnable && !occupiedTile.isOccupied)
                 {
                     return true;
                 }

@@ -32,6 +32,7 @@ public class SettingsManager : MonoBehaviour
     private void Start()
     {
         filename = Application.persistentDataPath + "Settings" + ".json";
+
         if (!File.Exists(filename))
         {
             // Save settings >>
@@ -44,8 +45,15 @@ public class SettingsManager : MonoBehaviour
 
             settingsList.settings.GeneralVolume = 100;
 
-            SaveAsJson();
+            SaveSettings();
         }
+
+        using (StreamReader r = new StreamReader(filename))
+        {
+            var dataAsJson = r.ReadToEnd();
+            settingsSaves = JsonUtility.FromJson<SettingsSaves>(dataAsJson);
+        }
+
         InitSettingsList();
 
         InitResDropdown();
@@ -56,8 +64,8 @@ public class SettingsManager : MonoBehaviour
 
     public void InitVisuals()
     {
-        InitVideoVisuals();
         InitAudioVisuals();
+        InitVideoVisuals();
     }
 
     private void InitSettingsList()
@@ -74,12 +82,6 @@ public class SettingsManager : MonoBehaviour
     }
 
 
-    public void RevertChanges()
-    {
-        InitVisuals();
-        MakeChanges();
-    }
-
     public void ApplyChanges()
     {
         // Save settings >>
@@ -87,12 +89,10 @@ public class SettingsManager : MonoBehaviour
 
         resPlace = resDropdown.value;
         settingsList.settings.Resolution = resPlace;
-
         settingsList.settings.Quality = qualityDropdown.value;
-
         settingsList.settings.GeneralVolume = generalVolumeSlider.value;
 
-        SaveAsJson();
+        SaveSettings();
         MakeChanges();
         InitSettingsList();
     }
@@ -103,7 +103,7 @@ public class SettingsManager : MonoBehaviour
         QualitySettings.SetQualityLevel(settingsList.settings.Quality);
         AudioListener.volume = generalVolumeSlider.value / 100;
     }
-    public void SaveAsJson()
+    public void SaveSettings()
     {
         SettingsSaves settingsSaves = new SettingsSaves();
 
@@ -155,11 +155,6 @@ public class SettingsManager : MonoBehaviour
 
     public void InitAudioVisuals()
     {
-        using (StreamReader r = new StreamReader(filename))
-        {
-            var dataAsJson = r.ReadToEnd();
-            settingsSaves = JsonUtility.FromJson<SettingsSaves>(dataAsJson);
-        }
         generalVolumeInputField.text = (settingsSaves.GeneralVolume * 100).ToString();
         generalVolumeSlider.value = settingsSaves.GeneralVolume * 100;
     }
@@ -187,6 +182,7 @@ public class SettingsManager : MonoBehaviour
 
     public void UnloadSettingsScene()
     {
+        ApplyChanges();
         SceneManager.UnloadSceneAsync("Settings");
     }
 

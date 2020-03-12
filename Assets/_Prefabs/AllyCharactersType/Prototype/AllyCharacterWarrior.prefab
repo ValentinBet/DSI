@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
+  maxLife: 3
   damage: 1
   AttackRange: 1
   movementRange: 3
@@ -174,7 +175,6 @@ MonoBehaviour:
   pathFinding: []
   tilesColored: []
   occupiedTile: {fileID: 0}
-  ObjectTypeMetaData: {fileID: 11400000, guid: 5c1090fb84e2e994cbcd4bf8f6c6bfae, type: 2}
   character_sprite: {fileID: 3494320492829516244}
   anim: {fileID: 7042016712688580369}
   animAttack:

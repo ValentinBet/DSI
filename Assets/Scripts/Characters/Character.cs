@@ -208,6 +208,8 @@ public class Character : MonoBehaviour
 
         if (PatternReader.instance.PatternExecuter.currentCharacter == this || cancelPattern)
         {
+
+            Debug.Log("Le current caracter meurt");
             PatternReader.instance.PatternExecuter.StopPattern(this);
         }
 

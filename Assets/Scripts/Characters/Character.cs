@@ -156,7 +156,7 @@ public class Character : MonoBehaviour
 
     public void GotAttacked(int damageAmount, Character attacker, string context)
     {
-        CameraManager.Instance.InitScreenShake( 0.3f, 0.2f);
+        CameraManager.Instance.InitScreenShake(0.3f, 0.2f);
         Debug.Log(this.gameObject + " attacked by " + attacker.gameObject + " CONTEXT : " + context);
         life -= damageAmount;
         UpdateLifeDisplay();
@@ -184,7 +184,8 @@ public class Character : MonoBehaviour
             if (i > life)
             {
                 lifeObj[i].SetActive(false);
-            } else
+            }
+            else
             {
                 lifeObj[i].SetActive(true);
             }
@@ -208,9 +209,12 @@ public class Character : MonoBehaviour
 
         if (PatternReader.instance.PatternExecuter.currentCharacter == this || cancelPattern)
         {
-
             Debug.Log("Le current caracter meurt");
-            PatternReader.instance.PatternExecuter.StopPattern(this);
+            PatternReader.instance.PatternExecuter.CurrentCaracterDead(this);
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
 
         //if (isAlly && CharactersManager.Instance.allyCharacter.Contains(GetComponent<AllyCharacter>())) // (LINQ)
@@ -218,7 +222,6 @@ public class Character : MonoBehaviour
         //    CharactersManager.Instance.allyCharacter.Remove(GetComponent<AllyCharacter>());
         //}
 
-        gameObject.SetActive(false);
     }
 
     public TileProperties GetTileFromTransform(Vector2 tileOffset, int lenght = 1)

@@ -615,6 +615,26 @@ public class PatternExecuter : MonoBehaviour
         AudioManager.Instance.PlayEndTurn();
     }
 
+
+    public void CurrentCaracterDead(Character character)
+    {
+        tileColoredDuringPattern.Add(character.occupiedTile);
+
+        for (int i = 0; i < tileColoredDuringPattern.Count; i++)
+        {
+            TilesManager.Instance.ChangeTileMaterial(tileColoredDuringPattern[i], tileColoredDuringPattern[i].baseMat);
+        }
+
+        if (character.myState == CharacterState.Standby)
+        {
+            character.myState = CharacterState.Finished;
+        }
+
+        PatternReader.instance.FinishTurn();
+        AudioManager.Instance.PlayEndTurn();
+        character.gameObject.SetActive(false);
+    }
+
     public float GetRotationOffset(Vector3 directionToTest, Vector3 nexusDirection)
     {
 

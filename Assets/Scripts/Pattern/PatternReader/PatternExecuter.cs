@@ -51,15 +51,15 @@ public class PatternExecuter : MonoBehaviour
                             character.transform.Rotate(Vector3.up, 0f);
                             break;
                     }
-                    AudioManager.Instance.PlayCloseAttack();
+                    AudioManager.Instance.PlayCharacterRotate();
                     TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                     ActionEnd(pattern, character.occupiedTile, character, index, depth);
                     break;
                 case ActionType.Attack:
                     //Anim d'attack à faire manuellement ici 
-                    character.PlayAnim(character.animationValue.AttackDuration, "Attacking", true, character.animationValue.AttackRatioDuration);
+                    character.PlayAnim(character.animAttack.Duration, "Attacking", true, character.animAttack.AnimRatio);
                     AudioManager.Instance.PlayCloseAttack();
-                    StartCoroutine(ActionEnd(pattern, character.occupiedTile, character, index, depth, character.animationValue.AttackDuration));
+                    StartCoroutine(ActionEnd(pattern, character.occupiedTile, character, index, depth, character.animAttack.Duration));
                     break;
                 default:
                     break;
@@ -108,7 +108,7 @@ public class PatternExecuter : MonoBehaviour
                         character.transform.Rotate(Vector3.up, 0f);
                         break;
                 }
-                AudioManager.Instance.PlayCloseAttack();
+                AudioManager.Instance.PlayCharacterRotate();
                 TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                 ActionEnd(pattern, character.occupiedTile, character, index, depth);
                 break;
@@ -310,7 +310,7 @@ public class PatternExecuter : MonoBehaviour
 
     private void CharacterReorientation(Character character, bool doNextAction, int index, int depth)
     {
-        AudioManager.Instance.PlayCloseAttack();
+        AudioManager.Instance.PlayCharacterRotate();
         if (character.myState != CharacterState.Standby)
         {
             return;
@@ -383,10 +383,10 @@ public class PatternExecuter : MonoBehaviour
 
     private IEnumerator ExtraAttack(PatternTemplate pattern, Character character, int index, int depth, bool continuePatern, bool useCharacterPattern)
     {
-        character.PlayAnim(character.animationValue.AttackDuration, "Attacking", true, character.animationValue.AttackRatioDuration);
-        StartCoroutine(AttackPlaySound(character , useCharacterPattern , 0.2f));
+        character.PlayAnim(character.animAttack.Duration, "Attacking", true, character.animAttack.AnimRatio);
+        StartCoroutine(AttackPlaySound(character , !useCharacterPattern , character.animAttack.SoundRatio));
 
-        yield return new WaitForSeconds(character.animationValue.AttackDuration);
+        yield return new WaitForSeconds(character.animAttack.Duration);
         List<TileProperties> testedTiles = new List<TileProperties>();
 
         if (!useCharacterPattern)

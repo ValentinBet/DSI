@@ -77,10 +77,10 @@ MonoBehaviour:
   ObjectTypeMetaData: {fileID: 11400000, guid: afff1c7cb6ebbc74d8b5d8920419f5b7, type: 2}
   character_sprite: {fileID: 7124241749366363148}
   anim: {fileID: 1644373449271813889}
-  animationValue:
-    AttackDuration: 1.5
-    DeplacementDuration: 0
-    AttackRatioDuration: 0.85
+  animAttack:
+    Duration: 1.5
+    AnimRatio: 0.8
+    SoundRatio: 1.2
   allyName: 
   experience: 0
   level: 0

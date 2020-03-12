@@ -38,9 +38,9 @@ public class SelectLevelsManager : MonoBehaviour
         yearSurvivedText.text = GameInfoManager.GameData.yearSurvived > 1 ? GameInfoManager.GameData.yearSurvived + " Years survived" : GameInfoManager.GameData.yearSurvived + " Year survived";
     }
 
-    public void LaunchGame()
+    public void LaunchGame(string scene)
     {
-        SceneManager.LoadSceneAsync(LevelScene, LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
     }
 
     public void UnloadLevelsScene()

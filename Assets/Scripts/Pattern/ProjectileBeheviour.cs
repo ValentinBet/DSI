@@ -156,6 +156,8 @@ public class ProjectileBeheviour : MonoBehaviour
 
                 break;
             case TileProperties.TilesSpecific.PlayerBase:
+
+                Debug.Log("Projectile on base");
                 DestroyProjectile();
                 break;
 

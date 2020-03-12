@@ -5,6 +5,7 @@ using UnityEngine;
 public class PreviewPatternV2 : MonoBehaviour
 {
     public List<TileProperties> tileColoredDuringPattern = new List<TileProperties>();
+    public List<TileProperties> previewAttackOnTile = new List<TileProperties>();
     public Character currentCharacter;
 
     private TileProperties currentTile;
@@ -82,8 +83,7 @@ public class PreviewPatternV2 : MonoBehaviour
                     ActionEnd(currentTile, index, depth);
                     break;
                 case ActionType.Attack:
-                    TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.attackMat);
-                    tileColoredDuringPattern.Add(currentTile);
+                    PreviewOnTargetTile(currentTile);
                     ActionEnd(currentTile, index, depth);
                     break;
                 default:
@@ -159,8 +159,7 @@ public class PreviewPatternV2 : MonoBehaviour
         {
             if (newTile.occupant != currentCharacter)
             {
-                TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.attackMat);
-                tileColoredDuringPattern.Add(newTile);
+                PreviewOnTargetTile(newTile);
                 GetDamaged(index, depth, false, 1);
                 return;
             }
@@ -467,8 +466,12 @@ public class PreviewPatternV2 : MonoBehaviour
     private void PreviewOnTargetTile(TileProperties targetTile)
     {
         //testedTiles.Add(targetTile);
-        TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
-        tileColoredDuringPattern.Add(targetTile);
+        if (targetTile.specificity != TileProperties.TilesSpecific.PlayerBase)
+        {
+            //TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
+            previewAttackOnTile.Add(targetTile);
+            targetTile.VFXGestion.toggleVFx(targetTile.VFXGestion.previewHit.VFXGameObject, true);
+        }
     }
 
     private void ActionEnd(TileProperties tileToColored, int index, int depth)
@@ -487,7 +490,7 @@ public class PreviewPatternV2 : MonoBehaviour
     public void ActionEnd(TileProperties tilesToColored, int index, int depth, bool continuePattern)
     {
         index++;
-  
+
         if (index < depth && continuePattern)
         {
             StartCoroutine(NextAction(timeBetweenAction, index, depth));
@@ -551,7 +554,7 @@ public class PreviewPatternV2 : MonoBehaviour
 
         Vector3 currentRigth = rotation * currentDirection;
 
-        Vector3 targetPos = (currentTile.transform.position + (currentRigth * (tileOffset.x * tilesSize)) + (currentDirection * (tileOffset.y * tilesSize))) + new Vector3 (0,1,0);
+        Vector3 targetPos = (currentTile.transform.position + (currentRigth * (tileOffset.x * tilesSize)) + (currentDirection * (tileOffset.y * tilesSize))) + new Vector3(0, 1, 0);
 
 
         //hitTiles = Physics.RaycastAll(transform.position, transform.TransformDirection(direction), lenght, TileLayer);
@@ -577,6 +580,10 @@ public class PreviewPatternV2 : MonoBehaviour
         for (int i = 0; i < tileColoredDuringPattern.Count; i++)
         {
             TilesManager.Instance.ChangeTileMaterial(tileColoredDuringPattern[i], tileColoredDuringPattern[i].baseMat);
+        }
+        for (int i = 0; i < previewAttackOnTile.Count; i++)
+        {
+            previewAttackOnTile[i].VFXGestion.toggleVFx(previewAttackOnTile[i].VFXGestion.previewHit.VFXGameObject, false);
         }
     }
 

@@ -416,8 +416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30416ed101a03b74c90dda7d71d7c470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1
-  maxLife: 1
+  life: 2
+  maxLife: 2
   damage: 1
   AttackRange: 20
   movementRange: 5

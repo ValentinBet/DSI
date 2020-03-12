@@ -11,6 +11,8 @@ public class ChampionsManager : MonoBehaviour
     [SerializeField] private Color activatedTabElementColor;
     [SerializeField] private Color desactivatedTabElementColor;
 
+    [SerializeField] private List<TextMeshProUGUI> nameListText = new List<TextMeshProUGUI>();
+
     [SerializeField] private Image allySprite;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI levelText;
@@ -26,7 +28,8 @@ public class ChampionsManager : MonoBehaviour
 
     private void Start()
     {
-       // ActivateTabElement(0);
+        // ActivateTabElement(0);
+        Init();
     }
 
     //private void ResetTabElementColor()
@@ -37,6 +40,13 @@ public class ChampionsManager : MonoBehaviour
     //    }
     //}
 
+    private void Init()
+    {
+        for (int i = 0; i < nameListText.Count; i++)
+        {
+            nameListText[i].text = GameInfoManager.GameData.allies[i].name;
+        }
+    }
     public void ActivateTabElement(int value)
     {
         //ResetTabElementColor();

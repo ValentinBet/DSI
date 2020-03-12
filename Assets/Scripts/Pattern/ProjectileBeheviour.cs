@@ -97,15 +97,8 @@ public class ProjectileBeheviour : MonoBehaviour
         {
             if (testedTile.occupant == _shooter)
             {
-                _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
-                if ((_shooter.life - _shooter.damage) < 1)
-                {
-                    if (PatternReader.instance.PatternExecuter.currentCharacter == _shooter)
-                    {
-                        PatternReader.instance.PatternExecuter.StopPattern(_shooter);
-                    }
 
-                }
+                _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
                 testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile on fire");
                 testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
                 AudioManager.Instance.PlayProjectileCharacterHit();

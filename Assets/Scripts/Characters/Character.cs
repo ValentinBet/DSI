@@ -49,6 +49,8 @@ public class Character : MonoBehaviour
     public GameObject character_sprite;
     public Animator anim;
     public AnimationDatas animAttack;
+    public List<GameObject> lifeObj = new List<GameObject>();
+    public GameObject lifeCanvas;
 
     private void Start()
     {
@@ -138,6 +140,7 @@ public class Character : MonoBehaviour
     {
         CameraManager.Instance.InitScreenShake(0.3f, 0.2f);
         life = life - damageAmount;
+        UpdateLifeDisplay();
         if (isAlly)
         {
             UIManager.Instance.AllyLifeUpdate(priority, life);
@@ -153,10 +156,10 @@ public class Character : MonoBehaviour
 
     public void GotAttacked(int damageAmount, Character attacker, string context)
     {
-
-        CameraManager.Instance.InitScreenShake( 0.3f, 0.2f);
+        CameraManager.Instance.InitScreenShake(0.3f, 0.2f);
         Debug.Log(this.gameObject + " attacked by " + attacker.gameObject + " CONTEXT : " + context);
         life -= damageAmount;
+        UpdateLifeDisplay();
         if (isAlly)
         {
             UIManager.Instance.AllyLifeUpdate(priority, life);
@@ -171,6 +174,22 @@ public class Character : MonoBehaviour
             }
 
             KillCharacter(false);
+        }
+    }
+
+    private void UpdateLifeDisplay()
+    {
+        for (int i = 0; i < lifeObj.Count; i++)
+        {
+            if (i > life -1)
+            {
+                print(lifeObj[i]);
+                lifeObj[i].SetActive(false);
+            }
+            else
+            {
+                lifeObj[i].SetActive(true);
+            }
         }
     }
 
@@ -189,9 +208,14 @@ public class Character : MonoBehaviour
             AudioManager.Instance.PlayCharacterDie();
         }
 
-        if (PatternReader.instance.PatternExecuter.currentCharacter == this && cancelPattern)
+        if (PatternReader.instance.PatternExecuter.currentCharacter == this || cancelPattern)
         {
-            PatternReader.instance.PatternExecuter.StopPattern(this);
+            Debug.Log("Le current caracter meurt");
+            PatternReader.instance.PatternExecuter.CurrentCaracterDead(this);
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
 
         //if (isAlly && CharactersManager.Instance.allyCharacter.Contains(GetComponent<AllyCharacter>())) // (LINQ)
@@ -199,7 +223,6 @@ public class Character : MonoBehaviour
         //    CharactersManager.Instance.allyCharacter.Remove(GetComponent<AllyCharacter>());
         //}
 
-        gameObject.SetActive(false);
     }
 
     public TileProperties GetTileFromTransform(Vector2 tileOffset, int lenght = 1)
@@ -253,7 +276,7 @@ public class Character : MonoBehaviour
         if (character_sprite != null)
         {
             character_sprite.transform.LookAt(Camera.main.transform);
-
+            lifeCanvas.transform.LookAt(Camera.main.transform);
         }
 
     }

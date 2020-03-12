@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave02_Lv5
   m_EditorClassIdentifier: 
   turnOfActivation: 3
-  needsEmptyBoard: 1
+  needsEmptyBoard: 0
   enemies:
   - type: 0
     gridPosition: {x: 1, y: 6}
@@ -21,5 +21,3 @@ MonoBehaviour:
     gridPosition: {x: 1, y: 3}
   - type: 1
     gridPosition: {x: 0, y: 8}
-  - type: 1
-    gridPosition: {x: 0, y: 4}

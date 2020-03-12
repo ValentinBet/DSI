@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec01650f24c4194b909eeb566f21ffe, type: 3}
   m_Name: Wave03_Lv5
   m_EditorClassIdentifier: 
-  turnOfActivation: 6
+  turnOfActivation: 5
   needsEmptyBoard: 1
   enemies:
   - type: 0

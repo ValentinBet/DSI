@@ -33,8 +33,8 @@ public class GameTracker : MonoBehaviour
     public void GatherData()
     {
         baseLife = PlayerBase.Instance.GetLife();
-        alliesRemaining = CharactersManager.Instance.allyCharacter.Count;
-        enemiesRemaining = CharactersManager.Instance.enemyCharacters.Count;
+        alliesRemaining = CharactersManager.Instance.GetAliveCharacterCount();
+        enemiesRemaining = CharactersManager.Instance.GeteEnemyCharacterCount();
         wavesRemaining = PhaseManager.Instance.GetRemainingWaves();
     }
 

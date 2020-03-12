@@ -45,8 +45,8 @@ Material:
     - _DoubleSidedEnable: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
-    - _Float0: 0.001
-    - _LigthIntensity: 0.59
+    - _Float0: 0.127
+    - _LigthIntensity: 1.201
     - _ReceivesSSR: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
@@ -79,5 +79,5 @@ Material:
     - _LightColorHighValue: {r: 0, g: 0, b: 0, a: 0}
     - _LigthColor: {r: 1, g: 1, b: 1, a: 0}
     - _LigthColorLowValue: {r: 0, g: 0, b: 0, a: 0}
-    - _LigthValue: {r: 0.2924528, g: 0.06937644, b: 0, a: 0}
+    - _LigthValue: {r: 0, g: 0, b: 0, a: 0}
     - _Vector0: {r: 0, g: 0, b: 0, a: 0}

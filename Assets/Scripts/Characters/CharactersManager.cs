@@ -164,4 +164,34 @@ public class CharactersManager : MonoBehaviour
             ally.AddExperience(value);
         }
     }
+
+    public int GetAliveCharacterCount()
+    {
+        int count = 0;
+
+        for (int i = 0; i < allyCharacter.Count; i++)
+        {
+            if (allyCharacter[i].myState != CharacterState.Dead)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int GeteEnemyCharacterCount()
+    {
+        int count = 0;
+
+        for (int i = 0; i < enemyCharacters.Count; i++)
+        {
+            if (enemyCharacters[i].myState != CharacterState.Dead)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
 }

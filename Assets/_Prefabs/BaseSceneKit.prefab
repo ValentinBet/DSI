@@ -77419,6 +77419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileColoredDuringPattern: []
+  previewAttackOnTile: []
   currentCharacter: {fileID: 0}
   timeBetweenAction: 0.2
 --- !u!1 &1371052655834341494
@@ -80677,7 +80678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7939765884665116961
 Transform:
   m_ObjectHideFlags: 0

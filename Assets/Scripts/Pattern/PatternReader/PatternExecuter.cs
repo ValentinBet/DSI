@@ -51,15 +51,15 @@ public class PatternExecuter : MonoBehaviour
                             character.transform.Rotate(Vector3.up, 0f);
                             break;
                     }
-                    AudioManager.Instance.PlayCloseAttack();
+                    AudioManager.Instance.PlayCharacterRotate();
                     TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                     ActionEnd(pattern, character.occupiedTile, character, index, depth);
                     break;
                 case ActionType.Attack:
                     //Anim d'attack à faire manuellement ici 
-                    character.PlayAnim(character.animationValue.AttackDuration, "Attacking", true, character.animationValue.AttackRatioDuration);
+                    character.PlayAnim(character.animAttack.Duration, "Attacking", true, character.animAttack.AnimRatio);
                     AudioManager.Instance.PlayCloseAttack();
-                    StartCoroutine(ActionEnd(pattern, character.occupiedTile, character, index, depth, character.animationValue.AttackDuration));
+                    StartCoroutine(ActionEnd(pattern, character.occupiedTile, character, index, depth, character.animAttack.Duration));
                     break;
                 default:
                     break;
@@ -108,7 +108,7 @@ public class PatternExecuter : MonoBehaviour
                         character.transform.Rotate(Vector3.up, 0f);
                         break;
                 }
-                AudioManager.Instance.PlayCloseAttack();
+                AudioManager.Instance.PlayCharacterRotate();
                 TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                 ActionEnd(pattern, character.occupiedTile, character, index, depth);
                 break;
@@ -310,7 +310,7 @@ public class PatternExecuter : MonoBehaviour
 
     private void CharacterReorientation(Character character, bool doNextAction, int index, int depth)
     {
-        AudioManager.Instance.PlayCloseAttack();
+        AudioManager.Instance.PlayCharacterRotate();
         if (character.myState != CharacterState.Standby)
         {
             return;
@@ -383,17 +383,10 @@ public class PatternExecuter : MonoBehaviour
 
     private IEnumerator ExtraAttack(PatternTemplate pattern, Character character, int index, int depth, bool continuePatern, bool useCharacterPattern)
     {
-        character.PlayAnim(character.animationValue.AttackDuration, "Attacking", true, character.animationValue.AttackRatioDuration);
-        if (character.AttackPattern.attackType == AttackType.Zone)
-        {
-            AudioManager.Instance.PlayAoeLaunch();
-        }
-        else
-        {
-            AudioManager.Instance.PlayShootProjectile();
-        }
+        character.PlayAnim(character.animAttack.Duration, "Attacking", true, character.animAttack.AnimRatio);
+        StartCoroutine(AttackPlaySound(character , !useCharacterPattern , character.animAttack.SoundRatio));
 
-        yield return new WaitForSeconds(character.animationValue.AttackDuration);
+        yield return new WaitForSeconds(character.animAttack.Duration);
         List<TileProperties> testedTiles = new List<TileProperties>();
 
         if (!useCharacterPattern)
@@ -402,9 +395,6 @@ public class PatternExecuter : MonoBehaviour
             List<TileProperties> tiles = character.occupiedTile.GetTileOnDirection(character.transform.forward, rayLength, false);
             if (tiles.Count != 0)
             {
-
-                AudioManager.Instance.PlayCloseAttack();
-                //ActionEnd(pattern, character.occupiedTile, character, index, depth);
                 AttackOnTargetTile(character, testedTiles, tiles[0], 0.5f);
             }
         }
@@ -412,11 +402,7 @@ public class PatternExecuter : MonoBehaviour
         {
             if (character.AttackPattern.attackType == AttackType.Zone)
             {
-                if (character.combatStyle == CombatStyle.closeCombat)
-                {
-                    AudioManager.Instance.PlayCloseAttack();
-                }
-                else
+                if (character.combatStyle != CombatStyle.closeCombat)
                 {
                     AudioManager.Instance.PlayAoeHit();
                 }
@@ -473,6 +459,30 @@ public class PatternExecuter : MonoBehaviour
                 StartCoroutine(StopPattern(character));
             }
         }
+    }
+
+    private IEnumerator AttackPlaySound(Character character, bool closeCombat, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        if (closeCombat || character.combatStyle == CombatStyle.closeCombat)
+        {
+            AudioManager.Instance.PlayCloseAttack();
+        }
+        else
+        {
+            if (character.AttackPattern.attackType == AttackType.Zone)
+            {
+
+                AudioManager.Instance.PlayAoeLaunch();
+
+            }
+            else
+            {
+                AudioManager.Instance.PlayShootProjectile();
+            }
+        }
+
     }
 
     private IEnumerator ExtraDeplacement(PatternTemplate pattern, Character character, int index, int depth)

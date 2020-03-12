@@ -77,10 +77,10 @@ MonoBehaviour:
   ObjectTypeMetaData: {fileID: 11400000, guid: abe8fba56004a4e4eb54d4c4ae602581, type: 2}
   character_sprite: {fileID: 7426566809267760232}
   anim: {fileID: 7397216013919831312}
-  animationValue:
-    AttackDuration: 1
-    DeplacementDuration: 0
-    AttackRatioDuration: 0.7
+  animAttack:
+    Duration: 1.5
+    AnimRatio: 0.9
+    SoundRatio: 1.4
   enemyName: Challenger Pugiliste
   enemyDescription: "M\xE9chant M\xE9chant"
   xpEarnWhenKill: 10

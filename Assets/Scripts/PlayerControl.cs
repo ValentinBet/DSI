@@ -132,6 +132,7 @@ public class PlayerControl : MonoBehaviour
     {
         GameTracker.Instance.PlayerAction(pa);
         UIManager.Instance.DisplayCancelHelpKey(false);
+
         if (!GameTracker.Instance.IsHavingEnoughtPa())
         {
             EndAllModes();

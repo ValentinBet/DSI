@@ -306,6 +306,7 @@ MonoBehaviour:
   isWalkable: 0
   isOccupied: 0
   isMovable: 1
+  isRotatable: 0
   isActivated: 0
   isOnFire: 0
   spawnable: 0

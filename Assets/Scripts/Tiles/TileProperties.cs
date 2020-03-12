@@ -32,14 +32,13 @@ public class TileProperties : MonoBehaviour
     public GameObject[] previewItem;
     public TileImpact tileImpact;
 
-
-
     public Vector2 tileID;
     [Header("Boolean State")]
     public bool canSeeThrough;
     public bool isWalkable;
     public bool isOccupied;
     public bool isMovable;
+    public bool isRotatable = true;
     public bool isActivated;
     public bool isOnFire;
     public bool spawnable = false;

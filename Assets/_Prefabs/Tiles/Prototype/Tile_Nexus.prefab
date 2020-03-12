@@ -112,8 +112,7 @@ MonoBehaviour:
   order: 0
   teleportChannel: 0
   sR: {fileID: 0}
-  icon: {fileID: 0}
-  secondaryIcon: {fileID: 0}
+  VFXGestion: {fileID: 0}
   mR: {fileID: 5144871786083905971}
   ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
@@ -130,6 +129,7 @@ MonoBehaviour:
   isWalkable: 0
   isOccupied: 0
   isMovable: 0
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0

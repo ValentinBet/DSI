@@ -84,6 +84,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 1

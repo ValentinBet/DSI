@@ -69,7 +69,7 @@ MonoBehaviour:
   characterType: 2
   combatStyle: 1
   isAlly: 1
-  mouvementPattern: {fileID: 11400000, guid: addad5cc1eb28254681f323c94b30c64, type: 2}
+  mouvementPattern: {fileID: 11400000, guid: 427ecced68c45ae458126b6279a2c627, type: 2}
   AttackPattern: {fileID: 11400000, guid: 54ee4c15a4250b04a877e2fb5c571ded, type: 2}
   pathFinding: []
   tilesColored: []
@@ -78,8 +78,9 @@ MonoBehaviour:
   character_sprite: {fileID: 7124241749366363148}
   anim: {fileID: 1644373449271813889}
   animationValue:
-    AttackDuration: 0.6
+    AttackDuration: 1
     DeplacementDuration: 0
+    AttackRatioDuration: 0.7
   allyName: 
   experience: 0
   level: 0

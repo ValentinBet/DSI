@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 7bda5289eefedda4dbf1e559cc296226
+=======
+<<<<<<< HEAD:Assets/_Prefabs/Pattern/Tests/Editor/Nodes.meta
+guid: 7bda5289eefedda4dbf1e559cc296226
+=======
+guid: 4d4bfe59564725842bebaad312fcd16d
+>>>>>>> c2af1c363403c6f9aeada1574e383ae7d03809e6:Assets/Textures/UI/Champions/Nodes.meta~HEAD
+>>>>>>> 7313f56daabb0df0b4dbbd7208176274bdee13a8
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

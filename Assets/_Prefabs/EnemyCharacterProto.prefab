@@ -427,6 +427,10 @@ MonoBehaviour:
     Duration: 1.5
     AnimRatio: 0.9
     SoundRatio: 1.4
+  animDamaged:
+    Duration: 0.24
+    AnimRatio: 0.95
+    SoundRatio: 0.2
   lifeObj:
   - {fileID: 3033986078958534301}
   - {fileID: 7181409640254917639}

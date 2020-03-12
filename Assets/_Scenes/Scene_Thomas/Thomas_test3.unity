@@ -6616,6 +6616,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 4947934354733155009, guid: d4806f5561897ab439e415ee69c7602d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4947934354733155010, guid: d4806f5561897ab439e415ee69c7602d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14001,6 +14006,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nexus
       objectReference: {fileID: 0}
+    - target: {fileID: 270533550228611374, guid: 44785cef87524684f9ac6b52ee7daaa4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 270533550798052284, guid: 44785cef87524684f9ac6b52ee7daaa4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14020,6 +14030,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 270533550798052284, guid: 44785cef87524684f9ac6b52ee7daaa4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44785cef87524684f9ac6b52ee7daaa4, type: 3}
@@ -38829,6 +38844,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseSceneKit
       objectReference: {fileID: 0}
+    - target: {fileID: 1371052656508498315, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1371052656508498324, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38898,6 +38918,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -16.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726552678201838072, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726552678201838072, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726552678201838072, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726552678201838072, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726552678201838072, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3539936702920691173, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
         type: 3}

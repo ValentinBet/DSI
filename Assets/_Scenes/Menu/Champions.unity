@@ -2332,7 +2332,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4397,6 +4397,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatedTabElementColor: {r: 1, g: 1, b: 1, a: 1}
   desactivatedTabElementColor: {r: 0.83921576, g: 0.83921576, b: 0.83921576, a: 1}
+  nameListText:
+  - {fileID: 572805343}
+  - {fileID: 347878458}
+  - {fileID: 4814145}
   allySprite: {fileID: 1393158829}
   nameText: {fileID: 569165717}
   levelText: {fileID: 550301967}
@@ -4523,7 +4527,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5622,7 +5626,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

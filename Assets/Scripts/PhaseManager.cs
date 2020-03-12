@@ -81,17 +81,6 @@ public class PhaseManager : MonoBehaviour
                         charactersManager.allyCharacter[i].myState = CharacterState.Standby;
                     }
 
-
-                    //if (charactersManager.allyCharacter[i].myState == CharacterState.Dead)
-                    //{
-                    //    charactersManager.allyCharacter[i].gameObject.SetActive(false);
-                    //    charactersManager.allyCharacter.RemoveAt(i);
-                    //    i--;
-                    //}
-                    //else
-                    //{
-                    //    charactersManager.allyCharacter[i].myState = CharacterState.Standby;
-                    //}
                 }
                 for (int i = 0; i < charactersManager.enemyCharacters.Count; i++)
                 {
@@ -100,14 +89,6 @@ public class PhaseManager : MonoBehaviour
                         charactersManager.enemyCharacters[i].myState = CharacterState.Standby;
                     }
 
-                    //if (charactersManager.enemyCharacters[i].myState == CharacterState.Dead)
-                    //{
-                    //    Destroy(charactersManager.enemyCharacters[i].gameObject);
-                    //}
-                    //else
-                    //{
-                    //    charactersManager.enemyCharacters[i].myState = CharacterState.Standby;
-                    //}
                 }
                 break;
             case Phase.Allied:
@@ -131,12 +112,12 @@ public class PhaseManager : MonoBehaviour
                 UIManager.Instance.EnemyTurn();
                 unitIndexs.Clear();
                 currentUnit = 0;
+
                 for (int i = 0; i < charactersManager.enemyCharacters.Count; i++)
                 {
                     if (charactersManager.enemyCharacters[i].myState == CharacterState.Standby)
                     {
                         unitIndexs.Add(i);
-                        //PatternReader.instance.ReadPattern(charactersManager.enemyCharacters[i].mouvementPattern, charactersManager.enemyCharacters[i]);
                     }
                 }
                 NextEnemy();
@@ -156,7 +137,7 @@ public class PhaseManager : MonoBehaviour
                         Debug.LogWarning("No New Wave : " + actualTurn + " aTurn " + levelWaves[actualWave].turnOfActivation + " ToActiv " + charactersManager.enemyCharacters.Count + " enemies");
                     }
                 }
-                Invoke("NextPhase",1.0f);
+                Invoke("NextPhase", 1.0f);
                 break;
 
         }
@@ -196,8 +177,8 @@ public class PhaseManager : MonoBehaviour
         {
             if (charactersManager.enemyCharacters[unitIndexs[currentUnit]] != null && charactersManager.enemyCharacters[unitIndexs[currentUnit]].myState == CharacterState.Standby)
             {
-                    PatternReader.instance.PatternExecuter.ReadPattern(charactersManager.enemyCharacters[unitIndexs[currentUnit]]);
-                    currentUnit++;
+                PatternReader.instance.PatternExecuter.ReadPattern(charactersManager.enemyCharacters[unitIndexs[currentUnit]]);
+                currentUnit++;
             }
             else
             {

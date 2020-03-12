@@ -562,7 +562,7 @@ MonoBehaviour:
   teleport: {fileID: 8300000, guid: c04cd7c42066c9d4f93ed7a1dde91c60, type: 3}
   push: {fileID: 8300000, guid: 3e23017a9471fca44841980642d11748, type: 3}
   aoeHit: {fileID: 8300000, guid: c95ff42cd86b8dc4ca2fa18c6fd9705b, type: 3}
-  aoeLaunch: {fileID: 8300000, guid: 4f4bef4d2b8b21245acb2d0c63fcd5d6, type: 3}
+  aoeLaunch: {fileID: 8300000, guid: 563338f5555b1e149b6155e465394126, type: 3}
   closeAttack: {fileID: 8300000, guid: b6856961a4fc8734f93dc9d6a5e4d3c9, type: 3}
   shootProjectile: {fileID: 8300000, guid: 0397a0f635916e145be5a41418c0ecd4, type: 3}
   defeat: {fileID: 8300000, guid: 10d83df43b6c5e2499a627e20398f0e8, type: 3}

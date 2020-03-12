@@ -156,7 +156,7 @@ public class Character : MonoBehaviour
 
     public void GotAttacked(int damageAmount, Character attacker, string context)
     {
-        CameraManager.Instance.InitScreenShake( 0.3f, 0.2f);
+        CameraManager.Instance.InitScreenShake(0.3f, 0.2f);
         Debug.Log(this.gameObject + " attacked by " + attacker.gameObject + " CONTEXT : " + context);
         life -= damageAmount;
         UpdateLifeDisplay();
@@ -208,9 +208,14 @@ public class Character : MonoBehaviour
             AudioManager.Instance.PlayCharacterDie();
         }
 
-        if (PatternReader.instance.PatternExecuter.currentCharacter == this && cancelPattern)
+        if (PatternReader.instance.PatternExecuter.currentCharacter == this || cancelPattern)
         {
-            PatternReader.instance.PatternExecuter.StopPattern(this);
+            Debug.Log("Le current caracter meurt");
+            PatternReader.instance.PatternExecuter.CurrentCaracterDead(this);
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
 
         //if (isAlly && CharactersManager.Instance.allyCharacter.Contains(GetComponent<AllyCharacter>())) // (LINQ)
@@ -218,7 +223,6 @@ public class Character : MonoBehaviour
         //    CharactersManager.Instance.allyCharacter.Remove(GetComponent<AllyCharacter>());
         //}
 
-        gameObject.SetActive(false);
     }
 
     public TileProperties GetTileFromTransform(Vector2 tileOffset, int lenght = 1)

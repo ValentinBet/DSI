@@ -178,8 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea95a649c536074b8be751059222dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileName: Teleporteur
-  tileDescription: 'Teleporte et oriente le personnage '
+  tileName: Teleporter
+  tileDescription: Teleport and change the direction of the character
   specificity: 6
   order: 0
   teleportChannel: 0

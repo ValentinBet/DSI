@@ -43,8 +43,15 @@ public class TilesChanger : MonoBehaviour
 
     public bool TryChangePos(GameObject tile)
     {
+        //SecondCheck
+        TileProperties propTile = tile.GetComponent<TileProperties>();
 
-            if (initTile == null)
+        if (propTile.isOccupied || !propTile.isMovable)
+        {
+            return false; // renvoie une action ne nécéssitant aucun PA
+        }
+
+        if (initTile == null)
             {
                 initTile = tile;
 
@@ -67,6 +74,7 @@ public class TilesChanger : MonoBehaviour
 
     public bool InitChange()
     {
+
         if (initTile != null && lastTile != null)
         {
             tempPos = initTile.transform.position;

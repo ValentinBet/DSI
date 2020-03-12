@@ -36,7 +36,6 @@ public class AllyCharactersPlacer : MonoBehaviour
         CharactersManager.Instance.EndAllyPlacing();
         PhaseManager.Instance.NextPhase();
         UIManager.Instance.AllyLifeSetup();
-        UIManager.Instance.SetAllyHintState(false);
         UIManager.Instance.isPlacingAlly = false;
         UIManager.Instance.NewTurn();
     }
@@ -115,8 +114,7 @@ public class AllyCharactersPlacer : MonoBehaviour
     private void UpdateUIToActualAlly()
     {
         AllyCharacter _ac = GetCharacterObjByType(GameInfoManager.GameData.allies[AllyPriority].type).GetComponent<AllyCharacter>();
-        UIManager.Instance.SetAllyHintState(true, _ac.ObjectTypeMetaData.icon);
-        UIManager.Instance.SetClusterInfo(_ac.allyName, _ac.allyDescription, _ac.ObjectTypeMetaData.icon);
+        UIManager.Instance.SetClusterInfo(_ac.allyName, _ac.allyDescription);
     }
 
     private bool IsAllAllyedSpawned()

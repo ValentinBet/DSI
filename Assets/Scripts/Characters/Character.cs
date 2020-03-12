@@ -49,6 +49,8 @@ public class Character : MonoBehaviour
     public GameObject character_sprite;
     public Animator anim;
     public AnimationDatas animAttack;
+    public List<GameObject> lifeObj = new List<GameObject>();
+    public GameObject lifeCanvas;
 
     private void Start()
     {
@@ -138,6 +140,7 @@ public class Character : MonoBehaviour
     {
         CameraManager.Instance.InitScreenShake(0.3f, 0.2f);
         life = life - damageAmount;
+        UpdateLifeDisplay();
         if (isAlly)
         {
             UIManager.Instance.AllyLifeUpdate(priority, life);
@@ -153,10 +156,10 @@ public class Character : MonoBehaviour
 
     public void GotAttacked(int damageAmount, Character attacker, string context)
     {
-
         CameraManager.Instance.InitScreenShake( 0.3f, 0.2f);
         Debug.Log(this.gameObject + " attacked by " + attacker.gameObject + " CONTEXT : " + context);
         life -= damageAmount;
+        UpdateLifeDisplay();
         if (isAlly)
         {
             UIManager.Instance.AllyLifeUpdate(priority, life);
@@ -171,6 +174,20 @@ public class Character : MonoBehaviour
             }
 
             KillCharacter(false);
+        }
+    }
+
+    private void UpdateLifeDisplay()
+    {
+        for (int i = 0; i < lifeObj.Count; i++)
+        {
+            if (i > life)
+            {
+                lifeObj[i].SetActive(false);
+            } else
+            {
+                lifeObj[i].SetActive(true);
+            }
         }
     }
 
@@ -253,7 +270,7 @@ public class Character : MonoBehaviour
         if (character_sprite != null)
         {
             character_sprite.transform.LookAt(Camera.main.transform);
-
+            lifeCanvas.transform.LookAt(Camera.main.transform);
         }
 
     }

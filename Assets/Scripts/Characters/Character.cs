@@ -93,7 +93,7 @@ public class Character : MonoBehaviour
             {
                 occupiedTile = hit.collider.gameObject.GetComponent<TileProperties>();
 
-                if (occupiedTile.spawnable)
+                if (occupiedTile.spawnable && !occupiedTile.isOccupied)
                 {
                     return true;
                 }

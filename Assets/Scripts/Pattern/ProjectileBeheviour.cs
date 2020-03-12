@@ -64,9 +64,11 @@ public class ProjectileBeheviour : MonoBehaviour
 
     public void DestroyProjectile()
     {
-        _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
+        if (_shooter != null)
+        {
+            _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
+        }
 
-        //StartCoroutine(WaitBeforeDeath());
         Destroy(this.gameObject);
     }
 
@@ -93,21 +95,35 @@ public class ProjectileBeheviour : MonoBehaviour
 
         if (testedTile.isOccupied)
         {
+            if (testedTile.occupant == _shooter)
+            {
+                _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
+                if ((_shooter.life - _shooter.damage) < 1)
+                {
+                    if (PatternReader.instance.PatternExecuter.currentCharacter == _shooter)
+                    {
+                        PatternReader.instance.PatternExecuter.StopPattern(_shooter);
+                    }
+
+                }
+                testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile on fire");
+                testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
+                AudioManager.Instance.PlayProjectileCharacterHit();
+                Destroy(this.gameObject);
+                return;
+            }
+
+            testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile");
             if (isOnFire)
             {
-                testedTile.occupant.GotAttacked(_shooter.damage + 1, _shooter, "by projectile on fire");
-                testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
-                AudioManager.Instance.PlayProjectileCharacterHit();
-                DestroyProjectile();
+                testedTile.occupant.GotAttacked(1, _shooter, "by projectile on fire");
             }
-            else
-            {
-                testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile");
-                testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
-                AudioManager.Instance.PlayProjectileCharacterHit();
-                DestroyProjectile();
-            }
+            testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
+            AudioManager.Instance.PlayProjectileCharacterHit();
+            DestroyProjectile();
+            return;
         }
+
         switch (testedTile.specificity)
         {
             case TileProperties.TilesSpecific.Push:

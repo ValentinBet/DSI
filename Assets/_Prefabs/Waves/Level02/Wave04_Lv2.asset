@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ec01650f24c4194b909eeb566f21ffe, type: 3}
-  m_Name: Wave02_Lv2
+  m_Name: Wave04_Lv2
   m_EditorClassIdentifier: 
-  turnOfActivation: 2
+  turnOfActivation: 5
   needsEmptyBoard: 0
   enemies:
   - type: 0
     gridPosition: {x: 1, y: 1}
   - type: 0
-    gridPosition: {x: 1, y: 4}
+    gridPosition: {x: 0, y: 5}
   - type: 0
-    gridPosition: {x: 1, y: 6}
+    gridPosition: {x: 1, y: 7}

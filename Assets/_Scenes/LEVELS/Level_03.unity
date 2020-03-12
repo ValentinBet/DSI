@@ -33887,6 +33887,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1371052655297463751, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
         type: 3}
+      propertyPath: levelWaves.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371052655297463751, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
       propertyPath: levelWaves.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: c2da2187d12fa844390f0d9699500ca1,
@@ -33902,6 +33907,18 @@ PrefabInstance:
       propertyPath: levelWaves.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 7e45e6b35b93c1c41be674b4068a6e39,
+        type: 2}
+    - target: {fileID: 1371052655297463751, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: levelWaves.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: f704579c6bd1cd94aa9b5a8442fea32a,
+        type: 2}
+    - target: {fileID: 1371052655297463751, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
+        type: 3}
+      propertyPath: levelWaves.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 347077ad27e3a1a4f9d921ccb986b5b8,
         type: 2}
     - target: {fileID: 1371052656508498315, guid: da41eb3773ebcfd44b718bc4e4ffdee5,
         type: 3}

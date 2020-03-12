@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class VFXGestion : MonoBehaviour
 {
-    public VFXAsset SwapTileSlected;
+    public VFXAsset SwapTileSelected;
     public VFXAsset SwapTile;
     public VFXAsset SpawnUnit;
     public VFXAsset previewHit;
     public VFXAsset attack;
+    public VFXAsset tileOverlay;
+    public VFXAsset PreviewDeplacement;
+    public VFXAsset PreviewInteraction;
+    public VFXAsset PreviewTirVFX;
+    public VFXAsset PreviewDegatVFX;
 
 
     public void toggleVFx(GameObject vfx, bool activate, bool haveADesactivationTime = false, float duration = 0)

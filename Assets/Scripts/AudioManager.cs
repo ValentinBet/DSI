@@ -88,39 +88,47 @@ public class AudioManager : MonoBehaviour
     {
         as_main.PlayOneShot(selectTile);
     }
-
+    //
     public void PlayWallDestruct()
     {
         as_main.PlayOneShot(wallDestruct);
     }
+    //
     public void PlayWallHit()
     {
         as_main.PlayOneShot(wallHit);
     }
+    //
     public void PlayProjectileWallHit()
     {
         as_main.PlayOneShot(projectileWallHit);
     }
+    //
     public void PlayTeleport()
     {
         as_main.PlayOneShot(teleport);
     }
+    //
     public void PlayPush()
     {
         as_main.PlayOneShot(push);
     }
+    //
     public void PlayAoeHit()
     {
         as_main.PlayOneShot(aoeHit);
     }
+    //
     public void PlayAoeLaunch()
     {
         as_main.PlayOneShot(aoeLaunch);
     }
+    //
     public void PlayCloseAttack()
     {
         as_main.PlayOneShot(closeAttack);
     }
+    //
     public void PlayShootProjectile()
     {
         as_main.PlayOneShot(shootProjectile);
@@ -145,22 +153,27 @@ public class AudioManager : MonoBehaviour
     {
         as_main.PlayOneShot(newTurn);
     }
+    //
     public void PlayProjectileCharacterHit()
     {
         as_main.PlayOneShot(projectileCharacterHit);
     }
+    //
     public void PlayCharacterDie()
     {
         as_main.PlayOneShot(characterDie);
     }
+    //
     public void PlayCharacterHit()
     {
         as_main.PlayOneShot(characterHit);
     }
+    //
     public void PlayCharacterRotate()
     {
         as_main.PlayOneShot(characterRotate);
     }
+    //
     public void PlayAllyDie()
     {
         as_main.PlayOneShot(allyDie);

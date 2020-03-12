@@ -113,12 +113,14 @@ public class Character : MonoBehaviour
     {
         occupiedTile.isOccupied = false;
         occupiedTile.occupant = null;
+        AudioManager.Instance.PlayFootsteps();
 
         transform.position = tileDestination.transform.position + Vector3.up;
 
         if (tileDestination.isOnFire)
         {
             TakeDamaged(1, true);
+            AudioManager.Instance.PlayProjectileCharacterHit();
         }
 
         SetOccupiedTile();
@@ -176,6 +178,15 @@ public class Character : MonoBehaviour
         Debug.Log("This character died", this);
         myState = CharacterState.Dead;
         occupiedTile.LostOccupant();
+
+        if (isAlly)
+        {
+            AudioManager.Instance.PlayAllyDie();
+        }
+        else
+        {
+            AudioManager.Instance.PlayCharacterDie();
+        }
 
         if (PatternReader.instance.PatternExecuter.currentCharacter == this && cancelPattern)
         {
@@ -269,8 +280,6 @@ public class Character : MonoBehaviour
         }
 
     }
-
-
 
     public void EndAnim(string key)
     {

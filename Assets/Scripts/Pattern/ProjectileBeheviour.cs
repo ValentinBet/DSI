@@ -98,10 +98,19 @@ public class ProjectileBeheviour : MonoBehaviour
             if (testedTile.occupant == _shooter)
             {
                 _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
-                testedTile.occupant.GotAttacked(_shooter.damage + 1, _shooter, "by projectile on fire");
+                if ((_shooter.life - _shooter.damage) < 1)
+                {
+                    if (PatternReader.instance.PatternExecuter.currentCharacter == _shooter)
+                    {
+                        PatternReader.instance.PatternExecuter.StopPattern(_shooter);
+                    }
+
+                }
+                testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile on fire");
                 testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
                 AudioManager.Instance.PlayProjectileCharacterHit();
                 Destroy(this.gameObject);
+                return;
             }
 
             testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile");
@@ -112,8 +121,9 @@ public class ProjectileBeheviour : MonoBehaviour
             testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
             AudioManager.Instance.PlayProjectileCharacterHit();
             DestroyProjectile();
-
+            return;
         }
+
         switch (testedTile.specificity)
         {
             case TileProperties.TilesSpecific.Push:

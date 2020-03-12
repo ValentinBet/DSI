@@ -26,6 +26,7 @@ public class SelectLevelsManager : MonoBehaviour
 
     [Header("Quests")]
     [SerializeField] private GameObject questsLayout;
+    [SerializeField] private GameObject archerAlert;
 
 
     private void Start()
@@ -35,11 +36,15 @@ public class SelectLevelsManager : MonoBehaviour
 
     private void InitVisuals()
     {
+        if (GameInfoManager.GameData.yearSurvived - (3 - GameInfoManager.GameData.lifePoints) < 2)
+        {
+            archerAlert.SetActive(false);
+        }
         for (int i = 0; i < yearButtonTextList.Count; i++)
         {
             yearButtonTextList[i].text = "Level " + (GameInfoManager.GameData.yearSurvived + i).ToString();//(GameSettings.FIRST_YEAR + GameInfoManager.GameData.yearSurvived) + i;
             chronologyTexts[i].text = (GameSettings.FIRST_YEAR+i).ToString();
-            progressionBar.fillAmount = (GameInfoManager.GameData.yearSurvived - (3 - GameInfoManager.GameData.lifePoints) / 10.0f);
+            progressionBar.fillAmount = (float)(GameInfoManager.GameData.yearSurvived - (3 - GameInfoManager.GameData.lifePoints)) / 10.0f;
             if (i != GameInfoManager.GameData.yearSurvived - (3 - GameInfoManager.GameData.lifePoints))
             {
                 if (i < GameInfoManager.GameData.yearSurvived - (3 - GameInfoManager.GameData.lifePoints))

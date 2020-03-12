@@ -2302,7 +2302,17 @@ MonoBehaviour:
   windowedDropdown: {fileID: 1534371315}
   resDropdown: {fileID: 1750881774}
   qualityDropdown: {fileID: 745846863}
-  ResolutionsList: []
+  ResolutionsList:
+  - {x: 1920, y: 1080}
+  - {x: 1680, y: 1050}
+  - {x: 1600, y: 1200}
+  - {x: 1600, y: 900}
+  - {x: 1440, y: 900}
+  - {x: 1366, y: 768}
+  - {x: 1280, y: 1024}
+  - {x: 1280, y: 960}
+  - {x: 1280, y: 720}
+  - {x: 1024, y: 768}
   generalVolumeSlider: {fileID: 1388615854}
   generalVolumeInputField: {fileID: 713335726}
   settingsList: {fileID: 11400000, guid: edb639a236b3a684ea5b8eaf871e7bae, type: 2}

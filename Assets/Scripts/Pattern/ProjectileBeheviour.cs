@@ -64,9 +64,11 @@ public class ProjectileBeheviour : MonoBehaviour
 
     public void DestroyProjectile()
     {
-        _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
+        if (_shooter != null)
+        {
+            _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
+        }
 
-        //StartCoroutine(WaitBeforeDeath());
         Destroy(this.gameObject);
     }
 
@@ -93,20 +95,24 @@ public class ProjectileBeheviour : MonoBehaviour
 
         if (testedTile.isOccupied)
         {
-            if (isOnFire)
+            if (testedTile.occupant == _shooter)
             {
+                _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
                 testedTile.occupant.GotAttacked(_shooter.damage + 1, _shooter, "by projectile on fire");
                 testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
                 AudioManager.Instance.PlayProjectileCharacterHit();
-                DestroyProjectile();
+                Destroy(this.gameObject);
             }
-            else
+
+            testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile");
+            if (isOnFire)
             {
-                testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile");
-                testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
-                AudioManager.Instance.PlayProjectileCharacterHit();
-                DestroyProjectile();
+                testedTile.occupant.GotAttacked(1, _shooter, "by projectile on fire");
             }
+            testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
+            AudioManager.Instance.PlayProjectileCharacterHit();
+            DestroyProjectile();
+
         }
         switch (testedTile.specificity)
         {

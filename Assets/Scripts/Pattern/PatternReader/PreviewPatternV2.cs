@@ -395,7 +395,10 @@ public class PreviewPatternV2 : MonoBehaviour
 
             ActionEnd(currentTile, index, depth);
         }
-        ActionEnd(currentTile, index, depth);
+        else
+        {
+            ActionEnd(currentTile, index, depth);
+        }
     }
 
     private void ExtraAttack(int index, int depth, bool continuePatern, bool useCharacterPattern)

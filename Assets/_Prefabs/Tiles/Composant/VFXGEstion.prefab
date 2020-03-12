@@ -696,6 +696,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b686a9c69efc90a429d900db3c262f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SwapTileSelected:
+    VFXGameObject: {fileID: 0}
+    duration: 0
+  SwapTile:
+    VFXGameObject: {fileID: 1687153652999456482}
+    duration: 0
+  SpawnUnit:
+    VFXGameObject: {fileID: 5998037964168912315}
+    duration: 0
+  previewHit:
+    VFXGameObject: {fileID: 5727623941254408789}
+    duration: 1
+  attack:
+    VFXGameObject: {fileID: 7457383176710412711}
+    duration: 1
+  tileOverlay:
+    VFXGameObject: {fileID: 5095798947195666340}
+    duration: 0
+  PreviewDeplacement:
+    VFXGameObject: {fileID: 2768872436720581535}
+    duration: 0
+  PreviewInteraction:
+    VFXGameObject: {fileID: 3712185299376437877}
+    duration: 0
+  PreviewTirVFX:
+    VFXGameObject: {fileID: 6389851005984494490}
+    duration: 0
+  PreviewDegatVFX:
+    VFXGameObject: {fileID: 561141304933479062}
+    duration: 0
 --- !u!1 &5998037964168912315
 GameObject:
   m_ObjectHideFlags: 0

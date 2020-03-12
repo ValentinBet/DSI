@@ -78,9 +78,9 @@ MonoBehaviour:
   character_sprite: {fileID: 7426566809267760232}
   anim: {fileID: 8163848802890133583}
   animationValue:
-    AttackDuration: 1.4
+    AttackDuration: 1.5
     DeplacementDuration: 0
-    AttackRatioDuration: 0.5
+    AttackRatioDuration: 0.8
   enemyName: Challenger Frondeur
   enemyDescription: "M\xE9chant M\xE9chant"
   xpEarnWhenKill: 10

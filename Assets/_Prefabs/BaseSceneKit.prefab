@@ -1018,6 +1018,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -1709,6 +1710,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -2811,6 +2813,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -3720,6 +3723,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -4108,6 +4112,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -4973,6 +4978,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -5066,6 +5072,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -5159,6 +5166,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -6840,6 +6848,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -7976,6 +7985,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -8370,6 +8380,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -9529,6 +9540,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -9840,6 +9852,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -10011,6 +10024,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -10737,6 +10751,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -10908,6 +10923,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -11219,6 +11235,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -12206,6 +12223,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -15694,6 +15712,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -17899,6 +17918,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -18102,6 +18122,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -19326,6 +19347,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -19759,6 +19781,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -21805,6 +21828,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -22305,6 +22329,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -24545,6 +24570,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -24938,6 +24964,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -25249,6 +25276,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -25791,6 +25819,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -26738,6 +26767,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -27049,6 +27079,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -27142,6 +27173,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -27568,6 +27600,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -28579,6 +28612,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -29114,6 +29148,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -30699,6 +30734,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -31015,6 +31051,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -31108,6 +31145,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -31201,6 +31239,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -31402,6 +31441,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -32275,6 +32315,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -32477,6 +32518,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -32648,6 +32690,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -33261,6 +33304,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -33899,6 +33943,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -34101,6 +34146,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -34624,6 +34670,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -35045,6 +35092,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -36467,6 +36515,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -37461,6 +37510,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -38070,6 +38120,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -40353,6 +40404,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -41038,6 +41090,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -41868,6 +41921,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -42263,6 +42317,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -42356,6 +42411,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -42558,6 +42614,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -42651,6 +42708,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -44218,6 +44276,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -46254,6 +46313,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -46942,6 +47002,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -49049,6 +49110,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -49475,6 +49537,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -52782,6 +52845,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -53635,6 +53699,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -54239,6 +54304,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -54634,6 +54700,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -55168,6 +55235,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -55261,6 +55329,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -56214,6 +56283,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -57072,6 +57142,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -57654,6 +57725,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -58407,6 +58479,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -58874,6 +58947,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -59263,6 +59337,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -59683,6 +59758,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -59969,6 +60045,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -60178,6 +60255,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -60610,6 +60688,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -61753,6 +61832,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -63504,6 +63584,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -64454,6 +64535,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -64765,6 +64847,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -65046,6 +65129,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -65865,6 +65949,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -65958,6 +66043,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -66379,6 +66465,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -67112,6 +67199,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -67537,6 +67625,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -67817,6 +67906,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -68020,6 +68110,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -68113,6 +68204,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -68424,6 +68516,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -70046,6 +70139,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -70217,6 +70311,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -70528,6 +70623,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -71031,6 +71127,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -71781,6 +71878,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -72097,6 +72195,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -72299,6 +72398,7 @@ MonoBehaviour:
   isWalkable: 1
   isOccupied: 0
   isMovable: 1
+  isRotatable: 1
   isActivated: 0
   isOnFire: 0
   spawnable: 0
@@ -74258,11 +74358,11 @@ MonoBehaviour:
   - {fileID: 3109850604174282830}
   lifeItem: {fileID: 975562399425913328, guid: aa6f7f2aa9305b74ea2cfabea8d6113b, type: 3}
   lotusLife:
-  - {fileID: 1943381130}
-  - {fileID: 1887693150}
-  - {fileID: 1250326686}
-  - {fileID: 1021811452}
-  - {fileID: 1316277813}
+  - {fileID: 2492608282192719917}
+  - {fileID: 7675037089897971041}
+  - {fileID: 2306135888607174947}
+  - {fileID: 6237965988801249005}
+  - {fileID: 1988118687566204701}
   mouseFollowObj: {fileID: 1371052654814784105}
   allyHint: {fileID: 1371052654757506930}
   allyHintImg: {fileID: 1371052656253843062}
@@ -74917,7 +75017,7 @@ Transform:
   - {fileID: 1371052655224541948}
   m_Father: {fileID: 1371052656508498324}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 33, y: -135, z: 0}
 --- !u!20 &1371052655108681134
 Camera:
   m_ObjectHideFlags: 0
@@ -75135,7 +75235,7 @@ Transform:
   - {fileID: 1371052654542793778}
   m_Father: {fileID: 1371052656508498324}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: -135, z: 0}
 --- !u!114 &1371052655129885820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78862,8 +78962,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2305048694303761231}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -3.6, y: 0.7, z: -1.1}
-  m_LocalScale: {x: 2.218602, y: 2.4067, z: 2.4067}
+  m_LocalPosition: {x: -9.34, y: -16.3, z: -1.1}
+  m_LocalScale: {x: 2.218602, y: 2.9602408, z: 2.4067}
   m_Children: []
   m_Father: {fileID: 6272994845943566010}
   m_RootOrder: 0
@@ -79415,6 +79515,7 @@ Transform:
   - {fileID: 7980788800615334428}
   - {fileID: 344171914343910515}
   - {fileID: 6272994845943566010}
+  - {fileID: 2709215780135050643}
   m_Father: {fileID: 1371052656508498324}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -80558,7 +80659,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6486338384945888558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10.1}
+  m_LocalPosition: {x: 0, y: 14.42, z: 10.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1710810994924035182}
@@ -82262,7 +82363,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.91
+      value: 6.66
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
@@ -82527,24 +82628,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e, type: 3}
---- !u!114 &3109850604731867633 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4048346313462204462, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1371052654674766303}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &609237899424500404 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1977792188730958699, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1371052654674766303}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8308263160053910960 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6938380660629611631, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
@@ -82555,6 +82638,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &609237899424500404 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1977792188730958699, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371052654674766303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3109850604731867633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4048346313462204462, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371052654674766303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1371052655101025387
@@ -82987,24 +83088,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e, type: 3}
---- !u!224 &609237899965315851 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1977792188730958699, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1371052655240730720}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8308263159504731151 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6938380660629611631, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1371052655240730720}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3109850604174282830 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4048346313462204462, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
@@ -83017,6 +83100,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8308263159504731151 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6938380660629611631, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371052655240730720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &609237899965315851 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1977792188730958699, guid: 3fb2a764f82634d4d9e04c7c5d9e0c1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371052655240730720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1371052656150984216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83101,9 +83202,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e236883ee0d7d8f41a520c9d2c46d2f9, type: 3}
+--- !u!1 &7675037089897971041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8756616920681991033, guid: e236883ee0d7d8f41a520c9d2c46d2f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371052656150984216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6237965988801249005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5014547234156136693, guid: e236883ee0d7d8f41a520c9d2c46d2f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371052656150984216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1988118687566204701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 617488246029367557, guid: e236883ee0d7d8f41a520c9d2c46d2f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371052656150984216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2306135888607174947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3677188542335407931, guid: e236883ee0d7d8f41a520c9d2c46d2f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371052656150984216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1110050503082773976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2044990667826019264, guid: e236883ee0d7d8f41a520c9d2c46d2f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1371052656150984216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2492608282192719917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3571762590058481205, guid: e236883ee0d7d8f41a520c9d2c46d2f9,
     type: 3}
   m_PrefabInstance: {fileID: 1371052656150984216}
   m_PrefabAsset: {fileID: 0}
@@ -83122,7 +83253,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.91
+      value: 6.66
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
@@ -83179,6 +83310,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PillierArene_Export (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7677084e03e5a604b8e0226fb48f6db0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7677084e03e5a604b8e0226fb48f6db0, type: 3}
 --- !u!4 &6552145461519451829 stripped
@@ -83202,7 +83338,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.91
+      value: 6.66
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
@@ -83421,15 +83557,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac0f85bd957286e43961a6fb9886c6b6, type: 3}
---- !u!1 &7477937240468731378 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4755285133879469172, guid: ac0f85bd957286e43961a6fb9886c6b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 2754183094404206982}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8511978731826647470 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5771447999241404456, guid: ac0f85bd957286e43961a6fb9886c6b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2754183094404206982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7477937240468731378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4755285133879469172, guid: ac0f85bd957286e43961a6fb9886c6b6,
     type: 3}
   m_PrefabInstance: {fileID: 2754183094404206982}
   m_PrefabAsset: {fileID: 0}
@@ -83448,7 +83584,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.91
+      value: 6.66
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
@@ -83528,7 +83664,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.91
+      value: 6.66
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
@@ -83608,7 +83744,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.91
+      value: 6.66
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
@@ -83688,7 +83824,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.91
+      value: 6.66
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
@@ -83753,6 +83889,86 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4756237417994507500}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6981606002878363273
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2372840974029333085}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.66
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a2e13ac4f4c334499d4a960a6406f2e, type: 2}
+    - target: {fileID: -927199367670048503, guid: 2afde550665cd91468238304364714e4,
+        type: 3}
+      propertyPath: m_Name
+      value: SM_PilierAreneCorner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2afde550665cd91468238304364714e4, type: 3}
+--- !u!4 &2709215780135050643 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6981606002878363273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8410164328500450825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83768,7 +83984,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.91
+      value: 6.66
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7677084e03e5a604b8e0226fb48f6db0,
         type: 3}
@@ -83824,6 +84040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PillierArene_Export (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7677084e03e5a604b8e0226fb48f6db0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7677084e03e5a604b8e0226fb48f6db0, type: 3}

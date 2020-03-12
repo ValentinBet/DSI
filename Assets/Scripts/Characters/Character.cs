@@ -189,7 +189,7 @@ public class Character : MonoBehaviour
             AudioManager.Instance.PlayCharacterDie();
         }
 
-        if (PatternReader.instance.PatternExecuter.currentCharacter == this && cancelPattern)
+        if (PatternReader.instance.PatternExecuter.currentCharacter == this || cancelPattern)
         {
             PatternReader.instance.PatternExecuter.StopPattern(this);
         }

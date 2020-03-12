@@ -290,7 +290,6 @@ MonoBehaviour:
   sR: {fileID: 0}
   VFXGestion: {fileID: 7919639271263471499}
   mR: {fileID: 3622387351022853380}
-  ObjectTypeMetaData: {fileID: 11400000, guid: 59d9e3cffd7f27645b481fe4aaeecbda, type: 2}
   baseMat: {fileID: 0}
   damageToDeal: 0
   life: 0

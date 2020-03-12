@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: Wall
-  tileDescription: "Peut \xEAtre d\xE9truit"
+  tileDescription: Can be destroyed
   specificity: 5
   order: 0
   teleportChannel: 0

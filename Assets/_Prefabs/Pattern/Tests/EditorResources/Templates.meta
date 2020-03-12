@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/_Prefabs/Pattern/Tests/EditorResources/Templates.meta
+guid: 0865d6bfac1909e47b1e842d7f79dca1
+=======
 guid: 267299257bc38704897454e0bc5b8a92
+>>>>>>> cb1136e7ce447e30e8c30b91a57cd030bb09699d:Assets/_Prefabs/Pattern/Tests/EditorResources/Templates.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

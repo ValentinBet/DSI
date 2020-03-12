@@ -45,8 +45,6 @@ public class Character : MonoBehaviour
     public List<TileProperties> tilesColored = new List<TileProperties>();
     public TileProperties occupiedTile;
 
-    public ObjectTypeMetaData ObjectTypeMetaData;
-
     public GameObject character_sprite;
     public Animator anim;
     public AnimationDatas animAttack;

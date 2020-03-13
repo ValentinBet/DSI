@@ -164,14 +164,12 @@ public class PreviewPatternV2 : MonoBehaviour
             return;
         }
 
-        if (bonusAction && newTile.isOccupied)
+        if (bonusAction && newTile.isOccupied && newTile.occupant != currentCharacter)
         {
-            if (newTile.occupant != currentCharacter)
-            {
-                //PreviewOnTargetTile(newTile);
-                GetDamaged(index, depth, false, 1);
-                return;
-            }
+            //PreviewOnTargetTile(newTile);
+            GetDamaged(index, depth, false, 1);
+            return;
+
         }
         else
         {
@@ -531,7 +529,7 @@ public class PreviewPatternV2 : MonoBehaviour
         if (targetTile.specificity != TileProperties.TilesSpecific.PlayerBase)
         {
             //TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
-            if (currentAttackTemplate.attackType == AttackType.Projectile && !forceZoneAttack )
+            if (currentAttackTemplate.attackType == AttackType.Projectile && !forceZoneAttack)
             {
                 previewShootOnTile.Add(targetTile);
                 GameObject previewTir = targetTile.VFXGestion.PreviewTirVFX.VFXGameObject;
@@ -563,7 +561,7 @@ public class PreviewPatternV2 : MonoBehaviour
                 }
                 else
                 {
-                    Vector3 newPos =new Vector3(targetTile.transform.position.x , 0.25f , targetTile.transform.position.z);
+                    Vector3 newPos = new Vector3(targetTile.transform.position.x, 0.25f, targetTile.transform.position.z);
                     previewAttack.transform.position = newPos;
                 }
 

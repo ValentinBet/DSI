@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite alertEnemy;
 
     [Header("PAs")]
-    [SerializeField] private Image[] PAdisplay;
+    public Image[] PAdisplay;
     [SerializeField] private Sprite PAsprite;
     [SerializeField] private Sprite PAdisabled;
     //[SerializeField] private TextMeshProUGUI PAtext;

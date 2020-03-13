@@ -81,6 +81,8 @@ public class GameTracker : MonoBehaviour
     //Default Value
     public bool PlayerAction(int cost = 1)
     {
+        StartCoroutine(DisplayPaFx());
+
         if (IsHavingEnoughtPa(cost))
         {
             actualPA--;
@@ -91,6 +93,13 @@ public class GameTracker : MonoBehaviour
         {
             return false;
         }
+    }
+
+    IEnumerator DisplayPaFx()
+    {
+        //UIManager.Instance.PAdisplay[actualPA].transform.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        //UIManager.Instance.PAdisplay[actualPA].transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public void RefreshPA()

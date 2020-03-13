@@ -65,13 +65,16 @@ public class Character : MonoBehaviour
     private void FixedUpdate()
     {
         LookAtCamera();
-       priorityText.text = (priority + 1).ToString();
+        priorityText.text = (priority + 1).ToString();
     }
     private void LateUpdate()
     {
         UpdateOrientation();
     }
 
+    /// <summary>
+    /// Défini la tile en dessous du personnage comme occupé et l'appartenant
+    /// </summary>
     public void SetOccupiedTile()
     {
         RaycastHit hit;
@@ -90,6 +93,7 @@ public class Character : MonoBehaviour
             }
         }
     }
+
     public bool GetSpawnableTile()
     {
         RaycastHit hit;
@@ -114,7 +118,10 @@ public class Character : MonoBehaviour
         return false;
     }
 
-
+    /// <summary>
+    /// Initialise le mouvement du personnage
+    /// </summary>
+    /// <param name="tileDestination"></param>
     public void InitMovement(TileProperties tileDestination)
     {
         occupiedTile.isOccupied = false;
@@ -133,6 +140,9 @@ public class Character : MonoBehaviour
         SetOccupiedTile();
     }
 
+    /// <summary>
+    /// Initialise l'attaque du personnage
+    /// </summary>
     public void InitAttack()
     {
         MeshRenderer tMR = occupiedTile.GetComponent<MeshRenderer>();
@@ -142,6 +152,12 @@ public class Character : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Le personnage prend des dégats
+    /// </summary>
+    /// <param name="damageAmount">Nombre de dégats</param>
+    /// <param name="cancelPattern">Met fin au pattern ?</param>
+    /// <returns></returns>
     public bool TakeDamaged(int damageAmount, bool cancelPattern)
     {
         CameraManager.Instance.InitScreenShake(0.3f, 0.2f);
@@ -160,6 +176,12 @@ public class Character : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// Se fait attaqués
+    /// </summary>
+    /// <param name="damageAmount">Nombre de dégats</param>
+    /// <param name="attacker">Personnage attaquant</param>
+    /// <param name="context">Contexte de l'attaque</param>
     public void GotAttacked(int damageAmount, Character attacker, string context)
     {
         CameraManager.Instance.InitScreenShake(0.3f, 0.2f);
@@ -183,7 +205,9 @@ public class Character : MonoBehaviour
             StartCoroutine(KillCharacter(false, animDamaged.Duration));
         }
     }
-
+    /// <summary>
+    /// Met à jour l'affichage de la vie du personnage
+    /// </summary>
     private void UpdateLifeDisplay()
     {
         for (int i = 0; i < lifeObj.Count; i++)
@@ -200,6 +224,10 @@ public class Character : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Tue le personnage
+    /// </summary>
+    /// <param name="cancelPattern">Met fin au pattern ?</param>
     public void KillCharacter(bool cancelPattern)
     {
         Debug.Log("This character died", this);
@@ -224,14 +252,14 @@ public class Character : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
-        //if (isAlly && CharactersManager.Instance.allyCharacter.Contains(GetComponent<AllyCharacter>())) // (LINQ)
-        //{
-        //    CharactersManager.Instance.allyCharacter.Remove(GetComponent<AllyCharacter>());
-        //}
-
     }
 
+    /// <summary>
+    /// Tue le personnage avec un délai
+    /// </summary>
+    /// <param name="cancelPattern">Met fin au pattern ?</param>
+    /// <param name="duration"></param>
+    /// <returns></returns>
     public IEnumerator KillCharacter(bool cancelPattern, float duration)
     {
         Debug.Log("This character died", this);
@@ -258,25 +286,16 @@ public class Character : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
-        //if (isAlly && CharactersManager.Instance.allyCharacter.Contains(GetComponent<AllyCharacter>())) // (LINQ)
-        //{
-        //    CharactersManager.Instance.allyCharacter.Remove(GetComponent<AllyCharacter>());
-        //}
-
     }
 
 
     public TileProperties GetTileFromTransform(Vector2 tileOffset, int lenght = 1)
     {
-        // List<TileProperties> listTilesOnDirection = new List<TileProperties>();
 
         RaycastHit hitTile;
         float tilesSize = 2;
         Vector3 targetPos = transform.position + (transform.right * (tileOffset.x * tilesSize)) + (transform.forward * (tileOffset.y * tilesSize));
 
-
-        //hitTiles = Physics.RaycastAll(transform.position, transform.TransformDirection(direction), lenght, TileLayer);
         Physics.Raycast(targetPos, Vector3.down, out hitTile, lenght, TilesManager.Instance.tileLayer);
 
         if (hitTile.collider != null)
@@ -305,14 +324,15 @@ public class Character : MonoBehaviour
 
         if (numberOfDeadProjectile == AttackPattern.tilesAffected.Length)
         {
-            // Debug.Log(continuePattern);
             numberOfDeadProjectile = 0;
             PatternReader.instance.PatternExecuter.ActionEnd(mouvementPattern, tilesColored, this, index, depth, continuePattern);
             tilesColored.Clear();
         }
     }
 
-
+    /// <summary>
+    /// le personnage regarde la caméra
+    /// </summary>
     public void LookAtCamera()
     {
         if (character_sprite != null)
@@ -321,6 +341,9 @@ public class Character : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Tourne le sprite du personnage et du canvas en fonction de la rotation du root
+    /// </summary>
     private void UpdateOrientation()
     {
         lifeCanvas.transform.rotation = Quaternion.Euler(45, 225, 0);
@@ -363,6 +386,5 @@ public struct AnimationDatas
     public float Duration;
     public float AnimRatio;
     public float SoundRatio;
-
 }
 

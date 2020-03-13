@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Pattern Reader / Execute">
+    <Position X="0.882" Y="26.642" Height="0.366" Width="3.789" />
+  </Comment>
+  <Comment CommentText="Enums / Struct / Scriptable">
+    <Position X="9.745" Y="18.166" Height="0.366" Width="3.789" />
+  </Comment>
+  <Class Name="AudioManager">
+    <Position X="7.75" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAAGoYAIAiAABYSEggAAhESCAQTAUQg0USAIESIBkEQ=</HashCode>
+      <FileName>Assets\Scripts\AudioManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraManager">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQEAAQIABAAAIAAgAAAAAAAAEAQAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\CameraManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlliesCharacterData">
+    <Position X="0.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\AlliesCharacterData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AllyCharacter">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAACAAAEAAAIAAAAAAAAEgAAAgAgBABAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\AllyCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AllyCharacterSave">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAIQAAACAAgEAAAAAAAAAAAAEFAAAABABAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\AllyCharacterSave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AllyCharactersPlacer">
+    <Position X="9.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAAABQAAABAAKAAAADKAACAECAAIAAAAAQAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Characters\AllyCharactersPlacer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Character">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAIQAQqjYUgAAQAggAoAkCQEAAAABABSCEQDIEACA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Character.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharactersGenerator">
+    <Position X="5.75" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAAAAAAQAAQAAQAAAAAAAEAgAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\CharactersGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharactersManager">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASEgAgMAAAAAAABAgIQQIAAAAAqQCgAYAAAAAEBAEA=</HashCode>
+      <FileName>Assets\Scripts\Characters\CharactersManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyCharacter">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACIAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\EnemyCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpawnZone">
+    <Position X="6" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAIAAAAAAAAAAAAACAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Characters\SpawnZone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameData">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABEAAAAAAAAEAAAAAAAAAAgAAAAAAAAAACAAAAEAA=</HashCode>
+      <FileName>Assets\Scripts\Game\GameData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameInfoManager">
+    <Position X="12.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEEAAECAEAAAAAAIAAAAAAEJAMAIAAAQAAAAAAAiEA=</HashCode>
+      <FileName>Assets\Scripts\Game\GameInfoManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameSettings">
+    <Position X="16.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAEAAQAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\GameSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="16.25" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgEAAAAAAAAAAAAAEAAAIAAAAAAAAAAQAAAAAAQCEE=</HashCode>
+      <FileName>Assets\Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameTracker">
+    <Position X="0.5" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAIEEwAQAAAAAABAQACAAggAgAEgQACAAAAABMA=</HashCode>
+      <FileName>Assets\Scripts\GameTracker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGenerator">
+    <Position X="7.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgIEAAAAACAAAAACAAAAAAAAIAgACAAAQAgAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Grid\GridGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridManager">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAEAAAgAAAgAIAAAAAAAAAAAAAAAAUAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Grid\GridManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridSelector">
+    <Position X="12.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Grid\GridSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChampionsManager">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CADAAAAAAKAAAACBCAAIKAAQAAAAAAAEAAAGCAABAAA=</HashCode>
+      <FileName>Assets\Scripts\Menu\ChampionsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CreditsManager">
+    <Position X="19.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Menu\CreditsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuManager">
+    <Position X="6" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAEAACCAQAAAAAAACAAAAAAAAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Menu\MenuManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectLevelsManager">
+    <Position X="13.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAEAACAGQAAAAAAAAAAAECAJAAAEAIGAAIAAAgA=</HashCode>
+      <FileName>Assets\Scripts\Menu\SelectLevelsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettingsManager">
+    <Position X="19.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAACBAECAIQCAxGAAAAACAAAIQAAgAAECAAAEAEAA=</HashCode>
+      <FileName>Assets\Scripts\Menu\SettingsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyButtonParameters">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Menu\SettingsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettingsSaves">
+    <Position X="16.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\Scripts\Menu\SettingsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AttackTemplate">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Pattern\AttackTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatternExecuter">
+    <Position X="2.5" Y="27.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAIgAKIAAEBAAgAEgAgAgAAAACAAAAwAAABEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Pattern\PatternReader\PatternExecuter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatternReader">
+    <Position X="4.25" Y="27.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGEAAAAAAAAQAAABAAAAAAAAQBAEAAAAABAAgEAAEA=</HashCode>
+      <FileName>Assets\Scripts\Pattern\PatternReader\PatternReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PreviewPatternV2">
+    <Position X="0.75" Y="27.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAABIgAKIAKEAAABAAgggAgAAAAhgQAQxAAQBESBBA=</HashCode>
+      <FileName>Assets\Scripts\Pattern\PatternReader\PreviewPatternV2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatternTemplate">
+    <Position X="5.75" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Pattern\PatternTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectileBeheviour">
+    <Position X="6" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAI4AAAAgIAAAAAAAAgAIACAAAAAAEgAwICAAgQAAA=</HashCode>
+      <FileName>Assets\Scripts\Pattern\ProjectileBeheviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhaseManager">
+    <Position X="11.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ISgEQAAgACAAACAAAAAIAAAAAAAQAEAAQAAAgiAIAEQ=</HashCode>
+      <FileName>Assets\Scripts\PhaseManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerBase">
+    <Position X="14.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGEAAAAAgAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\PlayerBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerControl">
+    <Position X="9.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BJUEAAgAQAAAAAEAAQABAAIAAAAIECAJQAAAAQGACkA=</HashCode>
+      <FileName>Assets\Scripts\PlayerControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wave">
+    <Position X="9.75" Y="24.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEgAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ScriptableObject\Wave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TileImpact">
+    <Position X="16" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAABAEAAAJgBAUAAAAAAAACAAAAAQIAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Tiles\FeedBack\TileImpact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VFXGestion">
+    <Position X="2.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQCAAAUAAEAAAAIBACAAAAAAAAAABgSAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Tiles\FeedBack\VFXGestion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TileProperties">
+    <Position X="0.5" Y="10.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="TileProperties.TilesSpecific" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Tiles\TileProperties.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="TileProperties.TilesOrder" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Tiles\TileProperties.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AgEAIIABBCAADAQDQQBohIEAJICAAIAIIwEAEBIACCI=</HashCode>
+      <FileName>Assets\Scripts\Tiles\TileProperties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TilesChanger">
+    <Position X="2.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAKAAAABEAkAABAIAAADCEAAAAAQEAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Tiles\TilesChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TilesManager">
+    <Position X="4" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAEAABAAQAAACBAAAAAAAAIAAAAUAAAAEAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Tiles\TilesManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager">
+    <Position X="18.5" Y="17" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>GIxFKFAAAgAQAkpgMEEDGAiAAxIJQwAFTAoAERIEEMQ=</HashCode>
+      <FileName>Assets\Scripts\UI\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VolumetricSphere">
+    <Position X="7.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAgCAIAAAABAAAAAAAAAAAQAQAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Store\AmplifyShader\AmplifyShaderEditor\Examples\Community\Volumetric Pixelization\VolumetricSphere.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="AnimationDatas">
+    <Position X="13.25" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAECAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Character.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="AttackParameter">
+    <Position X="11.5" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAABAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Pattern\AttackTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="PatternAction">
+    <Position X="9.75" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAIACAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Pattern\PatternTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Settings">
+    <Position X="15" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAABAAAAAAAAAAAAgAIAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SettingsList.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="CharacterType">
+    <Position X="11.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Character.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CharacterState">
+    <Position X="9.75" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Character.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CombatStyle">
+    <Position X="13.25" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Character.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TilesType">
+    <Position X="15" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAQQAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enum\TilesType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="AttackType">
+    <Position X="16.75" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Assets\Scripts\Pattern\AttackTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ActionType">
+    <Position X="16.75" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAABAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Pattern\PatternTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Rotation">
+    <Position X="11.5" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Pattern\PatternTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Phase">
+    <Position X="9.75" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAEAAAAAAAAQAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PhaseManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EnemyType">
+    <Position X="15" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ScriptableObject\Wave.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Cardinal">
+    <Position X="13.25" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAABAAQ=</HashCode>
+      <FileName>Assets\Scripts\Tiles\TilesManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

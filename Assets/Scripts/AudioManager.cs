@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource as_main;
     [SerializeField] private AudioSource as_backgroundMusic;
-    [SerializeField] private float backgroundMusicBaseVolume = 0f;
+    [SerializeField] private float backgroundMusicBaseVolume = 0.2f;
 
     [Header("Tiles")]
     [SerializeField] private AudioClip swap;
@@ -68,7 +68,7 @@ public class AudioManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        as_backgroundMusic.volume = Mathf.Lerp(as_backgroundMusic.volume, AudioListener.volume, Time.deltaTime);
+        as_backgroundMusic.volume = Mathf.Lerp(as_backgroundMusic.volume, AudioListener.volume - 0.1f, 0.2f * Time.deltaTime);
     }
 
     public void PlayFootsteps()

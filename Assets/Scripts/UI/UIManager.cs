@@ -12,64 +12,62 @@ public class UIManager : MonoBehaviour
     [HideInInspector] public bool isPlacingAlly = false;
 
     [Header("Waves Information")]
-    [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private TextMeshProUGUI waveText =null;
 
     [Header("Cluster Information")]
-    [SerializeField] private GameObject cluster;
-    [SerializeField] private Animator clusterAnim;
-    [SerializeField] private Text clusterTitle;
-    [SerializeField] private Text clusterDesc;
-    [SerializeField] private Text clusterLife;
+    [SerializeField] private Animator clusterAnim = null;
+    [SerializeField] private Text clusterTitle = null;
+    [SerializeField] private Text clusterDesc = null;
+    [SerializeField] private Text clusterLife = null;
 
-    private int animCharge;
-    private GameObject lastObjectOnCluster;
+    private int animCharge = 0;
+    private GameObject lastObjectOnCluster = null;
 
     [Header("Phase Button")]
-    [SerializeField] private GameObject endTurnButton;
-    [SerializeField] private GameObject nextTurnButton;
+    [SerializeField] private GameObject endTurnButton = null;
 
     [Header("AlertPanel")]
-    [SerializeField] private Animator AlertAnim;
-    [SerializeField] private Image alertImage;
-    [SerializeField] private Sprite alertPlayer;
-    [SerializeField] private Sprite alertAlly;
-    [SerializeField] private Sprite alertEnemy;
+    [SerializeField] private Animator AlertAnim = null;
+    [SerializeField] private Image alertImage =null;
+    [SerializeField] private Sprite alertPlayer =null;
+    [SerializeField] private Sprite alertAlly = null;
+    [SerializeField] private Sprite alertEnemy = null;
 
     [Header("PAs")]
-    public Image[] PAdisplay;
-    [SerializeField] private Sprite PAsprite;
-    [SerializeField] private Sprite PAdisabled;
+    public Image[] PAdisplay = null;
+    [SerializeField] private Sprite PAsprite = null;
+    [SerializeField] private Sprite PAdisabled = null;
     //[SerializeField] private TextMeshProUGUI PAtext;
-    [SerializeField] private GameObject tileMovementObj;
+    [SerializeField] private GameObject tileMovementObj = null;
 
     [Header("Heroes")]
-    [SerializeField] private Image[] heroSlots;
+    [SerializeField] private Image[] heroSlots = null;
     [SerializeField] private List<TextMeshPro> allyTextDisplay = new List<TextMeshPro>();
-    [SerializeField] private GameObject lifeItem;
-    private Image[,] lifeDisplays;
+    [SerializeField] private GameObject lifeItem = null;
+    private Image[,] lifeDisplays = null;
 
     [Header("LotusLife")]
-    [SerializeField] private GameObject[] lotusLife;
-    [SerializeField] private GameObject[] lotusLifeVFX;
+    [SerializeField] private GameObject[] lotusLife = null;
+    [SerializeField] private GameObject[] lotusLifeVFX = null;
 
     [Header("Follow cursor image")]
-    [SerializeField] private RectTransform mouseFollowObj;
-    [SerializeField] private GameObject rotateHint;
-    [SerializeField] private GameObject swapHint;
+    [SerializeField] private RectTransform mouseFollowObj = null;
+    [SerializeField] private GameObject rotateHint = null;
+    [SerializeField] private GameObject swapHint = null;
 
     [Header("Keyboard Help")]
-    [SerializeField] private GameObject cancelHelpKey;
-    [SerializeField] private GameObject quitModeHelpKey;
+    [SerializeField] private GameObject cancelHelpKey = null;
+    [SerializeField] private GameObject quitModeHelpKey = null;
 
     [Header("Highlight")]
-    [SerializeField] private GameObject rotateHighlight;
-    [SerializeField] private GameObject swapHighlight;
+    [SerializeField] private GameObject rotateHighlight = null;
+    [SerializeField] private GameObject swapHighlight = null;
 
     [Header("General")]
-    [SerializeField] private GameObject menu;
-    [SerializeField] private GameObject endScreen;
-    [SerializeField] private GameObject endScreenVictory;
-    [SerializeField] private GameObject endScreenDefeat;
+    [SerializeField] private GameObject menu = null;
+    [SerializeField] private GameObject endScreen = null;
+    [SerializeField] private GameObject endScreenVictory = null;
+    [SerializeField] private GameObject endScreenDefeat = null;
 
     private RaycastHit hit;
     private bool ObjFollowingMouse = false;

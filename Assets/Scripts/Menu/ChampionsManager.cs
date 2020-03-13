@@ -13,20 +13,18 @@ public class ChampionsManager : MonoBehaviour
 
     [SerializeField] private List<TextMeshProUGUI> nameListText = new List<TextMeshProUGUI>();
 
-    [SerializeField] private Sprite[] allySprite;
-    [SerializeField] private Image allyImage;
+    [SerializeField] private Sprite[] allySprite = null;
+    [SerializeField] private Image allyImage = null;
 
-    [SerializeField] private TextMeshProUGUI nameText;
-    [SerializeField] private TextMeshProUGUI levelText;
-    [SerializeField] private TextMeshProUGUI lifePointsText;
-    [SerializeField] private Text descriptionText;
-    [SerializeField] private TextMeshProUGUI yearSurvivedText;
-    [SerializeField] private TextMeshProUGUI enemyKilledText;
+    [SerializeField] private TextMeshProUGUI nameText = null;
+    [SerializeField] private TextMeshProUGUI levelText = null;
+    [SerializeField] private TextMeshProUGUI lifePointsText = null;
+    [SerializeField] private Text descriptionText = null;
+    [SerializeField] private TextMeshProUGUI yearSurvivedText = null;
+    [SerializeField] private TextMeshProUGUI enemyKilledText = null;
 
-    [SerializeField] private GameObject championTab;
-    [SerializeField] private GameObject TabElements;
-    [SerializeField] private GameObject patternLayout;
-    [SerializeField] private GameObject amuletsLayout;
+    [SerializeField] private GameObject championTab = null;
+    [SerializeField] private GameObject TabElements = null;
 
 
     private void Start()

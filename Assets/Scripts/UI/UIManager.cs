@@ -139,6 +139,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Orienter l'animation du cluster vers l'ouverture ou la fermeture (utilisé pour placer un délai sur les animations du cluster)
+    /// </summary>
+    /// <param name="value">valeur à appliquer pour la modification de l'animation</param>
     private void ClusterAnimCharge(int value)
     {
         animCharge += value;
@@ -154,6 +158,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fonction mettant en place l'interface de fin de partie
+    /// </summary>
+    /// <param name="isVictory">true : victoire / false : défaite</param>
     public void InitEndGame(bool isVictory)
     {
         menu.SetActive(false);
@@ -168,6 +176,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Définis les informations à écrire dans le cluster
+    /// </summary>
+    /// <param name="clusterTitle">titre du cluster</param>
+    /// <param name="clusterDesc">description du cluster</param>
+    /// <param name="actualLife">vie actuelle (laisser null si ce n'est pas un personnage)</param>
+    /// <param name="maxLife">vie maximale (laisser null si ce n'est pas un personnage)</param>
     public void SetClusterInfo(string clusterTitle, string clusterDesc, int? actualLife = null, int? maxLife = null) //int null (vie non obligatoire)
     {
         this.clusterTitle.text = clusterTitle;
@@ -183,12 +198,18 @@ public class UIManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Fonction communiquant la fin du tour du joueur à l'interface
+    /// </summary>
     public void EndTurnButtonClicked()
     {
         endTurnButton.GetComponent<Button>().interactable = false;
         PhaseManager.Instance.NextPhase(); // Logical transition to --> Ally Phase
     }
 
+    /// <summary>
+    /// Fonction communiquant le début du tour du joueur à l'interface
+    /// </summary>
     public void NewTurn()
     {
         endTurnButton.GetComponent<Button>().interactable = true;
@@ -196,21 +217,30 @@ public class UIManager : MonoBehaviour
         alertImage.sprite = alertPlayer;
     }
 
+    /// <summary>
+    /// Fonction communiquant le début du tour des alliés à l'interface
+    /// </summary>
     public void AllyTurn()
     {
         AlertAnim.Play("Alert");
         alertImage.sprite = alertAlly;
     }
 
+    /// <summary>
+    /// Fonction communiquant le début du tour des ennemis à l'interface
+    /// </summary>
     public void EnemyTurn()
     {
         AlertAnim.Play("Alert");
         alertImage.sprite = alertEnemy;
     }
 
+    /// <summary>
+    /// Fonction définissant le nombre de PA à afficher
+    /// </summary>
+    /// <param name="amount">nouveau montant de PA</param>
     public void SetPA(int amount)
     {
-        //PAtext.text = amount + "/5";
         for (int i = 0; i < PAdisplay.Length; i++)
         {
             if (i < amount)
@@ -224,6 +254,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Initialisation de la barre de vie des personnages
+    /// </summary>
     public void AllyLifeSetup()
     {
         lifeDisplays = new Image[3, 5];
@@ -239,6 +272,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Mise à jour de la vie de la base (nombre de pétales sur le lotus)
+    /// </summary>
+    /// <param name="value">Nouvelle valeur de vie</param>
     public void BaseLifeUpdate(int value)
     {
         for (int i = 0; i < lotusLife.Length; i++)
@@ -261,20 +298,15 @@ public class UIManager : MonoBehaviour
             {
                 lotusLifeVFX[i].SetActive(true);
             }
-            //else
-            //{
-            //    lotusLife[i].SetActive(false);
-
-            //}
         }
 
     }
 
     /// <summary>
-    /// Updates player life
+    /// Mets à jour la vie du joueur
     /// </summary>
-    /// <param name="allyID">this character ID (his priority)</param>
-    /// <param name="value">this character new life value</param>
+    /// <param name="allyID">L'ID de ce personnage (sa priorité)</param>
+    /// <param name="value">La nouvelle valeur de vie de ce personnage</param>
     public void AllyLifeUpdate(int allyID, int value)
     {
         for (int i = 0; i < heroSlots[allyID].transform.childCount; i++)
@@ -290,11 +322,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetAllyLevelDisplay(int value)
+    /// <summary>
+    /// Mets à jour le niveau d'expérience d'un personnage
+    /// </summary>
+    /// <param name="ID">index du personnage (sa priorité)</param>
+    public void SetAllyLevelDisplay(int ID)
     {
-        allyTextDisplay[value].text = "LVL " + CharactersManager.Instance.allyCharacter[value].level;
+        allyTextDisplay[ID].text = "LVL " + CharactersManager.Instance.allyCharacter[ID].level;
     }
 
+    /// <summary>
+    /// Update du mode d'utilisation du controller
+    /// </summary>
+    /// <param name="value">est-ce que le mode est actif ?</param>
     private void LaunchMode(bool value)
     {
         EndMode();
@@ -303,18 +343,29 @@ public class UIManager : MonoBehaviour
         AudioManager.Instance.PlayButtonClick();
     }
 
+    /// <summary>
+    /// affiche ou non le mode "Rotation"
+    /// </summary>
+    /// <param name="value">true : début/ false : fin du mode</param>
     public void DisplayRotate(bool value)
     {
         LaunchMode(value);
         rotateHint.SetActive(value);
     }
 
+    /// <summary>
+    /// affiche ou non le mode "Swap"
+    /// </summary>
+    /// <param name="value">true : début/ false : fin du mode</param>
     public void DisplaySwap(bool value)
     {
         LaunchMode(value);
         swapHint.SetActive(value);
     }
 
+    /// <summary>
+    /// Fin du mode, activé à la fin d'un tour du joueur
+    /// </summary>
     public void EndMode()
     {
         quitModeHelpKey.SetActive(false);
@@ -325,34 +376,54 @@ public class UIManager : MonoBehaviour
         StopHighlight();
     }
 
+    /// <summary>
+    /// Afficher ou non la touche d'aide "Cancel"
+    /// </summary>
+    /// <param name="value">true : afficher / false : retirer</param>
     public void DisplayCancelHelpKey(bool value)
     {
         cancelHelpKey.SetActive(value);
     }
 
 
+    /// <summary>
+    /// Afficher ou non l'objet d'aide "Tile Movement"
+    /// </summary>
+    /// <param name="value">true : afficher / false : retirer</param>
     public void SetTileMovementObj(bool value)
     {
         tileMovementObj.SetActive(value);
     }
 
+    /// <summary>
+    /// Mets à jour l'affichage des vagues
+    /// </summary>
+    /// <param name="actualWave">vague actuelle</param>
+    /// <param name="waveAmount">vague finale</param>
     public void UpdateWave(int actualWave, int waveAmount)
     {
         waveText.text = "Wave " + actualWave + '/' + waveAmount;
     }
 
+    /// <summary>
+    /// Affiche l'highlight du mode "Swap"
+    /// </summary>
     public void HighlightSwap()
     {
         rotateHighlight.SetActive(false);
         swapHighlight.SetActive(true);
     }
-
+    /// <summary>
+    /// Affiche l'highlight du mode "Rotation"
+    /// </summary>
     public void HighlightRotate()
     {
         rotateHighlight.SetActive(true);
         swapHighlight.SetActive(false);
     }
-
+    /// <summary>
+    /// Retire les highlights
+    /// </summary>
     public void StopHighlight()
     {
         rotateHighlight.SetActive(false);

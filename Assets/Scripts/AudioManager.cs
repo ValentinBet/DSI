@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource as_main;
     [SerializeField] private AudioSource as_backgroundMusic;
-    [SerializeField] private float backgroundMusicBaseVolume = 0.2f;
+    [SerializeField] private float backgroundMusicBaseVolume = 0.1f;
 
     [Header("Tiles")]
     [SerializeField] private AudioClip swap;

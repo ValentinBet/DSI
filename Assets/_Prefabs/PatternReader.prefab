@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5534699308375591937}
   - component: {fileID: 5534699308375591936}
   - component: {fileID: 5534699308375591939}
-  - component: {fileID: 5534699308375591938}
   - component: {fileID: 7099745192290303484}
   m_Layer: 0
   m_Name: PatternReader
@@ -69,19 +68,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileColoredDuringPattern: []
   currentCharacter: {fileID: 0}
---- !u!114 &5534699308375591938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5534699308375591951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f36b40cf4f29b84fbbcf737566fb6b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileColoredDuringPattern: []
 --- !u!114 &7099745192290303484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,4 +81,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileColoredDuringPattern: []
+  previewAttackOnTile: []
+  previewShootOnTile: []
+  previewInteractionOnTile: []
+  previewDeplacementOnTile: []
+  previewTakeDamageOnTile: []
+  pusherUsedThisTurn: []
+  currentPreviewDeath: {fileID: 0}
   currentCharacter: {fileID: 0}
+  timeBetweenAction: 0.2

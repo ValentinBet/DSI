@@ -51,7 +51,6 @@ public class GameTracker : MonoBehaviour
                 Debug.Log("defeat");
                 InitiatingEndGame = true;
                 UIManager.Instance.InitEndGame(false);
-                GameManager.Instance.LoseActualLevel();
                 StartCoroutine(LoseGame());
 
             }
@@ -61,7 +60,6 @@ public class GameTracker : MonoBehaviour
                 Debug.Log("win");
                 InitiatingEndGame = true;
                 UIManager.Instance.InitEndGame(true);
-                GameManager.Instance.WinActualLevel();
                 StartCoroutine(WinGame());
             }
         }
@@ -70,13 +68,13 @@ public class GameTracker : MonoBehaviour
 
     public IEnumerator LoseGame()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(6);
         GameManager.Instance.LoseActualLevel();
     }
 
     public IEnumerator WinGame()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(6);
         GameManager.Instance.WinActualLevel();
     }
 

@@ -233,27 +233,27 @@ PrefabInstance:
     - target: {fileID: 1530974156376929554, guid: 51b73e5e1b388aa4e92abbfa60a39097,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1530974156376929554, guid: 51b73e5e1b388aa4e92abbfa60a39097,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1530974156376929554, guid: 51b73e5e1b388aa4e92abbfa60a39097,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 719.775
       objectReference: {fileID: 0}
     - target: {fileID: 1530974156376929554, guid: 51b73e5e1b388aa4e92abbfa60a39097,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -24.45
       objectReference: {fileID: 0}
     - target: {fileID: 1530974156376929554, guid: 51b73e5e1b388aa4e92abbfa60a39097,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 479.85
       objectReference: {fileID: 0}
     - target: {fileID: 4017848654889216556, guid: 51b73e5e1b388aa4e92abbfa60a39097,
         type: 3}
@@ -364,6 +364,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LifeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6160654861121145759, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7465738167315266004, guid: 51b73e5e1b388aa4e92abbfa60a39097,
         type: 3}

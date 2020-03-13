@@ -73724,7 +73724,7 @@ MonoBehaviour:
   - {fileID: 1371052655446965968}
   - {fileID: 1371052655345267285}
   - {fileID: 1371052654607430519}
-  PAsprite: {fileID: 21300000, guid: fdcbd5a35a4b9644aadc84e0770d7441, type: 3}
+  PAsprite: {fileID: 21300000, guid: 6b9583b59ec50b044a01ab81d158be6c, type: 3}
   PAdisabled: {fileID: 21300000, guid: 92831e15463fc2c459742ecaf0ff35a0, type: 3}
   tileMovementObj: {fileID: 1371052654785594602}
   heroSlots:
@@ -76595,6 +76595,7 @@ MonoBehaviour:
   previewInteractionOnTile: []
   previewDeplacementOnTile: []
   previewTakeDamageOnTile: []
+  pusherUsedThisTurn: []
   currentCharacter: {fileID: 0}
   timeBetweenAction: 0.2
 --- !u!1 &1371052655834341494

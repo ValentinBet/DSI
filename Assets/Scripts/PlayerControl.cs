@@ -121,10 +121,16 @@ public class PlayerControl : MonoBehaviour
                     Cancel();
                 }
 
-                if (Input.GetKeyDown(TileQuitKey))
+                if (Input.GetKeyDown(TileQuitKey) || Input.GetMouseButtonDown(1))
                 {
                     EndAllModes();
                 }
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    UIManager.Instance.EndTurnButtonClicked();
+                }
+
             }
         }
 

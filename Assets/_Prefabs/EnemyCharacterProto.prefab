@@ -437,7 +437,7 @@ MonoBehaviour:
   - {fileID: 24178984482394958}
   lifeCanvas: {fileID: 2729144705986949933}
   enemyName: Challenger Pugiliste
-  enemyDescription: "M\xE9chant M\xE9chant"
+  enemyDescription: 
   xpEarnWhenKill: 10
 --- !u!1 &5388527269362158777
 GameObject:

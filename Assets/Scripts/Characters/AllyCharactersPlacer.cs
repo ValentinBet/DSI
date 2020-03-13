@@ -59,6 +59,14 @@ public class AllyCharactersPlacer : MonoBehaviour
                 return;
             }
 
+            if (lastTile != null)
+            {
+                if (lastTile.VFXGestion != null)
+                {
+                    lastTile.VFXGestion.toggleVFx(lastTile.VFXGestion.tileOverlay.VFXGameObject, false);
+                }
+
+            }
             if (lastTile != null && !tileOccupedByAllies.Contains(lastTile))
             {
                 lastTile.isOccupied = false;
@@ -66,6 +74,11 @@ public class AllyCharactersPlacer : MonoBehaviour
             }
 
             lastTile = _tile;
+
+            if (lastTile.VFXGestion != null)
+            {
+                lastTile.VFXGestion.toggleVFx(lastTile.VFXGestion.tileOverlay.VFXGameObject, true);
+            }
 
             if (lastTile != null)
             {

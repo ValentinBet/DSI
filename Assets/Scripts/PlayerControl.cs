@@ -176,6 +176,7 @@ public class PlayerControl : MonoBehaviour
 
     public void EndAllModes()
     {
+        TilesManager.TilesChangerInstance.ClearChoice();
         isOnRotateMode = false;
         isOnSwapMode = false;
         TilesManager.TilesChangerInstance.HideAllHints();

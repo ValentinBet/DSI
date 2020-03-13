@@ -31,7 +31,7 @@ public class MenuManager : MonoBehaviour
 
     private void InitVisuals()
     {
-        selectLevelsText.text = GameInfoManager.GameData.Init ? "SELECT LEVELS" : "NEW GAME";
+        selectLevelsText.text = GameInfoManager.GameData.Init ? "PLAY" : "NEW GAME";
     }
 
     public void InitLevelScene()

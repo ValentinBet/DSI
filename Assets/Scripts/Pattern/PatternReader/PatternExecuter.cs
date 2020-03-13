@@ -33,7 +33,7 @@ public class PatternExecuter : MonoBehaviour
             {
                 case ActionType.Movement:
                     CharacterReorientation(character, true, index, depth);
-                    TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
+                   // TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                     break;
                 case ActionType.Rotation:
                     switch (pattern.actions[index].rotation)

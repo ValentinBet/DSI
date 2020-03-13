@@ -456,7 +456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4044284500038922223}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3775720425614874821}
@@ -950,6 +950,9 @@ MonoBehaviour:
   LooseLife:
     VFXGameObject: {fileID: 5279661875949297832}
     duration: 1
+  previewMort:
+    VFXGameObject: {fileID: 4044284500038922223}
+    duration: 0
 --- !u!1 &5822989457037190989
 GameObject:
   m_ObjectHideFlags: 0

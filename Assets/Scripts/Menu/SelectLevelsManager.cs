@@ -42,7 +42,7 @@ public class SelectLevelsManager : MonoBehaviour
         }
         for (int i = 0; i < yearButtonTextList.Count; i++)
         {
-            yearButtonTextList[i].text = "Level " + (GameInfoManager.GameData.yearSurvived + i).ToString();//(GameSettings.FIRST_YEAR + GameInfoManager.GameData.yearSurvived) + i;
+            yearButtonTextList[i].text = "Year " + (1 + i).ToString();//(GameSettings.FIRST_YEAR + GameInfoManager.GameData.yearSurvived) + i;
             chronologyTexts[i].text = (GameSettings.FIRST_YEAR+i).ToString();
             progressionBar.fillAmount = (float)(GameInfoManager.GameData.yearSurvived - (3 - GameInfoManager.GameData.lifePoints)) / 10.0f;
             if (i != GameInfoManager.GameData.yearSurvived - (3 - GameInfoManager.GameData.lifePoints))

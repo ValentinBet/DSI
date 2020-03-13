@@ -697,6 +697,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4939695148139995206, guid: d69d1b7614f183a4c8e138a774b565fd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5747947558976557674, guid: d69d1b7614f183a4c8e138a774b565fd,
         type: 3}
       propertyPath: m_Name
@@ -935,11 +940,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2044990667826019264}
     m_Modifications:
-    - target: {fileID: 3227795682579692926, guid: d9c0665a46a40674f9afe397686c5df5,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3fff38c3fd357404f98a01700e06a5d7, type: 2}
     - target: {fileID: 4292907985593691540, guid: d9c0665a46a40674f9afe397686c5df5,
         type: 3}
       propertyPath: multiplier.m_Curve.Array.size

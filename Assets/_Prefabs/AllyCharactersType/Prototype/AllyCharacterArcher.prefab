@@ -198,12 +198,12 @@ MonoBehaviour:
   character_sprite: {fileID: 3821157573504362316}
   anim: {fileID: 2982628306689087035}
   animAttack:
-    Duration: 1.5
-    AnimRatio: 0.93
-    SoundRatio: 1.3
+    Duration: 1
+    AnimRatio: 0.96
+    SoundRatio: 0.25
   animDamaged:
-    Duration: 0.24
-    AnimRatio: 0.95
+    Duration: 0.32
+    AnimRatio: 1
     SoundRatio: 0.2
   lifeObj:
   - {fileID: 7270858744807525163}

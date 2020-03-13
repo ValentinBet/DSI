@@ -57,6 +57,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject cancelHelpKey;
     [SerializeField] private GameObject quitModeHelpKey;
 
+    [Header("Highlight")]
+    [SerializeField] private GameObject rotateHighlight;
+    [SerializeField] private GameObject swapHighlight;
+
     private RaycastHit hit;
     private bool ObjFollowingMouse = false;
 
@@ -204,7 +208,7 @@ public class UIManager : MonoBehaviour
             for (int j = 0; j < CharactersManager.Instance.allyCharacter[i].life; j++)
             {
                 GameObject go = Instantiate(lifeItem, heroSlots[i].transform); // Change to pooling
-                go.GetComponent<RectTransform>().localPosition = new Vector3(-1f, -1.1f, 0.0f);
+                go.GetComponent<RectTransform>().localPosition = new Vector3(-1f, -1.1f, -0.5f);
                 go.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, ((40.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f) - 40.0f * j);
                 lifeDisplays[i, j] = go.transform.GetChild(0).GetComponent<Image>();
             }
@@ -278,6 +282,7 @@ public class UIManager : MonoBehaviour
         ObjFollowingMouse = false;
         swapHint.SetActive(false);
         rotateHint.SetActive(false);
+        StopHighlight();
     }
 
     public void DisplayCancelHelpKey(bool value)
@@ -294,6 +299,24 @@ public class UIManager : MonoBehaviour
     public void UpdateWave(int actualWave, int waveAmount)
     {
         waveText.text = "Wave " + actualWave + '/' + waveAmount;
+    }
+
+    public void HighlightSwap()
+    {
+        rotateHighlight.SetActive(false);
+        swapHighlight.SetActive(true);
+    }
+
+    public void HighlightRotate()
+    {
+        rotateHighlight.SetActive(true);
+        swapHighlight.SetActive(false);
+    }
+
+    public void StopHighlight()
+    {
+        rotateHighlight.SetActive(false);
+        swapHighlight.SetActive(false);
     }
 
 }

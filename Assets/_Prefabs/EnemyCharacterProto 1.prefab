@@ -339,7 +339,7 @@ MonoBehaviour:
   - {fileID: 5472475595273197656}
   lifeCanvas: {fileID: 6847303732844602276}
   enemyName: Challenger Frondeur
-  enemyDescription: "M\xE9chant M\xE9chant"
+  enemyDescription: 
   xpEarnWhenKill: 10
 --- !u!1 &5472475595273197656
 GameObject:

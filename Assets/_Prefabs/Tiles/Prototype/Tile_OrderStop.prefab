@@ -913,6 +913,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Rotator
       objectReference: {fileID: 0}
+    - target: {fileID: 1945784216685158673, guid: 1ad2103f80471ab47af98ee4db1931ae,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 78f954cb7c39e9d4bab4a50abc939f87, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ad2103f80471ab47af98ee4db1931ae, type: 3}
 --- !u!1001 &1408498387115729841
@@ -935,7 +940,7 @@ PrefabInstance:
     - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.22
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3396965453481708381, guid: 89703251c51ce8646ad8dab65c600f65,
         type: 3}

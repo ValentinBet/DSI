@@ -93,7 +93,7 @@ MonoBehaviour:
   priorityText: {fileID: 3983035389011030621}
   lifeCanvas: {fileID: 9064985781143676588}
   enemyName: Challenger Frondeur
-  enemyDescription: 
+  enemyDescription: moves and and throws a projectile
   xpEarnWhenKill: 10
 --- !u!95 &6259358676103568899
 Animator:

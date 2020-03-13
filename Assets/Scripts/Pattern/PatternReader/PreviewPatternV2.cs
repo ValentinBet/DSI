@@ -13,6 +13,7 @@ public class PreviewPatternV2 : MonoBehaviour
     public List<TileProperties> previewTakeDamageOnTile = new List<TileProperties>();
 
     public List<TileProperties> pusherUsedThisTurn = new List<TileProperties>();
+    public TileProperties currentPreviewDeath;
 
 
 
@@ -435,6 +436,8 @@ public class PreviewPatternV2 : MonoBehaviour
             {
                 //TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.deathMat);
                 //tileColoredDuringPattern.Add(currentTile);
+                currentPreviewDeath = currentTile;
+                currentTile.VFXGestion.toggleVFx(currentTile.VFXGestion.previewMort.VFXGameObject, true);
             }
             Debug.Log("Pattern finsh , get damaged");
         }
@@ -714,10 +717,21 @@ public class PreviewPatternV2 : MonoBehaviour
             previewTakeDamageOnTile[i].VFXGestion.toggleVFx(previewTakeDamageOnTile[i].VFXGestion.PreviewDegatVFX.VFXGameObject, false);
         }
 
-        pusherUsedThisTurn.Clear();
 
+        pusherUsedThisTurn.Clear();
+        tileColoredDuringPattern.Clear();
+        previewAttackOnTile.Clear();
+        previewShootOnTile.Clear();
+        previewInteractionOnTile.Clear();
+        previewDeplacementOnTile.Clear();
+        previewTakeDamageOnTile.Clear();
+        if (currentPreviewDeath != null)
+        {
+            currentPreviewDeath.VFXGestion.toggleVFx(currentPreviewDeath.VFXGestion.previewMort.VFXGameObject, false);
+            currentPreviewDeath = null;
+        }
 
     }
-     
+
     #endregion
 }

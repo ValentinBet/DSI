@@ -24,7 +24,6 @@ public class ProjectileBeheviour : MonoBehaviour
         isInit = true;
     }
 
-
     private void FixedUpdate()
     {
         if (isInit)
@@ -97,10 +96,9 @@ public class ProjectileBeheviour : MonoBehaviour
         {
             if (testedTile.occupant == _shooter)
             {
-                if ((_shooter.life - _shooter.damage) > 0)
-                {
-                    _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
-                }
+
+                testedTile.occupant.PlayAnim(testedTile.occupant.animDamaged.Duration, "Damaged", true, testedTile.occupant.animDamaged.AnimRatio);
+                _shooter.RegisteredDeathProjectile(_index, _depth, tilesColored, _continuePartern);
                 testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile on fire");
                 testedTile.VFXGestion.toggleVFx(testedTile.VFXGestion.attack.VFXGameObject, true, true, testedTile.VFXGestion.attack.duration);
                 AudioManager.Instance.PlayProjectileCharacterHit();
@@ -108,6 +106,7 @@ public class ProjectileBeheviour : MonoBehaviour
                 return;
             }
 
+            testedTile.occupant.PlayAnim(testedTile.occupant.animDamaged.Duration, "Damaged", true, testedTile.occupant.animDamaged.AnimRatio);
             testedTile.occupant.GotAttacked(_shooter.damage, _shooter, "by projectile");
             if (isOnFire)
             {

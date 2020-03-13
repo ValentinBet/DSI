@@ -49,6 +49,7 @@ public class Character : MonoBehaviour
     public GameObject character_sprite;
     public Animator anim;
     public AnimationDatas animAttack;
+    public AnimationDatas animDamaged;
     public List<GameObject> lifeObj = new List<GameObject>();
     public GameObject lifeCanvas;
 
@@ -120,7 +121,8 @@ public class Character : MonoBehaviour
 
         if (tileDestination.isOnFire)
         {
-            TakeDamaged(1, true);
+            PlayAnim(animDamaged.Duration, "Damaged", true, animDamaged.AnimRatio);
+            TakeDamaged(1, false);
             AudioManager.Instance.PlayProjectileCharacterHit();
         }
 
@@ -181,7 +183,7 @@ public class Character : MonoBehaviour
     {
         for (int i = 0; i < lifeObj.Count; i++)
         {
-            if (i > life -1)
+            if (i > life - 1)
             {
                 print(lifeObj[i]);
                 lifeObj[i].SetActive(false);

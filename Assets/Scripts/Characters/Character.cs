@@ -65,7 +65,7 @@ public class Character : MonoBehaviour
     private void FixedUpdate()
     {
         LookAtCamera();
-        priorityText.text = priority.ToString();
+       /// priorityText.text = priority.ToString();
     }
     private void LateUpdate()
     {

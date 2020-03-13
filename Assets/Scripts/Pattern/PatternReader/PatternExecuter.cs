@@ -136,7 +136,7 @@ public class PatternExecuter : MonoBehaviour
         {
             if (bonusAction)
             {
-                AudioManager.Instance.PlayWallHit();
+                //AudioManager.Instance.PlayWallHit();
            
                 newTile.occupant.GotAttacked(1, character, "attacker pushed");
                 TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.attackMat);

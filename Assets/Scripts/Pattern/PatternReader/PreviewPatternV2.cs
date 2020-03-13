@@ -12,6 +12,7 @@ public class PreviewPatternV2 : MonoBehaviour
     public List<TileProperties> previewDeplacementOnTile = new List<TileProperties>();
     public List<TileProperties> previewTakeDamageOnTile = new List<TileProperties>();
 
+    public List<TileProperties> pusherUsedThisTurn = new List<TileProperties>();
 
 
 
@@ -228,14 +229,23 @@ public class PreviewPatternV2 : MonoBehaviour
                     break;
 
                 case TileProperties.TilesSpecific.Push:
-                    if (newTile.isActivated)
+                    bool pusherAlreadyUsed = false;
+                    for (int i = 0; i < pusherUsedThisTurn.Count; i++)
+                    {
+                        if (pusherUsedThisTurn[i] == newTile)
+                        {
+                            pusherAlreadyUsed = true;
+                        }
+                    }
+
+                    if (newTile.isActivated && !pusherAlreadyUsed)
                     {
                         tileColoredDuringPattern.Add(newTile);
                         currentTile = newTile;
                         //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
                         previewInteractionOnTile.Add(newTile);
                         newTile.VFXGestion.toggleVFx(newTile.VFXGestion.PreviewInteraction.VFXGameObject, true);
-
+                        pusherUsedThisTurn.Add(newTile);
                         ExtraDeplacement(index, depth);
                     }
                     else
@@ -705,6 +715,10 @@ public class PreviewPatternV2 : MonoBehaviour
         {
             previewTakeDamageOnTile[i].VFXGestion.toggleVFx(previewTakeDamageOnTile[i].VFXGestion.PreviewDegatVFX.VFXGameObject, false);
         }
+
+        pusherUsedThisTurn.Clear();
+
+
     }
 
     #endregion

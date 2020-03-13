@@ -5,7 +5,16 @@ using UnityEngine;
 public class PreviewPatternV2 : MonoBehaviour
 {
     public List<TileProperties> tileColoredDuringPattern = new List<TileProperties>();
+
     public List<TileProperties> previewAttackOnTile = new List<TileProperties>();
+    public List<TileProperties> previewShootOnTile = new List<TileProperties>();
+    public List<TileProperties> previewInteractionOnTile = new List<TileProperties>();
+    public List<TileProperties> previewDeplacementOnTile = new List<TileProperties>();
+    public List<TileProperties> previewTakeDamageOnTile = new List<TileProperties>();
+
+
+
+
     public Character currentCharacter;
 
     private TileProperties currentTile;
@@ -184,14 +193,35 @@ public class PreviewPatternV2 : MonoBehaviour
                             ExtraRotation(index, depth);
                             break;
                         case TileProperties.TilesOrder.attack:
-                            TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
-                            tileColoredDuringPattern.Add(newTile);
+
+                            previewInteractionOnTile.Add(newTile);
+                            newTile.VFXGestion.toggleVFx(newTile.VFXGestion.PreviewInteraction.VFXGameObject, true);
+
+                            previewDeplacementOnTile.Add(newTile);
+                            newTile.VFXGestion.toggleVFx(newTile.VFXGestion.PreviewDeplacement.VFXGameObject, true);
+
+                            GameObject previewDeplacementAttack = newTile.VFXGestion.PreviewDeplacement.VFXGameObject;
+                            previewDeplacementAttack.transform.Rotate(Vector3.up, 90f + GetRotationOffset(previewDeplacementAttack.transform.forward, currentDirection));
+
+
+                            //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
+                            //tileColoredDuringPattern.Add(newTile);
                             currentTile = newTile;
                             ExtraAttack(index, depth, true, true);
                             break;
                         case TileProperties.TilesOrder.stop:
-                            TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
-                            tileColoredDuringPattern.Add(newTile);
+                            previewInteractionOnTile.Add(newTile);
+                            newTile.VFXGestion.toggleVFx(newTile.VFXGestion.PreviewInteraction.VFXGameObject, true);
+
+                            previewDeplacementOnTile.Add(newTile);
+                            newTile.VFXGestion.toggleVFx(newTile.VFXGestion.PreviewDeplacement.VFXGameObject, true);
+
+                            GameObject previewDeplacementStop = newTile.VFXGestion.PreviewDeplacement.VFXGameObject;
+                            previewDeplacementStop.transform.Rotate(Vector3.up, 90f + GetRotationOffset(previewDeplacementStop.transform.forward, currentDirection));
+
+
+                            //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
+                            //tileColoredDuringPattern.Add(newTile);
                             currentTile = newTile;
                             break;
                         default:
@@ -204,7 +234,10 @@ public class PreviewPatternV2 : MonoBehaviour
                     {
                         tileColoredDuringPattern.Add(newTile);
                         currentTile = newTile;
-                        TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
+                        //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
+                        previewInteractionOnTile.Add(newTile);
+                        newTile.VFXGestion.toggleVFx(newTile.VFXGestion.PreviewInteraction.VFXGameObject, true);
+
                         ExtraDeplacement(index, depth);
                     }
                     else
@@ -216,12 +249,13 @@ public class PreviewPatternV2 : MonoBehaviour
                 case TileProperties.TilesSpecific.Door:
                     if (newTile.isActivated)
                     {
-                        TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
+                        previewInteractionOnTile.Add(newTile);
+                        newTile.VFXGestion.toggleVFx(newTile.VFXGestion.PreviewInteraction.VFXGameObject, true);
                         tileColoredDuringPattern.Add(newTile);
                     }
                     else
                     {
-                        TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
+                        //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
                         MovementOnTile(index, depth, newTile);
                     }
                     break;
@@ -251,9 +285,19 @@ public class PreviewPatternV2 : MonoBehaviour
 
                     break;
                 case TileProperties.TilesSpecific.Teleport:
-                    TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
-                    tileColoredDuringPattern.Add(newTile);
-                    currentTile = newTile;
+                    previewInteractionOnTile.Add(newTile);
+                    newTile.VFXGestion.toggleVFx(newTile.VFXGestion.PreviewInteraction.VFXGameObject, true);
+
+                    previewDeplacementOnTile.Add(newTile);
+                    newTile.VFXGestion.toggleVFx(newTile.VFXGestion.PreviewDeplacement.VFXGameObject, true);
+
+                    GameObject previewDeplacement = newTile.VFXGestion.PreviewDeplacement.VFXGameObject;
+                    previewDeplacement.transform.Rotate(Vector3.up, 90f + GetRotationOffset(previewDeplacement.transform.forward, currentDirection));
+
+
+                    //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
+                    //tileColoredDuringPattern.Add(newTile);
+                    //currentTile = newTile;
                     Teleportation(index, depth);
                     break;
 
@@ -351,8 +395,12 @@ public class PreviewPatternV2 : MonoBehaviour
             }
             return;
         }
-        TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.mouvementMat);
-        tileColoredDuringPattern.Add(newTile);
+        previewDeplacementOnTile.Add(newTile);
+        newTile.VFXGestion.toggleVFx(newTile.VFXGestion.PreviewDeplacement.VFXGameObject, true);
+
+        GameObject previewDeplacement = newTile.VFXGestion.PreviewDeplacement.VFXGameObject;
+        previewDeplacement.transform.Rotate(Vector3.up,90f + GetRotationOffset(previewDeplacement.transform.forward, currentDirection));
+
         currentTile = newTile;
         ActionEnd(newTile, index, depth);
     }
@@ -360,7 +408,11 @@ public class PreviewPatternV2 : MonoBehaviour
     private void GetDamaged(int index, int depth, bool continuePattern, int receivedDeal)
     {
         //damage MAt
-        TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.receiveDamageMat);
+        previewTakeDamageOnTile.Add(currentTile);
+        currentTile.VFXGestion.toggleVFx(currentTile.VFXGestion.PreviewDegatVFX.VFXGameObject, true);
+
+
+
         tileColoredDuringPattern.Add(currentTile);
 
         currentLife -= receivedDeal;
@@ -386,8 +438,11 @@ public class PreviewPatternV2 : MonoBehaviour
         TileProperties teleportExit = currentTile.GetTeleportExit();
         if (teleportExit != null && !teleportExit.isOccupied)
         {
-            TilesManager.Instance.ChangeTileMaterial(teleportExit, PatternReader.instance.interactionMat);
-            tileColoredDuringPattern.Add(teleportExit);
+            //TilesManager.Instance.ChangeTileMaterial(teleportExit, PatternReader.instance.interactionMat);
+            //tileColoredDuringPattern.Add(teleportExit);
+            previewInteractionOnTile.Add(teleportExit);
+            teleportExit.VFXGestion.toggleVFx(teleportExit.VFXGestion.PreviewInteraction.VFXGameObject, true);
+
             currentTile = teleportExit;
 
             Quaternion rotation = Quaternion.Euler(0f, teleportExit.GetRotationOffset(currentDirection), 0f);
@@ -457,8 +512,12 @@ public class PreviewPatternV2 : MonoBehaviour
 
         currentDirection = rotation * currentDirection;
 
-        TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.interactionMat);
+        TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.rotationMat);
         tileColoredDuringPattern.Add(currentTile);
+
+        previewInteractionOnTile.Add(currentTile);
+        currentTile.VFXGestion.toggleVFx(currentTile.VFXGestion.PreviewInteraction.VFXGameObject, true);
+
         ActionEnd(currentTile, index, depth);
     }
 
@@ -472,8 +531,19 @@ public class PreviewPatternV2 : MonoBehaviour
         if (targetTile.specificity != TileProperties.TilesSpecific.PlayerBase)
         {
             //TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
-            previewAttackOnTile.Add(targetTile);
-            targetTile.VFXGestion.toggleVFx(targetTile.VFXGestion.previewHit.VFXGameObject, true);
+            if (currentAttackTemplate.attackType == AttackType.Projectile)
+            {
+                previewShootOnTile.Add(targetTile);
+                targetTile.VFXGestion.toggleVFx(targetTile.VFXGestion.PreviewTirVFX.VFXGameObject, true);
+                GameObject previewTir = targetTile.VFXGestion.PreviewTirVFX.VFXGameObject;
+                previewTir.transform.Rotate(Vector3.up, 90f + GetRotationOffset(previewTir.transform.forward, currentDirection));
+
+            }
+            else
+            {
+                previewAttackOnTile.Add(targetTile);
+                targetTile.VFXGestion.toggleVFx(targetTile.VFXGestion.previewHit.VFXGameObject, true);
+            }
         }
     }
 
@@ -510,21 +580,21 @@ public class PreviewPatternV2 : MonoBehaviour
         ExecuteAction(index, depth);
     }
 
-    public void StopPattern(Character character)
+    //public void StopPattern(Character character)
+    //{
+    //    tileColoredDuringPattern.Add(character.occupiedTile);
+
+    //    for (int i = 0; i < tileColoredDuringPattern.Count; i++)
+    //    {
+    //        TilesManager.Instance.ChangeTileMaterial(tileColoredDuringPattern[i], tileColoredDuringPattern[i].baseMat);
+    //    }
+
+    //}
+
+    public float GetRotationOffset(Vector3 directionToTest, Vector3 otherRotation)
     {
-        tileColoredDuringPattern.Add(character.occupiedTile);
 
-        for (int i = 0; i < tileColoredDuringPattern.Count; i++)
-        {
-            TilesManager.Instance.ChangeTileMaterial(tileColoredDuringPattern[i], tileColoredDuringPattern[i].baseMat);
-        }
-
-    }
-
-    public float GetRotationOffset(Vector3 directionToTest, Vector3 nexusDirection)
-    {
-
-        float dot = Vector3.Dot(directionToTest, nexusDirection);
+        float dot = Vector3.Dot(directionToTest, otherRotation);
         if (dot * dot >= 0.1f)
         {
             if (dot >= 0f)
@@ -537,7 +607,7 @@ public class PreviewPatternV2 : MonoBehaviour
         {
             Quaternion rotation = Quaternion.Euler(0f, 90f, 0f);
             directionToTest = rotation * directionToTest;
-            float dotPerpendiculaire = Vector3.Dot(directionToTest, nexusDirection);
+            float dotPerpendiculaire = Vector3.Dot(directionToTest, otherRotation);
             if (dotPerpendiculaire >= 0f)
             {
                 return 90;
@@ -584,9 +654,32 @@ public class PreviewPatternV2 : MonoBehaviour
         {
             TilesManager.Instance.ChangeTileMaterial(tileColoredDuringPattern[i], tileColoredDuringPattern[i].baseMat);
         }
+
+
+
         for (int i = 0; i < previewAttackOnTile.Count; i++)
         {
             previewAttackOnTile[i].VFXGestion.toggleVFx(previewAttackOnTile[i].VFXGestion.previewHit.VFXGameObject, false);
+        }
+
+        for (int i = 0; i < previewShootOnTile.Count; i++)
+        {
+            previewShootOnTile[i].VFXGestion.toggleVFx(previewShootOnTile[i].VFXGestion.PreviewTirVFX.VFXGameObject, false);
+        }
+
+        for (int i = 0; i < previewInteractionOnTile.Count; i++)
+        {
+            previewInteractionOnTile[i].VFXGestion.toggleVFx(previewInteractionOnTile[i].VFXGestion.PreviewInteraction.VFXGameObject, false);
+        }
+
+        for (int i = 0; i < previewDeplacementOnTile.Count; i++)
+        {
+            previewDeplacementOnTile[i].VFXGestion.toggleVFx(previewDeplacementOnTile[i].VFXGestion.PreviewDeplacement.VFXGameObject, false);
+        }
+
+        for (int i = 0; i < previewTakeDamageOnTile.Count; i++)
+        {
+            previewTakeDamageOnTile[i].VFXGestion.toggleVFx(previewTakeDamageOnTile[i].VFXGestion.PreviewDegatVFX.VFXGameObject, false);
         }
     }
 

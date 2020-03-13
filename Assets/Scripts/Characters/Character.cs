@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public enum CharacterType
@@ -47,10 +48,12 @@ public class Character : MonoBehaviour
     public TileProperties occupiedTile;
 
     public GameObject character_sprite;
+
     public Animator anim;
     public AnimationDatas animAttack;
     public AnimationDatas animDamaged;
     public List<GameObject> lifeObj = new List<GameObject>();
+    public TextMeshProUGUI priorityText;
     public GameObject lifeCanvas;
 
     private void Start()
@@ -62,6 +65,7 @@ public class Character : MonoBehaviour
     private void FixedUpdate()
     {
         LookAtCamera();
+        priorityText.text = priority.ToString();
     }
     private void LateUpdate()
     {
@@ -278,9 +282,7 @@ public class Character : MonoBehaviour
         if (character_sprite != null)
         {
             character_sprite.transform.LookAt(Camera.main.transform);
-            lifeCanvas.transform.LookAt(Camera.main.transform);
         }
-
     }
 
     private void UpdateOrientation()
@@ -288,10 +290,12 @@ public class Character : MonoBehaviour
         if ((transform.rotation.eulerAngles.y > -135.0f && transform.rotation.eulerAngles.y < 45.0f) || (transform.rotation.eulerAngles.y > 225.0f && transform.rotation.eulerAngles.y < 405.0f))
         {
             character_sprite.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+           // lifeCanvas.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
         }
         else
         {
             character_sprite.transform.localScale = 0.5f * Vector3.one;
+           // lifeCanvas.transform.localScale = 0.5f * Vector3.one;
         }
     }
 

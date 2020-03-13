@@ -71,7 +71,6 @@ public class GameManager : MonoBehaviour
                 _ac.yearSurvived++;
                 _ac.life = _ac.maxLife;
                 GameInfoManager.GameData.allies[i] = GameInfoManager.Instance.ConvertAllyCharacterForSave(_ac);
-
             }
         }
     }

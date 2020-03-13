@@ -210,6 +210,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7120553143214575377}
     m_Modifications:
+    - target: {fileID: 119020008729702841, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 119020008729702841, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 119020008729702841, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 119020008729702841, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 119020008729702841, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 662923325495261658, guid: 51b73e5e1b388aa4e92abbfa60a39097,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -364,6 +389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LifeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6867305551905140642, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7465738167315266004, guid: 51b73e5e1b388aa4e92abbfa60a39097,
         type: 3}

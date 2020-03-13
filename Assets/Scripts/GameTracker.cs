@@ -46,10 +46,12 @@ public class GameTracker : MonoBehaviour
         {
             if ((alliesRemaining < 1 || baseLife < 1))
             {
+
                 //Defeat
                 Debug.Log("defeat");
                 InitiatingEndGame = true;
-                GameManager.Instance.LoseActualLevel();
+                UIManager.Instance.InitEndGame(false);
+                StartCoroutine(LoseGame());
 
             }
             else if (enemiesRemaining < 1 && wavesRemaining < 1)
@@ -57,10 +59,23 @@ public class GameTracker : MonoBehaviour
                 //Win
                 Debug.Log("win");
                 InitiatingEndGame = true;
-                GameManager.Instance.WinActualLevel();
+                UIManager.Instance.InitEndGame(true);
+                StartCoroutine(WinGame());
             }
         }
 
+    }
+
+    public IEnumerator LoseGame()
+    {
+        yield return new WaitForSeconds(6);
+        GameManager.Instance.LoseActualLevel();
+    }
+
+    public IEnumerator WinGame()
+    {
+        yield return new WaitForSeconds(6);
+        GameManager.Instance.WinActualLevel();
     }
 
     //Default Value

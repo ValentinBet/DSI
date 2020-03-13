@@ -87,8 +87,8 @@ public class ProjectileBeheviour : MonoBehaviour
 
         if (testedTile.specificity != TileProperties.TilesSpecific.PlayerBase)
         {
-            tilesColored.Add(testedTile);
-            TilesManager.Instance.ChangeTileMaterial(testedTile, PatternReader.instance.attackMat);
+            //tilesColored.Add(testedTile);
+            //TilesManager.Instance.ChangeTileMaterial(testedTile, PatternReader.instance.attackMat);
             currentTile = testedTile;
         }
 

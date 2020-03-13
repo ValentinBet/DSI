@@ -65,8 +65,8 @@ public class PreviewPatternV2 : MonoBehaviour
                 case ActionType.Movement:
 
                     PreviewReorientation(true, index, depth);
-                    TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.rotationMat);
-                    tileColoredDuringPattern.Add(currentTile);
+                    //TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.rotationMat);
+                    //tileColoredDuringPattern.Add(currentTile);
                     //ActionEnd(currentTile, index, depth);
                     break;
 
@@ -88,8 +88,8 @@ public class PreviewPatternV2 : MonoBehaviour
                             break;
                     }
                     currentDirection = rotation * currentDirection;
-                    TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.rotationMat);
-                    tileColoredDuringPattern.Add(currentTile);
+                    //TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.rotationMat);
+                    //tileColoredDuringPattern.Add(currentTile);
                     ActionEnd(currentTile, index, depth);
                     break;
                 case ActionType.Attack:
@@ -142,8 +142,8 @@ public class PreviewPatternV2 : MonoBehaviour
                         break;
                 }
                 currentDirection = rotation * currentDirection;
-                TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.rotationMat);
-                tileColoredDuringPattern.Add(currentTile);
+                //TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.rotationMat);
+                //tileColoredDuringPattern.Add(currentTile);
                 ActionEnd(currentTile, index, depth);
                 break;
 
@@ -433,8 +433,8 @@ public class PreviewPatternV2 : MonoBehaviour
         {
             if (currentLife < 1)
             {
-                TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.deathMat);
-                tileColoredDuringPattern.Add(currentTile);
+                //TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.deathMat);
+                //tileColoredDuringPattern.Add(currentTile);
             }
             Debug.Log("Pattern finsh , get damaged");
         }
@@ -520,8 +520,8 @@ public class PreviewPatternV2 : MonoBehaviour
 
         currentDirection = rotation * currentDirection;
 
-        TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.rotationMat);
-        tileColoredDuringPattern.Add(currentTile);
+        //TilesManager.Instance.ChangeTileMaterial(currentTile, PatternReader.instance.rotationMat);
+        //tileColoredDuringPattern.Add(currentTile);
 
         previewInteractionOnTile.Add(currentTile);
         currentTile.VFXGestion.toggleVFx(currentTile.VFXGestion.PreviewInteraction.VFXGameObject, true);
@@ -689,8 +689,6 @@ public class PreviewPatternV2 : MonoBehaviour
             TilesManager.Instance.ChangeTileMaterial(tileColoredDuringPattern[i], tileColoredDuringPattern[i].baseMat);
         }
 
-
-
         for (int i = 0; i < previewAttackOnTile.Count; i++)
         {
             previewAttackOnTile[i].VFXGestion.toggleVFx(previewAttackOnTile[i].VFXGestion.previewHit.VFXGameObject, false);
@@ -720,6 +718,6 @@ public class PreviewPatternV2 : MonoBehaviour
 
 
     }
-
+     
     #endregion
 }

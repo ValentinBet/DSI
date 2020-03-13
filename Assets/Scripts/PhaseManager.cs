@@ -53,7 +53,6 @@ public class PhaseManager : MonoBehaviour
             UIManager.Instance.NewTurn();
             actualPhase = Phase.Control;
         }
-        Debug.Log(actualPhase);
         PhaseTrigger();
     }
 

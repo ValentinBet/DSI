@@ -137,6 +137,7 @@ public class PatternExecuter : MonoBehaviour
             if (bonusAction)
             {
                 AudioManager.Instance.PlayWallHit();
+                newTile.occupant.PlayAnim(newTile.occupant.animDamaged.Duration, "Damaged", true, newTile.occupant.animDamaged.AnimRatio);
                 newTile.occupant.GotAttacked(1, character, "attacker pushed");
                 TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.attackMat);
                 tileColoredDuringPattern.Add(newTile);
@@ -351,7 +352,8 @@ public class PatternExecuter : MonoBehaviour
         TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.mouvementMat);
         tileColoredDuringPattern.Add(character.occupiedTile);
         AudioManager.Instance.PlayProjectileCharacterHit();
-        yield return new WaitForSeconds(0.2f);
+        character.PlayAnim(character.animDamaged.Duration, "Damaged", true, character.animDamaged.AnimRatio);
+        yield return new WaitForSeconds(character.animDamaged.Duration);
         if (character.TakeDamaged(receivedDeal, false) && continuePattern)
         {
             ActionEnd(pattern, character.occupiedTile, character, index, depth);
@@ -536,6 +538,8 @@ public class PatternExecuter : MonoBehaviour
         {
             if (targetTile.occupant != null)
             {
+
+                targetTile.occupant.PlayAnim(targetTile.occupant.animDamaged.Duration, "Damaged", true, targetTile.occupant.animDamaged.AnimRatio);
                 targetTile.occupant.GotAttacked(character.damage, character, "attack on target");
                 AudioManager.Instance.PlayProjectileCharacterHit();
             }
@@ -613,6 +617,26 @@ public class PatternExecuter : MonoBehaviour
         }
         PatternReader.instance.FinishTurn();
         AudioManager.Instance.PlayEndTurn();
+    }
+
+
+    public void CurrentCaracterDead(Character character)
+    {
+        tileColoredDuringPattern.Add(character.occupiedTile);
+
+        for (int i = 0; i < tileColoredDuringPattern.Count; i++)
+        {
+            TilesManager.Instance.ChangeTileMaterial(tileColoredDuringPattern[i], tileColoredDuringPattern[i].baseMat);
+        }
+
+        if (character.myState == CharacterState.Standby)
+        {
+            character.myState = CharacterState.Finished;
+        }
+
+        PatternReader.instance.FinishTurn();
+        AudioManager.Instance.PlayEndTurn();
+        character.gameObject.SetActive(false);
     }
 
     public float GetRotationOffset(Vector3 directionToTest, Vector3 nexusDirection)

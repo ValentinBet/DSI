@@ -14086,7 +14086,7 @@ PrefabInstance:
     - target: {fileID: -2733430505101648800, guid: fd2e629bea171be42bae356d90b89ae4,
         type: 3}
       propertyPath: isMovable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2044990667826019264, guid: fd2e629bea171be42bae356d90b89ae4,
         type: 3}
@@ -21806,7 +21806,7 @@ PrefabInstance:
     - target: {fileID: -2733430505101648800, guid: fd2e629bea171be42bae356d90b89ae4,
         type: 3}
       propertyPath: isMovable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2044990667826019264, guid: fd2e629bea171be42bae356d90b89ae4,
         type: 3}

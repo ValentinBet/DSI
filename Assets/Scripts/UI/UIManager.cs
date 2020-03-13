@@ -18,7 +18,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject cluster;
     [SerializeField] private Text clusterTitle;
     [SerializeField] private Text clusterDesc;
-    [SerializeField] private Image clusterImg;
+    [SerializeField] private Text clusterLife;
+
     private GameObject lastObjectOnCluster;
 
     [Header("Phase Button")]
@@ -101,26 +102,39 @@ public class UIManager : MonoBehaviour
             {
                 case "AllyCharacter":
                     AllyCharacter _ac = hit.collider.GetComponent<AllyCharacter>();
-                    SetClusterInfo(_ac.allyName, _ac.allyDescription);
+                    SetClusterInfo(_ac.allyName, _ac.allyDescription, _ac.life, _ac.maxLife);
                     break;
                 case "EnemyCharacter":
                     EnemyCharacter _ec = hit.collider.GetComponent<EnemyCharacter>();
-                    SetClusterInfo(_ec.name, _ec.enemyDescription);
+                    SetClusterInfo(_ec.name, _ec.enemyDescription, _ec.life, _ec.maxLife);
                     break;
                 case "Tile":
                     TileProperties _tile = hit.collider.GetComponent<TileProperties>();
-                    SetClusterInfo(_tile.tileName, _tile.tileDescription);
+                    SetClusterInfo(_tile.tileName, _tile.tileDescription, null, null);
                     break;
                 default:
                     break;
             }
         }
+        else
+        {
+            cluster.SetActive(false);
+        }
     }
 
-    public void SetClusterInfo(string clusterTitle, string clusterDesc)
+    public void SetClusterInfo(string clusterTitle, string clusterDesc, int? actualLife = null, int? maxLife = null) //int null (vie non obligatoire)
     {
         this.clusterTitle.text = clusterTitle;
         this.clusterDesc.text = clusterDesc;
+
+        if (!(actualLife == null) || !(maxLife == null))
+        {
+            this.clusterLife.text = actualLife + "/" + maxLife;
+        } else
+        {
+            this.clusterLife.text = "";
+        }
+
     }
 
     public void EndTurnButtonClicked()
@@ -173,7 +187,7 @@ public class UIManager : MonoBehaviour
             {
                 GameObject go = Instantiate(lifeItem, heroSlots[i].transform); // Change to pooling
                 go.GetComponent<RectTransform>().localPosition = new Vector3(-1f, -1.1f, 0.0f);
-                go.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, ((-40.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f) + 40.0f * j);
+                go.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, ((40.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f) - 40.0f * j);
                 lifeDisplays[i, j] = go.transform.GetChild(0).GetComponent<Image>();
             }
         }
@@ -256,7 +270,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateWave(int actualWave, int waveAmount)
     {
-        waveText.text = "Wave " + actualWave+'/'+waveAmount;
+        waveText.text = "Wave " + actualWave + '/' + waveAmount;
     }
 
 }

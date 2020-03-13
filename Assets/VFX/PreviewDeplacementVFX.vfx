@@ -102,7 +102,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"ab993fd3750953d4794d175b99440ab1","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"f901c264e31437244935a666db22d4c8","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: mainTexture
@@ -130,10 +130,10 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 360
+    x: 362
     y: 74
-    width: 1060
-    height: 1537
+    width: 1058
+    height: 1538
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,7 +259,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.0},{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.3000076413154602},{"alpha":0.9577465057373047,"time":0.7764706015586853}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.0},{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.3000076413154602},{"alpha":1.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -474,7 +474,7 @@ VisualEffectResource:
       scaleZ = (float)1;\n\t\t\t\t\t\tfloat age = asfloat(attributeBuffer.Load((index
       * 0x1 + 0x100) << 2));\n\t\t\t\t\t\tfloat lifetime = (float)1;\n\t\t\t\t\t\tuint
       particleId = (attributeBuffer.Load((index * 0x4 + 0x83) << 2));\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t{\n\t\t\t\t
-      \   SetAttribute_3278B22F( /*inout */size, (float)1.7);\n\t\t\t\t}\n\t\t\t\tColorOverLife_733E3(age,
+      \   SetAttribute_3278B22F( /*inout */size, (float)1.5);\n\t\t\t\t}\n\t\t\t\tColorOverLife_733E3(age,
       lifetime,  /*inout */color,  /*inout */alpha, gradient_b);\n\t\t\t\t{\n\t\t\t\t
       \   Orient_4( /*inout */axisX,  /*inout */axisY,  /*inout */axisZ, float3(0,1,0),
       float3(0,0,1));\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t    uint tmp_bc = particleId
@@ -482,8 +482,8 @@ VisualEffectResource:
       \   float tmp_be = uniform_e * tmp_bd;\n\t\t\t\t    float tmp_bf = uniform_d
       + tmp_be;\n\t\t\t\t    float tmp_bh = tmp_bf * (float)6.283185;\n\t\t\t\t    float
       tmp_bi = cos(tmp_bh);\n\t\t\t\t    float tmp_bj = (float)1 - tmp_bi;\n\t\t\t\t
-      \   float tmp_bl = tmp_bj / (float)2;\n\t\t\t\t    float tmp_bn = tmp_bl * (float)0.3;\n\t\t\t\t
-      \   float tmp_bo = (float)0.7 + tmp_bn;\n\t\t\t\t    float4 tmp_bp = float4(tmp_bo,
+      \   float tmp_bl = tmp_bj / (float)2;\n\t\t\t\t    float tmp_bn = tmp_bl * (float)0.2;\n\t\t\t\t
+      \   float tmp_bo = (float)0.8 + tmp_bn;\n\t\t\t\t    float4 tmp_bp = float4(tmp_bo,
       tmp_bo, tmp_bo, tmp_bo);\n\t\t\t\t    float4 tmp_bq = uniform_c * tmp_bp;\n\t\t\t\t
       \   float tmp_br = tmp_bq[0];\n\t\t\t\t    float tmp_bs = tmp_bq[1];\n\t\t\t\t
       \   float tmp_bt = tmp_bq[2];\n\t\t\t\t    float3 tmp_bu = float3(tmp_br, tmp_bs,
@@ -720,11 +720,11 @@ VisualEffectResource:
         - m_ExpressionIndex: 7
           m_Value: 2
         - m_ExpressionIndex: 8
-          m_Value: 0.3
+          m_Value: 0.19999999
         - m_ExpressionIndex: 9
-          m_Value: 0.7
+          m_Value: 0.8
         - m_ExpressionIndex: 16
-          m_Value: 1.7
+          m_Value: 1.5
       m_Vector2f:
         m_Array:
         - m_ExpressionIndex: 12
@@ -766,7 +766,7 @@ VisualEffectResource:
             serializedVersion: 2
             key0: {r: 1, g: 1, b: 1, a: 0}
             key1: {r: 1, g: 1, b: 1, a: 1}
-            key2: {r: 0, g: 0, b: 0, a: 0.9577465}
+            key2: {r: 0, g: 0, b: 0, a: 1}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
@@ -782,7 +782,7 @@ VisualEffectResource:
             ctime7: 0
             atime0: 0
             atime1: 19661
-            atime2: 50886
+            atime2: 65535
             atime3: 0
             atime4: 0
             atime5: 0
@@ -794,7 +794,7 @@ VisualEffectResource:
       m_NamedObject:
         m_Array:
         - m_ExpressionIndex: 22
-          m_Value: {fileID: 2800000, guid: ab993fd3750953d4794d175b99440ab1, type: 3}
+          m_Value: {fileID: 2800000, guid: f901c264e31437244935a666db22d4c8, type: 3}
       m_Bool:
         m_Array: []
     m_ExposedExpressions:
@@ -2133,7 +2133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 548, y: 1473}
+  m_UIPosition: {x: 550, y: 1474}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2245,7 +2245,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.7
+      m_SerializableObject: 0.8
     m_Space: 2147483647
   m_Property:
     name: min
@@ -2338,7 +2338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 360, y: 1473}
+  m_UIPosition: {x: 362, y: 1474}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -2393,7 +2393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 748, y: 1403}
+  m_UIPosition: {x: 750, y: 1404}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -3196,7 +3196,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661617374}
       inputSlot: {fileID: 8926484042661616715}
-    position: {x: 627, y: 1415}
+    position: {x: 629, y: 1416}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661617374
@@ -3420,7 +3420,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.7
+      m_SerializableObject: 1.5
     m_Space: 2147483647
   m_Property:
     name: Size

@@ -99,6 +99,7 @@ public class PlayerControl : MonoBehaviour
                     else
                     {
                         SetRotateMode(true);
+                        UIManager.Instance.HighlightRotate();
                     }
                 }
 
@@ -111,6 +112,7 @@ public class PlayerControl : MonoBehaviour
                     else
                     {
                         SetSwapMode(true);
+                        UIManager.Instance.HighlightSwap();
                     }
                 }
 
@@ -125,7 +127,8 @@ public class PlayerControl : MonoBehaviour
                 }
             }
         }
-    }
+
+}
 
 
     private void DoActionWithPANeeded(int pa = 1)

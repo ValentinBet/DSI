@@ -323,15 +323,16 @@ public class Character : MonoBehaviour
 
     private void UpdateOrientation()
     {
+        lifeCanvas.transform.rotation = Quaternion.Euler(45, 225, 0);
+
         if ((transform.rotation.eulerAngles.y > -135.0f && transform.rotation.eulerAngles.y < 45.0f) || (transform.rotation.eulerAngles.y > 225.0f && transform.rotation.eulerAngles.y < 405.0f))
         {
             character_sprite.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
-            // lifeCanvas.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
         }
         else
         {
             character_sprite.transform.localScale = 0.5f * Vector3.one;
-            // lifeCanvas.transform.localScale = 0.5f * Vector3.one;
+
         }
     }
 

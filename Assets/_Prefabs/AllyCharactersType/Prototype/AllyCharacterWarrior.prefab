@@ -517,7 +517,7 @@ MonoBehaviour:
   yearSurvived: 0
   enemyKilled: 0
   levelMax: 3
-  allyDescription: "N'aime pas les m\xE9chants"
+  allyDescription: 
   xpNeededPerLevel:
   - {x: 1, y: 10}
   - {x: 2, y: 20}

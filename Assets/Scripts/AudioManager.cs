@@ -31,6 +31,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip aoeLaunch;
     [SerializeField] private AudioClip closeAttack;
     [SerializeField] private AudioClip shootProjectile;
+    [SerializeField] private AudioClip loosePa;
+    [SerializeField] private AudioClip noMorePa;
 
     [Header("Game")]
     [SerializeField] private AudioClip defeat;
@@ -97,8 +99,19 @@ public class AudioManager : MonoBehaviour
     public void PlayWallHit()
     {
         as_main.PlayOneShot(wallHit);
+    }   
+    //
+    public void PlayLoosePa()
+    {
+        as_main.PlayOneShot(loosePa);
     }
     //
+    public void PlayNoMorePa()
+    {
+        as_main.PlayOneShot(noMorePa);
+    }
+    //
+
     public void PlayProjectileWallHit()
     {
         as_main.PlayOneShot(projectileWallHit);

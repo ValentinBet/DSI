@@ -59,14 +59,6 @@ public class AllyCharactersPlacer : MonoBehaviour
                 return;
             }
 
-            if (lastTile != null)
-            {
-                if (lastTile.VFXGestion != null)
-                {
-                    lastTile.VFXGestion.toggleVFx(lastTile.VFXGestion.tileOverlay.VFXGameObject, false);
-                }
-
-            }
             if (lastTile != null && !tileOccupedByAllies.Contains(lastTile))
             {
                 lastTile.isOccupied = false;
@@ -75,10 +67,6 @@ public class AllyCharactersPlacer : MonoBehaviour
 
             lastTile = _tile;
 
-            if (lastTile.VFXGestion != null)
-            {
-                lastTile.VFXGestion.toggleVFx(lastTile.VFXGestion.tileOverlay.VFXGameObject, true);
-            }
 
             if (lastTile != null)
             {
@@ -96,7 +84,6 @@ public class AllyCharactersPlacer : MonoBehaviour
         {
             if (tile.isAllySpawnable && tile.CharacterCanSpawn(allyHoverChara))
             {
-                lastTile.VFXGestion.toggleVFx(lastTile.VFXGestion.tileOverlay.VFXGameObject, false);
                 AllyCharacter _allyChar = allyHover.GetComponent<AllyCharacter>();
                 GameInfoManager.Instance.UpdateCharacterObjToHisSave(ref _allyChar, GameInfoManager.GameData.allies[AllyPriority]);
                 _allyChar.SetOccupiedTile();

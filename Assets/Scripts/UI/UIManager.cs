@@ -50,6 +50,7 @@ public class UIManager : MonoBehaviour
 
     [Header("LotusLife")]
     [SerializeField] private GameObject[] lotusLife;
+    [SerializeField] private GameObject[] lotusLifeVFX;
 
     [Header("Follow cursor image")]
     [SerializeField] private RectTransform mouseFollowObj;
@@ -242,15 +243,31 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < lotusLife.Length; i++)
         {
-            if (i < value && !lotusLife[i].activeSelf)
+            if (i < value)
             {
-                lotusLife[i].SetActive(true);
+                if (!lotusLife[i].activeSelf)
+                    lotusLife[i].SetActive(true);
             }
             else
             {
                 lotusLife[i].SetActive(false);
+           
             }
         }
+
+        for (int i = 0; i < lotusLifeVFX.Length; i++)
+        {
+            if (i > value && lotusLifeVFX[i].activeSelf)
+            {
+                lotusLifeVFX[i].SetActive(true);
+            }
+            //else
+            //{
+            //    lotusLife[i].SetActive(false);
+
+            //}
+        }
+
     }
 
     /// <summary>

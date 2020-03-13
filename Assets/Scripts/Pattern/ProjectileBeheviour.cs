@@ -85,12 +85,12 @@ public class ProjectileBeheviour : MonoBehaviour
         }
 
 
-        if (testedTile.specificity != TileProperties.TilesSpecific.PlayerBase)
-        {
-            tilesColored.Add(testedTile);
-            TilesManager.Instance.ChangeTileMaterial(testedTile, PatternReader.instance.attackMat);
-            currentTile = testedTile;
-        }
+        //if (testedTile.specificity != TileProperties.TilesSpecific.PlayerBase)
+        //{
+        // tilesColored.Add(testedTile);
+        //    TilesManager.Instance.ChangeTileMaterial(testedTile, PatternReader.instance.attackMat);
+        //    currentTile = testedTile;
+        //}
 
         if (testedTile.isOccupied)
         {

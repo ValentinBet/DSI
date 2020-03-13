@@ -112,7 +112,7 @@ MonoBehaviour:
   priorityText: {fileID: 1044794961408393316}
   lifeCanvas: {fileID: 4968598918139696277}
   enemyName: Challenger Pugiliste
-  enemyDescription: 
+  enemyDescription: moves and attack
   xpEarnWhenKill: 10
 --- !u!1 &7426566809267760232
 GameObject:

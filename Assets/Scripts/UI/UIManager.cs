@@ -61,6 +61,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject rotateHighlight;
     [SerializeField] private GameObject swapHighlight;
 
+    [Header("General")]
+    [SerializeField] private GameObject menu;
+    [SerializeField] private GameObject endScreen;
+    [SerializeField] private GameObject endScreenVictory;
+    [SerializeField] private GameObject endScreenDefeat;
+
     private RaycastHit hit;
     private bool ObjFollowingMouse = false;
 
@@ -141,6 +147,20 @@ public class UIManager : MonoBehaviour
         {
 
             clusterAnim.SetTrigger("Fold");
+        }
+    }
+
+    public void InitEndGame(bool isVictory)
+    {
+        menu.SetActive(false);
+        endScreen.SetActive(true);
+
+        if (isVictory)
+        {
+            endScreenVictory.SetActive(true);
+        } else
+        {
+            endScreenDefeat.SetActive(false);
         }
     }
 

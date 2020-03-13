@@ -243,11 +243,10 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < lotusLife.Length; i++)
         {
-            if (i < value && !lotusLife[i].activeSelf)
+            if (i < value)
             {
-                lotusLife[i].SetActive(true);
-
-
+                if (!lotusLife[i].activeSelf)
+                    lotusLife[i].SetActive(true);
             }
             else
             {

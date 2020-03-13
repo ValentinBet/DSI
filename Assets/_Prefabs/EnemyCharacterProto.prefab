@@ -112,7 +112,7 @@ MonoBehaviour:
   priorityText: {fileID: 1044794961408393316}
   lifeCanvas: {fileID: 4968598918139696277}
   enemyName: Challenger Pugiliste
-  enemyDescription: 
+  enemyDescription: moves and attack
   xpEarnWhenKill: 10
 --- !u!1 &7426566809267760232
 GameObject:
@@ -241,6 +241,38 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 662923325495261658, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 662923325495261658, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 662923325495261658, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 662923325495261658, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4290690133
+      objectReference: {fileID: 0}
+    - target: {fileID: 662923325495261658, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 96276072efdba6a44b1155ba01cf718f,
+        type: 2}
+    - target: {fileID: 662923325495261658, guid: 51b73e5e1b388aa4e92abbfa60a39097,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2521775423815625398, guid: 96276072efdba6a44b1155ba01cf718f,
+        type: 2}
     - target: {fileID: 1530974156376929554, guid: 51b73e5e1b388aa4e92abbfa60a39097,
         type: 3}
       propertyPath: m_AnchorMin.y

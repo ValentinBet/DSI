@@ -6,6 +6,7 @@ public class GameTracker : MonoBehaviour
 {
     private static GameTracker _instance;
     public static GameTracker Instance { get { return _instance; } }
+    public GameObject looseVFX;
 
     private int baseLife;
     private int alliesRemaining;
@@ -68,7 +69,9 @@ public class GameTracker : MonoBehaviour
 
     public IEnumerator LoseGame()
     {
+        looseVFX.SetActive(true);
         yield return new WaitForSeconds(6);
+        looseVFX.SetActive(false);
         GameManager.Instance.LoseActualLevel();
     }
 

@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: Wall
-  tileDescription: Can be destroyed
+  tileDescription: Can be destroyed and block characters
   specificity: 5
   order: 0
   teleportChannel: 0

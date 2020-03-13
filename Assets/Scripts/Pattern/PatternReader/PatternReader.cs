@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Singleton permettant de lire les différents patterns
+/// </summary>
 public class PatternReader : MonoBehaviour
 {
     public static PatternReader instance { get { return _instance; } }
@@ -10,7 +13,6 @@ public class PatternReader : MonoBehaviour
 
     public Material mouvementMat, attackMat, rotationMat, clickMat, interactionMat , deathMat , receiveDamageMat;
 
-    //public PreviewReader PreviewReader;
     public PreviewPatternV2 PreviewPattern;
     public PatternExecuter PatternExecuter;
 
@@ -25,7 +27,9 @@ public class PatternReader : MonoBehaviour
             _instance = this;
         }
     }
-
+    /// <summary>
+    /// met fin au tour du personnage
+    /// </summary>
     public void FinishTurn()
     {
         TilesManager.Instance.ResetTilesStatut();

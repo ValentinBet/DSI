@@ -33,7 +33,7 @@ public class PreviewPatternV2 : MonoBehaviour
     /// <summary>
     /// Affiche la preview du pattern d'un personnage
     /// </summary>
-    /// <param name="character"></param>
+    /// <param name="character">Personnage effectuant la preview </param>
     public void ReadPattern(Character character)
     {
         previewEnd = false;
@@ -46,7 +46,11 @@ public class PreviewPatternV2 : MonoBehaviour
         currentLife = currentCharacter.life;
         ExecuteAction(0, depth);
     }
-
+    /// <summary>
+    /// Lance la preview
+    /// </summary>
+    /// <param name="index">étape de la preview</param>
+    /// <param name="depth">longeur du pattern prévisualisé</param>
     private void ExecuteAction(int index, int depth)
     {
         if (previewEnd)
@@ -157,7 +161,13 @@ public class PreviewPatternV2 : MonoBehaviour
 
         }
     }
-
+    /// <summary>
+    /// Comportement selon les tiles
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="depth"></param>
+    /// <param name="newTile">Tile ciblé</param>
+    /// <param name="bonusAction">Action hors pattern</param>
     private void TileCheck(int index, int depth, TileProperties newTile, bool bonusAction)
     {
         if (previewEnd)
@@ -366,7 +376,12 @@ public class PreviewPatternV2 : MonoBehaviour
         }
 
     }
-
+    /// <summary>
+    /// Change de direction actuelle
+    /// </summary>
+    /// <param name="doNextAction">passe à l'action suivante</param>
+    /// <param name="index"></param>
+    /// <param name="depth"></param>
     private void PreviewReorientation(bool doNextAction, int index, int depth)
     {
 
@@ -388,8 +403,13 @@ public class PreviewPatternV2 : MonoBehaviour
             ActionEnd(currentTile, index, depth);
         }
     }
-
     #region SpecificAction
+    /// <summary>
+    /// Déplacment sur la case ciblé
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="depth"></param>
+    /// <param name="newTile">case ciblé</param>
     private void MovementOnTile(int index, int depth, TileProperties newTile)
     {
         if (newTile.isOccupied && newTile.occupant != currentCharacter)
@@ -413,7 +433,13 @@ public class PreviewPatternV2 : MonoBehaviour
         currentTile = newTile;
         ActionEnd(newTile, index, depth);
     }
-
+    /// <summary>
+    /// Preview des dommages subis
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="depth"></param>
+    /// <param name="continuePattern">Arrete le pattern ou pas</param>
+    /// <param name="receivedDeal">Dommages subis</param>
     private void GetDamaged(int index, int depth, bool continuePattern, int receivedDeal)
     {
         //damage MAt
@@ -442,7 +468,11 @@ public class PreviewPatternV2 : MonoBehaviour
             Debug.Log("Pattern finsh , get damaged");
         }
     }
-
+    /// <summary>
+    /// Interaction avec le Teleporteur
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="depth"></param>
     private void Teleportation(int index, int depth)
     {
 
@@ -466,7 +496,13 @@ public class PreviewPatternV2 : MonoBehaviour
             ActionEnd(currentTile, index, depth);
         }
     }
-
+    /// <summary>
+    /// Attaque hors pattern
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="depth"></param>
+    /// <param name="continuePatern">Arrete le pattern ou pas</param>
+    /// <param name="useCharacterPattern">utlisation du pattern d'attaque</param>
     private void ExtraAttack(int index, int depth, bool continuePatern, bool useCharacterPattern)
     {
 
@@ -499,7 +535,11 @@ public class PreviewPatternV2 : MonoBehaviour
         }
 
     }
-
+    /// <summary>
+    /// Déplacement hors pattern
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="depth"></param>
     private void ExtraDeplacement(int index, int depth)
     {
 
@@ -516,7 +556,11 @@ public class PreviewPatternV2 : MonoBehaviour
             TileCheck(index, depth, testedTile, true);
         }
     }
-
+    /// <summary>
+    /// Rotation hors pattern
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="depth"></param>
     private void ExtraRotation(int index, int depth)
     {
         Quaternion rotation = Quaternion.Euler(0f, currentTile.GetRotationOffset(currentDirection), 0f);
@@ -533,9 +577,12 @@ public class PreviewPatternV2 : MonoBehaviour
     }
 
     #endregion
-
     #region Utility
-
+    /// <summary>
+    /// Visualisation de la case attaquée
+    /// </summary>
+    /// <param name="targetTile">tile ciblée</param>
+    /// <param name="forceZoneAttack">force une attaque de zone</param>
     private void PreviewOnTargetTile(TileProperties targetTile, bool forceZoneAttack)
     {
         //testedTiles.Add(targetTile);
@@ -584,6 +631,12 @@ public class PreviewPatternV2 : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Action terminée
+    /// </summary>
+    /// <param name="tileToColored"></param>
+    /// <param name="index"></param>
+    /// <param name="depth"></param>
     private void ActionEnd(TileProperties tileToColored, int index, int depth)
     {
         index++;
@@ -596,7 +649,13 @@ public class PreviewPatternV2 : MonoBehaviour
             tileColoredDuringPattern.Add(tileToColored);
         }
     }
-
+    /// <summary>
+    /// action temriné, avec option de fin de pattern
+    /// </summary>
+    /// <param name="tilesToColored"></param>
+    /// <param name="index"></param>
+    /// <param name="depth"></param>
+    /// <param name="continuePattern">arrête le pattern ou pas</param>
     public void ActionEnd(TileProperties tilesToColored, int index, int depth, bool continuePattern)
     {
         index++;
@@ -610,7 +669,13 @@ public class PreviewPatternV2 : MonoBehaviour
             tileColoredDuringPattern.Add(tilesToColored);
         }
     }
-
+    /// <summary>
+    /// Passe à l'action suivante avec un délai
+    /// </summary>
+    /// <param name="duration">Délai</param>
+    /// <param name="index"></param>
+    /// <param name="depth"></param>
+    /// <returns></returns>
     private IEnumerator NextAction(float duration, int index, int depth)
     {
         yield return new WaitForSeconds(duration);
@@ -627,7 +692,12 @@ public class PreviewPatternV2 : MonoBehaviour
     //    }
 
     //}
-
+    /// <summary>
+    /// Détermine la rotation à effecter
+    /// </summary>
+    /// <param name="directionToTest">direction de base</param>
+    /// <param name="otherRotation">direction à atteindre</param>
+    /// <returns></returns>
     public float GetRotationOffset(Vector3 directionToTest, Vector3 otherRotation)
     {
 
@@ -652,7 +722,12 @@ public class PreviewPatternV2 : MonoBehaviour
             return -90;
         }
     }
-
+    /// <summary>
+    /// Trouve la tile ciblé par le pattern d'attaque
+    /// </summary>
+    /// <param name="tileOffset">coordonné de la tile </param>
+    /// <param name="lenght">longeur du raycast</param>
+    /// <returns></returns>
     public TileProperties GetTileFromPattern(Vector2 tileOffset, int lenght = 1)
     {
         List<TileProperties> listTilesOnDirection = new List<TileProperties>();
@@ -682,7 +757,9 @@ public class PreviewPatternV2 : MonoBehaviour
 
         return null;
     }
-
+    /// <summary>
+    /// Met fin à la preview
+    /// </summary>
     public void EndPreview()
     {
         StopAllCoroutines();

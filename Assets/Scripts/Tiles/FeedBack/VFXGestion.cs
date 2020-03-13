@@ -16,6 +16,7 @@ public class VFXGestion : MonoBehaviour
     public VFXAsset PreviewDegatVFX;
     public VFXAsset BreakingLifeVFX;
     public VFXAsset LooseLife;
+    public VFXAsset previewMort;
 
 
     public void toggleVFx(GameObject vfx, bool activate, bool haveADesactivationTime = false, float duration = 0)

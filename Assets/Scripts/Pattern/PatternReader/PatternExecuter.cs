@@ -137,7 +137,7 @@ public class PatternExecuter : MonoBehaviour
             if (bonusAction)
             {
                 AudioManager.Instance.PlayWallHit();
-                newTile.occupant.PlayAnim(newTile.occupant.animDamaged.Duration, "Damaged", true, newTile.occupant.animDamaged.AnimRatio);
+           
                 newTile.occupant.GotAttacked(1, character, "attacker pushed");
                 TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.attackMat);
                 tileColoredDuringPattern.Add(newTile);
@@ -539,7 +539,7 @@ public class PatternExecuter : MonoBehaviour
             if (targetTile.occupant != null)
             {
 
-                targetTile.occupant.PlayAnim(targetTile.occupant.animDamaged.Duration, "Damaged", true, targetTile.occupant.animDamaged.AnimRatio);
+               // targetTile.occupant.PlayAnim(targetTile.occupant.animDamaged.Duration, "Damaged", true, targetTile.occupant.animDamaged.AnimRatio);
                 targetTile.occupant.GotAttacked(character.damage, character, "attack on target");
                 AudioManager.Instance.PlayProjectileCharacterHit();
             }

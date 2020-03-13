@@ -163,6 +163,7 @@ public class Character : MonoBehaviour
     public void GotAttacked(int damageAmount, Character attacker, string context)
     {
         CameraManager.Instance.InitScreenShake(0.3f, 0.2f);
+        PlayAnim(animDamaged.Duration, "Damaged", true, animDamaged.AnimRatio);
         Debug.Log(this.gameObject + " attacked by " + attacker.gameObject + " CONTEXT : " + context);
         life -= damageAmount;
         UpdateLifeDisplay();
@@ -179,7 +180,7 @@ public class Character : MonoBehaviour
                 _ac.enemyKilled++;
             }
 
-            KillCharacter(false);
+            StartCoroutine(KillCharacter(false, animDamaged.Duration));
         }
     }
 
@@ -230,6 +231,41 @@ public class Character : MonoBehaviour
         //}
 
     }
+
+    public IEnumerator KillCharacter(bool cancelPattern, float duration)
+    {
+        Debug.Log("This character died", this);
+        myState = CharacterState.Dead;
+        occupiedTile.LostOccupant();
+
+        if (isAlly)
+        {
+            AudioManager.Instance.PlayAllyDie();
+        }
+        else
+        {
+            AudioManager.Instance.PlayCharacterDie();
+        }
+
+        yield return new WaitForSeconds(duration);
+
+        if (PatternReader.instance.PatternExecuter.currentCharacter == this || cancelPattern)
+        {
+            Debug.Log("Le current caracter meurt");
+            PatternReader.instance.PatternExecuter.CurrentCaracterDead(this);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+
+        //if (isAlly && CharactersManager.Instance.allyCharacter.Contains(GetComponent<AllyCharacter>())) // (LINQ)
+        //{
+        //    CharactersManager.Instance.allyCharacter.Remove(GetComponent<AllyCharacter>());
+        //}
+
+    }
+
 
     public TileProperties GetTileFromTransform(Vector2 tileOffset, int lenght = 1)
     {
@@ -290,12 +326,12 @@ public class Character : MonoBehaviour
         if ((transform.rotation.eulerAngles.y > -135.0f && transform.rotation.eulerAngles.y < 45.0f) || (transform.rotation.eulerAngles.y > 225.0f && transform.rotation.eulerAngles.y < 405.0f))
         {
             character_sprite.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
-           // lifeCanvas.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+            // lifeCanvas.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
         }
         else
         {
             character_sprite.transform.localScale = 0.5f * Vector3.one;
-           // lifeCanvas.transform.localScale = 0.5f * Vector3.one;
+            // lifeCanvas.transform.localScale = 0.5f * Vector3.one;
         }
     }
 

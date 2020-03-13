@@ -8,7 +8,7 @@ public class CameraManager : MonoBehaviour
     public float maxScreenShakeIntensity = 10;
 
     [SerializeField]
-    private Transform camPivot;
+    private Transform camPivot = null;
     private CinemachineVirtualCamera thisCam;
     private bool isScreenShaking = false;
 

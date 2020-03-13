@@ -7,48 +7,45 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } }
 
-    [SerializeField] private AudioSource as_main;
-    [SerializeField] private AudioSource as_backgroundMusic;
+    [SerializeField] private AudioSource as_main = null;
+    [SerializeField] private AudioSource as_backgroundMusic = null;
     [SerializeField] private float backgroundMusicBaseVolume = 0.1f;
 
     [Header("Tiles")]
-    [SerializeField] private AudioClip swap;
-    [SerializeField] private AudioClip selectTile;
+    [SerializeField] private AudioClip swap = null;
+    [SerializeField] private AudioClip selectTile = null;
     [SerializeField] private List<AudioClip> sfxRotateList = new List<AudioClip>();
 
     [Header("Walls")]
-    [SerializeField] private AudioClip wallDestruct;
-    [SerializeField] private AudioClip wallHit;
-    [SerializeField] private AudioClip projectileWallHit;
-
-    [Header("Traps")]
-    [SerializeField] private AudioClip activateTrap;
+    [SerializeField] private AudioClip wallDestruct = null;
+    [SerializeField] private AudioClip wallHit = null;
+    [SerializeField] private AudioClip projectileWallHit = null;
 
     [Header("Actions")]
-    [SerializeField] private AudioClip teleport;
-    [SerializeField] private AudioClip push;
-    [SerializeField] private AudioClip aoeHit;
-    [SerializeField] private AudioClip aoeLaunch;
-    [SerializeField] private AudioClip closeAttack;
-    [SerializeField] private AudioClip shootProjectile;
-    [SerializeField] private AudioClip loosePa;
-    [SerializeField] private AudioClip noMorePa;
+    [SerializeField] private AudioClip teleport = null;
+    [SerializeField] private AudioClip push = null;
+    [SerializeField] private AudioClip aoeHit = null;
+    [SerializeField] private AudioClip aoeLaunch = null;
+    [SerializeField] private AudioClip closeAttack = null;
+    [SerializeField] private AudioClip shootProjectile = null;
+    [SerializeField] private AudioClip loosePa = null;
+    [SerializeField] private AudioClip noMorePa = null;
 
     [Header("Game")]
-    [SerializeField] private AudioClip defeat;
-    [SerializeField] private AudioClip victory;
-    [SerializeField] private AudioClip endTurn;
-    [SerializeField] private AudioClip buttonClick;
-    [SerializeField] private AudioClip newTurn;
+    [SerializeField] private AudioClip defeat = null;
+    [SerializeField] private AudioClip victory = null;
+    [SerializeField] private AudioClip endTurn = null;
+    [SerializeField] private AudioClip buttonClick = null;
+    [SerializeField] private AudioClip newTurn = null;
 
     [Header("Characters")]
     [SerializeField] private List<AudioClip> footstepList = new List<AudioClip>();
-    [SerializeField] private AudioClip projectileCharacterHit;
-    [SerializeField] private AudioClip characterDie;
-    [SerializeField] private AudioClip characterHit;
-    [SerializeField] private AudioClip characterRotate;
-    [SerializeField] private AudioClip allyDie;
-    [SerializeField] private AudioClip levelUp;
+    [SerializeField] private AudioClip projectileCharacterHit = null;
+    [SerializeField] private AudioClip characterDie = null;
+    [SerializeField] private AudioClip characterHit = null;
+    [SerializeField] private AudioClip characterRotate = null;
+    [SerializeField] private AudioClip allyDie = null;
+    [SerializeField] private AudioClip levelUp = null;
 
     private void Awake()
     {

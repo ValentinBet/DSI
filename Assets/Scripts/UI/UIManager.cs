@@ -12,64 +12,62 @@ public class UIManager : MonoBehaviour
     [HideInInspector] public bool isPlacingAlly = false;
 
     [Header("Waves Information")]
-    [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private TextMeshProUGUI waveText =null;
 
     [Header("Cluster Information")]
-    [SerializeField] private GameObject cluster;
-    [SerializeField] private Animator clusterAnim;
-    [SerializeField] private Text clusterTitle;
-    [SerializeField] private Text clusterDesc;
-    [SerializeField] private Text clusterLife;
+    [SerializeField] private Animator clusterAnim = null;
+    [SerializeField] private Text clusterTitle = null;
+    [SerializeField] private Text clusterDesc = null;
+    [SerializeField] private Text clusterLife = null;
 
-    private int animCharge;
-    private GameObject lastObjectOnCluster;
+    private int animCharge = 0;
+    private GameObject lastObjectOnCluster = null;
 
     [Header("Phase Button")]
-    [SerializeField] private GameObject endTurnButton;
-    [SerializeField] private GameObject nextTurnButton;
+    [SerializeField] private GameObject endTurnButton = null;
 
     [Header("AlertPanel")]
-    [SerializeField] private Animator AlertAnim;
-    [SerializeField] private Image alertImage;
-    [SerializeField] private Sprite alertPlayer;
-    [SerializeField] private Sprite alertAlly;
-    [SerializeField] private Sprite alertEnemy;
+    [SerializeField] private Animator AlertAnim = null;
+    [SerializeField] private Image alertImage =null;
+    [SerializeField] private Sprite alertPlayer =null;
+    [SerializeField] private Sprite alertAlly = null;
+    [SerializeField] private Sprite alertEnemy = null;
 
     [Header("PAs")]
-    public Image[] PAdisplay;
-    [SerializeField] private Sprite PAsprite;
-    [SerializeField] private Sprite PAdisabled;
+    public Image[] PAdisplay = null;
+    [SerializeField] private Sprite PAsprite = null;
+    [SerializeField] private Sprite PAdisabled = null;
     //[SerializeField] private TextMeshProUGUI PAtext;
-    [SerializeField] private GameObject tileMovementObj;
+    [SerializeField] private GameObject tileMovementObj = null;
 
     [Header("Heroes")]
-    [SerializeField] private Image[] heroSlots;
+    [SerializeField] private Image[] heroSlots = null;
     [SerializeField] private List<TextMeshPro> allyTextDisplay = new List<TextMeshPro>();
-    [SerializeField] private GameObject lifeItem;
-    private Image[,] lifeDisplays;
+    [SerializeField] private GameObject lifeItem = null;
+    private Image[,] lifeDisplays = null;
 
     [Header("LotusLife")]
-    [SerializeField] private GameObject[] lotusLife;
-    [SerializeField] private GameObject[] lotusLifeVFX;
+    [SerializeField] private GameObject[] lotusLife = null;
+    [SerializeField] private GameObject[] lotusLifeVFX = null;
 
     [Header("Follow cursor image")]
-    [SerializeField] private RectTransform mouseFollowObj;
-    [SerializeField] private GameObject rotateHint;
-    [SerializeField] private GameObject swapHint;
+    [SerializeField] private RectTransform mouseFollowObj = null;
+    [SerializeField] private GameObject rotateHint = null;
+    [SerializeField] private GameObject swapHint = null;
 
     [Header("Keyboard Help")]
-    [SerializeField] private GameObject cancelHelpKey;
-    [SerializeField] private GameObject quitModeHelpKey;
+    [SerializeField] private GameObject cancelHelpKey = null;
+    [SerializeField] private GameObject quitModeHelpKey = null;
 
     [Header("Highlight")]
-    [SerializeField] private GameObject rotateHighlight;
-    [SerializeField] private GameObject swapHighlight;
+    [SerializeField] private GameObject rotateHighlight = null;
+    [SerializeField] private GameObject swapHighlight = null;
 
     [Header("General")]
-    [SerializeField] private GameObject menu;
-    [SerializeField] private GameObject endScreen;
-    [SerializeField] private GameObject endScreenVictory;
-    [SerializeField] private GameObject endScreenDefeat;
+    [SerializeField] private GameObject menu = null;
+    [SerializeField] private GameObject endScreen = null;
+    [SerializeField] private GameObject endScreenVictory = null;
+    [SerializeField] private GameObject endScreenDefeat = null;
 
     private RaycastHit hit;
     private bool ObjFollowingMouse = false;
@@ -139,6 +137,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Orienter l'animation du cluster vers l'ouverture ou la fermeture (utilisé pour placer un délai sur les animations du cluster)
+    /// </summary>
+    /// <param name="value">valeur à appliquer pour la modification de l'animation</param>
     private void ClusterAnimCharge(int value)
     {
         animCharge += value;
@@ -154,6 +156,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fonction mettant en place l'interface de fin de partie
+    /// </summary>
+    /// <param name="isVictory">true : victoire / false : défaite</param>
     public void InitEndGame(bool isVictory)
     {
         menu.SetActive(false);
@@ -168,6 +174,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Définis les informations à écrire dans le cluster
+    /// </summary>
+    /// <param name="clusterTitle">titre du cluster</param>
+    /// <param name="clusterDesc">description du cluster</param>
+    /// <param name="actualLife">vie actuelle (laisser null si ce n'est pas un personnage)</param>
+    /// <param name="maxLife">vie maximale (laisser null si ce n'est pas un personnage)</param>
     public void SetClusterInfo(string clusterTitle, string clusterDesc, int? actualLife = null, int? maxLife = null) //int null (vie non obligatoire)
     {
         this.clusterTitle.text = clusterTitle;
@@ -183,12 +196,18 @@ public class UIManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Fonction communiquant la fin du tour du joueur à l'interface
+    /// </summary>
     public void EndTurnButtonClicked()
     {
         endTurnButton.GetComponent<Button>().interactable = false;
         PhaseManager.Instance.NextPhase(); // Logical transition to --> Ally Phase
     }
 
+    /// <summary>
+    /// Fonction communiquant le début du tour du joueur à l'interface
+    /// </summary>
     public void NewTurn()
     {
         endTurnButton.GetComponent<Button>().interactable = true;
@@ -196,21 +215,30 @@ public class UIManager : MonoBehaviour
         alertImage.sprite = alertPlayer;
     }
 
+    /// <summary>
+    /// Fonction communiquant le début du tour des alliés à l'interface
+    /// </summary>
     public void AllyTurn()
     {
         AlertAnim.Play("Alert");
         alertImage.sprite = alertAlly;
     }
 
+    /// <summary>
+    /// Fonction communiquant le début du tour des ennemis à l'interface
+    /// </summary>
     public void EnemyTurn()
     {
         AlertAnim.Play("Alert");
         alertImage.sprite = alertEnemy;
     }
 
+    /// <summary>
+    /// Fonction définissant le nombre de PA à afficher
+    /// </summary>
+    /// <param name="amount">nouveau montant de PA</param>
     public void SetPA(int amount)
     {
-        //PAtext.text = amount + "/5";
         for (int i = 0; i < PAdisplay.Length; i++)
         {
             if (i < amount)
@@ -224,6 +252,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Initialisation de la barre de vie des personnages
+    /// </summary>
     public void AllyLifeSetup()
     {
         lifeDisplays = new Image[3, 5];
@@ -239,6 +270,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Mise à jour de la vie de la base (nombre de pétales sur le lotus)
+    /// </summary>
+    /// <param name="value">Nouvelle valeur de vie</param>
     public void BaseLifeUpdate(int value)
     {
         for (int i = 0; i < lotusLife.Length; i++)
@@ -261,20 +296,15 @@ public class UIManager : MonoBehaviour
             {
                 lotusLifeVFX[i].SetActive(true);
             }
-            //else
-            //{
-            //    lotusLife[i].SetActive(false);
-
-            //}
         }
 
     }
 
     /// <summary>
-    /// Updates player life
+    /// Mets à jour la vie du joueur
     /// </summary>
-    /// <param name="allyID">this character ID (his priority)</param>
-    /// <param name="value">this character new life value</param>
+    /// <param name="allyID">L'ID de ce personnage (sa priorité)</param>
+    /// <param name="value">La nouvelle valeur de vie de ce personnage</param>
     public void AllyLifeUpdate(int allyID, int value)
     {
         for (int i = 0; i < heroSlots[allyID].transform.childCount; i++)
@@ -290,11 +320,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetAllyLevelDisplay(int value)
+    /// <summary>
+    /// Mets à jour le niveau d'expérience d'un personnage
+    /// </summary>
+    /// <param name="ID">index du personnage (sa priorité)</param>
+    public void SetAllyLevelDisplay(int ID)
     {
-        allyTextDisplay[value].text = "LVL " + CharactersManager.Instance.allyCharacter[value].level;
+        allyTextDisplay[ID].text = "LVL " + CharactersManager.Instance.allyCharacter[ID].level;
     }
 
+    /// <summary>
+    /// Update du mode d'utilisation du controller
+    /// </summary>
+    /// <param name="value">est-ce que le mode est actif ?</param>
     private void LaunchMode(bool value)
     {
         EndMode();
@@ -303,18 +341,29 @@ public class UIManager : MonoBehaviour
         AudioManager.Instance.PlayButtonClick();
     }
 
+    /// <summary>
+    /// affiche ou non le mode "Rotation"
+    /// </summary>
+    /// <param name="value">true : début/ false : fin du mode</param>
     public void DisplayRotate(bool value)
     {
         LaunchMode(value);
         rotateHint.SetActive(value);
     }
 
+    /// <summary>
+    /// affiche ou non le mode "Swap"
+    /// </summary>
+    /// <param name="value">true : début/ false : fin du mode</param>
     public void DisplaySwap(bool value)
     {
         LaunchMode(value);
         swapHint.SetActive(value);
     }
 
+    /// <summary>
+    /// Fin du mode, activé à la fin d'un tour du joueur
+    /// </summary>
     public void EndMode()
     {
         quitModeHelpKey.SetActive(false);
@@ -325,34 +374,54 @@ public class UIManager : MonoBehaviour
         StopHighlight();
     }
 
+    /// <summary>
+    /// Afficher ou non la touche d'aide "Cancel"
+    /// </summary>
+    /// <param name="value">true : afficher / false : retirer</param>
     public void DisplayCancelHelpKey(bool value)
     {
         cancelHelpKey.SetActive(value);
     }
 
 
+    /// <summary>
+    /// Afficher ou non l'objet d'aide "Tile Movement"
+    /// </summary>
+    /// <param name="value">true : afficher / false : retirer</param>
     public void SetTileMovementObj(bool value)
     {
         tileMovementObj.SetActive(value);
     }
 
+    /// <summary>
+    /// Mets à jour l'affichage des vagues
+    /// </summary>
+    /// <param name="actualWave">vague actuelle</param>
+    /// <param name="waveAmount">vague finale</param>
     public void UpdateWave(int actualWave, int waveAmount)
     {
         waveText.text = "Wave " + actualWave + '/' + waveAmount;
     }
 
+    /// <summary>
+    /// Affiche l'highlight du mode "Swap"
+    /// </summary>
     public void HighlightSwap()
     {
         rotateHighlight.SetActive(false);
         swapHighlight.SetActive(true);
     }
-
+    /// <summary>
+    /// Affiche l'highlight du mode "Rotation"
+    /// </summary>
     public void HighlightRotate()
     {
         rotateHighlight.SetActive(true);
         swapHighlight.SetActive(false);
     }
-
+    /// <summary>
+    /// Retire les highlights
+    /// </summary>
     public void StopHighlight()
     {
         rotateHighlight.SetActive(false);

@@ -482,8 +482,8 @@ VisualEffectResource:
       \   float tmp_be = uniform_e * tmp_bd;\n\t\t\t\t    float tmp_bf = uniform_d
       + tmp_be;\n\t\t\t\t    float tmp_bh = tmp_bf * (float)6.283185;\n\t\t\t\t    float
       tmp_bi = cos(tmp_bh);\n\t\t\t\t    float tmp_bj = (float)1 - tmp_bi;\n\t\t\t\t
-      \   float tmp_bl = tmp_bj / (float)2;\n\t\t\t\t    float tmp_bn = tmp_bl * (float)0.3;\n\t\t\t\t
-      \   float tmp_bo = (float)0.7 + tmp_bn;\n\t\t\t\t    float4 tmp_bp = float4(tmp_bo,
+      \   float tmp_bl = tmp_bj / (float)2;\n\t\t\t\t    float tmp_bn = tmp_bl * (float)0.2;\n\t\t\t\t
+      \   float tmp_bo = (float)0.8 + tmp_bn;\n\t\t\t\t    float4 tmp_bp = float4(tmp_bo,
       tmp_bo, tmp_bo, tmp_bo);\n\t\t\t\t    float4 tmp_bq = uniform_c * tmp_bp;\n\t\t\t\t
       \   float tmp_br = tmp_bq[0];\n\t\t\t\t    float tmp_bs = tmp_bq[1];\n\t\t\t\t
       \   float tmp_bt = tmp_bq[2];\n\t\t\t\t    float3 tmp_bu = float3(tmp_br, tmp_bs,
@@ -714,9 +714,9 @@ VisualEffectResource:
         - m_ExpressionIndex: 7
           m_Value: 2
         - m_ExpressionIndex: 8
-          m_Value: 0.3
+          m_Value: 0.19999999
         - m_ExpressionIndex: 9
-          m_Value: 0.7
+          m_Value: 0.8
       m_Vector2f:
         m_Array:
         - m_ExpressionIndex: 12
@@ -2237,7 +2237,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.7
+      m_SerializableObject: 0.8
     m_Space: 2147483647
   m_Property:
     name: min

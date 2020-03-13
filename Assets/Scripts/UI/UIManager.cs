@@ -30,7 +30,10 @@ public class UIManager : MonoBehaviour
 
     [Header("AlertPanel")]
     [SerializeField] private Animator AlertAnim;
-    [SerializeField] private TextMeshProUGUI AlertText;
+    [SerializeField] private Image alertImage;
+    [SerializeField] private Sprite alertPlayer;
+    [SerializeField] private Sprite alertAlly;
+    [SerializeField] private Sprite alertEnemy;
 
     [Header("PAs")]
     [SerializeField] private Image[] PAdisplay;
@@ -107,7 +110,7 @@ public class UIManager : MonoBehaviour
             }
 
             if (animCharge < 0) animCharge = 0;
-            ClusterAnimCharge(2);
+            ClusterAnimCharge(1);
             lastObjectOnCluster = hit.collider.gameObject;
 
             switch (hit.collider.tag)
@@ -189,19 +192,19 @@ public class UIManager : MonoBehaviour
     {
         endTurnButton.GetComponent<Button>().interactable = true;
         AlertAnim.Play("Alert");
-        AlertText.text = "Player Phase";
+        alertImage.sprite = alertPlayer;
     }
 
     public void AllyTurn()
     {
         AlertAnim.Play("Alert");
-        AlertText.text = "Allies phase";
+        alertImage.sprite = alertAlly;
     }
 
     public void EnemyTurn()
     {
         AlertAnim.Play("Alert");
-        AlertText.text = "Enemies phase";
+        alertImage.sprite = alertEnemy;
     }
 
     public void SetPA(int amount)
@@ -228,7 +231,7 @@ public class UIManager : MonoBehaviour
             for (int j = 0; j < CharactersManager.Instance.allyCharacter[i].life; j++)
             {
                 GameObject go = Instantiate(lifeItem, heroSlots[i].transform); // Change to pooling
-                go.GetComponent<RectTransform>().localPosition = new Vector3(-1f, -1.1f, -0.5f);
+                go.GetComponent<RectTransform>().localPosition = new Vector3(-1f, -1.1f, -0.1f);
                 go.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, ((40.0f * (CharactersManager.Instance.allyCharacter[i].life - 1)) / 2.0f) - 40.0f * j);
                 lifeDisplays[i, j] = go.transform.GetChild(0).GetComponent<Image>();
             }

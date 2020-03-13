@@ -596,7 +596,7 @@ public class PreviewPatternV2 : MonoBehaviour
 
                 if (targetTile.specificity == TileProperties.TilesSpecific.Wall)
                 {
-                    Vector3 newPos = targetTile.transform.position + new Vector3(0, 1f, 0);
+                    Vector3 newPos = targetTile.transform.position + new Vector3(0, 1.3f, 0);
                     previewTir.transform.position = newPos;
                 }
                 else
@@ -616,7 +616,7 @@ public class PreviewPatternV2 : MonoBehaviour
                 GameObject previewAttack = targetTile.VFXGestion.previewHit.VFXGameObject;
                 if (targetTile.specificity == TileProperties.TilesSpecific.Wall)
                 {
-                    Vector3 newPos = targetTile.transform.position + new Vector3(0, 1f, 0);
+                    Vector3 newPos = targetTile.transform.position + new Vector3(0, 1.3f, 0);
                     previewAttack.transform.position = newPos;
                 }
                 else

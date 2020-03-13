@@ -92,7 +92,7 @@ public class PreviewPatternV2 : MonoBehaviour
                     ActionEnd(currentTile, index, depth);
                     break;
                 case ActionType.Attack:
-                    PreviewOnTargetTile(currentTile);
+                    //PreviewOnTargetTile(currentTile);
                     ActionEnd(currentTile, index, depth);
                     break;
                 default:
@@ -168,7 +168,7 @@ public class PreviewPatternV2 : MonoBehaviour
         {
             if (newTile.occupant != currentCharacter)
             {
-                PreviewOnTargetTile(newTile);
+                //PreviewOnTargetTile(newTile);
                 GetDamaged(index, depth, false, 1);
                 return;
             }
@@ -399,7 +399,7 @@ public class PreviewPatternV2 : MonoBehaviour
         newTile.VFXGestion.toggleVFx(newTile.VFXGestion.PreviewDeplacement.VFXGameObject, true);
 
         GameObject previewDeplacement = newTile.VFXGestion.PreviewDeplacement.VFXGameObject;
-        previewDeplacement.transform.Rotate(Vector3.up,90f + GetRotationOffset(previewDeplacement.transform.forward, currentDirection));
+        previewDeplacement.transform.Rotate(Vector3.up, 90f + GetRotationOffset(previewDeplacement.transform.forward, currentDirection));
 
         currentTile = newTile;
         ActionEnd(newTile, index, depth);
@@ -466,7 +466,7 @@ public class PreviewPatternV2 : MonoBehaviour
             if (tiles.Count != 0)
             {
                 //ActionEnd(pattern, character.occupiedTile, character, index, depth);
-                PreviewOnTargetTile(tiles[0]);
+                PreviewOnTargetTile(tiles[0], true);
             }
         }
         else
@@ -477,7 +477,7 @@ public class PreviewPatternV2 : MonoBehaviour
                 TileProperties tileTarget = GetTileFromPattern(currentAttackTemplate.tilesAffected[i].tilesTargetOffset, 2);
                 if (tileTarget != null)
                 {
-                    PreviewOnTargetTile(tileTarget);
+                    PreviewOnTargetTile(tileTarget, false);
                 }
             }
         }
@@ -525,24 +525,50 @@ public class PreviewPatternV2 : MonoBehaviour
 
     #region Utility
 
-    private void PreviewOnTargetTile(TileProperties targetTile)
+    private void PreviewOnTargetTile(TileProperties targetTile, bool forceZoneAttack)
     {
         //testedTiles.Add(targetTile);
         if (targetTile.specificity != TileProperties.TilesSpecific.PlayerBase)
         {
             //TilesManager.Instance.ChangeTileMaterial(targetTile, PatternReader.instance.attackMat);
-            if (currentAttackTemplate.attackType == AttackType.Projectile)
+            if (currentAttackTemplate.attackType == AttackType.Projectile && !forceZoneAttack )
             {
                 previewShootOnTile.Add(targetTile);
-                targetTile.VFXGestion.toggleVFx(targetTile.VFXGestion.PreviewTirVFX.VFXGameObject, true);
                 GameObject previewTir = targetTile.VFXGestion.PreviewTirVFX.VFXGameObject;
+
+                if (targetTile.specificity == TileProperties.TilesSpecific.Wall)
+                {
+                    Vector3 newPos = targetTile.transform.position + new Vector3(0, 1f, 0);
+                    previewTir.transform.position = newPos;
+                }
+                else
+                {
+                    Vector3 newPos = new Vector3(targetTile.transform.position.x, 0.25f, targetTile.transform.position.z);
+                    previewTir.transform.position = newPos;
+                }
+
+                targetTile.VFXGestion.toggleVFx(previewTir, true);
                 previewTir.transform.Rotate(Vector3.up, 90f + GetRotationOffset(previewTir.transform.forward, currentDirection));
 
             }
             else
             {
+
                 previewAttackOnTile.Add(targetTile);
-                targetTile.VFXGestion.toggleVFx(targetTile.VFXGestion.previewHit.VFXGameObject, true);
+                GameObject previewAttack = targetTile.VFXGestion.previewHit.VFXGameObject;
+                if (targetTile.specificity == TileProperties.TilesSpecific.Wall)
+                {
+                    Vector3 newPos = targetTile.transform.position + new Vector3(0, 1f, 0);
+                    previewAttack.transform.position = newPos;
+                }
+                else
+                {
+                    Vector3 newPos =new Vector3(targetTile.transform.position.x , 0.25f , targetTile.transform.position.z);
+                    previewAttack.transform.position = newPos;
+                }
+
+                targetTile.VFXGestion.toggleVFx(previewAttack, true);
+
             }
         }
     }

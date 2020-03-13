@@ -4755,8 +4755,6 @@ MonoBehaviour:
   enemyKilledText: {fileID: 1003785022}
   championTab: {fileID: 621250658}
   TabElements: {fileID: 1876397710}
-  patternLayout: {fileID: 744102675}
-  amuletsLayout: {fileID: 1739320446}
 --- !u!4 &1735831870
 Transform:
   m_ObjectHideFlags: 0
@@ -5084,7 +5082,7 @@ PrefabInstance:
     - target: {fileID: 952694703686734228, guid: 6d681562fba1d2547b27fa99fb34191b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -32
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 952694703686734228, guid: 6d681562fba1d2547b27fa99fb34191b,
         type: 3}

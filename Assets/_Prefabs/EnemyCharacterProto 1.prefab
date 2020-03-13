@@ -81,6 +81,10 @@ MonoBehaviour:
     Duration: 1.5
     AnimRatio: 0.93
     SoundRatio: 1.4
+  animDamaged:
+    Duration: 0.24
+    AnimRatio: 0.95
+    SoundRatio: 0.2
   lifeObj:
   - {fileID: 5858296757656798172}
   - {fileID: 4926413023101296881}
@@ -88,7 +92,7 @@ MonoBehaviour:
   priorityText: {fileID: 1734454575291716276}
   lifeCanvas: {fileID: 5952030413979813445}
   enemyName: Challenger Frondeur
-  enemyDescription: "M\xE9chant M\xE9chant"
+  enemyDescription: 
   xpEarnWhenKill: 10
 --- !u!1 &7426566809267760232
 GameObject:

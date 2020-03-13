@@ -181,7 +181,11 @@ MonoBehaviour:
   animAttack:
     Duration: 1.5
     AnimRatio: 0.93
-    SoundRatio: 1.45
+    SoundRatio: 1.3
+  animDamaged:
+    Duration: 0.24
+    AnimRatio: 0.95
+    SoundRatio: 0.2
   lifeObj:
   - {fileID: 6329765673827034597}
   - {fileID: 4811290327968155336}
@@ -194,7 +198,7 @@ MonoBehaviour:
   yearSurvived: 0
   enemyKilled: 0
   levelMax: 3
-  allyDescription: Je sait tirer je sait pas dire je t'aime
+  allyDescription: 
   xpNeededPerLevel:
   - {x: 1, y: 10}
   - {x: 2, y: 20}

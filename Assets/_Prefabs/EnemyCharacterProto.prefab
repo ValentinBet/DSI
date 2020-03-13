@@ -81,6 +81,10 @@ MonoBehaviour:
     Duration: 1.5
     AnimRatio: 0.9
     SoundRatio: 1.4
+  animDamaged:
+    Duration: 0.24
+    AnimRatio: 0.95
+    SoundRatio: 0.2
   lifeObj:
   - {fileID: 8022636747848608830}
   - {fileID: 8810407332492709651}
@@ -88,7 +92,7 @@ MonoBehaviour:
   priorityText: {fileID: 2740719091502710102}
   lifeCanvas: {fileID: 7819133378499750311}
   enemyName: Challenger Pugiliste
-  enemyDescription: "M\xE9chant M\xE9chant"
+  enemyDescription: 
   xpEarnWhenKill: 10
 --- !u!1 &7426566809267760232
 GameObject:

@@ -81,6 +81,10 @@ MonoBehaviour:
     Duration: 1.5
     AnimRatio: 0.8
     SoundRatio: 1.2
+  animDamaged:
+    Duration: 0.24
+    AnimRatio: 0.95
+    SoundRatio: 0.2
   lifeObj:
   - {fileID: 6982461724826221544}
   - {fileID: 8499511470579275973}
@@ -93,7 +97,7 @@ MonoBehaviour:
   yearSurvived: 0
   enemyKilled: 0
   levelMax: 3
-  allyDescription: "Te nucl\xE9arise !"
+  allyDescription: 
   xpNeededPerLevel:
   - {x: 1, y: 10}
   - {x: 2, y: 20}

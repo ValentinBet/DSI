@@ -694,6 +694,8 @@ MonoBehaviour:
   aoeLaunch: {fileID: 8300000, guid: 563338f5555b1e149b6155e465394126, type: 3}
   closeAttack: {fileID: 8300000, guid: b6856961a4fc8734f93dc9d6a5e4d3c9, type: 3}
   shootProjectile: {fileID: 8300000, guid: 0397a0f635916e145be5a41418c0ecd4, type: 3}
+  loosePa: {fileID: 8300000, guid: e0d95a24bbd6e52489737d67e48b1024, type: 3}
+  noMorePa: {fileID: 8300000, guid: b71e55f9fea666e4d8b2a8a6fa8b8f33, type: 3}
   defeat: {fileID: 8300000, guid: 10d83df43b6c5e2499a627e20398f0e8, type: 3}
   victory: {fileID: 8300000, guid: a299e5342051ffc458efc82f68165f13, type: 3}
   endTurn: {fileID: 8300000, guid: 28ced8233e5604b4aac0127e5b360d82, type: 3}

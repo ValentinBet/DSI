@@ -84,11 +84,21 @@ public class GameTracker : MonoBehaviour
     //Default Value
     public bool PlayerAction(int cost = 1)
     {
+
         StartCoroutine(DisplayPaFx());
 
         if (IsHavingEnoughtPa(cost))
         {
             actualPA--;
+
+            if (actualPA == 0)
+            {
+                AudioManager.Instance.PlayNoMorePa();
+            } else
+            {
+                AudioManager.Instance.PlayLoosePa();
+            }
+
             UIManager.Instance.SetPA(actualPA);
             return true;
         }
@@ -96,13 +106,16 @@ public class GameTracker : MonoBehaviour
         {
             return false;
         }
+
+
     }
 
     IEnumerator DisplayPaFx()
     {
-        //UIManager.Instance.PAdisplay[actualPA].transform.GetChild(0).gameObject.SetActive(true);
+        int value = actualPA - 1;
+        UIManager.Instance.PAdisplay[value].transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSeconds(2);
-        //UIManager.Instance.PAdisplay[actualPA].transform.GetChild(0).gameObject.SetActive(false);
+        UIManager.Instance.PAdisplay[value].transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public void RefreshPA()

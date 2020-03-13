@@ -22,7 +22,6 @@ public class PatternExecuter : MonoBehaviour
             return;
         }
 
-        //tileColoredDuringPattern.Add(character.occupiedTile);
         TileProperties characterTile = character.occupiedTile;
 
         int rayLength = 2;
@@ -33,7 +32,6 @@ public class PatternExecuter : MonoBehaviour
             {
                 case ActionType.Movement:
                     CharacterReorientation(character, true, index, depth);
-                   // TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                     break;
                 case ActionType.Rotation:
                     switch (pattern.actions[index].rotation)
@@ -52,11 +50,9 @@ public class PatternExecuter : MonoBehaviour
                             break;
                     }
                     AudioManager.Instance.PlayCharacterRotate();
-                   // TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                     ActionEnd(pattern, character.occupiedTile, character, index, depth);
                     break;
                 case ActionType.Attack:
-                    //Anim d'attack à faire manuellement ici 
                     character.PlayAnim(character.animAttack.Duration, "Attacking", true, character.animAttack.AnimRatio);
                     AudioManager.Instance.PlayCloseAttack();
                     StartCoroutine(ActionEnd(pattern, character.occupiedTile, character, index, depth, character.animAttack.Duration));
@@ -109,7 +105,6 @@ public class PatternExecuter : MonoBehaviour
                         break;
                 }
                 AudioManager.Instance.PlayCharacterRotate();
-                //TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.rotationMat);
                 ActionEnd(pattern, character.occupiedTile, character, index, depth);
                 break;
 
@@ -136,11 +131,7 @@ public class PatternExecuter : MonoBehaviour
         {
             if (bonusAction)
             {
-                //AudioManager.Instance.PlayWallHit();
-           
                 newTile.occupant.GotAttacked(1, character, "attacker pushed");
-                //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.attackMat);
-                //tileColoredDuringPattern.Add(newTile);
                 StartCoroutine(GetDamaged(pattern, character, index, depth, false, 1));
             }
             else
@@ -168,22 +159,15 @@ public class PatternExecuter : MonoBehaviour
                     switch (newTile.order)
                     {
                         case TileProperties.TilesOrder.rotate:
-
-                            //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.mouvementMat);
-                            //tileColoredDuringPattern.Add(newTile);
                             character.InitMovement(newTile);
                             AudioManager.Instance.PlayCharacterRotate();
                             StartCoroutine(ExtraRotation(pattern, character, index, depth));
                             break;
                         case TileProperties.TilesOrder.attack:
-                            //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.mouvementMat);
-                            //tileColoredDuringPattern.Add(newTile);
                             character.InitMovement(newTile);
                             StartCoroutine(ExtraAttack(pattern, character, index, depth, true, true));
                             break;
                         case TileProperties.TilesOrder.stop:
-                            //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
-                            //tileColoredDuringPattern.Add(newTile);
                             character.InitMovement(newTile);
                             StartCoroutine(StopPattern(character));
                             break;
@@ -198,8 +182,6 @@ public class PatternExecuter : MonoBehaviour
                         AudioManager.Instance.PlayPush();
                         newTile.ChangeTilesActivationStatut(false);
                         character.InitMovement(newTile);
-                        //tileColoredDuringPattern.Add(newTile);
-                        //TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.interactionMat);
                         StartCoroutine(ExtraDeplacement(pattern, character, index, depth));
                     }
                     else
@@ -212,14 +194,10 @@ public class PatternExecuter : MonoBehaviour
                     if (newTile.isActivated)
                     {
                         newTile.ChangeTilesActivationStatut(false);
-
-                        //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
-                        //tileColoredDuringPattern.Add(newTile);
                         StartCoroutine(StopPattern(character));
                     }
                     else
                     {
-                        //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
                         MovementOnTile(pattern, character, index, depth, newTile);
                     }
                     break;
@@ -227,7 +205,6 @@ public class PatternExecuter : MonoBehaviour
                 case TileProperties.TilesSpecific.Wall:
                     if (bonusAction)
                     {
-                        Debug.Log("Smashed contre un mur");
                         newTile.GetDamaged(1);
                         StartCoroutine(GetDamaged(pattern, character, index, depth, false, 1));
                     }
@@ -247,8 +224,6 @@ public class PatternExecuter : MonoBehaviour
 
                     break;
                 case TileProperties.TilesSpecific.Teleport:
-                    //TilesManager.Instance.ChangeTileMaterial(newTile, PatternReader.instance.interactionMat);
-                    //tileColoredDuringPattern.Add(newTile);
                     character.InitMovement(newTile);
                     StartCoroutine(Teleportation(pattern, character, index, depth));
                     break;
@@ -282,7 +257,6 @@ public class PatternExecuter : MonoBehaviour
                     }
                     else
                     {
-                        //Anim à faire
                         Vector3 newPos = character.transform.position + character.transform.forward;
                         character.transform.position = newPos;
                         PlayerBase.Instance.DamageBase(1);
@@ -297,12 +271,10 @@ public class PatternExecuter : MonoBehaviour
                     if (bonusAction)
                     {
                         CharacterReorientation(character, true, index, depth);
-                        //StartCoroutine(StopPattern(character));
                     }
                     else
                     {
                         CharacterReorientation(character, true, index, depth);
-
                     }
                     break;
             }
@@ -329,9 +301,6 @@ public class PatternExecuter : MonoBehaviour
             character.transform.forward = rotation * character.transform.forward;
         }
 
-        //TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.interactionMat);
-        //tileColoredDuringPattern.Add(character.occupiedTile);
-
         if (doNextAction)
         {
             ActionEnd(character.mouvementPattern, character.occupiedTile, character, index, depth);
@@ -341,16 +310,12 @@ public class PatternExecuter : MonoBehaviour
     #region SpecificAction
     private void MovementOnTile(PatternTemplate pattern, Character character, int index, int depth, TileProperties newTile)
     {
-        //TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.mouvementMat);
-        //tileColoredDuringPattern.Add(character.occupiedTile);
         character.InitMovement(newTile);
         ActionEnd(pattern, character.occupiedTile, character, index, depth);
     }
 
     private IEnumerator GetDamaged(PatternTemplate pattern, Character character, int index, int depth, bool continuePattern, int receivedDeal)
     {
-        //TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.mouvementMat);
-        //tileColoredDuringPattern.Add(character.occupiedTile);
         AudioManager.Instance.PlayProjectileCharacterHit();
         character.PlayAnim(character.animDamaged.Duration, "Damaged", true, character.animDamaged.AnimRatio);
         yield return new WaitForSeconds(character.animDamaged.Duration);
@@ -376,8 +341,6 @@ public class PatternExecuter : MonoBehaviour
         else
         {
             AudioManager.Instance.PlayTeleport();
-            //TilesManager.Instance.ChangeTileMaterial(teleportExit, PatternReader.instance.interactionMat);
-            //tileColoredDuringPattern.Add(teleportExit);
             character.InitMovement(teleportExit);
             character.transform.Rotate(Vector3.up, teleportExit.GetRotationOffset(character.transform.forward));
             ActionEnd(pattern, character.occupiedTile, character, index, depth);
@@ -508,7 +471,6 @@ public class PatternExecuter : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         character.transform.Rotate(Vector3.up, character.occupiedTile.GetRotationOffset(character.transform.forward));
-        //TilesManager.Instance.ChangeTileMaterial(character.occupiedTile, PatternReader.instance.interactionMat);
         ActionEnd(pattern, character.occupiedTile, character, index, depth);
     }
 
@@ -555,7 +517,6 @@ public class PatternExecuter : MonoBehaviour
         }
         else
         {
-           // tileColoredDuringPattern.Add(tileToColored);
             StartCoroutine(StopPattern(character));
         }
     }
@@ -572,7 +533,6 @@ public class PatternExecuter : MonoBehaviour
         }
         else
         {
-           // tileColoredDuringPattern.Add(tileToColored);
             StartCoroutine(StopPattern(character));
         }
     }
@@ -580,10 +540,6 @@ public class PatternExecuter : MonoBehaviour
     public void ActionEnd(PatternTemplate pattern, List<TileProperties> tilesToColored, Character character, int index, int depth, bool continuePattern)
     {
         index++;
-        //for (int i = 0; i < tilesToColored.Count; i++)
-        //{
-        //   tileColoredDuringPattern.Add(tilesToColored[i]);
-        //}
 
         if (index < depth && continuePattern)
         {
@@ -666,58 +622,3 @@ public class PatternExecuter : MonoBehaviour
 
     #endregion
 }
-
-//switch (pattern.actions[index].actionType)
-//{
-//    case ActionType.Movement:
-//        TileProperties frontTile = characterTile.GetTileOnDirection(character.transform.forward, 2, false)[0];
-//        if (frontTile != null)
-//        {
-//            if (frontTile.isOccupied)
-//            {
-//                Debug.Log("Attack");
-//                character.InitAttack();
-//                PatternReader.instance.FinishTurn();
-//            }
-//        }
-//        break;
-
-//    case ActionType.Rotation:
-//        float rotationAmount;
-//        switch (pattern.actions[index].rotation)
-//        {
-//            case Rotation.Left:
-//                rotationAmount = -90;
-//                break;
-//            case Rotation.Rigth:
-//                rotationAmount = 90;
-//                break;
-//            case Rotation.Reverse:
-//                rotationAmount = 180;
-//                break;
-//            default:
-//                rotationAmount = 0;
-//                break;
-//        }
-//        character.transform.Rotate(character.transform.up, rotationAmount);
-
-//        break;
-
-//    case ActionType.Attack:
-//        Debug.Log("Attack");
-//        break;
-
-//    default:
-//        break;
-//}
-
-//index++;
-//if (index < depth)
-//{
-//    StartCoroutine(NextAction(pattern.actions[index].actionDuration, character, pattern, index, depth));
-//}
-//else
-//{
-//    character.myState = CharacterState.Finished;
-//    PatternReader.instance.FinishTurn();
-//}

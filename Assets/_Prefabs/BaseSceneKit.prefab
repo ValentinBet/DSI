@@ -75997,7 +75997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.08, y: 2.97}
+  m_AnchoredPosition: {x: -0.08, y: 2.88}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!1 &1371052655646743969
@@ -78731,7 +78731,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: bdcc1cc3cc8cbe2499ab32c12aba4b1c, type: 3}
+  - {fileID: 2100000, guid: 7f2bd9cd04892574f9931c4161868cfe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82170,7 +82170,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 605caa2f5524fc048b6cc1c60c474405,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.2
+      value: 16.1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 605caa2f5524fc048b6cc1c60c474405,
         type: 3}
@@ -82495,7 +82495,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.66
+      value: 5.77
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2afde550665cd91468238304364714e4,
         type: 3}

@@ -16,10 +16,12 @@ public class UIManager : MonoBehaviour
 
     [Header("Cluster Information")]
     [SerializeField] private GameObject cluster;
+    [SerializeField] private Animator clusterAnim;
     [SerializeField] private Text clusterTitle;
     [SerializeField] private Text clusterDesc;
     [SerializeField] private Text clusterLife;
 
+    private int animCharge;
     private GameObject lastObjectOnCluster;
 
     [Header("Phase Button")]
@@ -94,8 +96,8 @@ public class UIManager : MonoBehaviour
                 return;
             }
 
-            cluster.SetActive(true);
-
+            if (animCharge < 0) animCharge = 0;
+            ClusterAnimCharge(2);
             lastObjectOnCluster = hit.collider.gameObject;
 
             switch (hit.collider.tag)
@@ -118,7 +120,23 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            cluster.SetActive(false);
+            if (animCharge > 0) animCharge = 0;
+            ClusterAnimCharge(-1);
+        }
+    }
+
+    private void ClusterAnimCharge(int value)
+    {
+        animCharge += value;
+        if(animCharge == 1)
+        {
+
+            clusterAnim.SetTrigger("Activate");
+        }
+        else if (animCharge == -5)
+        {
+
+            clusterAnim.SetTrigger("Fold");
         }
     }
 
@@ -208,6 +226,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates player life
+    /// </summary>
+    /// <param name="allyID">this character ID (his priority)</param>
+    /// <param name="value">this character new life value</param>
     public void AllyLifeUpdate(int allyID, int value)
     {
         for (int i = 0; i < heroSlots[allyID].transform.childCount; i++)

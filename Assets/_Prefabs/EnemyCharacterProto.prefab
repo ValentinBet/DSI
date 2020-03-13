@@ -98,11 +98,11 @@ MonoBehaviour:
   character_sprite: {fileID: 7426566809267760232}
   anim: {fileID: 7397216013919831312}
   animAttack:
-    Duration: 1.5
-    AnimRatio: 0.9
-    SoundRatio: 1.4
+    Duration: 1
+    AnimRatio: 0.93
+    SoundRatio: 0.8
   animDamaged:
-    Duration: 0.24
+    Duration: 0.32
     AnimRatio: 0.95
     SoundRatio: 0.2
   lifeObj:
@@ -183,7 +183,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 24e2b8d2bf65b2e469878f86ab8a7746, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -493,7 +493,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0642e395705f27b448bd0b529c801874,
+      objectReference: {fileID: 21300000, guid: b3acfdb642193eb418fbe4d3fd627fe9,
         type: 3}
     - target: {fileID: 3465012470275314385, guid: 7782a29e186bd2544ae8d3f53f23a220,
         type: 3}

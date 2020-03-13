@@ -96,6 +96,7 @@ public class AllyCharactersPlacer : MonoBehaviour
         {
             if (tile.isAllySpawnable && tile.CharacterCanSpawn(allyHoverChara))
             {
+                lastTile.VFXGestion.toggleVFx(lastTile.VFXGestion.tileOverlay.VFXGameObject, false);
                 AllyCharacter _allyChar = allyHover.GetComponent<AllyCharacter>();
                 GameInfoManager.Instance.UpdateCharacterObjToHisSave(ref _allyChar, GameInfoManager.GameData.allies[AllyPriority]);
                 _allyChar.SetOccupiedTile();
